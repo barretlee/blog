@@ -1,0 +1,60 @@
+title: 实验室
+layout: false
+tag: 实验室
+---
+
+<!DOCTYPE HTML>
+<html>  
+<head>  
+	<meta charset="UTF-8">  
+	<title>CSS3 Demo</title>
+    <link rel="stylesheet" type="text/css" href="./css/css_demo.css">
+</head>  
+
+<body>
+    <img src="./images/mine.jpg" alt="mine" class="pic">
+    <div class="line"></div>
+    <div class="text">A CSS3 Demo. Do you like it?</div>
+    <div class="contact">
+        <p>E-mail: barret.china@gmail.com </p>
+        <p>Blog: http://barretlee.com</p>
+    </div>
+    <!--[if lt IE 9]>
+        <script type="text/javascript">
+        //<![[
+            var box = document.createElement("div"),
+                bug = {
+                    position:'absolute',
+                    'z-index': 9999,
+                    top:'-51px',
+                    height:'50px',
+                    width:'100%',
+                    'border-bottom':'1px solid #238432',
+                    background:'orange',
+                    'text-align': 'center',
+                    'line-height': '50px',
+                    'font-weight': 'bold'
+                }, key, csses = '', timer = null;
+
+            for(key in bug){
+                csses += key + ":" + bug[key] + ";";
+            }
+            box.style.cssText = csses;
+            box.setAttribute('id', 'bug');
+            box.innerHTML = "这个Demo只为Chrome准备，屌丝浏览器看不到效果~";
+
+            document.getElementsByTagName('body')[0].appendChild(box);
+
+            function ani(){
+                timer = setTimeout(ani, 10);
+                var top = parseInt(box.style.top);
+                if(top >= -1) clearTimeout(timer);
+                box.style.top = top + 1 + 'px';
+            }
+
+            setTimeout(ani, 800);
+        //]]>
+        </script>
+    <!--[end if]-->
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>test chrome paste image</title>
+  <style>
+    DIV#editable {
+      width: 400px;
+      height: 300px;
+      border: 1px dashed blue;
+    }
+  </style>
+  <script type="text/javascript">
+
+    window.onload=function() {
+      function paste_img(e) {
+        if ( e.clipboardData.items ) {
+          // google-chrome
+          // alert('support clipboardData.items(chrome ...)');
+          ele = e.clipboardData.items
+          console.log(ele)
+          for (var i = 0; i < ele.length; ++i) {
+            if ( ele[i].kind == 'file' && ele[i].type.indexOf('image/') !== -1 ) {
+              var blob = ele[i].getAsFile();
+              window.URL = window.URL || window.webkitURL;
+              var blobUrl = window.URL.createObjectURL(blob);
+              console.log(blobUrl);
+
+              var new_img= document.createElement('img');
+              new_img.setAttribute('src', blobUrl);
+              var new_img_intro = document.createElement('p');
+              new_img_intro.innerHTML = 'the pasted img url(open it in new tab): <br /><a target="_blank" href="' + blobUrl + '">' + blobUrl + '</a>';
+
+              document.getElementById('editable').appendChild(new_img);
+              document.getElementById('editable').appendChild(new_img_intro);
+            }
+
+          }
+        } else {
+          alert('non-chrome');
+        }
+      }
+      document.getElementById('editable').onpaste=function(){paste_img(event);return false;};
+    }
+
+  </script>
+</head>
+<body >
+<h2>test image paste in browser</h2>
+<div id="non-editable" >
+  <p>copy the following img, then paste it into the area below</p>
+  <img src="./128.png" />
+</div>
+<div id="editable" contenteditable="true" >
+  <p>this is an editable div area</p>
+  <p>paste the image into here.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+author: 小胡子哥 # Barret Lee
+author_en: Barret Lee
+
+imgs:
+  favicon: /favicon.ico
+  avatar: /blogimgs/avatar.png
+  avatar150: /blogimgs/avatar150.png
+  app_icon: /blogimgs/app-icon.png
+  bg: /blogimgs/bg.jpg
+  loading: /blogimgs/loading.gif
+
+pages:
+  about: /about/
+  friends: /friends/
+  demos: /demos/
+  feed: /rss2.xml
+  comments: /comments/
+  message: /message/
+  demo: http://demo.barretlee.com
+  snippets: http://snippets.barretlee.com
+
+# social
+social:
+  about: https://about.me/barretlee
+  github: https://github.com/barretlee
+  weibo: http://weibo.com/173248656
+  zhihu: http://www.zhihu.com/people/barretlee
+  douban: http://www.douban.com/people/hustskyking/
+  mail: barret.china@gmail.com
+  facebook: barret.china
+  google: https://plus.google.com/112634278852964994392?hl=zh-cn
+  twitter: https://twitter.com/barret_china
+  linkedin: https://cn.linkedin.com/in/barretlee
+  cnblog: http://hustskyking.cnblogs.com
+
+# Content
+excerpt_link: 阅读全文 >>
+
+duoshuo: barretlee

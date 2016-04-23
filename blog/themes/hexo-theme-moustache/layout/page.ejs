@@ -1,0 +1,17 @@
+<% if(page.ptype === 'entry') { %>
+	<%- partial('_page/entry') %>
+<% } else if(page.ptype === 'about') { %>
+	<%- partial('_page/about') %>
+<% } else if(page.ptype === 'message') { %>
+	<%- partial('_page/message') %>
+<% } else if(page.ptype === 'friends') { %>
+	<%- partial('_page/friends') %>
+<% } else if(page.ptype === 'comments') { %>
+	<%- partial('_page/comments') %>
+<% } else if(page.ptype === 'demo') { %>
+  <%- partial('_page/demo') %>
+<% } else if(page.ptype === 'recruitment') { %>
+  <%- partial('_page/recruitment') %>
+<% } else { %>
+	<%- partial('_partial/article') %>
+<% } %>

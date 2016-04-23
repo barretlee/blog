@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="article" itemscope itemtype="http://schema.org/Article">
+    <div class="post">
+      <div class="post-title-wrapper">
+        <h1 class="post-title" itemprop="name"><%= page.title %></h1>
+        <a href="<%- url_for('/entry/') %>"><img src="<%- url_for(theme.imgs.avatar150) %>" alt="<%- config.author %>" /></a>
+      </div>
+      <div class="post-info">
+        <span>作者: <a href="<%- url_for('about/') %>" itemprop="author"><%- config.author %></a></span>
+        <span>
+          <time itemprop="timeCreated" aria-hidden="true"><%- date(page.date, 'YYYY-MM-DD hh:mm:ss') %></time>
+          <span class="aria-readonly">本文发布时间为<%- date(page.date, 'YYYY年MM月DD日hh时mm分ss秒') %></span>
+        </span>
+        <span>分类: <%- partial('post/category', {post: page}) %></span>
+        <span tabindex="0" aria-hidden="true">标签: <%- partial('post/tag', {post: page}) %></span>
+        <span class="aria-readonly">下面是正文内容</span>
+        <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
+                      class="ds-thread-count hash-to-comments disqus-comment-count"
+                      data-thread-key="<%- page.slug || page.path %>"
+                      data-disqus-identifier="<%- page.slug || page.path %>"></a></span>
+      </div>
+      <div class="post-content" itemprop="articleBody">
+        <div class="shit-spider" title="防爬虫不注明出处" tabindex="0" aria-hidden="true">
+          <p>原文地址：<a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a>，<a href="<%- config.url %><%- url_for(page.path) %>#comments">参与评论</a></p>
+          <img src="http://www.barretlee.com/blogimgs/avatar150.png">
+        </div>
+        <%- page.content %>
+        <p class="this-page-link" aria-hidden="true">本文链接：<a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a></p>
+        <p><a class="to-comments" href="<%- config.url %><%- url_for(page.path) %>#comments" aria-hidden="true">☞ 参与评论</a></p>
+      </div>
+    </div>
+    <%- partial('post/warning') %>
+    <%- partial('post/copyright') %>
+    <div class="share-article clearfix">
+    <%var excerpt = page.excerpt.replace(/<[^>]+?>|\n/gm, '') || page.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 110) + "...";%>
+    <div class="ds-share" data-thread-key="<%- page.slug || page.path %>" data-title="<%= page.title %>" data-images="<%- post.images %>" data-content="<%- excerpt %>" data-url="<%- config.url %><%- url_for(page.path) %>">
+      <%- partial('post/duoshuoShare') %>
+    </div>
+    </div>
+    <em class="arrow-expend icon" tabindex="0" aria-hidden="true">&#xe618;
+      <ul>
+        <li><a href="<%- url_for("/entry/") %>">博客</a></li>
+        <li><a href="<%- url_for("/message/") %>">留言</a></li>
+        <li><a href="<%- url_for("/about/") %>">关于</a></li>
+        <li><a href="<%- url_for("/demo/") %>">实验室</a></li>
+        <li><a href="<%- url_for("/comments/") %>">最近评论</a></li>
+        <li><a href="<%- url_for("/friends/") %>">友情链接</a></li>
+      </ul>
+    </em>
+  </div>
+  <div class="post-relative"><%- partial('post/nav') %></div>
+</div>
+<%- partial('sidebar') %>
+<div class="single-page-footer">
+<%- partial('_partial/footer') %>
+</div>
+<%- partial('post/gotop') %>

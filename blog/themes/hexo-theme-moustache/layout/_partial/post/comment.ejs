@@ -1,0 +1,30 @@
+<div class="footer-nav">
+	<a href="javascript: void(0);" class="ds-thread-count disqus-comment-count"
+	   data-thread-key="<%- page.slug || page.path %>"
+	   data-disqus-identifier="<%- page.slug || page.path %>" tabindex="0" aria-hidden="true">评论内容</a>
+	<a href="javascript: void(0);" id="comments">相关文章</a>
+	<a href="<%- url_for('friends') %>" tabindex="0" aria-hidden="true">友情链接</a>
+</div>
+<div class="nav-detail">
+	<div tabindex="0" aria-hidden="true">
+		<%- partial("duoshuo") %>
+	</div>
+	<div style="display:block;">
+		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>（点击评论）</span>古今多少事，都付笑谈中！</div>
+		<%- partial("relative") %>
+		<a href="<%- url_for('/entry/') %>" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a>
+	</div>
+	<div class="friends-box">
+		<ul>
+			<% var friends = site.data.text.friends;
+					Object.keys(friends).forEach(function(name){
+				var info = friends[name];
+				var detail = Object.keys(info)[0];
+				var link = info[detail];
+			%>
+			<li><a href="<%- link %>" target="_blank"><%- name %></a> <font aria-hidden="true">»</font> <span><%- detail %></span></li>
+			<% }) %>
+			<li><a href="<%- url_for('/friends/') %>">申请友链 <font aria-hidden="true">»</font></a></li>
+		</ul>
+	</div>
+</div>

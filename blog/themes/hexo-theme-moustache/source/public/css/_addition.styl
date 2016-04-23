@@ -1,0 +1,360 @@
+.barretSay
+  color: #999
+  font-size: 14px
+  line-height: 24px
+br
+  display: none
+.highlight br
+  display block
+.old-article-warning, .history-article
+  position: relative;
+  padding: 20px 20px 20px 20px;
+  background: #FFF9F2;
+  border: 1px dashed #ECAD99;
+  border-width: 1px 0;
+  font-family: monospace;
+  margin-top: 42px;
+  font-size: 16px;
+  b
+    color: #F40;
+.old-article-warning
+  margin-top: 70px;
+.old-article-warning::after, .history-article::after {
+  content: "attention";
+  position: absolute;
+  left: -26px;
+  top: -17px;
+  background-color: #E2947C;
+  padding: 0 6px;
+  border-radius: 4px;
+  transform: rotateZ(-17deg);
+  box-shadow: 1px 1px 3px #ccc;
+  color: #fff;
+  font-size: 16px;
+  line-height: 28px;
+}
+.page-relative-fixed {
+  display: none;
+}
+.grey
+  color: grey
+.body-bg-moon
+  .highlight, pre, .post img, .history-article, .old-article-warning,.func-item>div
+    opacity: 0.85 !important;
+    filter: unquote("alpha(opacity=85)");
+    border-radius: 6px;
+    color: #5A5A5A;
+  .highlight pre
+    opacity: 1;
+    border-radius 0;
+.post-font-song
+  font-family: Simsun
+.entry-cates {
+  position: relative;
+}
+.entry-cates .page-search {
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+}
+.shit-spider {
+  height: 0;
+  line-height: 0;
+  font-size:0;
+  overflow:hidden;
+  display:none;
+  visibility: hidden;
+}
+
+#menuIndex ul li.h4 {
+  text-indent: 12px;
+}
+.web-feed {
+  float: right;
+  color: #333;
+}
+.web-feed .icon {
+  font-size: 27px;
+  transform: rotate(15deg);
+  display: inline-block;
+  transition: all 0.3s;
+  opacity: 0.3;
+}
+.web-feed .icon:hover {
+  transform: rotate(-345deg);
+  transition: all 0.3s;
+  opacity: 1;
+}
+.message .cate-wraper {
+  font-size 16px;
+}
+.message .ds-thread,.aboutme .ds-thread {
+  margin-top: 30px;
+}
+
+.arrow-tips {
+  position: fixed;
+  display: none !important;
+  left: 60px;
+  bottom: 80px;
+  background-color: #EFEFEF;
+  padding: 10px;
+  border-radius: 2px;
+  opacity: 0.5;
+  z-index: 6;
+  box-shadow: 2px 2px 4px #CCC;
+  transition: opacity 0.3s;
+}
+.arrow-tips:hover {
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+.arrow-tips h5 {
+  line-height: 28px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.arrow-tips ul {
+  font-size: 14px;
+  padding-left: 4px;
+  line-height: 18px;
+}
+.arrow-tips code {
+  background-color:#E4E4E4;
+  display: inline-block;
+  width: 100px;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+.arrow-tips .close{
+  position: absolute;
+  cursor: pointer;
+  right: 10px;
+  top: 13px;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  background-color: #D4D3D3;
+  border-radius: 100%;
+  font-size: 9px;
+}
+.arrow-tips .close:hover {
+  transition: all 0.3s;
+  background-color: #E8E8E8;
+  color: #e58c7c;
+}
+.alertInfo {
+  position: fixed;
+  right: -9999px;
+  top: 20px;
+  z-index: 10;
+  background-color: #FAFAFA;
+  padding: 12px 18px;
+  border-radius: 2px;
+  box-shadow: 0 0 4px #CCC,0 0 1px #FFF;
+  color: #888;
+}
+.alertInfo .alert-avatar {
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+
+.home-box p {
+  transition: background  0.3s;
+}
+.home-box p:hover {
+  transition: background 0.3s;
+}
+.entry-recent-posts {
+  margin-bottom: 30px;
+}
+.notice {
+  text-align: center;
+  line-height: 40px;
+  background-color: #FAFAFA;
+  border-bottom: 1px solid #EEE;
+  color: #FF5900;
+  position: static;
+  min-height: 40px;
+  background-image: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  font-weight: bold;
+}
+
+.ds-loading {
+  padding: 20px 0;
+  text-align: center;
+  color: #AFAFAF;
+  background-color: #EFEFEF;
+  border-radius: 5px;
+  line-height: 30px;
+  font-style: 15px;
+}
+
+#ds-thread .ds-loading {
+  display: none;
+  height: 0;
+  visibility: hidden;
+}
+
+// duoshuo
+#ds-thread #ds-reset .ds-comments {
+  border-bottom: none;
+}
+.ds-like-panel,#ds-thread #ds-reset a:hover {
+  color: #999;
+}
+#ds-reset .ds-avatar,#ds-reset .ds-avatar img {
+  border-radius: 100%;
+}
+#ds-thread #ds-reset li.ds-post {
+  border-top: none;
+}
+div#ds-thread #ds-reset .ds-comment-body p {
+  color: #000;
+}
+#ds-thread #ds-reset .ds-comment-body a {
+  color: #777 !important;
+}
+#ds-thread #ds-reset li.ds-tab a {
+  text-shadow: none;
+}
+#ds-thread #ds-reset .ds-sort a.ds-current, #ds-thread #ds-reset .ds-sort a:active {
+  color: #e58c7c;
+}
+#ds-thread #ds-reset .ds-post-self {
+  border-top: none;
+}
+#ds-thread #ds-reset .ds-meta {
+  border-bottom: none;
+}
+.ds-thread-like-text {
+  display: block;
+}
+.ds-thread-cancel-like {
+  display: none;
+}
+.ds-thread-liked .ds-thread-like-text {
+  display: none;
+}
+.ds-thread-liked .ds-thread-cancel-like {
+  display: block;
+}
+.footer #ds-thread #ds-reset .ds-meta {
+  text-align: right;
+  margin-top: -65px;
+}
+#ds-thread #ds-reset img  {
+  transition: all 0.3s;
+}
+#ds-thread #ds-reset img:hover {
+  transform: rotate(180deg);
+  transition: all 0.3s;
+}
+#ds-thread #ds-reset a.ds-like-thread-button {
+  position: relative;
+  z-index: 3;
+}
+.footer #ds-reset {
+  position: relative;
+}
+.footer #ds-thread #ds-reset .ds-comment-body p {
+  color: #CCC;
+}
+div#ds-thread #ds-reset .ds-comment-body {
+  color: #555;
+}
+.footer #ds-thread #ds-reset .ds-like-tooltip {
+  right: 0 !important;
+  left: auto !important;
+  top: 0 !important;
+}
+
+
+
+code {
+  word-break: normal;
+}
+span.line {
+  display: block !important;
+}
+:root *> span.line {
+  display: initial !important;
+}
+.arrow-expend {
+  display: none;
+  font-style: normal;
+  display: inline-block;
+  color: #4A75B5;
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  -webkit-user-select: none;
+}
+.article .arrow-expend {
+  position: fixed;
+  right: 80px;
+  top: 80px;
+  width: 20px;
+  display: none !important;
+}
+.article .arrow-expend ul {
+  top: 40px;
+  display: block;
+  background: rgba(255,255,255,0.8);
+}
+.arrow-expend ul {
+  font-weight: normal;
+  font-family: Georgia, serif;
+  margin: 0;
+  display: none;
+  position: absolute;
+  width: 120px;
+  background: #FFF;
+  border: 1px solid #CCC;
+  left: -56px;
+  text-align: center;
+  top: 45px;
+  padding: 10px 0;
+  list-style: none;
+  z-index: 100;
+}
+.arrow-expend ul li {
+  height: 40px;
+  list-style: none;
+  line-height: 40px;
+}
+.arrow-expend ul li:hover {
+  background: #EEE;
+}
+.arrow-expend ul li a {
+  display: block;
+  font-size: 20px;
+  text-decoration: none;
+}
+.message h3 {
+  font-size:20px;
+  line-height: 50px;
+}
+
+
+.wechat-info {
+  background: #F7F7F7;padding: 10px;
+}
+.wechat-net, .wechat-email {
+  border: 1px dashed green;
+  color: green;
+  font-size: 12px;
+  padding: 2px 4px;
+  display: inline-block;
+  height: 18px;
+  line-height: 18px;
+  }

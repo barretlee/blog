@@ -1,0 +1,25 @@
+/* TEAM */
+    Founder & Developer: Barret Lee(小胡子哥)
+    Contact: barret.china [at] gmail.com
+    Weibo: @Barret李靖
+    Wechat: @barret_china
+    Twitter: @Barret_China
+    Facebook: @barret.china
+    Blog: http://barretlee.com
+    From: HangZhou, ZheJiang, China
+    University: HuaZhong University Of Science and Technology
+    Degree: Bachelor
+
+/* THANKS */
+    humans.txt Founder: Abel Cabans
+    Site: http://www.humanstxt.org
+
+/* SITE */
+    Last update: 2016/01/25
+    Language: Chinese
+    Doctype: HTML5
+    Standards: HTML5, CSS3
+    Components: JQuery
+    Deployment: Git, NodeJS, Github, Hexo
+    Software: PhantomJS
+    IDE: IntelliJ IDEA, Sublime Text 3, VIM

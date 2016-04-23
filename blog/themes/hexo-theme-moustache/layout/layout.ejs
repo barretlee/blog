@@ -1,0 +1,7 @@
+<%- partial('_partial/header') %>
+<% var hasNotice = site.data.text.notice; %>
+<body>
+    <div class="rainbow<% if(hasNotice) { %> notice<% } %>"><% if(hasNotice) {%> <%- site.data.text.notice %><% } %></div>
+    <%- body %>
+</body>
+</html>

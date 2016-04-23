@@ -1,0 +1,88 @@
+<div class="entry-wrapper clearfix">
+
+	<h1 class="clearfix">
+		<a href="/" tabindex="0" aria-label="回到小胡子哥首页导航"><%- config.author %></a> <font aria-hidden="true">» 博客</font>
+		 <em  class="arrow-expend" aria-hidden="true" tabindex="0" aria-label="点击展开网页导航">▾
+			<ul role="group">
+				<li><a href="<%- url_for("/message/") %>">留言</a></li>
+				<li><a href="<%- url_for("/about/") %>">关于</a></li>
+				<li><a href="<%- url_for("/demo/") %>">实验室</a></li>
+				<li><a href="<%- url_for("/comments/") %>">最近评论</a></li>
+				<li><a href="<%- url_for("/friends/") %>">友情链接</a></li>
+			</ul>
+		</em>
+		<%- partial("../_partial/post/rss.ejs") %>
+		<span class="entry-page-search">
+        <input type="text" placeholder="Google 站内搜索">
+        <i class="icon" aria-hidden="true">&#x2708;</i>
+    </span>
+	</h1>
+
+	<div class="clearfix">
+	<div class="rightbar">
+		<div class="entry-cates" aria-hidden="true">
+			<h2>文章分类</h2>
+			<ul>
+				<% var _cates = {}; var cates = [];
+				for(var key in site.categories.data) {
+					var name = site.categories.data[key].name;
+					if(!_cates[name]) {
+						_cates[name] = 1;
+					}
+				}
+			  cates = Object.keys(_cates);
+				%>
+				<% cates.slice(0, 10).forEach(function(cate){
+					var url = url_for('/blog/categories/' + cate + "/");
+				%>
+				<li><a href='<%- url %>'><%- cate %></a></li>
+				<% }) %>
+				<% if(cates.length > 10) {%>
+				<li><a href="<%- url_for("/blog/categories/JavaScript/") %>">更多分类...</a></li>
+				<% } %>
+			</ul>
+		</div>
+		<div class="rightbar-frame" aria-hidden="true"></div>
+	</div>
+		<% var recentPost = site.posts.data[1];
+		var rTitle = recentPost.title;
+		var excerpt = recentPost.excerpt.replace(/<[^>]+?>|\n/gm, '') || recentPost.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 100) + "...";
+		%>
+		<div class="entry-recent-post clearfix" itemscope itemtype="http://schema.org/Article" aria-hidden="true">
+			<h3 itemprop="name"><a href="<%- url_for(recentPost.path) %>" itemprop="url"><%= rTitle  %></a></h3>
+			<p itemprop="description">
+				<%= excerpt %>
+				<a href="<%- url_for(recentPost.path) %>">阅读全文 <font aria-hidden="true">»</font></a>
+			</p>
+			<span>
+				Posted by
+				<a href="<%- url_for('about/') %>"><%- theme.author_en %></a>
+				at <a href="<%- url_for('/blog/categories/' + recentPost.category + "/") %>"><%- partial("../_partial/post/category", {post: recentPost}) %></a>
+				on <time><%- date(recentPost.date, "YYYY-MM-DD") %></time>
+				<a href="<%- url_for(recentPost.path) %>#comments">
+					<b class="ds-thread-count disqus-comment-count"
+						data-thread-key="<%- recentPost.slug || recentPost.path %>"
+						data-disqus-identifier="<%- recentPost.slug || recentPost.path %>"></b>
+				</a>
+			</span>
+		</div>
+
+		<div class="entry-recent-posts">
+			<h2><a href="<%- url_for('/blog/archives/') %>" aria-hidden="true">博客归档 »</a>近期文章</h2>
+			<ul itemscope itemtype="http://schema.org/Article">
+			<% site.posts.slice(0, 12).each(function(post){ %>
+				<li><span itemprop="timeCreated" aria-hidden="true"><%- date(post.date, "YYYY-MM-DD") %> » </span><a href="<%- url_for(post.path) %>" itemprop="url" itemprop="name"><%- post.title %>
+					<% if(post.mark) { %><em tabindex="0" aria-hidden="true" class="entry-item-tag"><%- post.mark %></em></%><% } %>
+				</a><span tabindex="0" class="aria-readonly">发布时间为<%- date(post.date, "YYYY年MM月DD日") %></span> <span><b
+								class="ds-thread-count disqus-comment-count"
+								data-thread-key="<%- post.slug || post.path %>"
+								data-disqus-identifier="<%- post.slug || post.path %>"></b></span></li>
+			<% }) %>
+			<% if(site.posts.length >125) {%>
+				<li><a href="<%- url_for("/blog/archives/") %>">更多文章...</a></li>
+			<% } %>
+			</ul>
+		</div>
+	</div>
+	<%- partial("page_footer") %>
+</div>
