@@ -106,7 +106,7 @@ OpenSSL 是一个免费开源的库，它提供了构建数字证书的命令行
 
 本节内容较多，主要是代码演示生成证书和验证的过程，可以跳过看下一节，直接看 [这里](https://github.com/barretlee/autocreate-ca/README.md)：
 
-- `git clone <https://github.com/barretlee/autocreate-ca.git`
+- `git clone https://github.com/barretlee/autocreate-ca.git`
 - 依次执行 `install-rootCA.sh`、`install-intermediateCA.sh` 和 `install-websiteConfig.sh`
 
 首先找到一个放置证书的文件夹，比如 `/root/ca` 下，下方的测试也在改目录下，如果你要更换其他目录，记得替换下文中的目录地址。
