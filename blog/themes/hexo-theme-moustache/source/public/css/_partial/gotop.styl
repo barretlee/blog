@@ -1,0 +1,96 @@
+.tools-wrapper {
+  position: fixed;
+  _display:none;
+  right: 15px;
+  bottom: 15px;
+  z-index: 9;
+  width 40px;
+  transition: background-color 0.3s;
+  -webkit-user-select: none;
+  a {
+    display: block;
+    color: #999;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #CCC;
+    line-height: 40px;
+    text-align: center;
+    font-size: 22px;
+    margin-bottom -1px;
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.32);
+    &:hover {
+      text-decoration: none;
+      color: #555;
+      transition: all 0.3s;
+    }
+  }
+  .hash-to-comments {
+    font-size: 20px;
+    color: #E58C7C;
+  }
+  .gotop {
+    display: none;
+  }
+}
+.wechart:hover span {
+  display: block;
+}
+.wechart span {
+  position: absolute;
+  right: 44px;
+  bottom: -14px;
+  display: none;
+}
+.wechart span img {
+  border: 1px solid #CCC;
+  width: 200px;
+}
+
+.fixerr {
+  display: none;
+  position: fixed;
+  left: 80px;
+  bottom: 20px;
+  -webkit-user-select: none;
+  border: 1px solid #CCC;
+  padding: 5px 10px;
+  color: #555;
+  background-color: #F5F5F5;
+  cursor: pointer;
+  border-radius: 2px;
+  z-index: 2;
+  font-size: 14px;
+}
+.fixerr::after {
+  content: "每个段落右侧可留言";
+  position: absolute;
+  bottom: 32px;
+  white-space: nowrap;
+  background-color: #000;
+  color: #FFF;
+  padding: 4px 8px;
+  font-size: 12px;
+  left: 50%;
+  margin-left: -62px;
+  z-index: 3;
+  opacity: 0;
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+
+.fixerr::before {
+  content: " ";
+  position: absolute;
+  border: 6px solid transparent;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -6px;
+  border-top-color: #000;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.fixerr:hover::after, .fixerr:hover::before {
+  opacity: 1;
+  transition: all 0.3s;
+}

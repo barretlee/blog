@@ -55,4 +55,8 @@ exec("curl -H 'Content-Type:text/plain' --data-binary @urls.txt \"http://data.zz
     }
 });
 console.log('\nTotal ' + count + " files.");
+<<<<<<< HEAD
 console.log('\nDuplicate ' + duplicate + " files.\n");
+=======
+console.log('\nDuplicate ' + duplicate + " files.\n");
+>>>>>>> c619756fd94e711f785899540a6573df975378cd

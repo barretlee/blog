@@ -1,0 +1,50 @@
+.page-relative-fixed a {
+  position: fixed;
+  top: 50%;
+  text-decoration: none;
+}
+.page-relative-fixed .prev {
+  left: 50%;
+  margin-left: -520px;
+}
+.page-relative-fixed .next {
+  right: 50%;
+  margin-right: -520px;
+}
+.page-relative-fixed .icon {
+  font-size: 80px;
+  font-weight: normal;
+  color: #000;
+  opacity: 0.02;
+  filter: unquote("alpha(opacity=2)");
+  font-style: normal;
+  transition: all 0.3s;
+}
+.page-relative-fixed .icon:hover {
+  opacity: 0.1;
+  filter: unquote("alpha(opacity=10)");
+  transition: all 0.3s;
+}
+.page-relative-fixed b {
+  position: absolute;
+  white-space: nowrap;
+  color: #BBB;
+  width: 150px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 14px;
+  margin-top 10px;
+  display: none;
+}
+.page-relative-fixed a:hover b {
+  display: block;
+  color: #AAA;
+}
+.page-relative-fixed .prev b {
+  left: 0;
+  margin-left -15px;
+}
+.page-relative-fixed .next b {
+  right: 0;
+  margin-right: -15px;
+}

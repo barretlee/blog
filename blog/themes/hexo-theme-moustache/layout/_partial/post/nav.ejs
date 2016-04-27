@@ -1,0 +1,42 @@
+<% if (page.prev || page.next){ %>
+<div class="page-relative">
+  <% if (page.prev){ %>
+    <a href="<%- url_for(page.prev.path) %>" class="post-prev">
+      <i class="icon" tabindex="0" aria-hidden="true">&#x261c;</i>
+      <span class="aria-readonly">上一篇文章</span>
+      <% if (page.prev.title){ %>
+        <b><%= page.prev.title %></b>
+      <% } else { %>
+        (no title)
+      <% } %>
+    </a>
+  <% } %>
+  <% if (page.next){ %>
+    <a href="<%- url_for(page.next.path) %>" class="post-next">
+      <span class="aria-readonly">下一篇文章</span>
+      <b><%= page.next.title %></b>
+      <i class="icon" tabindex="0" aria-hidden="true">&#xe602;</i>
+    </a>
+  <% } %>
+</div>
+<% } %>
+<% if (page.prev || page.next){ %>
+<div class="page-relative-fixed" tabindex="0" aria-hidden="true">
+  <% if (page.prev){ %>
+  <a href="<%- url_for(page.prev.path) %>" class="prev" title="<%= page.prev.title %>">
+    <i class="icon">&#xe600;</i>
+    <% if (page.prev.title){ %>
+    <b><%= page.prev.title %></b>
+    <% } else { %>
+    (no title)
+    <% } %>
+  </a>
+  <% } %>
+  <% if (page.next){ %>
+  <a href="<%- url_for(page.next.path) %>" class="next" title="<%= page.next.title %>">
+    <i class="icon">&#x261e;</i>
+    <b><%= page.next.title %></b>
+  </a>
+  <% } %>
+</div>
+<% } %>

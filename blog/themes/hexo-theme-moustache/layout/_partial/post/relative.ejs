@@ -1,0 +1,28 @@
+<div class="relative-wrapper">
+	<div class="relative-article">
+		<% var name = (typeof post !== 'undefined') && post.categories.data;
+			if(name && name[0] && name[0].name) {
+		%>
+		<ul><% name = name[0].name; var limit = 5, count = 0;
+			site.posts.each(function(p){
+				var cates = {};
+				for(var key in p.categories.data) {
+					var n = p.categories.data[key].name;
+					if(!cates[n]) cates[n] = 1;
+				}
+			  if(!(name in cates)) return;
+				if(post.permalink === p.permalink) return;
+				if(++count >= limit) return;
+				var excerpt = p.excerpt.replace(/<[^>]+?>|\n/gm, '') || p.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 50) + "...";
+			%>
+			<li>
+				<span><font aria-hidden="true"><%- date(p.date, "YYYY-MM-DD")%> »</font> </span>
+				<a href="<%- url_for(p.path) %>"><%- p.title %></a>
+				<span class="aria-readonly">发表时间为<%- date(p.date, "YYYY年MM月DD日")%></span>
+				<div><span class="aria-readonly">文章概要 </span><%- excerpt %></div>
+			</li>
+			<% })
+			} %>
+		</ul>
+	</div>
+</div>
