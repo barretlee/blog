@@ -1,0 +1,17 @@
+.deploy_git
+build
+
+databackup
+blogsources
+themes/landscape
+
+.idea
+node_modules
+blog/node_modules
+
+/demo
+
+/algorithm
+
+*.log
+.sync

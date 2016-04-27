@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Writer</title>
+  <meta name="viewport" content="width=device-width,height=device-height,user-scalable=0">
+  <meta name="email" content="barret.china@gmail.com">
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="../public/css/github-gist.css">
+  <link rel="stylesheet" href="../public/css/main.css">
+  <script src="../public/js/jquery.js"></script>
+  <script src="../public/js/main.js"></script>
+  <script src="../public/js/highlight.min.js"></script>
+  <script src="../public/js/marked.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="article">
+    <div class="operation clearfix">
+      <b class="s-title">在线 Markdown 编辑器 <small>By <a href="http://barretlee.com" target="_blank">小胡子哥</a></small></b>
+      <span class="edit preview"></span>
+      <span class="save"></span>
+    </div>
+    <div class="post">
+      <div class="writerBox">
+        <span class="words-counter"></span>
+<textarea>## 快捷键：
+
+- `Ctrl/Command + S`  保存文档
+- `Ctrl/Command + E`  预览/编辑
+
+## 图片上传测试
+
+![alt + click right url](http://www.barretlee.com/blogimgs/avatar150.png)
+
+**由于需要服务器环境，所以上传会失败**
+
+## 自动保存
+
+每隔 50s 自动保存
+
+__P.S: 演示代码,并不完善 ;)__</textarea>
+<pre><code class="md"></code></pre>
+      </div>
+      <div class="post-content"></div>
+    </div>
+  </div>
+</div>
+<div class="mask"></div>
+<div class="uploadImg">
+  <input type="file" id="img" name="img"/>
+  <label for="needsy">
+    <input type="checkbox" id="needsy" name="needsy" checked/>
+    添加水印
+  </label>
+</div>
+</body>
+</html>

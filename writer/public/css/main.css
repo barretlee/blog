@@ -1,0 +1,178 @@
+.s-title {
+  float: left;
+  font-size: 20px;
+  position: relative;
+  top: 5px;
+}
+.article {
+  padding: 30px 40px;
+}
+.post {
+  border: 1px solid #CCC;
+  padding: 40px 20px;
+  box-shadow: 1px 1px 10px #ccc inset, -1px -1px 10px #ccc inset;
+  border-radius: 2px;
+}
+.post-content img {
+  margin-bottom: 15px;
+}
+.writerBox {
+  position: relative;
+  min-height: 500px;
+}
+.writerBox code {
+  margin: 0;
+  white-space: pre;
+  text-align: justify;
+}
+.hljs {
+  padding: 0;
+  background: transparent;
+}
+.hljs,.writerBox textarea, .writerBox pre {
+  overflow: hidden;
+}
+.writerBox textarea, .writerBox pre {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  border: none;
+  width: 100%;
+  height: 100%;
+  font-family: "Courier";
+  line-height: 1.5;
+  font-size: 16px;
+  word-wrap: break-word;
+  padding: 0;
+}
+.writerBox textarea {
+  opacity: 0.1;
+  z-index: 10;
+  white-space: pre;
+  text-align: justify;
+}
+.writerBox textarea::selection {
+  background: #000;
+  color: #FFF;
+  text-shadow: 3px 3px 3px #ccc;
+}
+.hljs-header {
+  font-weight: bold;
+}
+.preview.edit::after {
+  content: "预览";
+}
+.preview::after {
+  content: "编辑";
+}
+.save::before {
+  content: "保存";
+}
+.operation {
+  text-align: right;
+  margin: 20px 0;
+  -webkit-user-select: none;
+}
+.operation span {
+  display: inline-block;
+  padding: 4px 10px;
+  background-color: #F5F5F5;
+  color: #555;
+  border: 1px solid #CCC;
+  border-radius: 2px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s;
+}
+.post-content h1, .post-content h2 {
+  text-shadow: 1px 1px 1px #ccc;
+  margin-bottom: 15px;
+}
+.post-content h1 {
+  font-size: 28px;
+  line-height: 50px;
+}
+.post-content h2 {
+  font-size: 24px;
+  line-height: 42px;
+}
+.hljs-link_url {
+  cursor: pointer;
+}
+.hide {
+  display: none;
+}
+.mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #FFF;
+  opacity: 0;
+  z-index: 20;
+  transition: all 0.3s;
+}
+.mask-show {
+  opacity: 0.9;
+  bottom: 0;
+  transition: all 0.3s;
+}
+.uploadImg {
+  left: -100px;
+  top: -100px;
+  position: fixed;
+  margin: auto;
+  height: 0;
+  width: 0;
+  padding: 10px;
+  z-index: 21;
+  background: #FAFAFA;
+  border:  4px dashed #999;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 100px;
+  cursor: pointer;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+.uploadImg-show {
+  transition: all 0.3s;
+  width: 40%;
+  height: 100px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.uploadImg input[type="file"] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.0001;
+}
+.uploadImg label {
+  position: absolute;
+  z-index: 20;
+  right: 10px;
+  bottom: -30px;
+  -webkit-user-select: none;
+}
+.uploadImg::after {
+  content: "click/drag/ctrl+v";
+  font-size: 2.5rem;
+  color: #999;
+  font-family: consolas;
+}
+.words-counter {
+  position: absolute;
+  right: 0px;
+  top: -30px;
+  font-size: 12px;
+  color: #949494;
+}

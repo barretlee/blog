@@ -1,0 +1,14 @@
+/*about us*/
+::selection { background:#FAF7F7; color:#333;}
+.sWrap { border-left-color: #FAF7F7;}
+.sTitle { color: #CCC;}
+ul.notice-list  li a { border-color: #CCC;}
+ul.notice-list  li a:hover, #notice-list-on { color: #CCC;}
+ul.notice-list  li a  strong{ color: #CCC;}
+
+.p_about .header { margin-bottom:0;}
+.aboutUs { margin:40px 0;}
+.aboutUs h2, .aboutUs h3 { background:#FAFAFA; padding-left:12px; font-family:"仿宋";}
+.aboutUs div { float:left; width:600px; padding:20px 0; margin:0 10px;}
+.aboutUs p { text-indent: 2em; line-height:24px; margin-bottom:10px; font-size:14px; font-family:"幼圆";}
+.aboutUs img { float:left; width:400px; border:1px solid #CCC; padding:5px; margin-left:20px; margin-top:20px; border-radius: 5px; box-shadow:5px 5px 8px #CCC;}

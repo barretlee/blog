@@ -1,0 +1,110 @@
+title: 实验室
+layout: false
+tag: 实验室
+---
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Hack Day Match</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+
+<body>
+<h1>Hack Day Match - 3D Tank War</h1>
+<div class="wraper">
+	<div class="player" id="playA">
+		<div class="player-info">
+			<img src="../images/avatar.jpg" class="avatar" />
+			<div class="info">
+				玩家 A<br />
+				得 分： <span id="gradeA">0</span>
+			</div>
+			<div id="tankBoxA" class="tankBox"></div>
+			<div class="blood bloodA">
+				<div></div>
+			</div>
+		</div>
+		<div class="rein">
+
+		</div>
+	</div>
+	<div class="w">
+	    <div class="box">
+	        <div class="inBox box-forward" data-num="upF rightF downF leftF" data-v="1"><div></div></div>
+	        <div class="inBox box-back" data-num="upF leftF downF rightF" data-v="2"><div></div></div>
+	        <div class="inBox box-left" data-num="upF forwardF downF backF" data-v="3"><div></div></div>
+	        <div class="inBox box-right" data-num="upF backF downF forwardF" data-v="4"><div></div></div>
+	        <div class="inBox box-top" data-num="backF rightF forwardF leftF" data-v="5"><div></div></div>
+	        <div class="inBox box-bottom" data-num="backF leftF forwardF rightF" data-v="6"><div></div></div>
+	    </div>
+	</div>
+	<div class="player" id="playB">
+		<div class="player-info">
+			<img src="../images/avatar.jpg" class="avatar avatarB" />
+			<div class="info infoB">
+				玩家 B<br />
+				得 分： <span id="gradeB">0</span>
+			</div>
+			<div id="tankBoxB" class="tankBox"></div>
+			<div class="blood bloodB">
+				<div></div>
+			</div>
+		</div>
+		<div class="rein">
+
+		</div>
+	</div>
+
+	<div class="pujie pujieL" style="display:none">扑街</div>
+	<div class="pujie pujieR" style="display:none">扑街</div>
+	<div class="test"></div>
+<p style="color:red; line-height:30px; text-align:center;">&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.cnblogs.com/hustskyking/archive/2013/06/03/3D-Tank-War.html" style="text-decoration:none;">【屌丝之作】3D遥控坦克大战</a>——barret lee</p>
+</div>
+<div style="display:none">
+	<audio src="../sound/begin.mp3" controls id="beginSound">
+		您的浏览器不支持 audio 标签。
+	</audio>
+</div>
+<!--[if lt IE 9]>
+    <script type="text/javascript">
+    //<![[
+        var box = document.createElement("div"),
+            bug = {
+                position:'absolute',
+                'z-index': 9999,
+                top:'-51px',
+                height:'50px',
+                width:'100%',
+                'border-bottom':'1px solid #238432',
+                background:'orange',
+                'text-align': 'center',
+                'line-height': '50px',
+                'font-weight': 'bold'
+            }, key, csses = '', timer = null;
+
+        for(key in bug){
+            csses += key + ":" + bug[key] + ";";
+        }
+        box.style.cssText = csses;
+        box.setAttribute('id', 'bug');
+        box.innerHTML = "屌丝浏览器玩不了高富帅游戏，请使用现代浏览器！！！";
+
+        document.getElementsByTagName('body')[0].appendChild(box);
+
+        function ani(){
+            timer = setTimeout(ani, 10);
+            var top = parseInt(box.style.top);
+            if(top >= -1) clearTimeout(timer);
+            box.style.top = top + 1 + 'px';
+        }
+
+        setTimeout(ani, 800);
+    //]]>
+    </script>
+<!--[end if]-->
+
+<script type="text/javascript" src="../js/main.js"></script>
+</body>
+</html>

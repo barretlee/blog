@@ -1,0 +1,84 @@
+html {
+	height:100%;
+	overflow:hidden;
+}
+body {
+	position: relative;
+	background: -webkit-gradient(linear, left top, left bottom, from(#666), color-stop(0.5, #FFF), to(#666));
+	height:100%;
+	margin:0;
+	padding:0;
+}
+.line {
+	height:3px;
+	background:red;
+	opacity: 0.3;
+	width:100%;
+	position: absolute;
+	top:50%;
+	-webkit-animation: stecth 2s linear;
+}
+.text {
+	height:90px;
+	width:50%;
+	position:absolute;
+	left: 50%;
+	top:44%;
+	color:rgba(168, 0, 0, 0.6);
+	font-weight: bold;
+	line-height: 45px;
+	font-size: 32px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:clip;
+	text-transform: uppercase;
+	text-shadow: 3px 3px 5px rgba(130, 0, 0, 0.6);
+	-webkit-box-reflect: below -80px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(white));
+	-webkit-animation: Tstecth 2s linear;
+}
+.pic {
+	border-radius: 12px;
+	position:absolute;
+	top:28%;
+	left:12%;
+	height:40%;
+	opacity:0.9;
+	box-shadow: 5px 5px 10px rgba(15, 13, 13, 0.6);
+	z-index: 100;
+	-webkit-transform: rotate(-10deg);
+	-webkit-animation: pic 1s linear;
+}
+.contact {
+	position:absolute;
+	bottom:20%;
+	left:40%;
+	line-height: 24px;
+	color:#666;
+}
+.contact p {
+	margin: 0;
+	-webkit-animation: contact 2s linear;
+	text-shadow: 1px 1px 3px #666;
+}
+
+
+@-webkit-keyframes stecth {
+	from { width:0;}
+	to { width: 100%;}
+}
+@-webkit-keyframes Tstecth {
+	0% { width:0;}
+	50% { width: 0;}
+	100% { width:50%;}
+}
+@-webkit-keyframes pic {
+	0% { -webkit-transform: rotate(8deg); opacity:0;}
+	20% { -webkit-transform: rotate(8deg); height:0; top:44%; left:18%; opacity:0;}
+	50% { -webkit-transform: rotate(178deg); height:20%; top:36%; left:16%; opacity:0.5;}
+	100% { -webkit-transform: rotate(348deg); height:40%; top:28%;left:12%; opacity:1;}
+}
+@-webkit-keyframes contact {
+	0% { opacity:0;}
+	50% { opacity:0; color:#FFF;}
+	100% { opacity:1; color:#666;}
+}
