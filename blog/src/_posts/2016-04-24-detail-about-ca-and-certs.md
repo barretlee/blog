@@ -5,11 +5,11 @@ categories:
   - 网络交互
   - 网络安全
 tags:
-  - Catificate Athuority
+  - Catificate Authority
 date: 2016-04-24 00:56:47
 ---
 
-CA，Catificate Athuority，它的作用就是提供证书（即服务器证书，由域名、公司信息、序列号和签名信息组成）加强服务端和客户端之间信息交互的安全性，以及证书运维相关服务。任何个体/组织都可以扮演 CA 的角色，只不过难以得到客户端的信任，能够受浏览器默认信任的 CA 大厂商有很多，其中 TOP5 是 Symantec、Comodo、Godaddy、GolbalSign 和 Digicert。
+CA，Catificate Authority，它的作用就是提供证书（即服务器证书，由域名、公司信息、序列号和签名信息组成）加强服务端和客户端之间信息交互的安全性，以及证书运维相关服务。任何个体/组织都可以扮演 CA 的角色，只不过难以得到客户端的信任，能够受浏览器默认信任的 CA 大厂商有很多，其中 TOP5 是 Symantec、Comodo、Godaddy、GolbalSign 和 Digicert。
 
 <!--more-->
 
@@ -102,7 +102,7 @@ OpenSSL 是一个免费开源的库，它提供了构建数字证书的命令行
 
 很多网站都希望用户知道他们建立的网络通道是安全的，所以会想 CA 机构购买证书来验证 domain，所以我们也可以在很多 HTTPS 的网页地址栏看到一把小绿锁。
 
-然而在一些情况下，我们没必要去 CA 机构购买证书，比如在内网的测试环境中，为了验证 HTTPS 下的一些问题，我们不需要部署昂贵的证书，这个时候自建 Root CA，给自己办法证书就显得很有价值了。
+然而在一些情况下，我们没必要去 CA 机构购买证书，比如在内网的测试环境中，为了验证 HTTPS 下的一些问题，我们不需要部署昂贵的证书，这个时候自建 Root CA，给自己颁发证书就显得很有价值了。
 
 本节内容较多，主要是代码演示生成证书和验证的过程，可以跳过看下一节，直接看 [这里](https://github.com/barretlee/autocreate-ca/README.md)：
 
@@ -120,32 +120,32 @@ __注意：一定要在绝对安全的环境下创建 root pair，可以断开�
 设定文件夹结构，并且配置好 openssl 设置：
 
 ```bash
-# cd /root/ca
-# mkdir certs crl newcerts private
-# chmod 700 private
-# touch index.txt
-# echo 1000 > serial
-# wget -O /root/ca/openssl.cnf \ 
+$ cd /root/ca
+$ mkdir certs crl newcerts private
+$ chmod 700 private
+$ touch index.txt
+$ echo 1000 > serial
+$ wget -O /root/ca/openssl.cnf \ 
     https://raw.githubusercontent.com/barretlee/autocreate-ca/master/cnf/root-ca
 ```
 
 创建 root key，密码可为空，设定权限为只可读：
 
 ```bash
-# cd /root/ca
-# openssl genrsa -aes256 -out private/ca.key.pem 4096
+$ cd /root/ca
+$ openssl genrsa -aes256 -out private/ca.key.pem 4096
 
 Enter pass phrase for ca.key.pem: secretpassword
 Verifying - Enter pass phrase for ca.key.pem: secretpassword
 
-# chmod 400 private/ca.key.pem
+$ chmod 400 private/ca.key.pem
 ```
 
 创建 root cert，权限设置为可读：
 
 ```bash
-# cd /root/ca
-# openssl req -config openssl.cnf \
+$ cd /root/ca
+$ openssl req -config openssl.cnf \
       -key private/ca.key.pem \
       -new -x509 -days 7300 -sha256 -extensions v3_ca \
       -out certs/ca.cert.pem
@@ -162,13 +162,13 @@ Organizational Unit Name []:Barret Lee Certificate Authority
 Common Name []:Barret Lee Root CA
 Email Address []:
 
-# chmod 444 certs/ca.cert.pem
+$ chmod 444 certs/ca.cert.pem
 ```
 
 验证证书：
 
 ```bash
-# openssl x509 -noout -text -in certs/ca.cert.pem
+$ openssl x509 -noout -text -in certs/ca.cert.pem
 ```
 
 正确的输出应该是这样的：
@@ -220,35 +220,35 @@ Certificate:
 生成目录结构和 openssl 的配置，这里的配置是针对 intermediate pair 的：
 
 ```bash
-# mkdir /root/ca/intermediate
-# cd /root/ca/intermediate
-# mkdir certs crl csr newcerts private
-# chmod 700 private
-# touch index.txt
-# echo 1000 > serial
-# echo 1000 > /root/ca/intermediate/crlnumber
-# wget -O /root/ca/openssl.cnf \
+$ mkdir /root/ca/intermediate
+$ cd /root/ca/intermediate
+$ mkdir certs crl csr newcerts private
+$ chmod 700 private
+$ touch index.txt
+$ echo 1000 > serial
+$ echo 1000 > /root/ca/intermediate/crlnumber
+$ wget -O /root/ca/openssl.cnf \
     https://raw.githubusercontent.com/barretlee/autocreate-ca/master/cnf/intermediate-ca
 ```
 
 创建 intermediate key，密码可为空，设定权限为只可读：
 
 ```bash
-# cd /root/ca
-# openssl genrsa -aes256 \
+$ cd /root/ca
+$ openssl genrsa -aes256 \
       -out intermediate/private/intermediate.key.pem 4096
 
 Enter pass phrase for intermediate.key.pem: secretpassword
 Verifying - Enter pass phrase for intermediate.key.pem: secretpassword
 
-# chmod 400 intermediate/private/intermediate.key.pem
+$ chmod 400 intermediate/private/intermediate.key.pem
 ```
 
 创建 intermediate cert，设定权限为只可读，这里需要特别注意的一点是 __Common Name 不要与 root pair 的一样__ ：
 
 ```bash
-# cd /root/ca
-# openssl req -config intermediate/openssl.cnf -new -sha256 \
+$ cd /root/ca
+$ openssl req -config intermediate/openssl.cnf -new -sha256 \
       -key intermediate/private/intermediate.key.pem \
       -out intermediate/csr/intermediate.csr.pem
 
@@ -268,8 +268,8 @@ Email Address []:
 使用 `v3_intermediate_ca` 扩展签名，密码可为空，中间 pair 的有效时间一定要为 root pair 的子集：
 
 ```bash
-# cd /root/ca
-# openssl ca -config openssl.cnf -extensions v3_intermediate_ca \
+$ cd /root/ca
+$ openssl ca -config openssl.cnf -extensions v3_intermediate_ca \
       -days 3650 -notext -md sha256 \
       -in intermediate/csr/intermediate.csr.pem \
       -out intermediate/certs/intermediate.cert.pem
@@ -277,7 +277,7 @@ Email Address []:
 Enter pass phrase for ca.key.pem: secretpassword
 Sign the certificate? [y/n]: y
 
-# chmod 444 intermediate/certs/intermediate.cert.pem
+$ chmod 444 intermediate/certs/intermediate.cert.pem
 ```
 
 此时 root 的 `index.txt` 中将会多出这么一条记录：
@@ -289,9 +289,9 @@ V 260421055318Z   1000  unknown .../CN=Barret Lee Intermediate CA
 验证中间 pair 的正确性：
 
 ```bash
-# openssl x509 -noout -text \
+$ openssl x509 -noout -text \
       -in intermediate/certs/intermediate.cert.pem
-# openssl verify -CAfile certs/ca.cert.pem \
+$ openssl verify -CAfile certs/ca.cert.pem \
       intermediate/certs/intermediate.cert.pem
 
 intermediate.cert.pem: OK
@@ -300,9 +300,9 @@ intermediate.cert.pem: OK
 浏览器在验证中间证书的时候，同时也会去验证它的上一级证书是否靠谱，创建证书链，将 root cert 和 intermediate cert 合并到一起，可以让浏览器一并验证：
 
 ```bash
-# cat intermediate/certs/intermediate.cert.pem \
+$ cat intermediate/certs/intermediate.cert.pem \
       certs/ca.cert.pem > intermediate/certs/ca-chain.cert.pem
-# chmod 444 intermediate/certs/ca-chain.cert.pem
+$ chmod 444 intermediate/certs/ca-chain.cert.pem
 ```
 
 #### 创建服务器/客户端证书
@@ -310,17 +310,17 @@ intermediate.cert.pem: OK
 终于到了这一步，生成我们服务器上需要部署的内容，上面已经解释了为啥需要创建中间证书。root pair 和 intermediate pair 使用的都是 4096 位的加密方式，一般情况下服务器/客户端证书的过期时间为一年，所以可以安全地使用 2048 位的加密方式。
 
 ```bash
-# cd /root/ca
-# openssl genrsa -aes256 \
+$ cd /root/ca
+$ openssl genrsa -aes256 \
       -out intermediate/private/www.barretlee.com.key.pem 2048
-# chmod 400 intermediate/private/www.barretlee.com.key.pem
+$ chmod 400 intermediate/private/www.barretlee.com.key.pem
 ```
 
 创建 `www.barretlee.com` 的证书：
 
 ```bash
-# cd /root/ca
-# openssl req -config intermediate/openssl.cnf \
+$ cd /root/ca
+$ openssl req -config intermediate/openssl.cnf \
       -key intermediate/private/www.barretlee.com.key.pem \
       -new -sha256 -out intermediate/csr/www.barretlee.com.csr.pem
 
@@ -340,12 +340,12 @@ Email Address []:barret.china@gmail.com
 使用 intermediate pair 签证上面证书：
 
 ```bash
-# cd /root/ca
-# openssl ca -config intermediate/openssl.cnf \
+$ cd /root/ca
+$ openssl ca -config intermediate/openssl.cnf \
       -extensions server_cert -days 375 -notext -md sha256 \
       -in intermediate/csr/www.barretlee.com.csr.pem \
       -out intermediate/certs/www.barretlee.com.cert.pem
-# chmod 444 intermediate/certs/www.barretlee.com.cert.pem
+$ chmod 444 intermediate/certs/www.barretlee.com.cert.pem
 ```
 
 可以看到 `/root/ca/intermediate/index.txt` 中多了一条记录：
@@ -357,9 +357,9 @@ V 170503055941Z   1000  unknown .../emailAddress=barret.china@gmail.com
 验证证书：
 
 ```bash
-# openssl x509 -noout -text \
+$ openssl x509 -noout -text \
       -in intermediate/certs/www.barretlee.com.cert.pem
-# openssl verify -CAfile intermediate/certs/ca-chain.cert.pem \
+$ openssl verify -CAfile intermediate/certs/ca-chain.cert.pem \
       intermediate/certs/www.barretlee.com.cert.pem
 
 www.barretlee.com.cert.pem: OK      
@@ -412,7 +412,7 @@ https.createServer(options, function(req, res) {
 
 回到最初的问题：
 
-> 然而在一些情况下，我们没必要去 CA 机构购买证书，比如在内网的测试环境中，为了验证 HTTPS 下的一些问题，我们不需要部署昂贵的证书，这个时候自建 Root CA，给自己办法证书就显得很有价值了。
+> 然而在一些情况下，我们没必要去 CA 机构购买证书，比如在内网的测试环境中，为了验证 HTTPS 下的一些问题，我们不需要部署昂贵的证书，这个时候自建 Root CA，给自己颁发证书就显得很有价值了。
 
 一般公司内网的电脑都会强制安装一些安全证书，此时就可以把我们自建自签名的证书导入/引导安装到用户的电脑中啦~
 
