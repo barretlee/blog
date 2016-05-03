@@ -1,3 +1,4 @@
+---
 title: 元素选择器 - Mini Query
 description: 寥寥几行代码，实现一个简单的元素选择器，兼容低版本 IE。
 warning: true

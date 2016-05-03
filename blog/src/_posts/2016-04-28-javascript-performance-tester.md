@@ -1,3 +1,4 @@
+---
 title: JavaScript 代码执行效率对比工具
 description: JavaScript 代码执行效率对比工具，对比多个程序在一段时间内执行的次数，和性能差异。
 warning: true
