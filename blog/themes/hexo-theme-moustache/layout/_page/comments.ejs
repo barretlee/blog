@@ -23,6 +23,23 @@
 <%- partial("../_partial/sidebar") %>
 <script>
 $(function(){
+  try {
+    var arr = JSON.parse(localStorage.getItem('__guests__'));
+    var ret = {};
+    for(var i = 0; i < arr.length; i++) {
+      var item = arr[i];
+      if(ret[item.n]) {
+        continue;
+      } else {
+        ret[item.n] = item;
+      }
+    }
+    var data = [];
+    for(var key in ret) {
+      data.push(ret[key]);
+    }
+    localStorage.setItem('__guests__', JSON.stringify(data));
+  }catch(e){}
   // store
   var CommentVisitor = function(){
     this.bind();
