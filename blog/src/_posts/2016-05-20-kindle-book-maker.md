@@ -22,7 +22,7 @@ date: 2016-05-20 12:01:20
 
 ### 项目结构
 
-数据的这么几个来源：
+数据有这么几个来源：
 
 - 通过抓取单个 uri 的内容，配合 title 和 content DOM 选择器，获取文章的标题和内容
 - 通过抓取 RSS 源获取内容
@@ -34,7 +34,7 @@ date: 2016-05-20 12:01:20
 
 抓到数据后，工具会帮助分析过滤数据，尤其对 hexo 生成的文件做了特殊的处理，后续也会添加几个扩展功能（比如之间转换 markdown 文件），如果 html 中包含了远程内容——CSS、图片等——程序会全部抓取过来。
 
-最后，使用官方提供了 [kindleGen](http://www.amazon.com/gp/feature.html?docId=1000765211) 工具构建，我已经把这个文件放到了 [/bin/kindlegen](/bin/kindlegen) 下，大约 28M，有点大。
+最后，使用官方提供了 [kindleGen](http://www.amazon.com/gp/feature.html?docId=1000765211) 工具构建，我已经把这个文件放到了 [/bin/kindlegen](https://github.com/barretlee/kindleBookMaker/blob/master/bin/kindlegen) 下，大约 28M，有点大。
 
 ### 使用方法
 
