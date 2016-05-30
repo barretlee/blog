@@ -26,14 +26,14 @@ date: 2016-05-30 00:30:12
 
 ### H5 Crash 原因初探
 
-测试代码仓库地址：
+测试代码 [仓库地址](https://github.com/barretlee/h5crash.git)：
 
 ```bash
 git clone https://github.com/barretlee/h5crash.git;
 cd demo;
 ```
 
-**注意：** 代码需要在 Webview 容器中测试，浏览器下不会出现异常。
+**注意：** 代码需要在 Webview 容器中测试，PC 浏览器下不会出现异常。
 
 H5 Crash 的原因不太明显，但是从经验上判断和摸索，大致归类为以下三种：
 
