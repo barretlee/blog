@@ -20,7 +20,7 @@ date: 2016-05-20 12:01:20
 
 <!--more-->
 
-<s>**注意：** 项目中提供的 [/bin/kindlegen](https://github.com/barretlee/kindleBookMaker/blob/master/bin/kindlegen) 文件只适用于 Mac 系统，如果您使用的是 windows，需要在这里下载对应的 [kindleGen](http://www.amazon.com/gp/feature.html?docId=1000765211)，并替换本项目中的文件。</s> 感谢 [hillwah](https://github.com/hillwah) 的 PR，帮我添加了其他平台的支持。
+<s>**注意：** 项目中提供的 [/bin/kindlegen](https://github.com/barretlee/kindleBookMaker/blob/master/bin/kindlegen) 文件只适用于 Mac 系统，如果您使用的是 windows，需要在这里下载对应的 [kindleGen](http://www.amazon.com/gp/feature.html?docId=1000765211)，并替换本项目中的文件。</s>  感谢 [hillwah](https://github.com/hillwah) 的 PR，帮我添加了对其他平台的支持。
 
 ### 项目结构
 
