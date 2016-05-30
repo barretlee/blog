@@ -1093,6 +1093,9 @@ $(".a-comments").on("click", function(){
         left: -1,
         opacity: 1
     }, cancelEffect ? 0 : "fast");
+    // if($layer && $layer[0].scrollIntoView) {
+    //     $layer[0].scrollIntoView();
+    // }
 
     var index = 0;
     $(".post-content>p").each(function(i){
