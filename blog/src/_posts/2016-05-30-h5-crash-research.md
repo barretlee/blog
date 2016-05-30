@@ -40,7 +40,7 @@ H5 Crash 的原因不太明显，但是从经验上判断和摸索，大致归�
 **1. 内存问题**
 
 - 测试方法：使用闭包，不断增加内存量，看看增加到哪个区间大小， webview 容器会出现异常
-- 测试地址：<https://rawgit.com/barretlee/h5crash/master/demo/crash-memory.html>
+- 测试地址：<https://rawgit.com/barretlee/h5crash/master/demo/crash-memory.html>微信、微博或者其他客户端打开该页面的用户，可以点进去测试下，选择 100M 内存，不出意外，你的客户端会闪退。
 
 ```html
 <script>
