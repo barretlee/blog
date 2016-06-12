@@ -217,7 +217,7 @@ info/url -> data/item_url
 └── index.xtpl   # 模块的模板
 ```
 
-搭建平台通过这个 JSON Schema 解析成 [图一](http://ww4.sinaimg.cn/large/6c0378f8gw1f4g54zdicej20do09cdfy.jpg) 的坑位。那么一个模块的渲染就编程了 `index.xtpl` 和挖坑数据之间的拼装了。
+搭建平台通过这个 JSON Schema 解析成 [图一](http://ww4.sinaimg.cn/large/6c0378f8gw1f4g54zdicej20do09cdfy.jpg) 的坑位。那么一个模块的渲染就变成了 `index.xtpl` 和挖坑数据之间的拼装了。
 
 模块之间相互独立隔离，所以会存在一定程度的冗余，不过模块解偶带来的收益要比这点冗余要多得多。事实上，我们是通过一个仓库去管理单个模块的。页面的渲染就比较简单了，源站 Node 容器会将所有的 `index.xtpl` 合并成一个 `page.xtpl`，为减少页面请求，css 和 js 也会 combo 成一个文件，如上图所示的 `http://cdn/??mod1.css,mod2.css,mod3.css`。
 
