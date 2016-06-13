@@ -2,6 +2,7 @@ title:
 categories:
   - 工具
   - 前端杂烩
+  - 无线技术
   - 网页无障碍
   - 网络交互
   - JavaScript
