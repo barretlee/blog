@@ -1372,7 +1372,19 @@ $(function() {
                 url: url
             }, null, url);
             $('body').html(body);//.fadeIn(600);
-            window.DUOSHUO && DUOSHUO.Widget();
+            if(window.DUOSHUO) {
+                DUOSHUO.Widget();
+            } else {
+                var duoshuoQuery = {short_name:"barretlee"};
+                (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';ds.async = true;
+                    ds.src = (window.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0]
+                     || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();
+            }
             window.scrollTo(0, 0);
             $('#loadLayer').remove();
             $('.func-fb').find('span').text('关注').closest('a').next().remove();
@@ -1383,10 +1395,8 @@ $(function() {
     window.onpopstate = function() {
         var currentState = history.state;
         if(currentState) {
-            window.console && console.info('navigator: ' + currentState.url);
+            window.console && console.info('navigator back: ' + currentState.url);
             pjax(currentState.url, 'DONNOT');
-        } else {
-            history.go(-1);
         }
     };
     $(function(){
@@ -1397,6 +1407,7 @@ $(function() {
                 && href.indexOf('#') == -1
                 && !$(this).parent('#indexLogo').size()) {
                 evt.preventDefault();
+                window.console && console.info('navigator: ' + href);
                 pjax(href);
             }
         });
