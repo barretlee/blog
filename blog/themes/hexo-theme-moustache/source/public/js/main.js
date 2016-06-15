@@ -1390,6 +1390,7 @@ $(function() {
             window.scrollTo(0, 0);
             $('#loadLayer').remove();
             $('.func-fb').find('span').text('关注').closest('a').next().remove();
+            $(window).trigger('resize');
         }).fail(function() {
             window.location.href = url;
         });
