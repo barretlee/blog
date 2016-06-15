@@ -1390,7 +1390,7 @@ $(function() {
             window.scrollTo(0, 0);
             $('#loadLayer').remove();
             $('.func-fb').find('span').text('关注').closest('a').next().remove();
-            operation.insertWeibo();
+            $(window).trigger('load');
         }).fail(function() {
             window.location.href = url;
         });
