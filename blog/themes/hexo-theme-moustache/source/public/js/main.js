@@ -1,8 +1,6 @@
 var weiboName = "@Barret李靖";
 
-window.duoshuoQuery = window.duoshuoQuery || {}
-window.duoshuoQuery.short_name = 'barretlee';
-var duoshuoName = "barretlee";
+var duoshuoName = "";
 
 var disqusName = "";
 
@@ -1379,7 +1377,7 @@ $(function() {
             if(window.DUOSHUO) {
                 DUOSHUO.Widget();
             } else {
-                var duoshuoQuery = {short_name:"barretlee"};
+                window.duoshuoQuery = {short_name:"barretlee"};
                 (function() {
                     var ds = document.createElement('script');
                     ds.type = 'text/javascript';ds.async = true;
