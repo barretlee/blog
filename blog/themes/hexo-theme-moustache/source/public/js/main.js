@@ -1,5 +1,9 @@
 var weiboName = "@Barret李靖";
-var duoshuoName = "";
+
+window.duoshuoQuery = window.duoshuoQuery || {}
+window.duoshuoQuery.short_name = 'barretlee';
+var duoshuoName = "barretlee";
+
 var disqusName = "";
 
 /*!
