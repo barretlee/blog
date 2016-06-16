@@ -2,6 +2,7 @@
 title: Kindle 电子书生成工具
 description: 本项目旨在写一个 Kindle 电子书的构建工具，从互联网上抓取数据，合并整合都生成一本小巧的 `.mobi` 电子书。而使用这个工具，你只需要编辑下配置文件，或者直接运行命令行工具。
 warning: true
+mark: hot
 categories:
   - 工具
 tags:

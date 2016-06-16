@@ -2,6 +2,7 @@
 title: 聊一聊淘宝首页和它背后的一套
 description: 从 14 年双十二结束开始接手淘宝首页，到如今差不多 1 年半时间，不久前完成了首页相关工作的交接。期间经历了两次改版和一次从 PHP 到 Node 的迁移，还是颇有感受，下面给大家分享下。
 warning: true
+mark: hot
 categories:
   - 前端杂烩
 tags:

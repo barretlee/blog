@@ -2,6 +2,7 @@
 title: H5 Crash 研究
 description: 我们知道，支撑页面在 webview 上良好运转的前提是具备一个高效并且稳定的 webview 容器，而容器的高效稳定不仅仅由容器提供方来保障，也需要容器使用者遵守一些基本准则，否则就有可能出现页面 Crash 的情况，这些准则是什么？什么样的上层代码会引起容器异常退出？这是本文需要阐述的内容
 warning: true
+mark: hot
 categories:
   - 无线技术
   - 前端杂烩
