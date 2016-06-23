@@ -1396,7 +1396,7 @@ $(function() {
                 operation.insertWeibo();
             }
             $(window).trigger('load');
-            window.console && window.console.clear && window.console.clear();
+            // window.console && window.console.clear && window.console.clear();
         }).fail(function() {
             window.location.href = url;
         });
