@@ -60,7 +60,7 @@ j node
 - 然后继续在上述文件中添加 
 
   ```bash
-  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.s
+  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
   ```
 - `source ~/.zshrc`
 
