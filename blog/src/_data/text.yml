@@ -10,12 +10,13 @@ message: "<p>Hi，大家好，我是小胡子</p>\
 notice:
 
 # 友情链接
-friends_Info: "<p><strong>友链交换：</strong> 本博客只接受同行或者朋友的博客链接交换，在您的博客中添加 <b>小胡子哥</b> 和 <b>http://www.barretlee.com</b> 的链接后，在下方留言，格式如下:<p>\
-              <ol><li>网站名称：小胡子哥</li>\
-              <li>网站地址：http://www.barretlee.com</li>\
-              <li>网站介绍：小胡子哥的个人网站</li>\
-              <li>头像随意：<a href='http://www.barretlee.com/blogimgs/app-icon.png' target='_blank'><img src='http://www.barretlee.com/blogimgs/app-icon.png' style='height:40px;vertical-align:middle;'></a></li></ol>\
-              <p>欢迎交流~（<a href='/about/#contact'>我的联系方式</a>）</p>"
+#"<p><strong>友链交换：</strong> 本博客只接受同行或者朋友的博客链接交换，在您的博客中添加 <b>小胡子哥</b> 和 <b>http://www.barretlee.com</b> 的链接后，在下方留言，格式如下:<p>\
+              #<ol><li>网站名称：小胡子哥</li>\
+              #<li>网站地址：http://www.barretlee.com</li>\
+              #<li>网站介绍：小胡子哥的个人网站</li>\
+              #<li>头像随意：<a href='http://www.barretlee.com/blogimgs/app-icon.png' target='_blank'><img src='http://www.barretlee.com/blogimgs/app-icon.png' style='height:40px;vertical-align:middle;'></a></li></ol>\
+              #<p>欢迎交流~（<a href='/about/#contact'>我的联系方式</a>）</p>"
+friends_Info: "<p>欢迎交流~（<a href='/about/#contact'>我的联系方式</a>）</p>"
 
 friends:
   旧博客:
