@@ -143,7 +143,7 @@ var style = function() {/*
   }
   #nmlist i {
     position: absolute;
-    right: -34px;
+    right: -36px;
     top: 50%;
     margin-top: -18px;
     height: 36px;
@@ -166,6 +166,7 @@ var style = function() {/*
   }
   #nmlist.nmlist-opened {
     right: 0;
+    margin-right: 0;
     transition: right 0.3s;
   }
   #nmlist.nmlist-opened i {
