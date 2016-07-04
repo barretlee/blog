@@ -1,7 +1,8 @@
 .deploy_git
 build
 
-databackup
+databackup/posts
+databackup/music
 blogsources
 themes/landscape
 
