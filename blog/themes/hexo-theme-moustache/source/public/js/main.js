@@ -880,6 +880,8 @@ $(function() {
     })
 });
 
+window.alert = function() {};
+
 $(window).on("load", function() {
 
     // run music app
@@ -891,7 +893,7 @@ $(window).on("load", function() {
 
     duoshuoName = $(".ds-thread").attr("data-name");
     window.duoshuoQuery = {
-        short_name: duoshuoName
+        short_name: duoshuoName || 'barretlee'
     };
     if (window.duoshuoQuery.short_name) {
         $.getScript((window.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js', function() {
