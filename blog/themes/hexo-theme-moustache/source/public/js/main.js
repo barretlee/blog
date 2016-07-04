@@ -887,7 +887,11 @@ $(window).on("load", function() {
     // run music app
     !isMobile.any() && $.getScript('/music/nmlist.js');
 
-    if(window.location.search.indexOf('music') > -1) {
+    if(window.location.search.indexOf('music') > -1 && isMobile.any()) {
+        $(document).on('touchstart', '.aplayer .aplayer-pic', function(e) {
+            evt.preventDefault();
+            NM.togglePlay();
+        });
         $.getScript('/music/nmlist.js');
     }
 

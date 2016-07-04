@@ -191,7 +191,7 @@ var style = function() {/*
       bottom: 0 !important;
       left: 0 !important;
       margin: 0 !important;
-      min-width: auto;
+      min-width: 66px;
     }
     .aplayer-info, .aplayer-controller, .aplayer-list {
       display: none;
