@@ -62,7 +62,7 @@ var style = function() {/*
     line-height: 30px;
     width: 30px;
     text-align: center;
-    font-size: 24px;
+    font-size: 32px;
     color: rgba(255, 68, 0, 0.6);
     opacity: 0;
     content: attr(data-start);
@@ -199,9 +199,6 @@ var style = function() {/*
     }
     #nmlist li span {
       bottom: 0;
-    }
-    #nmlist li:after {
-      font-size: 28px;
     }
   }
 </style>
