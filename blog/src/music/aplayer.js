@@ -207,4 +207,3 @@ var _createClass = function() {
   }();
   "undefined" != typeof module && "undefined" != typeof module.exports ? module.exports = t : window.APlayer = t
 }([]);
-//# sourceMappingURL=aplayer.js.map
