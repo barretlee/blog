@@ -1,4 +1,206 @@
-var nmlist ={
+var style = function() {/*
+<style>
+  .no-scroll {
+    overflow: hidden;
+  }
+  .no-scroll body {
+    overflow: hidden;
+  }
+  #nmlist {
+    position: fixed;
+    right: 100%;
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    z-index: 102;
+    background: #FFF;
+    transition: right 0.3s;
+  }
+  #nmlist h2 {
+    line-height: 40px;
+    text-align: center;
+    font-size: 24px;
+    background: #FFF;
+    margin-top: 10px;
+    box-shadow: 0 3px 3px #dfdfdf;
+    position: relative;
+    z-index: 1;
+  }
+  #nmlist ul {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 40px;
+    bottom: 0;
+    padding: 20px;
+    overflow: scroll;
+  }
+  #nmlist li {
+    float: left;
+    width: 140px;
+    height: 140px;
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    overflow:hidden;
+    background: #FAFAFA;
+  }
+  #nmlist li:after {
+    font-family: "iconfont";
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+    text-align: center;
+    font-size: 24px;
+    color: rgba(255, 68, 0, 0.6);
+    opacity: 0;
+    content: attr(data-start);
+  }
+  #nmlist li:hover:after {
+    opacity: 1;
+    color: rgb(255, 68, 0);
+  }
+  #nmlist li.on:after {
+    opacity: 1;
+    color: rgb(255, 68, 0);
+    content: attr(data-pause);
+  }
+  #nmlist li.play:after {
+    opacity: 1;
+    color: rgb(255, 68, 0);
+    content: attr(data-start);
+  }
+  #nmlist li.loading:after {
+    opacity: 1;
+    color: #f40;
+    content: '加载中...';
+    font-size: 16px;
+    left: 0;
+    right: 0;
+    width: auto;
+    margin: 0;
+    margin-top: -20px;
+    font-weight: normal;
+    background: rgba(255,255,255,0.4);
+  }
+  #nmlist li img {
+    width: 140px;
+    height: 140px;
+    background: #EEE;
+    line-height: 140px;
+    overflow: hidden;
+    font-size: 12px;
+    text-align: center;
+  }
+  #nmlist li:hover img {
+    font-weight: bold;
+  }
+  #nmlist li span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -50px;
+    max-height: 40px;
+    overflow: hidden;
+    line-height: 20px;
+    font-size: 12px;
+    background: rgba(0,0,0,.5);
+    color: #FFF;
+    padding: 5px 8px;
+    transition: bottom 0.3s;
+  }
+  #nmlist li:hover span, #nmlist li.on span, #nmlist li.loading span, #nmlist li.play span {
+    bottom: 0;
+    transition: bottom 0.3s;
+  }
+  #nmlist li:hover b, #nmlist li.on b, #nmlist li.loading b, #nmlist li.play b {
+    transition: background 0.3s;
+    background: rgba(0,0,0,.5);
+  }
+  #nmlist li b {
+    transition: background 0.3s;
+    position: absolute;
+    font-size: 12px;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: rgba(0,0,0,.3);
+    top: 0;
+    right: 0;
+  }
+  #nmlist i {
+    position: absolute;
+    right: -34px;
+    top: 50%;
+    margin-top: -18px;
+    height: 36px;
+    width: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 6px;
+    color: #666;
+    font-size: 18px;
+    transition: all 0.3s;
+    cursor: pointer;
+    z-index: 104;
+  }
+  #nmlist i:after {
+    content: attr(data-start);
+  }
+  #nmlist i:hover {
+    color: #000;
+    transition: color 0.3s;
+  }
+  #nmlist.nmlist-opened {
+    right: 0;
+    transition: right 0.3s;
+  }
+  #nmlist.nmlist-opened i {
+    right: 10px;
+    transition: all 0.3s;
+  }
+  #nmlist.nmlist-opened i:after {
+    content: attr(data-pause);
+  }
+  #nmPlayer {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    margin-top: -126px;
+    margin-left: 60px;
+    z-index: 83;
+    cursor: move;
+    background: rgba(250, 250, 250, 0.8);
+    min-width: 300px;
+  }
+  @media screen and (max-width: 800px) {
+    #nmPlayer {
+      top: auto !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      margin: 0 !important;
+      min-width: auto;
+    }
+    .aplayer-info, .aplayer-controller, .aplayer-list {
+      display: none;
+    }
+  }
+</style>
+*/}.toString().replace(/^[\s\S]*?\/\*|\*\/\}[\s\S]*$/gmi, '');
+
+var nmlist = {
   "250819": {
     "id": "250819",
     "title": "50首历史上最伟大的摇滚歌曲",
@@ -298,13 +500,216 @@ var nmlist ={
   }
 };
 
-var xtpl = '<li data-id="{id}"><img data-src="{cover}" /><span>{title}<b>{count}</b></span></li>';
-var str = '<ul>';
-for(var key in nmlist) {
-  str += xtpl.replace(/\{([^\}]+?)\}/g, function(m0, m1) {
-    return nmlist[key][m1];
-  });
-}
-str += '</ul>';
-$('body').html(str);
 
+var NM = {
+  cache: {},
+  init: function() {
+    if ($("#nmlist").size()) {
+      return;
+      // $("#nmlist").remove();
+    }
+    this.render();
+    this.bind();
+  },
+
+  render: function() {
+    var xtpl = '<li data-id="{id}" data-start="&#xe60e;" data-pause="&#xe608;"><img src="{cover}?param=280y280" alt="{title}"/><span>{title}</span><b>{count}</b></li>';
+    var str = style + '<div id="nmlist"><h2>小胡子哥的歌单</h2><i class="icon" data-start="&#x261e;" data-pause="&#xe600;"></i><ul>';
+    for (var key in nmlist) {
+      str += xtpl.replace(/\{([^\}]+?)\}/g, function(m0, m1) {
+        return nmlist[key][m1];
+      });
+    }
+    str += '</ul></div>';
+    $('html').append(str);
+  },
+
+  justify: function() {
+    var W = $('#nmlist ul').width();
+    var num = parseInt((W + 20) / 160);
+    var delta = Math.floor((W - num * 140) / (num));
+    $('#nmlist li').css("margin-right", delta);
+  },
+
+  bind: function() {
+    var self = this;
+    $("#nmlist .icon").on('click', function() {
+      $("#nmlist").toggleClass('nmlist-opened');
+      $('html').toggleClass('no-scroll');
+      if ($("#nmlist").hasClass('nmlist-opened')) {
+        self.justify();
+      }
+    });
+    $("#nmlist li").on('click', function() {
+      var $this = $(this);
+      var id = $this.attr('data-id');
+      if ($this.hasClass('loading')) {
+        return;
+      }
+      if ($this.hasClass('on')) {
+        $this.toggleClass('play');
+        self.togglePlay();
+        return;
+      }
+      $("#nmlist li").removeClass('on');
+      $("#nmlist li").removeClass('play');
+      $this.addClass('loading');
+      self.pause();
+      self.start(id);
+    });
+    $(window).on('resize', function() {
+      self.justify();
+      // var $p = $('#nmPlayer');
+      // var offset = $p.offset();
+      // var W = $(window).width();
+      // var H = $(window).height();
+      // var pW = $p.width();
+      // var pH = $p.height();
+      // var top = Math.min(offset.top, H - pH);
+      // var left = Math.max(offset.left, W);
+      // $p.css({
+      //   left: left,
+      //   top: top
+      // });
+    });
+    $('body').on('keydown', function(e) {
+      if(e.target.nodeName.toLowerCase() == 'body') {
+        if(e.keyCode == 32) {
+          e.preventDefault();
+          self.togglePlay();
+        }
+        if(e.keyCode == 27) {
+          $(".nmlist-opened").removeClass("nmlist-opened");
+        }
+      }
+    });
+  },
+
+  start: function(id) {
+    var self = this;
+    var musicList = this.cache[id];
+    if (musicList) {
+      self._startSong(musicList, id);
+      return;
+    }
+    window['jsonp' + id] = function(list) {
+      musicList = list;
+      self.cache[id] = musicList;
+      self._startSong(musicList, id);
+      delete window['jsonp' + id];
+    };
+    $.getScript('/music/' + id + '.js');
+  },
+
+  _startSong: function(list, id) {
+    var self = this;
+    var songs = list;
+    var $target = $("#nmlist li[data-id='" + id + "']");
+    $("#nmlist li").removeClass('on');
+    $("#nmlist li").removeClass('play');
+    $target.removeClass('loading');
+    $target.addClass('on');
+    if (list.collect_author) {
+      songs = [];
+      for (var i = 0, len = list.songs.length; i < len; i++) {
+        var item = list.songs[i];
+        songs.push({
+          title: item.title,
+          author: list.collect_author,
+          url: item.mp3,
+          pic: list.collect_cover + "?param=280y280"/*,
+          lrc: (function() {
+            var lrcs = item.lrc;
+            var ret = [];
+            for (var key in lrcs) {
+              var h = Math.floor(key / 60 / 60);
+              var m = Math.floor((key - 60 * h) / 60);
+              var s = key - 60 * 60 * h - 60 * m;
+              h = h < 10 ? '0' + h : h;
+              m = m < 10 ? '0' + m : m;
+              s = s < 10 ? '0' + s : s;
+              ret.push(['[', h, ':', m, ':', s, ']', lrcs[key]].join(''));
+            }
+            return ret.join('\n');
+          })()*/
+        })
+      }
+    }
+    if (!$('#nmPlayer').size()) {
+      $('<div id="nmPlayer" class="aplayer"></div>').appendTo($('html')).dragmove();
+    }
+    var option = {
+      element: document.getElementById('nmPlayer'),
+      narrow: false,
+      autoplay: true,
+      showlrc: 0,
+      mutex: true,
+      theme: '#e6d0b2',
+      loop: true,
+      preload: 'metadata',
+      music: songs
+    }
+    self.pause();
+    window._ap = new APlayer(option);
+    window._ap.init();
+    self.restart();
+    $(".aplayer-list").addClass('aplayer-list-hide');
+  },
+
+  pause: function() {
+    window._ap && window._ap.pause();
+  },
+
+  restart: function() {
+    window._ap && window._ap.play();
+  },
+
+  togglePlay: function() {
+    if($('#nmPlayer').attr('data-paused')) {
+      $('#nmPlayer').removeAttr('data-paused');
+      this.restart();
+    } else {
+      $('#nmPlayer').attr('data-paused', '1');
+      this.pause();
+    }
+  }
+};
+
+
+NM.init();
+
+
+$.fn.dragmove = function() {
+  return this.each(function() {
+    var $document = $(document),
+      $this = $(this),
+      active,
+      startX,
+      startY;
+    $this.on('mousedown touchstart', function(e) {
+      active = true;
+      startX = e.originalEvent.pageX - $this.offset().left;
+      startY = e.originalEvent.pageY - $this.offset().top;
+      if ('mousedown' == e.type)
+        click = $this;
+      if ('touchstart' == e.type)
+        touch = $this;
+      if (window.mozInnerScreenX == null)
+        return false;
+    });
+    $document.on('mousemove touchmove', function(e) {
+      if ('mousemove' == e.type && active)
+        click.offset({
+          left: e.originalEvent.pageX - startX,
+          top: e.originalEvent.pageY - startY
+        });
+      if ('touchmove' == e.type && active)
+        touch.offset({
+          left: e.originalEvent.pageX - startX,
+          top: e.originalEvent.pageY - startY
+        });
+    }).on('mouseup touchend', function() {
+      active = false;
+    });
+  });
+};

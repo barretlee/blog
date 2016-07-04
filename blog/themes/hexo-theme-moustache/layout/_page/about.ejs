@@ -63,9 +63,9 @@
 			</div>
 		</div>
 		<div class="aboutme-modify-time text-info" tabindex="0" aria-hidden="true">
-			最后修改时间：<%- date(page.updated, "YYYY年MM月DD日 hh:mm:ss") %>
+			最后修改时间：<%- moment(page.updated).format("YYYY年MM月DD日 HH:mm:ss") %>
 		</div>
-		<span class="aria-readonly">最后修改时间：<%- date(page.updated, "YYYY年MM月DD日 hh时mm分ss秒") %></span>
+		<span class="aria-readonly">最后修改时间：<%- moment(page.updated).format("YYYY年MM月DD日 hh时mm分ss秒") %></span>
 		<%- partial("page_footer") %>
 	</div>
 </div>

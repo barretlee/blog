@@ -48,8 +48,10 @@ if(page.description) {
   <% if (page.prev){ %><link rel="prev" href="<%- config.url %><%- url_for(page.prev.path) %>" title="<%= page.prev.title %>" /><% } %>
   <% if (page.next){ %><link rel="next" href="<%- config.url %><%- url_for(page.next.path) %>" title="<%= page.next.title %>" /><% } %>
   <link rel="start" href="<%- config.url %><%- url_for('entry/') %>" title="Blog Entry" />
-  <link rel="stylesheet" href="/public/css/style.css?v=20160223" type="text/css">
-  <script src="/public/js/jquery.js" type="text/javascript"></script>
-  <script src="/public/js/main.js?v=20160223" type="text/javascript"></script>
+  <link rel="stylesheet" href="/public/css/style.css?v=20160223">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/aplayer/1.4.6/APlayer.min.css">
+  <script src="/public/js/jquery.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/aplayer/1.4.6/APlayer.min.js"></script>
+  <script src="/public/js/main.js?v=20160223"></script>
 </head>
 <span class="aria-readonly" tabindex="0" aria-hidden="true">小胡子哥的博客良好支持读屏软件阅读，请放心使用。</span>

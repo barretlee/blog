@@ -97,7 +97,7 @@ tags = Object.keys(_tags);
         <a href="<%- url_for(post.path) %>"><%- post.title %><% if(post.mark) { %>
           <em class="entry-item-tag"><%- post.mark %></em></%><% } %>
         </a>
-        <span>(<%- date(post.date, "YYYY/MM/DD") %><% if(is_tag()) {%>
+        <span>(<%- moment(post.date).format("YYYY/MM/DD") %><% if(is_tag()) {%>
           · 归类:<%- partial('post/category', {post: post, separator: "/"}) %>
         <% } else { %>
           · 标签:<%- partial('post/tag', {post: post}) %>

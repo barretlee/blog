@@ -8,8 +8,8 @@
       <div class="post-info">
         <span>作者: <a href="<%- url_for('about/') %>" itemprop="author"><%- config.author %></a></span>
         <span>
-          <time itemprop="timeCreated" aria-hidden="true"><%- date(page.date, 'YYYY-MM-DD hh:mm:ss') %></time>
-          <span class="aria-readonly">本文发布时间为<%- date(page.date, 'YYYY年MM月DD日hh时mm分ss秒') %></span>
+          <time itemprop="timeCreated" aria-hidden="true"><%- moment(page.date).format('YYYY-MM-DD HH:mm:ss') %></time>
+          <span class="aria-readonly">本文发布时间为<%- moment(page.date).format('YYYY年MM月DD日HH时mm分ss秒') %></span>
         </span>
         <span>分类: <%- partial('post/category', {post: page}) %></span>
         <span tabindex="0" aria-hidden="true">标签: <%- partial('post/tag', {post: page}) %></span>

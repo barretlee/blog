@@ -67,7 +67,7 @@
 					<%= excerpt %>
 					<a href="<%- url_for(recentPost.path) %>">阅读全文</a>
 				</p>
-				<span><%- date(recentPost.date, "YYYY-MM-DD") %> post by <a href="<%- url_for('about') %>"><%- theme.author_en %></a></span>
+				<span><%- moment(recentPost.date).format("YYYY-MM-DD") %> post by <a href="<%- url_for('about') %>"><%- theme.author_en %></a></span>
 			</div>
 		</div>
 		<div class="post-catograry">

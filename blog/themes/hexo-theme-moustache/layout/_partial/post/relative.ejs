@@ -16,9 +16,9 @@
 				var excerpt = p.excerpt.replace(/<[^>]+?>|\n/gm, '') || p.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 50) + "...";
 			%>
 			<li>
-				<span><font aria-hidden="true"><%- date(p.date, "YYYY-MM-DD")%> »</font> </span>
+				<span><font aria-hidden="true"><%- moment(p.date).format("YYYY-MM-DD")%> »</font> </span>
 				<a href="<%- url_for(p.path) %>"><%- p.title %></a>
-				<span class="aria-readonly">发表时间为<%- date(p.date, "YYYY年MM月DD日")%></span>
+				<span class="aria-readonly">发表时间为<%- moment(p.date).format("YYYY年MM月DD日")%></span>
 				<div><span class="aria-readonly">文章概要 </span><%- excerpt %></div>
 			</li>
 			<% })
