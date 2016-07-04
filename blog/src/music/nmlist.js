@@ -580,6 +580,7 @@ var NM = {
         }
         if(e.keyCode == 27) {
           $(".nmlist-opened").removeClass("nmlist-opened");
+          $('html').removeClass('no-scroll');
         }
       }
     });
