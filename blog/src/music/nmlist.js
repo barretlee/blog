@@ -13,6 +13,7 @@ var style = function() {/*
     bottom: 0;
     top: 0;
     z-index: 102;
+    margin-right: 3px;
     background: #FFF;
     transition: right 0.3s;
   }
@@ -195,6 +196,12 @@ var style = function() {/*
     }
     .aplayer-info, .aplayer-controller, .aplayer-list {
       display: none;
+    }
+    #nmlist li span {
+      bottom: 0;
+    }
+    #nmlist li:after {
+      font-size: 28px;
     }
   }
 </style>
