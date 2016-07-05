@@ -549,7 +549,7 @@ var operation = {
             $(this).attr("id", "comments");
 
             $(".nav-detail>div").hide().eq(index).fadeIn();
-        });
+        }).eq(0).trigger('click');
         $(".relative-to-comment").on("click", function() {
             $(".footer-nav a").eq(0).trigger("click");
         });
@@ -952,7 +952,7 @@ $(window).on("load", function() {
 
         ga('create', 'UA-67248043-1', 'auto');
         ga('send', 'pageview');
-    }, 2000);
+    }, 1000);
 });
 
 
