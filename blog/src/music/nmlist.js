@@ -505,9 +505,9 @@ var nmlist = {
   }
 };
 
-
 var NM = {
   cache: {},
+  imgLoaded: false,
   init: function() {
     if ($("#nmlist").size()) {
       return;
@@ -518,7 +518,7 @@ var NM = {
   },
 
   render: function() {
-    var xtpl = '<li data-id="{id}" data-start="&#xe60e;" data-pause="&#xe608;"><img src="{cover}?param=280y280" alt="{title}"/><span>{title}</span><b>{count}</b></li>';
+    var xtpl = '<li data-id="{id}" data-start="&#xe60e;" data-pause="&#xe608;"><img data-src="{cover}?param=280y280" alt="{title}"/><span>{title}</span><b>{count}</b></li>';
     var str = style + '<div id="nmlist"><h2>小胡子哥的歌单</h2><i class="icon" data-start="&#x261e;" data-pause="&#xe600;"></i><ul>';
     for (var key in nmlist) {
       str += xtpl.replace(/\{([^\}]+?)\}/g, function(m0, m1) {
@@ -541,6 +541,12 @@ var NM = {
     $("#nmlist .icon").on('click', function() {
       $("#nmlist").toggleClass('nmlist-opened');
       $('html').toggleClass('no-scroll');
+      if(!NM.imgLoaded) {
+        NM.imgLoaded = true;
+        $('#nmlist img').each(function() {
+          $(this).attr('src', $(this).attr('data-src')).hide().fadeIn();
+        });
+      }
       if ($("#nmlist").hasClass('nmlist-opened')) {
         self.justify();
       }
