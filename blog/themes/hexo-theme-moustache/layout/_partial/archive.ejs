@@ -94,8 +94,10 @@ tags = Object.keys(_tags);
     <ul>
       <% data.forEach(function(post){ %>
       <li>
-        <a href="<%- url_for(post.path) %>"><%- post.title %><% if(post.mark) { %>
-          <em class="entry-item-tag"><%- post.mark %></em></%><% } %>
+        <a href="<%- url_for(post.path) %>"><%- post.title %>
+        <% if(0 && post.mark) { %>
+          <em class="entry-item-tag"><%- post.mark %></em>
+        <% } %>
         </a>
         <span>(<%- moment(post.date).format("YYYY/MM/DD") %><% if(is_tag()) {%>
           · 归类:<%- partial('post/category', {post: post, separator: "/"}) %>

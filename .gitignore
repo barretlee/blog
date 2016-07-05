@@ -16,3 +16,5 @@ blog/node_modules
 
 *.log
 .sync
+
+blog/db.json

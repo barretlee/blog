@@ -72,7 +72,9 @@
 			<ul itemscope itemtype="http://schema.org/Article">
 			<% site.posts.slice(0, 12).each(function(post){ %>
 				<li><span itemprop="timeCreated" aria-hidden="true"><%- moment(post.date).format("YYYY-MM-DD") %> » </span><a href="<%- url_for(post.path) %>" itemprop="url" itemprop="name"><%- post.title %>
-					<% if(post.mark) { %><em tabindex="0" aria-hidden="true" class="entry-item-tag"><%- post.mark %></em></%><% } %>
+					<% if(0 && post.mark) { %>
+						<em tabindex="0" aria-hidden="true" class="entry-item-tag"><%- post.mark %></em>
+					<% } %>
 				</a><span tabindex="0" class="aria-readonly">发布时间为<%- moment(post.date).format("YYYY年MM月DD日") %></span> <span><b
 								class="ds-thread-count disqus-comment-count"
 								data-thread-key="<%- post.slug || post.path %>"
