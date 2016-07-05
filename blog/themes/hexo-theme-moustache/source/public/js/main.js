@@ -167,6 +167,10 @@ var operation = {
         var wechatStr = '<div class="wechat-info"><b>温馨提示：</b>您现在处在 <span class="wechat-net">WiFi</span>' +
             ' 网络下。若文章表述存在问题，可点击段落，在右侧留言，或者直接给小胡子哥 <span class="wechat-email">邮件 ← 点击</span>。</div>';
         if (!$ctt.length || !isWeiXin) return;
+        var urls = [];
+        $(".post img").each(function() {
+            urls.push($(this).attr('src'));
+        });
         $.getScript("/public/js/wechat.js", function() {
             $ctt.prepend(wechatStr);
             wechat('network', function(res) {
@@ -184,6 +188,12 @@ var operation = {
                     title: $(".ds-share").attr("data-title")
                 };
                 wechat('email', data, function() {});
+            });
+            $(".post img").on('click', function() {
+                wechat('imagePreview', {
+                    current: $(this).attr('src'),
+                    urls: urls
+                });
             });
         });
     },
