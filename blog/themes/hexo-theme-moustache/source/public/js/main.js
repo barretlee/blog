@@ -894,15 +894,17 @@ window.alert = function() {};
 
 $(window).on("load", function() {
 
-    // run music app
-    !isMobile.any() && $.getScript('/music/nmlist.js');
+    if(!$('#nmlist').size()) {
+        // run music app
+        !isMobile.any() && $.getScript('/music/nmlist.js');
 
-    if(window.location.search.indexOf('music') > -1 && isMobile.any()) {
-        $(document).on('touchstart', '.aplayer .aplayer-pic', function(e) {
-            evt.preventDefault();
-            NM.togglePlay();
-        });
-        $.getScript('/music/nmlist.js');
+        if(window.location.search.indexOf('music') > -1 && isMobile.any()) {
+            $(document).on('touchstart', '.aplayer .aplayer-pic', function(e) {
+                evt.preventDefault();
+                NM.togglePlay();
+            });
+            $.getScript('/music/nmlist.js');
+        }
     }
 
     duoshuoName = $(".ds-thread").attr("data-name");
@@ -1376,59 +1378,81 @@ $(function() {
 
 
 ;typeof history.pushState === 'function' && (function() {
-    function pjax(url, tag) {
+    if(!$('html').attr('loaded')) {
+        history.pushState({
+            url: window.location.href
+        }, '', window.location.href);
+    }
+    var pageCache = window.pageCache = window.pageCache || {};
+    function pjax(url) {
+
+        if(pageCache[url]) {
+            return render(pageCache[url]);
+        }
+
+        history.pushState({
+            url: url
+        }, '', url);
+
         // var loadingWords = ['伸个懒腰再来~', '打个呵欠再来~', '加载中...', '玩命加载中...', '同学，你很帅！', '这是 Pjax 效果；）', '不要问我这是啥!', '我在加载...', '客官稍等~', '欢迎继续踩点！', '我认识你！', '咱们是不是认识？', '这玩意儿有点意思！', '出 bug 了', '是否有帮到你？', '大家好，我是小胡子', '吃饭了么？'];
         // var word = loadingWords[Math.floor(Math.random() * loadingWords.length)];
         var loadLayer = '<div id="loadLayer" style="position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(255,255,255,0.8);text-align:center;line-height:400px;font-size:30px;z-index:82;display:none;">' + '玩命加载中...' + '</div>';
         $(loadLayer).appendTo($('html')).fadeIn(300);
-        // $('body').hide();
         $.ajax({
             url: url,
             dataType: 'html',
             timeout: 5000
         }).then(function(data) {
             try{
+                var title = data.match(/<title>([\s\S]*)<\/title>/mi)[1];
                 var body = data.match(/<body>([\s\S]*)<\/body>/mi)[1];
             } catch(e) {
                 window.location.href = url;
                 return;
             }
-            $.getScript('/public/js/main.js');
-            $('script[src*="duoshuo"],script[src*="baidu"],script[src*="google"],link[href*="duoshuo"]').remove();
-            !tag && history.pushState && history.pushState({
-                url: url
-            }, null, url);
-            $('body').html(body);//.fadeIn(600);
-            if(window.DUOSHUO) {
-                DUOSHUO.Widget();
-            } else {
-                window.duoshuoQuery = {short_name:"barretlee"};
-                (function() {
-                    var ds = document.createElement('script');
-                    ds.type = 'text/javascript';ds.async = true;
-                    ds.src = (window.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                    ds.charset = 'UTF-8';
-                    (document.getElementsByTagName('head')[0]
-                     || document.getElementsByTagName('body')[0]).appendChild(ds);
-                })();
-            }
-            window.scrollTo(0, 0);
-            $('#loadLayer').remove();
-            $('.func-fb').find('span').text('关注').closest('a').next().remove();
-            if(/entry\/?$/.test(window.location.href) && $(".rightbar-frame iframe").size() == 0) {
-                operation.insertWeibo();
-            }
-            $(window).trigger('load');
-            // window.console && window.console.clear && window.console.clear();
+            pageCache[url] = {
+                title: title,
+                body: body
+            };
+            render(pageCache[url]);
         }).fail(function() {
             window.location.href = url;
         });
     }
+    function render(data) {
+        var title = data.title;
+        var body = data.body;
+        $.getScript('/public/js/main.js');
+        $('script[src*="duoshuo"],script[src*="baidu"],script[src*="google"],link[href*="duoshuo"]').remove();
+        $('body').html(body);
+        if(window.DUOSHUO) {
+            DUOSHUO.Widget();
+        } else {
+            window.duoshuoQuery = {short_name:"barretlee"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (window.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        }
+        window.scrollTo(0, 0);
+        $('#loadLayer').remove();
+        $('.func-fb').find('span').text('关注').closest('a').next().remove();
+        if(/entry\/?$/.test(window.location.href) && $(".rightbar-frame iframe").size() == 0) {
+            operation.insertWeibo();
+        }
+        $(window).trigger('load');
+    }
     window.onpopstate = function() {
         var currentState = history.state;
         if(currentState) {
-            window.console && console.info('navigator back: ' + currentState.url);
-            pjax(currentState.url, 'DONNOT');
+            if(window.console && window.console.info) {
+                console.info('navigator back: ' + currentState.url);
+            }
+            pjax(currentState.url);
         }
     };
     $(function(){
@@ -1438,9 +1462,12 @@ $(function() {
             if(href.indexOf(host) > -1
                 && href.indexOf('#') == -1
                 && !/^\/(ST|tools)/i.test(location.pathname)
-                && !$(this).parent('#indexLogo').size()) {
+                && !$(this).parent('#indexLogo').size()
+                && !evt.metaKey && !evt.ctrlKey) {
                 evt.preventDefault();
-                window.console && console.info('navigator: ' + href);
+                if(window.console && window.console.info) {
+                    console.info('navigator: ' + href);
+                }
                 pjax(href);
             }
         });

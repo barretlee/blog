@@ -47,8 +47,11 @@
 		<% var recentPost = site.posts.data[1];
 		var rTitle = recentPost.title;
 		var excerpt = recentPost.excerpt.replace(/<[^>]+?>|\n/gm, '') || recentPost.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 100) + "...";
+		var m = recentPost.content.match(/<img src="([^"]+?)"/);
+		var img = m.length == 2 ? m[1] : '';
 		%>
 		<div class="entry-recent-post clearfix" itemscope itemtype="http://schema.org/Article" aria-hidden="true">
+			<% if(img){ %><a href="<%- url_for(recentPost.path) %>" class="entry-thumb"><img src="<%- img %>" onerror="this.style.display='none';"></a><% } %>
 			<h3 itemprop="name"><a href="<%- url_for(recentPost.path) %>" itemprop="url"><%= rTitle  %></a></h3>
 			<p itemprop="description">
 				<%= excerpt %>
