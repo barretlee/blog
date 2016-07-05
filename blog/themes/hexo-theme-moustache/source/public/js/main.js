@@ -1427,6 +1427,7 @@ $(function() {
             var host = window.location.host;
             if(href.indexOf(host) > -1
                 && href.indexOf('#') == -1
+                && !/^\/(ST|tools)/i.test(location.pathname)
                 && !$(this).parent('#indexLogo').size()) {
                 evt.preventDefault();
                 window.console && console.info('navigator: ' + href);

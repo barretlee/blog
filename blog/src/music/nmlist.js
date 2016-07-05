@@ -13,6 +13,7 @@ var style = function() {/*
     bottom: 0;
     top: 0;
     z-index: 102;
+    margin-right: 3px;
     background: #FFF;
     transition: right 0.3s;
   }
@@ -61,7 +62,7 @@ var style = function() {/*
     line-height: 30px;
     width: 30px;
     text-align: center;
-    font-size: 24px;
+    font-size: 32px;
     color: rgba(255, 68, 0, 0.6);
     opacity: 0;
     content: attr(data-start);
@@ -142,7 +143,7 @@ var style = function() {/*
   }
   #nmlist i {
     position: absolute;
-    right: -34px;
+    right: -36px;
     top: 50%;
     margin-top: -18px;
     height: 36px;
@@ -165,6 +166,7 @@ var style = function() {/*
   }
   #nmlist.nmlist-opened {
     right: 0;
+    margin-right: 0;
     transition: right 0.3s;
   }
   #nmlist.nmlist-opened i {
@@ -195,6 +197,9 @@ var style = function() {/*
     }
     .aplayer-info, .aplayer-controller, .aplayer-list {
       display: none;
+    }
+    #nmlist li span {
+      bottom: 0;
     }
   }
 </style>
