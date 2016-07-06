@@ -1100,185 +1100,185 @@ $(function() {
     });
 });
 
-$(function() {
-    var fixerrRunning = false;
-    var fixerrTimer = null;
-    $(".fixerr").on("c:fire", function() {
-        var $this = $(this);
-        if (fixerrRunning) return;
+// $(function() {
+//     var fixerrRunning = false;
+//     var fixerrTimer = null;
+//     $(".fixerr").on("c:fire", function() {
+//         var $this = $(this);
+//         if (fixerrRunning) return;
 
-        if ($this.attr("data-switch") == "on") {
-            $this.attr("data-switch", "off");
+//         if ($this.attr("data-switch") == "on") {
+//             $this.attr("data-switch", "off");
 
-            $this.text("关闭中...");
-            setTimeout(function() {
-                fixerrRunning = false;
-                $(".a-comments").remove();
-                clearTimeout(fixerrTimer);
-                $this.text("已关闭");
-            }, 400);
-            return;
-        }
-        $this.attr("data-switch", "on");
-        fixErr();
-        $this.text("开启中...");
-        setTimeout(function() {
-            fixerrRunning = false;
-            $this.text("已开启");
-        }, 400);
-        fixerrTimer = setInterval(function() {
-            decoration.refreshComments();
-        }, 2000);
-    }).trigger("c:fire");
-    /**/
-    function fixErr() { /**/
-        $("<div class='comments-layer' id='commentsLayer'>" +
-            "<p class='comments-btns'>" +
-            "<span class='comments-type-err on'>我要纠错</span>" +
-            "<span class='comments-type-q'>我有话说</span>" +
-            "<i class='icon close'>&#xe624;</i>" +
-            "</p>" +
-            "<div><textarea></textarea></div>" +
-            "<p class='comments-btns comment-btns-right'>" +
-            "<b class='comments-info'></b>" +
-            "<span class='comments-btns-cancel'>取消</span>" +
-            "<span class='comments-btns-submit'>提交</span>" +
-            "</p>" +
-            "</div>").hide().appendTo($("body"));
-        var $layer = $("#commentsLayer");
-        $(".post-content>p").append("<i class='icon a-comments' title='我有疑问' aria-hidden='true'>&#xe607;<b>我要说话</b></i>");
-        $(".a-comments").on("click", function() {
-            var cancelEffect = $(window).width() <= 640;
-            var $p = $(this).parent("p");
-            var pw = $p.width();
-            var ph = $p.height();
-            $(".comments_on").removeClass("comments_on");
-            $p.addClass("comments_on");
-            if ($p.find("#commentsLayer").size()) {
-                $layer.animate({
-                    left: pw + 20
-                }, cancelEffect ? 0 : "fast", function() {
-                    $layer.hide().appendTo($("body"));
-                }).find("textarea").val("");
-                $("#commentsLayer ul").remove();
-                return;
-            }
-            $layer.appendTo($p).show().css({
-                top: cancelEffect ? 0 : ph,
-                left: pw + 20,
-                opacity: 0
-            }).animate({
-                left: -1,
-                opacity: 1
-            }, cancelEffect ? 0 : "fast");
-            // if($layer && $layer[0].scrollIntoView) {
-            //     $layer[0].scrollIntoView();
-            // }
+//             $this.text("关闭中...");
+//             setTimeout(function() {
+//                 fixerrRunning = false;
+//                 $(".a-comments").remove();
+//                 clearTimeout(fixerrTimer);
+//                 $this.text("已关闭");
+//             }, 400);
+//             return;
+//         }
+//         $this.attr("data-switch", "on");
+//         fixErr();
+//         $this.text("开启中...");
+//         setTimeout(function() {
+//             fixerrRunning = false;
+//             $this.text("已开启");
+//         }, 400);
+//         fixerrTimer = setInterval(function() {
+//             decoration.refreshComments();
+//         }, 2000);
+//     }).trigger("c:fire");
+//     /**/
+//     function fixErr() { /**/
+//         $("<div class='comments-layer' id='commentsLayer'>" +
+//             "<p class='comments-btns'>" +
+//             "<span class='comments-type-err on'>我要纠错</span>" +
+//             "<span class='comments-type-q'>我有话说</span>" +
+//             "<i class='icon close'>&#xe624;</i>" +
+//             "</p>" +
+//             "<div><textarea></textarea></div>" +
+//             "<p class='comments-btns comment-btns-right'>" +
+//             "<b class='comments-info'></b>" +
+//             "<span class='comments-btns-cancel'>取消</span>" +
+//             "<span class='comments-btns-submit'>提交</span>" +
+//             "</p>" +
+//             "</div>").hide().appendTo($("body"));
+//         var $layer = $("#commentsLayer");
+//         $(".post-content>p").append("<i class='icon a-comments' title='我有疑问' aria-hidden='true'>&#xe607;<b>我要说话</b></i>");
+//         $(".a-comments").on("click", function() {
+//             var cancelEffect = $(window).width() <= 640;
+//             var $p = $(this).parent("p");
+//             var pw = $p.width();
+//             var ph = $p.height();
+//             $(".comments_on").removeClass("comments_on");
+//             $p.addClass("comments_on");
+//             if ($p.find("#commentsLayer").size()) {
+//                 $layer.animate({
+//                     left: pw + 20
+//                 }, cancelEffect ? 0 : "fast", function() {
+//                     $layer.hide().appendTo($("body"));
+//                 }).find("textarea").val("");
+//                 $("#commentsLayer ul").remove();
+//                 return;
+//             }
+//             $layer.appendTo($p).show().css({
+//                 top: cancelEffect ? 0 : ph,
+//                 left: pw + 20,
+//                 opacity: 0
+//             }).animate({
+//                 left: -1,
+//                 opacity: 1
+//             }, cancelEffect ? 0 : "fast");
+//             // if($layer && $layer[0].scrollIntoView) {
+//             //     $layer[0].scrollIntoView();
+//             // }
 
-            var index = 0;
-            $(".post-content>p").each(function(i) {
-                if ($(this).hasClass("comments_on")) {
-                    index = i;
-                }
-            });
-            var ret = [];
-            $(".ds-comment-body p").each(function() {
-                var text = $(this).text();
-                if (new RegExp("\\/_p" + index + "_t(\\d)").test(text)) {
-                    ret.push({
-                        type: RegExp.$1 == 1 ? " 对小胡子哥说：" : " 的纠错：",
-                        text: text.split(" /_p")[0],
-                        author: $(this).prev().text(),
-                        avatar: $(this).parent().prev().find("img").attr("src")
-                    });
-                }
-            });
-            if (ret.length) {
-                var str = "<ul>";
-                $.each(ret, function(i, item) {
-                    if (item.author == "小胡子哥" && item.avatar.indexOf("1812166904") > -1 && i !== 0) {
-                        var isMe = true;
-                    }
-                    str += '<li' + (isMe ? " style='margin-left:30px'" : "") + '><img src="' +
-                        item.avatar + '" />' + item.author + item.type +
-                        '<div>' + item.text + '</div></li>';
-                });
-                str += '</ul>';
-                $("#commentsLayer").append(str);
-            }
+//             var index = 0;
+//             $(".post-content>p").each(function(i) {
+//                 if ($(this).hasClass("comments_on")) {
+//                     index = i;
+//                 }
+//             });
+//             var ret = [];
+//             $(".ds-comment-body p").each(function() {
+//                 var text = $(this).text();
+//                 if (new RegExp("\\/_p" + index + "_t(\\d)").test(text)) {
+//                     ret.push({
+//                         type: RegExp.$1 == 1 ? " 对小胡子哥说：" : " 的纠错：",
+//                         text: text.split(" /_p")[0],
+//                         author: $(this).prev().text(),
+//                         avatar: $(this).parent().prev().find("img").attr("src")
+//                     });
+//                 }
+//             });
+//             if (ret.length) {
+//                 var str = "<ul>";
+//                 $.each(ret, function(i, item) {
+//                     if (item.author == "小胡子哥" && item.avatar.indexOf("1812166904") > -1 && i !== 0) {
+//                         var isMe = true;
+//                     }
+//                     str += '<li' + (isMe ? " style='margin-left:30px'" : "") + '><img src="' +
+//                         item.avatar + '" />' + item.author + item.type +
+//                         '<div>' + item.text + '</div></li>';
+//                 });
+//                 str += '</ul>';
+//                 $("#commentsLayer").append(str);
+//             }
 
-        });
-        $(".comments-type-err, .comments-type-q").on("click", function() {
-            $(this).parent().find("span").removeClass("on");
-            $(this).addClass("on");
-        });
-        $(".comments-btns-submit, .comments-btns-cancel, .comments-btns .close").on("click", function() {
-            var index = "_p0";
-            if ($(this).hasClass("comments-btns-submit")) {
-                $(".post-content>p").each(function(i) {
-                    if ($(this).hasClass("comments_on")) {
-                        index = "_p" + i;
-                    }
-                });
-                var $cmt = $(".comments_on .a-comments");
-                if ($cmt.attr("data-num")) {
-                    $cmt.attr("data-num", +$cmt.attr("data-num") + 1);
-                } else {
-                    $cmt.attr("data-num", 1).addClass("a-comments_on");
-                }
+//         });
+//         $(".comments-type-err, .comments-type-q").on("click", function() {
+//             $(this).parent().find("span").removeClass("on");
+//             $(this).addClass("on");
+//         });
+//         $(".comments-btns-submit, .comments-btns-cancel, .comments-btns .close").on("click", function() {
+//             var index = "_p0";
+//             if ($(this).hasClass("comments-btns-submit")) {
+//                 $(".post-content>p").each(function(i) {
+//                     if ($(this).hasClass("comments_on")) {
+//                         index = "_p" + i;
+//                     }
+//                 });
+//                 var $cmt = $(".comments_on .a-comments");
+//                 if ($cmt.attr("data-num")) {
+//                     $cmt.attr("data-num", +$cmt.attr("data-num") + 1);
+//                 } else {
+//                     $cmt.attr("data-num", 1).addClass("a-comments_on");
+//                 }
 
-                var type = "_t" + ($(".comments-type-err").hasClass("on") ? 0 : 1);
-                var val = $layer.find("textarea").val();
-                if (!$.trim(val)) {
-                    $(".comments-info").text("内容不能为空，亲~").hide().fadeIn("fast");
-                    return;
-                }
-                val += " /" + index + type;
-                $("textarea[name='message']").val(val);
-                $(".ds-post-button").trigger('click');
-                var $target = $("#ds-wrapper");
-                if ($target.size()) {
-                    var $clone = $target.clone(true).addClass("ds-wrapper-clone");
-                    $clone.css("opacity", 1).appendTo($("body"));
-                    $clone.find("button[type='submit']").off().on("click", function() {
-                        var author = $("#ds-dialog-name").val();
-                        var $form = $(".ds-replybox form");
-                        $form.find("input[name='author_name']").remove();
-                        $form.append("<input type='hidden' name='author_name' value='" + author + "'>");
-                        $.post("http://barretlee.duoshuo.com/api/posts/create.json", $form.serialize(), function() {
-                            $clone.remove();
-                            $(".comments-info").text("提交成功").hide().fadeIn("fast");
-                            setTimeout(function() {
-                                postSuccess();
-                            }, 600);
-                        });
-                    });
-                    $clone.find(".ds-dialog-close").off().on("click", function() {
-                        $clone.remove();
-                    });
-                } else {
-                    $(".comments-info").text("提交成功").hide().fadeIn("fast");
-                    setTimeout(function() {
-                        postSuccess();
-                    }, 600);
-                }
-                return;
+//                 var type = "_t" + ($(".comments-type-err").hasClass("on") ? 0 : 1);
+//                 var val = $layer.find("textarea").val();
+//                 if (!$.trim(val)) {
+//                     $(".comments-info").text("内容不能为空，亲~").hide().fadeIn("fast");
+//                     return;
+//                 }
+//                 val += " /" + index + type;
+//                 $("textarea[name='message']").val(val);
+//                 $(".ds-post-button").trigger('click');
+//                 var $target = $("#ds-wrapper");
+//                 if ($target.size()) {
+//                     var $clone = $target.clone(true).addClass("ds-wrapper-clone");
+//                     $clone.css("opacity", 1).appendTo($("body"));
+//                     $clone.find("button[type='submit']").off().on("click", function() {
+//                         var author = $("#ds-dialog-name").val();
+//                         var $form = $(".ds-replybox form");
+//                         $form.find("input[name='author_name']").remove();
+//                         $form.append("<input type='hidden' name='author_name' value='" + author + "'>");
+//                         $.post("http://barretlee.duoshuo.com/api/posts/create.json", $form.serialize(), function() {
+//                             $clone.remove();
+//                             $(".comments-info").text("提交成功").hide().fadeIn("fast");
+//                             setTimeout(function() {
+//                                 postSuccess();
+//                             }, 600);
+//                         });
+//                     });
+//                     $clone.find(".ds-dialog-close").off().on("click", function() {
+//                         $clone.remove();
+//                     });
+//                 } else {
+//                     $(".comments-info").text("提交成功").hide().fadeIn("fast");
+//                     setTimeout(function() {
+//                         postSuccess();
+//                     }, 600);
+//                 }
+//                 return;
 
-            }
-            postSuccess();
-        });
+//             }
+//             postSuccess();
+//         });
 
-        function postSuccess() {
-            $layer.fadeOut("fast", function() {
-                $layer.appendTo($("body"));
-            }).find("textarea").val("");
-            $("#commentsLayer ul").remove();
-            $(".comments-info").text("");
-            decoration.refreshComments();
-        }
-        /**/
-    } /**/
-});
+//         function postSuccess() {
+//             $layer.fadeOut("fast", function() {
+//                 $layer.appendTo($("body"));
+//             }).find("textarea").val("");
+//             $("#commentsLayer ul").remove();
+//             $(".comments-info").text("");
+//             decoration.refreshComments();
+//         }
+//         /**/
+//     } /**/
+// });
 
 
 // just for fun.
