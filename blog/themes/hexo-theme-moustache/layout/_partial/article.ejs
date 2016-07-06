@@ -30,18 +30,18 @@
           <img src="http://www.barretlee.com/blogimgs/avatar150.png">
         </div>
         <%- page.content %>
-        <p class="this-page-link" aria-hidden="true">本文链接：<a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a></p>
-        <p><a class="to-comments" href="<%- config.url %><%- url_for(page.path) %>#comments" aria-hidden="true">☞ 参与评论</a></p>
+        <!-- <p class="this-page-link" aria-hidden="true">本文链接：<a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a></p>
+        <p><a class="to-comments" href="<%- config.url %><%- url_for(page.path) %>#comments" aria-hidden="true">☞ 参与评论</a></p> -->
       </div>
     </div>
     <%- partial('post/warning') %>
-    <%- partial('post/copyright') %>
     <div class="share-article clearfix">
-    <%var excerpt = page.excerpt.replace(/<[^>]+?>|\n/gm, '') || page.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 110) + "...";%>
-    <div class="ds-share" data-thread-key="<%- page.slug || page.path %>" data-title="<%= page.title %>" data-images="<%- post.images %>" data-content="<%- excerpt %>" data-url="<%- config.url %><%- url_for(page.path) %>">
-      <%- partial('post/duoshuoShare') %>
+      <%var excerpt = page.excerpt.replace(/<[^>]+?>|\n/gm, '') || page.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 110) + "...";%>
+      <div class="ds-share" data-thread-key="<%- page.slug || page.path %>" data-title="<%= page.title %>" data-images="<%- post.images %>" data-content="<%- excerpt %>" data-url="<%- config.url %><%- url_for(page.path) %>">
+        <%- partial('post/duoshuoShare') %>
+      </div>
     </div>
-    </div>
+    <%- partial('post/copyright') %>
     <em class="arrow-expend icon" tabindex="0" aria-hidden="true">&#xe618;
       <ul>
         <li><a href="<%- url_for("/entry/") %>">博客</a></li>
