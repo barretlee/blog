@@ -345,7 +345,7 @@ var operation = {
             var $target = $(".footer-nav a").eq(0);
             !$target.attr("id") && $target.trigger("click");
         }
-        $(window).on("load, hashchange", function() {
+        $(window).on("load", function() {
             var hash = window.location.hash;
             if (hash && hash === "#comments") {
                 $(".hash-to-comments").trigger("click");
@@ -1388,15 +1388,15 @@ $(function() {
             url: window.location.href
         }, '', window.location.href);
     }
-    var pageCache = window.pageCache = window.pageCache || {};
+    // var pageCache = window.pageCache = window.pageCache || {};
     function pjax(url) {
         history.pushState({
             url: url
         }, '', url);
 
-        if(pageCache[url]) {
-            return render(pageCache[url]);;
-        }
+        // if(pageCache[url]) {
+        //     return render(pageCache[url]);;
+        // }
 
         // var loadingWords = ['伸个懒腰再来~', '打个呵欠再来~', '加载中...', '玩命加载中...', '同学，你很帅！', '这是 Pjax 效果；）', '不要问我这是啥!', '我在加载...', '客官稍等~', '欢迎继续踩点！', '我认识你！', '咱们是不是认识？', '这玩意儿有点意思！', '出 bug 了', '是否有帮到你？', '大家好，我是小胡子', '吃饭了么？'];
         // var word = loadingWords[Math.floor(Math.random() * loadingWords.length)];
@@ -1414,11 +1414,14 @@ $(function() {
                 window.location.href = url;
                 return;
             }
-            pageCache[url] = {
+            // pageCache[url] = {
+            //     title: title,
+            //     body: body
+            // };
+            render({
                 title: title,
                 body: body
-            };
-            render(pageCache[url]);
+            });
         }).fail(function() {
             window.location.href = url;
         });
@@ -1449,6 +1452,14 @@ $(function() {
             operation.insertWeibo();
         }
         $(window).trigger('load');
+        if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
+            roundScroll();
+        } else {
+            if($.inArray(window.location.hash.slice(1), ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'])) {
+            window.location.hash = "";
+            }
+            window.rTimer && clearInterval(window.rTimer);
+        }
     }
     window.onpopstate = function() {
         var currentState = history.state;
@@ -1476,4 +1487,20 @@ $(function() {
             }
         });
     });
+
+    if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
+        roundScroll();
+    } else {
+        if($.inArray(window.location.hash.slice(1), ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'])) {
+            window.location.hash = "";
+        }
+        window.rTimer && clearInterval(window.rTimer);
+    }
+    function roundScroll() {
+        var round = ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'], i = 0, len = round.length;
+        window.rTimer && clearInterval(window.rTimer);
+        window.rTimer = setInterval(function(){
+          history.replaceState({}, '', '#' + round[i % len]); i++;
+        }, 120);
+    }
 })();

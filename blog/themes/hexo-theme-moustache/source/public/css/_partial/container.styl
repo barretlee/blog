@@ -1,6 +1,24 @@
 /*=======================================
                 container
 ========================================*/
+.bread {
+  text-align: right;
+  position: absolute;
+  left: -210px;
+  top: -50px;
+  border-left: 4px solid #7b9ac9;
+  padding-left: 20px;
+  line-height: 24px;
+  color: #999;
+  a {
+    position: static;
+    color: #a8a8a8;
+    &:hover {
+      color: #4a75b5;
+      text-decoration: none;
+    }
+  }
+}
 .container {
   max-width: 800px;
   _width: 800px;
@@ -10,7 +28,7 @@
   word-wrap: break-word;
 }
 .article {
-  padding: 70px 40px 0px;
+  padding: 90px 40px 60px;
   position: relative;
 }
 .post ul, .post ol {margin: 25px 0 25px 35px;}
@@ -25,6 +43,7 @@
 .post {
   font-size: 18px;
   line-height: 30px;
+  position: relative;
 }
 .post .highlight {
   position: relative;
@@ -187,16 +206,19 @@ table td, table th {
 
 .post-relative {
   overflow: hidden;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
   font-weight: bold;
 }
-.post-prev, .post-next b {
+.post-prev, .post-next {
   max-width: 330px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   display: inline-block;
   vertical-align: middle;
+}
+.post-prev, .post-next {
+  font-size: 20px;
 }
 .post-prev {
   float: left;
