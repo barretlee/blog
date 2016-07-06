@@ -1449,12 +1449,6 @@ $(function() {
             operation.insertWeibo();
         }
         $(window).trigger('load');
-        // var hash = window.location.hash;
-        // if(hash) {
-        //     $('body').animate({
-        //         scrollTop: $(hash).offset().top
-        //     });
-        // }
     }
     window.onpopstate = function() {
         var currentState = history.state;
