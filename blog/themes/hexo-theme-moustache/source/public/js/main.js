@@ -18,7 +18,6 @@ var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer) && !$
     }
     if(text) {
         $(".rainbow")
-            .removeClass('rainbow')
             .addClass('notice')
             .text('您还在使用百度搜索，请珍爱生命，远离百度！')
             .hide()
