@@ -335,10 +335,15 @@ var operation = {
         });
         !$(".post").size() && $(".sharecanvas").hide();
 
+        var hash = window.location.hash;
+        if(hash && $(hash).size()) {
+            $('body').animate({
+                scrollTop: $(hash).offset().top
+            });
+        }
         if (/#comments/.test(window.location.href)) {
             var $target = $(".footer-nav a").eq(0);
             !$target.attr("id") && $target.trigger("click");
-            window.location.href = "#comments";
         }
         $(window).on("load, hashchange", function() {
             var hash = window.location.hash;
@@ -1385,9 +1390,8 @@ $(function() {
     }
     var pageCache = window.pageCache = window.pageCache || {};
     function pjax(url) {
-
         if(pageCache[url]) {
-            return render(pageCache[url]);
+            return render(pageCache[url]);;
         }
 
         history.pushState({
@@ -1445,6 +1449,12 @@ $(function() {
             operation.insertWeibo();
         }
         $(window).trigger('load');
+        // var hash = window.location.hash;
+        // if(hash) {
+        //     $('body').animate({
+        //         scrollTop: $(hash).offset().top
+        //     });
+        // }
     }
     window.onpopstate = function() {
         var currentState = history.state;
