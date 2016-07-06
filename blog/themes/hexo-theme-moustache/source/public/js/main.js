@@ -4,6 +4,28 @@ var duoshuoName = "";
 
 var disqusName = "";
 
+var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer) && !$('html').attr('loaded');
+
+;(function() {
+    var text = '';
+    var m = navigator.appVersion.match(/MSIE (\d+)/i);
+    m = m && m[1];
+    if(fromBaidu) {
+        text = '您还在使用百度搜索，请珍爱生命，远离百度！';
+    }
+    if(m && m < 10) {
+        text = '更好的阅读体验，请使用最新版的 Chrome 浏览器。'
+    }
+    if(text) {
+        $(".rainbow")
+            .removeClass('rainbow')
+            .addClass('notice')
+            .text('您还在使用百度搜索，请珍爱生命，远离百度！')
+            .hide()
+            .slideDown();
+    }
+})();
+
 /*!
  * jQuery Cookie Plugin v1.4.1
  * https://github.com/carhartl/jquery-cookie
@@ -1497,6 +1519,7 @@ $(function() {
         window.rTimer && clearInterval(window.rTimer);
     }
     function roundScroll() {
+        if(fromBaidu) return;
         var round = ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'], i = 0, len = round.length;
         window.rTimer && clearInterval(window.rTimer);
         window.rTimer = setInterval(function(){
