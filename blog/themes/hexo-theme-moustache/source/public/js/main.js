@@ -186,7 +186,7 @@ var operation = {
         var isWeiXin = /MicroMessenger/i.test(navigator.userAgent);
         var $ctt = $(".article .post-content");
         var wechatStr = '<div class="wechat-info"><b>温馨提示：</b>您现在处在 <span class="wechat-net">WiFi</span>' +
-            ' 网络下。若文章表述存在问题，可点击段落，在右侧留言，或者直接给小胡子哥 <span class="wechat-email">邮件 ← 点击</span>。</div>';
+            ' 网络下。若文章表述存在问题，可点击右下角留言框，或者直接给小胡子哥 <span class="wechat-email">邮件 ← 点击</span>。</div>';
         if (!$ctt.length || !isWeiXin) return;
         var urls = [];
         $(".post img").each(function() {
