@@ -16,7 +16,7 @@ $(function() {
     if(m && m < 10) {
         text = "更好的阅读体验，请使用最新版的 Chrome 浏览器。<a href='javascript:void(0);' class='close'>关闭</a>";
     }
-    if(text) {
+    if(text && !$('html').attr('loaded')) {
         $(".rainbow").addClass('notice').html(text).hide().fadeIn();
     }
 });
@@ -724,10 +724,12 @@ var decoration = {
             // console.log("\n\n\n\n\n\n\n\n\n\n%c", "background:url('" + url + "/avatar150.png'); background-repeat:no-repeat; font-size:0; line-height:30px; padding-top:150px;padding-left:150px;");
             // console.log("欢迎踩点小胡子哥的博客，在这里与你一起分享生活，分享技术。%c\n联系方式: http://barretlee.com/about/", "color:red");
             $(window).on("load", function() {
-                if($('html').attr('loaded') != 1) {
-                    $('html').attr('loaded', 1);
-                    $.getScript("/console.js");
-                }
+                setTimeout(function() {
+                    if($('html').attr('loaded') != 1) {
+                        $('html').attr('loaded', 1);
+                        $.getScript("/console.js");
+                    }
+                }, 200);
             });
         }
     },
