@@ -6,7 +6,7 @@ var disqusName = "";
 
 var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
 
-;(function() {
+$(function() {
     var text = '';
     var m = navigator.appVersion.match(/MSIE (\d+)/i);
     m = m && m[1];
@@ -19,7 +19,7 @@ var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
     if(text) {
         $(".rainbow").addClass('notice').html(text).hide().fadeIn();
     }
-})();
+});
 
 /*!
  * jQuery Cookie Plugin v1.4.1
