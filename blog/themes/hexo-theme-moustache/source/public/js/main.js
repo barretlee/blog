@@ -4,10 +4,11 @@ var duoshuoName = "";
 
 var disqusName = "";
 
-var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer) && !$('html').attr('loaded');
+var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
 
 ;(function() {
     var text = '';
+    var loaded = !$('html').attr('loaded');
     var m = navigator.appVersion.match(/MSIE (\d+)/i);
     m = m && m[1];
     if(fromBaidu) {
@@ -16,12 +17,8 @@ var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer) && !$
     if(m && m < 10) {
         text = '更好的阅读体验，请使用最新版的 Chrome 浏览器。'
     }
-    if(text) {
-        $(".rainbow")
-            .addClass('notice')
-            .text('您还在使用百度搜索，请珍爱生命，远离百度！')
-            .hide()
-            .slideDown();
+    if(text && !loaded) {
+        $(".rainbow").addClass('notice').text(text).hide().slideDown();
     }
 })();
 
