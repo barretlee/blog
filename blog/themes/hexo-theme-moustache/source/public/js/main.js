@@ -1497,6 +1497,7 @@ $(function() {
                 && href.indexOf('#') == -1
                 && !/^\/(ST|tools)/i.test(location.pathname)
                 && !$(this).parent('#indexLogo').size()
+                && !/\.(jpg|jpeg|png|gif|js|css|woff|ttf)(\?.*)?$/.test(href)
                 && !evt.metaKey && !evt.ctrlKey) {
                 evt.preventDefault();
                 if(window.console && window.console.info) {
