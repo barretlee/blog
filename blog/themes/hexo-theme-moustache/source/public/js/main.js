@@ -183,13 +183,15 @@ var operation = {
         var $ctt = $(".article .post-content");
         var wechatStr = '<div class="wechat-info"><b>温馨提示：</b>您现在处在 <span class="wechat-net">WiFi</span>' +
             ' 网络下。若文章表述存在问题，可点击右下角留言框，或者直接给小胡子哥 <span class="wechat-email">邮件 ← 点击</span>。</div>';
+        if(isWeiXin) {
+            $(".alipay, .wechatpay i").hide();
+            $(".wechatpay b").css('display', 'block');
+        }
         if (!$ctt.length || !isWeiXin) return;
         var urls = [];
         $(".post img").each(function() {
             urls.push($(this).attr('src'));
         });
-        $(".alipay, .wechatpay i").hide();
-        $(".wechatpay b").css('display', 'block');
         $.getScript("/public/js/wechat.js", function() {
             $ctt.prepend(wechatStr);
             wechat('network', function(res) {
