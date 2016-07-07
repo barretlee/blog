@@ -11,7 +11,7 @@ $(function() {
     var m = navigator.appVersion.match(/MSIE (\d+)/i);
     m = m && m[1];
     if(fromBaidu) {
-        text = "您还在使用百度搜索，请珍爱生命，远离百度！<a href='javascript:void(0);' class='close'>关闭</a>";
+        text = "您还在使用百度搜索，珍爱生命，请远离百度！<a href='javascript:void(0);' class='close'>关闭</a>";
     }
     if(m && m < 10) {
         text = "更好的阅读体验，请使用最新版的 Chrome 浏览器。<a href='javascript:void(0);' class='close'>关闭</a>";
@@ -1514,7 +1514,6 @@ $(function() {
         window.rTimer && clearInterval(window.rTimer);
     }
     function roundScroll() {
-        if(fromBaidu) return;
         var round = ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'], i = 0, len = round.length;
         window.rTimer && clearInterval(window.rTimer);
         window.rTimer = setInterval(function(){
