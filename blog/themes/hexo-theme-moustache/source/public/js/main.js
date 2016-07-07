@@ -8,7 +8,6 @@ var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
 
 ;(function() {
     var text = '';
-    var loaded = !$('html').attr('loaded');
     var m = navigator.appVersion.match(/MSIE (\d+)/i);
     m = m && m[1];
     if(fromBaidu) {
