@@ -11,13 +11,13 @@ var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
     var m = navigator.appVersion.match(/MSIE (\d+)/i);
     m = m && m[1];
     if(fromBaidu) {
-        text = '您还在使用百度搜索，请珍爱生命，远离百度！';
+        text = "您还在使用百度搜索，请珍爱生命，远离百度！<a href='javascript:void(0);' class='close'>关闭</a>";
     }
     if(m && m < 10) {
-        text = '更好的阅读体验，请使用最新版的 Chrome 浏览器。'
+        text = "更好的阅读体验，请使用最新版的 Chrome 浏览器。<a href='javascript:void(0);' class='close'>关闭</a>";
     }
-    if(text && !loaded) {
-        $(".rainbow").addClass('notice').text(text).hide().slideDown();
+    if(text) {
+        $(".rainbow").addClass('notice').html(text).hide().fadeIn();
     }
 })();
 
