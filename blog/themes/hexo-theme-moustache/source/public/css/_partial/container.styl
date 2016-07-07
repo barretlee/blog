@@ -38,14 +38,15 @@ h1 {
     padding: 2px;
     font-size: 0;
     margin-top: 16px;
+    opacity: 1 !important;
+    z-index: 1;
   }
   &:hover img {
     width: 200px;
     height: 200px;
     z-index: 20;
     cursor: none;
-    box-shadow: 1px 1px 2px #CCC;
-    border-radius: 2px;
+    box-shadow: 1px 1px 2px #eee;
     background: #FFF;
     transition: all 0.1s;
   }
@@ -106,6 +107,9 @@ h1 {
   color: #808080;
   font-weight: bold;
   margin-bottom: 25px;
+  position: relative;
+  z-index: 10;
+  background: #FFF;
 }
 .post-info span {
   display: inline-block;
@@ -254,6 +258,9 @@ table td, table th {
 .share-article {
   *overflow: hidden;
   margin: 40px 0;
+  .ds-share {
+    float: right;
+  }
 }
 .share-article h2 {
   font-family: Simsun, "Microsoft Yahei";
@@ -330,7 +337,7 @@ table td, table th {
   border-bottom: 1px dashed #CCC;
   padding: 30px 55px;
   background: #F8F8F8;
-  margin-top: 45px;
+  margin-top: 65px;
   position: relative;
   font-size: 14px;
   margin-left: -40px;

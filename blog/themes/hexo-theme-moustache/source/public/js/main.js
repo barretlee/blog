@@ -188,6 +188,8 @@ var operation = {
         $(".post img").each(function() {
             urls.push($(this).attr('src'));
         });
+        $(".alipay, .wechatpay i").hide();
+        $(".wechatpay b").css('display', 'block');
         $.getScript("/public/js/wechat.js", function() {
             $ctt.prepend(wechatStr);
             wechat('network', function(res) {
@@ -1039,7 +1041,7 @@ $(function() {
         img.src = $c.attr("src");
     };
 
-    $(".post-content img").css("cursor", "zoom-in").on("click", function(evt) {
+    $(".post-content img, .pay img").css("cursor", "zoom-in").off().on("click", function(evt) {
         if (isMobile.any()) {
             return;
         }
@@ -1474,9 +1476,9 @@ $(function() {
         if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
             roundScroll();
         } else {
-            if($.inArray(window.location.hash.slice(1), ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'])) {
-            window.location.hash = "";
-            }
+            // if($.inArray(window.location.hash.slice(1), ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'])) {
+            //     window.location.hash = "";
+            // }
             window.rTimer && clearInterval(window.rTimer);
         }
     }
@@ -1511,9 +1513,9 @@ $(function() {
     if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
         roundScroll();
     } else {
-        if($.inArray(window.location.hash.slice(1), ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'])) {
-            window.location.hash = "";
-        }
+        // if($.inArray(window.location.hash.slice(1), ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'])) {
+        //     window.location.hash = "";
+        // }
         window.rTimer && clearInterval(window.rTimer);
     }
     function roundScroll() {
