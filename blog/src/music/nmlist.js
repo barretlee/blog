@@ -76,6 +76,9 @@ var style = function() {/*
     color: rgb(255, 68, 0);
     content: attr(data-pause);
   }
+  #nmlist li.on img {
+    -webkit-filter: blur(2px);
+  }
   #nmlist li.play:after {
     opacity: 1;
     color: rgb(255, 68, 0);

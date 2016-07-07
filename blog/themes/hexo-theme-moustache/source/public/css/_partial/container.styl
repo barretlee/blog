@@ -261,6 +261,12 @@ table td, table th {
   margin: 40px 0;
   .ds-share {
     float: right;
+    transition: all 0.2s;
+    -webkit-filter: grayscale(1);
+    &:hover {
+      transition: all 0.2s;
+      -webkit-filter: grayscale(0);
+    }
   }
 }
 .share-article h2 {
