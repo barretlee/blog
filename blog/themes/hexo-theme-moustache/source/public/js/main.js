@@ -1043,7 +1043,7 @@ $(function() {
         img.src = $c.attr("src");
     };
 
-    $(".post-content img, .pay img, .site-avatar img")
+    $(".post-content img, .pay img, .site-avatar img, .follow-wechat img")
         .css("cursor", "zoom-in").off().on("click", function(evt) {
         if (isMobile.any()) {
             return;
