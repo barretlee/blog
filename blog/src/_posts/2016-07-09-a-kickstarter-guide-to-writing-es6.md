@@ -10,6 +10,7 @@ date: 2016-07-09 14:30:40
 description: ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快很多，主要原因是现代浏览器对 ES6 的支持相当迅速，尤其是 Chrome 和 Firefox 浏览器，已经支持 ES6 中绝大多数的特性。
 ---
 
+
 ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快很多，主要原因是现代浏览器对 ES6 的支持相当迅速，尤其是 Chrome 和 Firefox 浏览器，已经支持 ES6 中绝大多数的特性。
 
 ![https://unsplash.com/photos/iCtJF-A5hvs by Jeff Hopper](http://ww1.sinaimg.cn/large/6c0378f8gw1f5npzp64c0j20p00dw77u.jpg)
@@ -25,8 +26,8 @@ ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快�
 ```javascript
 var a = 2;
 {
-    let a = 3;
-    console.log(a); // 3
+  let a = 3;
+  console.log(a); // 3
 }
 console.log(a); // 2
 ```
@@ -35,10 +36,10 @@ console.log(a); // 2
 
 ```javascript
 {
-    const ARR = [5,6];
-    ARR.push(7);
-    console.log(ARR); // [5,6,7]
-    ARR = 10; // TypeError
+  const ARR = [5,6];
+  ARR.push(7);
+  console.log(ARR); // [5,6,7]
+  ARR = 10; // TypeError
 }
 ```
 
@@ -55,7 +56,7 @@ ES6 中，箭头函数就是函数的一种简写形式，使用括号包裹参�
 
 ```javascript
 var getPrice = function() {
-    return 4.55;
+  return 4.55;
 };
 
 // Implementation with Arrow Function
@@ -68,7 +69,7 @@ var getPrice = () => 4.55;
 let arr = ['apple', 'banana', 'orange'];
 
 let breakfast = arr.map(fruit => {
-    return fruit + 's';
+  return fruit + 's';
 });
 
 console.log(breakfast); // apples bananas oranges
@@ -78,12 +79,12 @@ console.log(breakfast); // apples bananas oranges
 
 ```javascript
 function Person() {
-    this.age = 0;
+  this.age = 0;
 
-    setInterval(function growUp() {
-        // 在非严格模式下，growUp() 函数的 this 指向 window 对象
-        this.age++;
-    }, 1000);
+  setInterval(function growUp() {
+    // 在非严格模式下，growUp() 函数的 this 指向 window 对象
+    this.age++;
+  }, 1000);
 }
 var person = new Person();
 ```
@@ -92,12 +93,12 @@ var person = new Person();
 
 ```javascript
 function Person() {
-    var self = this;
-    self.age = 0;
+  var self = this;
+  self.age = 0;
 
-    setInterval(function growUp() {
-        self.age++;
-    }, 1000);
+  setInterval(function growUp() {
+    self.age++;
+  }, 1000);
 }
 ```
 
@@ -105,12 +106,12 @@ function Person() {
 
 ```javascript
 function Person(){
-    this.age = 0;
+  this.age = 0;
 
-    setInterval(() => {
-        // |this| 指向 person 对象
-        this.age++;
-    }, 1000);
+  setInterval(() => {
+    // |this| 指向 person 对象
+    this.age++;
+  }, 1000);
 }
 
 var person = new Person();
@@ -135,7 +136,7 @@ Spread / Rest 操作符指的是 `...`，具体是 Spread 还是 Rest 需要看�
 
 ```javascript
 function foo(x,y,z) {
-    console.log(x,y,z);
+  console.log(x,y,z);
 }
 
 let arr = [1,2,3];
@@ -146,7 +147,7 @@ foo(...arr); // 1 2 3
 
 ```javascript
 function foo(...args) {
-    console.log(args);
+  console.log(args);
 }
 foo( 1, 2, 3, 4, 5); // [1, 2, 3, 4, 5]
 ```
@@ -157,20 +158,20 @@ ES6 允许声明在对象字面量时使用简写语法，来初始化属性变�
 
 ```javascript
 function getCar(make, model, value) {
-    return {
-        // 简写变量
-        make,  // 等同于 make: make
-        model, // 等同于 model: model
-        value, // 等同于 value: value
+  return {
+    // 简写变量
+    make,  // 等同于 make: make
+    model, // 等同于 model: model
+    value, // 等同于 value: value
 
-        // 属性可以使用表达式计算值
-        ['make' + make]: true,
+    // 属性可以使用表达式计算值
+    ['make' + make]: true,
 
-        // 忽略 `function` 关键词简写对象函数
-        depreciate() {
-            this.value -= 2500;
-        }
-    };
+    // 忽略 `function` 关键词简写对象函数
+    depreciate() {
+      this.value -= 2500;
+    }
+  };
 }
 
 let car = getCar('Barret', 'Lee', 40000);
@@ -202,7 +203,7 @@ console.log(bValue); // 2
 
 ```javascript
 function foo() {
-    return [1,2,3];
+  return [1,2,3];
 }
 let arr = foo(); // [1,2,3]
 
@@ -210,11 +211,11 @@ let [a, b, c] = foo();
 console.log(a, b, c); // 1 2 3
 
 function bar() {
-    return {
-        x: 4,
-        y: 5,
-        z: 6
-    };
+  return {
+    x: 4,
+    y: 5,
+    z: 6
+  };
 }
 let {x: x, y: y, z: z} = bar();
 console.log(x, y, z); // 4 5 6
@@ -226,16 +227,16 @@ ES6 允许在对象中使用 `super` 方法：
 
 ```javascript
 var parent = {
-    foo() {
-        console.log("Hello from the Parent");
-    }
+  foo() {
+    console.log("Hello from the Parent");
+  }
 }
 
 var child = {
-    foo() {
-        super.foo();
-        console.log("Hello from the Child");
-    }
+  foo() {
+    super.foo();
+    console.log("Hello from the Child");
+  }
 }
 
 Object.setPrototypeOf(child, parent);
@@ -262,7 +263,7 @@ console.log(`Hi ${user}!`); // Hi Barret!
 let nicknames = ['di', 'boo', 'punkeye'];
 nicknames.size = 3;
 for (let nickname of nicknames) {
-    console.log(nickname);
+  console.log(nickname);
 }
 Result: di, boo, punkeye
 ```
@@ -272,7 +273,7 @@ Result: di, boo, punkeye
 let nicknames = ['di', 'boo', 'punkeye'];
 nicknames.size = 3;
 for (let nickname in nicknames) {
-    console.log(nickname);
+  console.log(nickname);
 }
 Result: 0, 1, 2, size
 ```
@@ -392,17 +393,17 @@ ES6 中有 class 语法。值得注意是，这里的 class 不是新的对象�
 
 ```javascript
 class Task {
-    constructor() {
-        console.log("task instantiated!");
-    }
+  constructor() {
+    console.log("task instantiated!");
+  }
 
-    showId() {
-        console.log(23);
-    }
+  showId() {
+    console.log(23);
+  }
 
-    static loadAll() {
-        console.log("Loading all tasks..");
-    }
+  static loadAll() {
+    console.log("Loading all tasks..");
+  }
 }
 
 console.log(typeof Task); // function
@@ -415,16 +416,16 @@ Task.loadAll(); // "Loading all tasks.."
 
 ```javascript
 class Car {
-    constructor() {
-        console.log("Creating a new car");
-    }
+  constructor() {
+    console.log("Creating a new car");
+  }
 }
 
 class Porsche extends Car {
-    constructor() {
-        super();
-        console.log("Creating Porsche");
-    }
+  constructor() {
+    super();
+    console.log("Creating Porsche");
+  }
 }
 
 let c = new Porsche();
@@ -496,10 +497,10 @@ Generator 函数是 ES6 的新特性，它允许一个函数返回的可遍历�
 
 ```javascript
 function *infiniteNumbers() {
-    var n = 1;
-    while (true){
-        yield n++;
-    }
+  var n = 1;
+  while (true){
+    yield n++;
+  }
 }
 
 var numbers = infiniteNumbers(); // returns an iterable object
@@ -517,12 +518,13 @@ ES6 对 Promise 有了原生的支持，一个 Promise 是一个等待被异步�
 
 ```javascript
 var p = new Promise(function(resolve, reject) {  
-    if (/* condition */) {
-        resolve(/* value */);  // fulfilled successfully
-    }
-    else {
-        reject(/* reason */);  // error, rejected
-    }
+  if (/* condition */) {
+    // fulfilled successfully
+    resolve(/* value */);  
+  } else {
+    // error, rejected
+    reject(/* reason */);  
+  }
 });
 ```
 
