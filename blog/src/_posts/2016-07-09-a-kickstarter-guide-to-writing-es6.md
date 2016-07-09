@@ -258,7 +258,8 @@ console.log(`Hi ${user}!`); // Hi Barret!
 
 ### 10. `for...of` VS `for...in`
 
-- `for...of` 用于遍历一个迭代器，如数组：
+`for...of` 用于遍历一个迭代器，如数组：
+
 ```javascript
 let nicknames = ['di', 'boo', 'punkeye'];
 nicknames.size = 3;
@@ -268,7 +269,8 @@ for (let nickname of nicknames) {
 Result: di, boo, punkeye
 ```
 
-- `for...in` 用来遍历对象中的属性
+`for...in` 用来遍历对象中的属性：
+
 ```javascript
 let nicknames = ['di', 'boo', 'punkeye'];
 nicknames.size = 3;
