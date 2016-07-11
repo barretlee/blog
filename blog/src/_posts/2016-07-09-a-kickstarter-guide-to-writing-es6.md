@@ -180,7 +180,7 @@ let car = getCar('Barret', 'Lee', 40000);
 //     make: 'Barret',
 //     model:'Lee',
 //     value: 40000,
-//     makeKia: true,
+//     makeBarret: true,
 //     depreciate: function()
 // }
 ```

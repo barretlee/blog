@@ -22,7 +22,7 @@
 </div>
 <%- partial("../_partial/sidebar") %>
 <script>
-$(function(){
+window.onload = function() {
   try {
     var arr = JSON.parse(localStorage.getItem('__guests__'));
     var ret = {};
@@ -198,6 +198,8 @@ $(function(){
     }
   };
 
-  window.commentVisitor = new CommentVisitor();
-});
+  setTimeout(function() {
+    window.commentVisitor = new CommentVisitor();
+  }, 1E3);
+};
 </script>
