@@ -67,7 +67,8 @@ deploy:
 	open ${WEB};
 	git add --all; \
 	git commit -am "backup"; \
-	git push origin master;
+	git push origin master -f; \
+	git push coding master -f;
 
 # 备份内容
 backup:
