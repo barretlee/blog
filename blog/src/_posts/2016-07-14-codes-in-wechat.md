@@ -45,7 +45,7 @@ date: 2016-07-14 00:00:01
 
 `Markdown Here` 是一款 Chrome 插件，顾名思义，就是将你写的 Markdown 直接转为 HTML 代码，我做了一个演示图片：
 
-![markdown here](https://mmbiz.qlogo.cn/mmbiz/0pGFqYicBZm2PEeLCTz1BacckDAQKGlWyepoNVttjB6OI3I2aGGmczbpAiamrFUZz2QnBF2WDgDdm98RcybViaxzA/0?wx_fmt=gif)
+![markdown here](http://ww4.sinaimg.cn/mw690/6c0378f8gw1f5sr5vq6sng20f70c844o.gif)
 
 图中的编辑框并不是一个 `textarea` 控件，试想下这个控件中怎么玩也玩不出渲染好的 HTML 代码来，事实上，它是一个可编辑的普通元素，即加了一个 `contenteditable` 属性，你可以按照下面的步骤测试下：
 
