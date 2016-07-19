@@ -1461,7 +1461,9 @@ $(function() {
                  || document.getElementsByTagName('body')[0]).appendChild(ds);
             })();
         }
-        // window.scrollTo(0, 0);
+        if(!window.location.hash) {
+            window.scrollTo(0, 0);
+        }
         $('#loadLayer').remove();
         $('.func-fb').find('span').text('关注').closest('a').next().remove();
         if(/entry\/?$/.test(window.location.href) && $(".rightbar-frame iframe").size() == 0) {
