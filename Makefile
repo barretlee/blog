@@ -124,6 +124,7 @@ help:
 	@echo " i --init             - init, run npm install";
 	@echo " r --run              - start local serve at http://0.0.0.0:4000";
 	@echo " d --deploy           - deploy project to coding & github";
+	@echo " p --pull             - pull code from coding.net";
 	@echo " b --backup (P=)      - backup dates, push to git";
 	@echo "                         make backup P=1; P->PUSH";
 	@echo " h --help             - show help info";
