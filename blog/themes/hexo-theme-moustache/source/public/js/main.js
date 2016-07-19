@@ -1405,23 +1405,18 @@ $(function() {
     }
 })();
 
-
 ;typeof history.pushState === 'function' && (function() {
-    if(!$('html').attr('loaded')) {
-        history.pushState({
-            url: window.location.href
-        }, '', window.location.href);
-    }
-    // var pageCache = window.pageCache = window.pageCache || {};
-    function pjax(url) {
-        history.pushState({
-            url: url
-        }, '', url);
 
-        // if(pageCache[url]) {
-        //     return render(pageCache[url]);;
-        // }
-
+    var pageCache = window.pageCache = window.pageCache || {};
+    function pjax(url, tag) {
+        if(!tag) {
+            history.pushState({
+                url: url
+            }, '', url);
+        }
+        if(pageCache[url]) {
+            return render(pageCache[url]);
+        }
         // var loadingWords = ['伸个懒腰再来~', '打个呵欠再来~', '加载中...', '玩命加载中...', '同学，你很帅！', '这是 Pjax 效果；）', '不要问我这是啥!', '我在加载...', '客官稍等~', '欢迎继续踩点！', '我认识你！', '咱们是不是认识？', '这玩意儿有点意思！', '出 bug 了', '是否有帮到你？', '大家好，我是小胡子', '吃饭了么？'];
         // var word = loadingWords[Math.floor(Math.random() * loadingWords.length)];
         var loadLayer = '<div id="loadLayer" style="position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(255,255,255,0.8);text-align:center;line-height:400px;font-size:30px;z-index:82;display:none;">' + '玩命加载中...' + '</div>';
@@ -1429,7 +1424,7 @@ $(function() {
         $.ajax({
             url: url,
             dataType: 'html',
-            timeout: 5000
+            timeout: 4000
         }).then(function(data) {
             try{
                 var title = data.match(/<title>([\s\S]*)<\/title>/mi)[1];
@@ -1438,14 +1433,11 @@ $(function() {
                 window.location.href = url;
                 return;
             }
-            // pageCache[url] = {
-            //     title: title,
-            //     body: body
-            // };
-            render({
+            pageCache[url] = {
                 title: title,
                 body: body
-            });
+            };
+            render(pageCache[url]);
         }).fail(function() {
             window.location.href = url;
         });
@@ -1469,21 +1461,21 @@ $(function() {
                  || document.getElementsByTagName('body')[0]).appendChild(ds);
             })();
         }
-        window.scrollTo(0, 0);
+        // window.scrollTo(0, 0);
         $('#loadLayer').remove();
         $('.func-fb').find('span').text('关注').closest('a').next().remove();
         if(/entry\/?$/.test(window.location.href) && $(".rightbar-frame iframe").size() == 0) {
             operation.insertWeibo();
         }
         $(window).trigger('load');
-        if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
-            roundScroll();
-        } else {
-            // if($.inArray(window.location.hash.slice(1), ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'])) {
-            //     window.location.hash = "";
-            // }
-            window.rTimer && clearInterval(window.rTimer);
-        }
+        // if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
+        //     roundScroll();
+        // } else {
+        //     // if($.inArray(window.location.hash.slice(1), ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'])) {
+        //     //     window.location.hash = "";
+        //     // }
+        //     window.rTimer && clearInterval(window.rTimer);
+        // }
     }
     window.onpopstate = function() {
         var currentState = history.state;
@@ -1491,7 +1483,7 @@ $(function() {
             if(window.console && window.console.info) {
                 console.info('navigator back: ' + currentState.url);
             }
-            pjax(currentState.url);
+            pjax(currentState.url, 'GO');
         }
     };
     $(function(){
@@ -1513,19 +1505,19 @@ $(function() {
         });
     });
 
-    if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
-        roundScroll();
-    } else {
-        // if($.inArray(window.location.hash.slice(1), ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'])) {
-        //     window.location.hash = "";
-        // }
-        window.rTimer && clearInterval(window.rTimer);
-    }
-    function roundScroll() {
-        var round = ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'], i = 0, len = round.length;
-        window.rTimer && clearInterval(window.rTimer);
-        window.rTimer = setInterval(function(){
-          history.replaceState({}, '', '#' + round[i % len]); i++;
-        }, 120);
-    }
+    // if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
+    //     roundScroll();
+    // } else {
+    //     // if($.inArray(window.location.hash.slice(1), ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'])) {
+    //     //     window.location.hash = "";
+    //     // }
+    //     window.rTimer && clearInterval(window.rTimer);
+    // }
+    // function roundScroll() {
+    //     var round = ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'], i = 0, len = round.length;
+    //     window.rTimer && clearInterval(window.rTimer);
+    //     window.rTimer = setInterval(function(){
+    //       history.replaceState({}, '', '#' + round[i % len]); i++;
+    //     }, 120);
+    // }
 })();

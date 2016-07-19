@@ -38,10 +38,10 @@ goroot:
 
 # 新建两个备份文件夹
 mkfile:
-	@[ -d ${BACKUPPOSTS} ] || mkdir ${BACKUPPOSTS};
-	@[ -d ${BACKUPDRAFTS} ] || mkdir ${BACKUPDRAFTS};
-	@[ -d ${BACKUPPOSTS_BAC} ] || mkdir ${BACKUPPOSTS_BAC};
-	@[ -d ${BACKUPDRAFTS_BAC} ] || mkdir ${BACKUPDRAFTS_BAC};
+	@[ -d ${BACKUPPOSTS} ] || mkdir -p ${BACKUPPOSTS};
+	@[ -d ${BACKUPDRAFTS} ] || mkdir -p ${BACKUPDRAFTS};
+	@[ -d ${BACKUPPOSTS_BAC} ] || mkdir -p ${BACKUPPOSTS_BAC};
+	@[ -d ${BACKUPDRAFTS_BAC} ] || mkdir -p ${BACKUPDRAFTS_BAC};
 
 # 初始化,执行 cnpm install
 init:
