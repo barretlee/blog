@@ -1,4 +1,4 @@
-.PHONY: r d b h n i c run backup deploy help new mkfile init clear goroot
+.PHONY: r d b h n i c p run backup deploy help new mkfile init clear goroot pull
 
 ROOT = ~/work/blogsys/
 DRAFTS = ${ROOT}blog/src/_drafts/
@@ -26,6 +26,11 @@ b: goroot mkfile backup
 n: goroot mkfile new
 c: clear
 h: help
+p: pull
+
+# 拉取远程代码
+pull:
+	git pull coding master;
 
 # 回到根文件夹
 goroot:
@@ -67,8 +72,8 @@ deploy:
 	open ${WEB};
 	git add --all; \
 	git commit -am "backup"; \
-	git push origin master -f; \
-	git push coding master -f;
+	git push coding master; \
+	git push origin master;
 
 # 备份内容
 backup:
@@ -87,8 +92,8 @@ ifneq (${P},)
 	# 参数中包含 push, 推到仓库中去备份
 	git add --all; \
 	git commit -am "backup"; \
-	git push gitcafe master -f; \
-	git push origin master -f;
+	git push coding master; \
+	git push origin master;
 endif
 
 # 创建一个新文件
@@ -118,7 +123,7 @@ help:
 	@echo;
 	@echo " i --init             - init, run npm install";
 	@echo " r --run              - start local serve at http://0.0.0.0:4000";
-	@echo " d --deploy           - deploy project to gitcafe & github";
+	@echo " d --deploy           - deploy project to coding & github";
 	@echo " b --backup (P=)      - backup dates, push to git";
 	@echo "                         make backup P=1; P->PUSH";
 	@echo " h --help             - show help info";
