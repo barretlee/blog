@@ -18,7 +18,7 @@ date: 2014-04-30 00:00:00
     
 可以查看本地+远程分支列表
 
-    * master                0840594 merge master and 1.0.0
+    * master              0840594 merge master and 1.0.0
     remotes/origin/1.0.0  743012a 'update'
     remotes/origin/2.0.0  2787838 udpate
     remotes/origin/HEAD   -> origin/master
@@ -44,4 +44,10 @@ git branch 会看到上面的信息，这里还需要一步操作：
     * 2.0.0
     
 就 OK 了~
+
+最直接的方法是：
+
+    git checkout -t origin/2.0.0
+
+能够直接新建本地分支，将远程分支提取出来。
 
