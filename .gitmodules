@@ -1,0 +1,3 @@
+[submodule "blogChat"]
+    path = blogChat
+    url = https://github.com/barretlee/blogChat
