@@ -307,12 +307,12 @@ var operation = {
     insertWeibo: function() {
         var htmlStr = '<iframe width="330" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=330&height=350&fansRow=1&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1812166904&verifier=73dc4ca5&dpc=1"></iframe>';
         if (/\/entry\//.test(window.location.href) && !isMobile.any() && ($(window).width() > 992) && !$(".share_self").size()) {
-            $(window).on("load", function() {
+            // $(window).on("load", function() {
                 var $ifr = $(".rightbar-frame");
                 if (!$ifr.find('iframe').size()) {
                     $ifr.css("background", "none").append(htmlStr);
                 }
-            });
+            // });
         }
         if (isMobile.any()) {
             $(".rightbar-frame").remove()
