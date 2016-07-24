@@ -219,22 +219,15 @@ var operation = {
         });
     },
     welcome: function() {
-        var self = this,
-            visitor;
+        var self = this;
+        var visitor = $.cookie("visitor");
 
         function getNamefailed() {
-            var histories = {},
-                userinfo = {};
+            var userinfo = {};
             try {
-                histories = JSON.parse($.cookie("visitor_history"));
+                userinfo = JSON.parse($.cookie("visitor_history"));
             } catch (e) {}
-            for (var key in histories) {
-                userinfo = {
-                    name: key,
-                    avatar: histories[key]
-                }
-            }
-            if (userinfo.name && userinfo.avatar) {
+            if (userinfo.id && userinfo.name && userinfo.avatar) {
                 var htmlStr = makeHtml(userinfo.name, userinfo.avatar);
                 self.alertMsg(htmlStr);
             }
@@ -244,13 +237,13 @@ var operation = {
             return "<img class='alert-avatar' src='" + avatar + "'>" + name + ", 欢迎回来~";
         }
 
-        if (visitor = $.cookie("visitor")) {
-            visitor = visitor.split("|");
-            if (visitor && visitor[0] && visitor[1]) {
-                // var htmlStr = makeHtml(visitor[0], visitor[1]);
-                // self.alertMsg(htmlStr);
-                return;
-            }
+        if (visitor) {
+          try {
+              var userinfo = JSON.parse($.cookie("visitor"));
+          } catch (e) {}
+          if (userinfo.id && userinfo.name && userinfo.avatar) {
+              return;
+          }
         }
 
         $.removeCookie("visitor");
@@ -263,6 +256,7 @@ var operation = {
                     getNamefailed();
                     return;
                 }
+                var id = data.visitor.user_id;
                 var name = data.visitor.name;
                 var avatar = data.visitor.avatar_url;
                 if (/大额大额/.test(name)) {
@@ -271,26 +265,39 @@ var operation = {
                 var htmlStr = makeHtml(name, avatar);
                 self.alertMsg(htmlStr);
 
+                var info = {
+                  id: id,
+                  name: name,
+                  avatar: avatar
+                };
                 // 目前登录人缓存半天
-                $.cookie("visitor", name + "|" + avatar, {
+                $.cookie("visitor", JSON.stringify(info), {
                     expires: 0.25,
+                    path: "/"
+                });
+                $.cookie("visitor_history", JSON.stringify(info), {
+                    expires: 100,
                     path: "/"
                 });
 
                 // 缓存历史登录者
-                var histories = $.cookie("visitor_history");
-                try {
-                    histories = JSON.parse(histories);
-                } catch (e) {
-                    histories = {};
-                }
-                histories[name] = avatar;
-                try {
-                    $.cookie("visitor_history", JSON.stringify(histories), {
-                        expires: 100,
-                        path: "/"
-                    });
-                } catch (e) {}
+                // var histories = $.cookie("visitor_history");
+                // try {
+                //     histories = JSON.parse(histories);
+                // } catch (e) {
+                //     histories = {};
+                // }
+                // histories = {
+                //   id: id,
+                //   name: name,
+                //   avatar: avatar
+                // };
+                // try {
+                //     $.cookie("visitor_history", JSON.stringify(histories), {
+                //         expires: 100,
+                //         path: "/"
+                //     });
+                // } catch (e) {}
             },
             error: function() {
                 getNamefailed();
@@ -1523,3 +1530,317 @@ $(function() {
     //     }, 120);
     // }
 })();
+
+$(function(){
+var ChatRoomClient = function() {
+  this.totalCount = 0;
+  this.socket = io.connect('http://123.56.230.53:29231/');
+  // this.socket = io.connect('http://localhost:29231');
+  this.startup();
+  this.init();
+};
+
+ChatRoomClient.prototype.init = function() {
+  this.connection();
+  this.socketEvent();
+  this.bindEvent();
+  this.addInfoLog({
+    msg: '注意：聊天日志不会保存，请注意备份.'
+  });
+  this.addInfoLog({
+    msg: '提示：点击头像可进入私聊'
+  });
+};
+
+ChatRoomClient.prototype.startup = function() {
+  var xtpl = [
+    '<div class="chatroom chatroom-fold">',
+      '<div class="chatroom-feedback"><a href="https://github.com/barretlee/blogChat" target="_blank">源码</a> | <a href="https://github.com/barretlee/blogChat/issues/new" target="_blank">反馈</a></div>',
+      '<div class="chatroom-info"></div>',
+      '<ul class="chatroom-tribes">',
+        '<li class="chatroom-tribe current" data-id="group">',
+          '<span class="name">当前 <strong>1</strong> 人群聊</span>',
+          '<span class="count">0</span>',
+        '</li>',
+      '</ul>',
+      '<div class="chatroom-pannels">',
+        '<div class="chatroom-pannel-bd">',
+          '<div class="chatroom-item current" data-id="group">',
+          '</div>',
+        '</div>',
+        '<div class="chatroom-pannel-ft"><textarea type="text" class="chatroom-input" placeholder="按 Ctrl+Enter 发送"></textarea></div>',
+      '</div>',
+    '</div>'
+  ].join('\n');
+  $('html').append(xtpl);
+}
+
+ChatRoomClient.prototype.connection = function(cb) {
+  var self = this;
+  self.socket.on('connected', function(data) {
+    self.userId = data.id;
+    self.userName = self.userId.slice(2);
+    self.userAvatar = 'http://avatar.duoshuo.com/avatar-50/292/117200.jpg';
+    if(window.DUOSHUO && window.DUOSHUO.visitor
+       && window.DUOSHUO.visitor.data.user_id) {
+      var userInfo = window.DUOSHUO.visitor.data;
+      self.userId = userInfo.user_id;
+      self.userName = userInfo.name;
+      self.userAvatar = userInfo.avatar_url;
+    } else if($.cookie('visitor') || $.cookie('visitor_history')) {
+      var info = $.cookie('visitor') || $.cookie('visitor_history');
+      try {
+        var info = JSON.parse(info);
+        if(info.id && info.name && info.avatar) {
+          self.userId = info.id;
+          self.userName = info.name;
+          self.userAvatar = info.avatar;
+        }
+      } catch(e) {}
+    } else {
+      if(window.sessionStorage) {
+        var userId = window.sessionStorage.getItem('userId');
+        if(userId) {
+          self.userId = userId;
+          self.userName = userId.slice(2);
+        } else {
+          window.sessionStorage.setItem('userId', self.userId);
+        }
+      }
+    }
+    if(window.sessionStorage) {
+      window.sessionStorage.setItem('userId', self.userId);
+    }
+    // console.info('ID: ' + self.userId);
+    self.socket.emit('createUser', {
+      userId: self.userId,
+      userName: self.userName,
+      userAvatar: self.userAvatar
+    });
+  });
+};
+
+ChatRoomClient.prototype.socketEvent = function() {
+  var self = this;
+  self.socket.on('broadcast', function(data) {
+    if(data.id == self.userId) return;
+    self.reciveMsg(data, 'BROADCAST');
+    if(data.type == 'NEW') {
+      return self.addInfoLog(data);
+    }
+    // if(data.type == 'LEAVE') {
+    //   return self.addInfoLog(data);
+    // }
+    self.addChatLog(data);
+    self.updateCount('group');
+  });
+  self.socket.on('pm', function(data) {
+    self.reciveMsg(data, 'PM');
+    self.createPrivateChat(data);
+    self.addChatLog(data);
+    self.updateCount(data.id);
+  });
+  self.socket.on('pong', function(data) {
+    self.reciveMsg(data, data.type);
+  });
+};
+
+ChatRoomClient.prototype.bindEvent = function() {
+  var self = this;
+  $('.chatroom').on('keydown', function(evt) {
+    if(evt.keyCode == 27) {
+      $(this).addClass('chatroom-fold');
+    }
+  });
+  $('.chatroom-input').on('keydown', function(evt) {
+    var $this = $(this);
+    if((evt.ctrlKey || evt.metaKey) && evt.keyCode == '13' && $.trim($this.val())) {
+      var type = $('.chatroom-tribe.current').attr('data-id');
+      var data = {
+        id: self.userId,
+        msg: $this.val(),
+        name: self.userName,
+        avatar: self.userAvatar,
+        toId: type
+      };
+      self.socket.emit(type == 'group' ? 'gm' : 'pm', data);
+      self.addChatLog(data, true);
+      $this.val('');
+      return false;
+    }
+  });
+  $('.chatroom-tribes').on('click', 'li', function(evt) {
+    evt.preventDefault();
+    var id = $(this).attr('data-id');
+    $('.chatroom-tribes').find('li').removeClass('current');
+    $('.chatroom-item').removeClass('current');
+    $(this).addClass('current');
+    $('.chatroom-item[data-id="' + id + '"]').addClass('current');
+    $(this).find('.count').text(0).css('visibility', 'hidden');
+    this.totalCount -= parseInt($(this).find('.count').text());
+    setTimeout(function() {
+      $('.chatroom textarea').focus();
+    }, 10);
+  });
+  $('.chatroom-tribes').on('click', 'i', function(evt) {
+    evt.preventDefault();
+    evt.stopImmediatePropagation();
+    var $p = $(this).parent('li');
+    var id = $p.attr('data-id');
+    $p.remove();
+    $(".chatroom-item[data-id='" + id + "']").remove();
+    $('.chatroom-item').removeClass('current');
+    $('.chatroom-item[data-id="group"]').addClass('current');
+    $('.chatroom-tribe[data-id="group"]').addClass('current');
+    this.totalCount -= parseInt($(this).find('.count').text());
+  });
+  $(".chatroom-item").on('click', '.avatar, .time', function(evt) {
+    evt.preventDefault();
+    evt.stopImmediatePropagation();
+    var $this = $(this);
+    var $p = $this.parent('.chatroom-log');
+    var avatar = $p.find('.avatar img').attr('src');
+    var name = $p.find('.time b').text();
+    var id = $p.find('.time b').attr('data-id');
+    if(id === self.userId) return;
+    self.createPrivateChat({
+      avatar: avatar,
+      name: name,
+      id: id
+    }, true);
+  });
+  $(".chatroom-info").on('click', function(evt) {
+    evt.preventDefault();
+    // $('.chatroom').toggleClass('chatroom-fold');
+    if(!$('.chatroom').hasClass('chatroom-fold')) {
+      $('.chatroom').addClass('chatroom-fold');
+      $('.chatroom textarea').focus();
+      $('.chatroom-tribe').removeClass('current');
+      $('.chatroom-item').removeClass('current');
+      $('.chatroom-tribes>li').first().addClass('current');
+      $('.chatroom-item').first().addClass('current');
+      $('.chatroom .count').eq(0).text(0).css('visibility', 'hidden');
+    } else {
+      $('.chatroom').removeClass('chatroom-fold');
+    }
+  });
+  if(/Mac OS/i.test(navigator.appVersion)) {
+    $(".chatroom textarea").attr('placeholder', '按 Command+Enter 发送');
+  }
+  $(window).on('beforeunload', function() {
+    self.socket.emit('disconnet', {
+      id: self.userId
+    });
+  });
+};
+
+
+ChatRoomClient.prototype.reciveMsg = function(data, type) {
+  if(type === 'PONG') {
+    $('.chatroom-tribe .name strong').text(data.count);
+    if($('.chatroom').hasClass('chatroom-fold') && this.totalCount) {
+      $('.chatroom .count').eq(0).text(this.totalCount).css('visibility', 'visible');
+    }
+    return;
+  }
+  if(type === 'PONG2') {
+    console.warn(data);
+  }
+};
+
+ChatRoomClient.prototype.ping = function() {
+  this.socket.emit('ping', {
+    id: this.userId
+  });
+};
+
+
+ChatRoomClient.prototype.createPrivateChat = function(data, setCurrent) {
+  if($('.chatroom-item[data-id="' + data.id + '"]').size()) return;
+  var tabXtpl = [
+    '<li class="chatroom-tribe" data-id="<% id %>">',
+      '<img src="<% avatar %>" alt="<% name %>">',
+      '<span class="name"><% name %></span>',
+      '<span class="count">0</span>',
+      '<i class="iconfont">╳</i>',
+    '</li>'
+  ];
+  var $li = tabXtpl.join('').replace(/<%\s*?(\w+)\s*?%>/gm, function($0, $1) {
+    return data && data[$1] || '';
+  });
+  $(".chatroom-tribes").append($li);
+  var id = data && data.id;
+  var $pannel = '<div class="chatroom-item" data-id="' + id + '"></div>';
+  $(".chatroom-pannel-bd").append($pannel);
+  if(setCurrent) {
+    $('.chatroom-tribe').removeClass('current');
+    $('.chatroom-item').removeClass('current');
+    $('.chatroom-tribes>li').last().addClass('current');
+    $('.chatroom-item').last().addClass('current');
+  }
+  if(data.toId) {
+    this.addInfoLog({
+      msg: '与 ' + data.name + ' 私聊'
+    }, data.toId);
+  }
+};
+
+
+ChatRoomClient.prototype.addChatLog = function(data, isSelf) {
+  if(isSelf) {
+    data.name = '我';
+  }
+  var logXtpl = [
+    '<div class="chatroom-log' + (isSelf ? ' myself' : '') + '">',
+      '<span class="avatar"><img src="<% avatar %>" alt="<% name %>"></span>',
+      '<span class="time"><b data-id="<% id %>"><% name %></b> ' + new Date().toLocaleString() + '</span>',
+      '<span class="detail"><% msg %></span>',
+    '</div>'
+  ];
+  var $log = logXtpl.join('\n').replace(/<%\s*?(\w+)\s*?%>/gm, function($0, $1) {
+    if($1 === 'avatar' && (!data || !data[$1])) {
+      return 'http://avatar.duoshuo.com/avatar-50/292/117200.jpg';
+    }
+    return data && data[$1] || '';
+  });
+  var $target = $(".chatroom-item[data-id='group']");
+  var $itemId = $(".chatroom-item[data-id='" + data.id + "']");
+  var $itemToId = $(".chatroom-item[data-id='" + data.toId + "']");
+  if($itemId.size()) {
+    $target = $itemId;
+  }
+  if($itemToId.size()) {
+    $target = $itemToId;
+  }
+  $target.append($log).scrollTop(1E5);
+};
+
+ChatRoomClient.prototype.addInfoLog = function(data, id) {
+  var $info = '<div class="chatroom-log-info">' + data.msg + '</div>';
+  var id = id || 'group';
+  var $target = $(".chatroom-item[data-id='" + id + "']");
+  $target.append($info).scrollTop(1E5);
+};
+
+ChatRoomClient.prototype.updateCount = function(id) {
+  var $li = $('.chatroom-tribe[data-id="' + id + '"]');
+  if(!$li.size() || $li.hasClass('current')) return;
+  var $target = $li.find('.count');
+  var count = parseInt($target.text());
+  if(++count > 99) {
+    count = 99;
+  }
+  $target.text(count).css('visibility', 'visible');
+  this.totalCount++;
+  if(this.totalCount > 99) {
+    this.totalCount = 99;
+  }
+  if($('.chatroom').hasClass('chatroom-fold')) {
+    $('.chatroom .count').eq(0).text(this.totalCount).css('visibility', 'visible');
+  }
+};
+
+if(!isMobile.any() && !window.chatRoomClient) {
+  window.chatRoomClient = new ChatRoomClient();
+}
+});
