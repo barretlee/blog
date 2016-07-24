@@ -26,15 +26,18 @@
   bottom: -368px;
   transition: all 0.3s;
 }
+.chatroom-fold .chatroom-rename {
+  display: none !important;
+}
 .chatroom-fold .chatroom-tribe .count {
   right: 42px;
 }
 .chatroom-info {
   position: absolute;
-  background: #FFF;
   right: 10px;
   top: 6px;
   cursor: pointer;
+  z-index: 12;
 }
 .chatroom-info:after {
   content: '[收起]';
@@ -186,6 +189,10 @@
   float: left;
   color: #999;
 }
+.chatroom-log .time b {
+  text-decoration: underline;
+  font-weight: normal;
+}
 .chatroom-log .time b:hover {
   cursor: pointer;
   color: #666;
@@ -271,4 +278,57 @@
   text-align: center;
   padding: 5px;
   color: #999;
+}
+.chatroom-rename {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+}
+.chatroom-rename span {
+  cursor: pointer;
+  top: 50%;
+  margin-top: -15px;
+  position: absolute;
+  left: 400px;
+  background: #EEE;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 15px;
+  border-radius: 2px;
+  text-align: center;
+}
+.chatroom-rename span:hover {
+  background: #ccc;
+}
+.chatroom-rename input {
+  position: absolute;
+  left: 120px;
+  top: 50%;
+  height: 30px;
+  text-indent: 10px;
+  line-height: 30px;
+  border: none;
+  width: 250px;
+  border-radius: 3px;
+  margin-top: -15px;
+  outline: none;
+}
+.chatroom-log-welcome {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.chatroom-log-welcome img {
+  width: 28px;
+  vertical-align: middle;
+  margin: 0 2px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.chatroom-log-welcome strong {
+  font-weight: normal;
+  cursor: pointer;
+  text-decoration: underline;
 }

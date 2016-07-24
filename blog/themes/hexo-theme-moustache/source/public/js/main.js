@@ -1532,8 +1532,16 @@ $(function() {
 })();
 
 $(function(){
+function htmlspecialchars(str){
+  str = str.replace(/&/g, '&amp;');
+  str = str.replace(/</g, '&lt;');
+  str = str.replace(/>/g, '&gt;');
+  str = str.replace(/"/g, '&quot;');
+  str = str.replace(/'/g, '&#039;');
+  return str;
+}
 var ChatRoomClient = function() {
-  this.totalCount = 0;
+  this.users = [];
   this.socket = io.connect('http://123.56.230.53:29231/');
   // this.socket = io.connect('http://localhost:29231');
   this.startup();
@@ -1546,10 +1554,10 @@ ChatRoomClient.prototype.init = function() {
   this.bindEvent();
   this.addInfoLog({
     msg: '注意：聊天日志不会保存，请注意备份.'
-  });
+  }, 'group');
   this.addInfoLog({
     msg: '提示：点击头像可进入私聊'
-  });
+  }, 'group');
 };
 
 ChatRoomClient.prototype.startup = function() {
@@ -1587,7 +1595,7 @@ ChatRoomClient.prototype.connection = function(cb) {
       self.userId = userInfo.user_id;
       self.userName = userInfo.name;
       self.userAvatar = userInfo.avatar_url;
-    } else if($.cookie('visitor') || $.cookie('visitor_history')) {
+    } else if($.cookie && ($.cookie('visitor') || $.cookie('visitor_history'))) {
       var info = $.cookie('visitor') || $.cookie('visitor_history');
       try {
         var info = JSON.parse(info);
@@ -1611,6 +1619,7 @@ ChatRoomClient.prototype.connection = function(cb) {
     if(window.sessionStorage) {
       window.sessionStorage.setItem('userId', self.userId);
     }
+    self.changeName();
     // console.info('ID: ' + self.userId);
     self.socket.emit('createUser', {
       userId: self.userId,
@@ -1620,28 +1629,64 @@ ChatRoomClient.prototype.connection = function(cb) {
   });
 };
 
+ChatRoomClient.prototype.changeName = function() {
+  if($('.chatroom-rename').size()) return;
+  var self = this;
+  var str = '<div class="chatroom-rename" style="display:none;"><input type="text" value="' +
+    htmlspecialchars(self.userName) +'" placeholder="不要取太长的名字啦~"><span>确认</span></div>';
+  $(str).appendTo($('.chatroom')).fadeIn();
+  $('.chatroom-rename span').on('click', function() {
+    var $input = $('.chatroom-rename input');
+    if($.trim($input.val())) {
+      self.userName = $input.val().slice(0, 20);
+      self.socket.emit('createUser', {
+        userId: self.userId,
+        userName: self.userName,
+        userAvatar: self.userAvatar
+      });
+      $('.chatroom-rename').remove();
+    }
+  });
+}
+
 ChatRoomClient.prototype.socketEvent = function() {
   var self = this;
   self.socket.on('broadcast', function(data) {
     if(data.id == self.userId) return;
-    self.reciveMsg(data, 'BROADCAST');
     if(data.type == 'NEW') {
-      return self.addInfoLog(data);
+      if($.inArray(data.id, self.users) > -1) return false;
+      self.users.push(data.id);
+      return self.addWelcomeLog(data);
     }
     // if(data.type == 'LEAVE') {
     //   return self.addInfoLog(data);
     // }
-    self.addChatLog(data);
+    self.addChatLog(data, 'group');
     self.updateCount('group');
   });
   self.socket.on('pm', function(data) {
-    self.reciveMsg(data, 'PM');
+    if(data.type == 'OFFLINE') {
+      return self.addInfoLog(data, data.id);
+    }
+    if($('.chatroom-fold').size()) {
+        var str = "<img class='alert-avatar' src='" +
+            htmlspecialchars(data.avatar) + "'>" + htmlspecialchars(data.name) + "の私信，右下角查看";
+        window.operation && operation.alertMsg(str);
+    }
     self.createPrivateChat(data);
-    self.addChatLog(data);
+    self.addChatLog(data, data.id);
     self.updateCount(data.id);
   });
   self.socket.on('pong', function(data) {
-    self.reciveMsg(data, data.type);
+    var type = data.type;
+    if(type === 'PONG') {
+      $('.chatroom-tribe .name strong').text(data.count);
+      if($('.chatroom').hasClass('chatroom-fold') && this.totalCount) {
+        $('.chatroom .count').eq(0).text(this.totalCount).css('visibility', 'visible');
+      }
+    } else if(type === 'PING-BACK') {
+      console.warn(data);
+    }
   });
 };
 
@@ -1655,16 +1700,16 @@ ChatRoomClient.prototype.bindEvent = function() {
   $('.chatroom-input').on('keydown', function(evt) {
     var $this = $(this);
     if((evt.ctrlKey || evt.metaKey) && evt.keyCode == '13' && $.trim($this.val())) {
-      var type = $('.chatroom-tribe.current').attr('data-id');
+      var targetId = $('.chatroom-tribe.current').attr('data-id');
       var data = {
         id: self.userId,
         msg: $this.val(),
         name: self.userName,
         avatar: self.userAvatar,
-        toId: type
+        targetId: targetId
       };
-      self.socket.emit(type == 'group' ? 'gm' : 'pm', data);
-      self.addChatLog(data, true);
+      self.socket.emit(targetId == 'group' ? 'gm' : 'pm', data);
+      self.addChatLog(data, targetId, true);
       $this.val('');
       return false;
     }
@@ -1694,7 +1739,7 @@ ChatRoomClient.prototype.bindEvent = function() {
     $('.chatroom-tribe[data-id="group"]').addClass('current');
     this.totalCount -= parseInt($(this).find('.count').text());
   });
-  $(".chatroom-item").on('click', '.avatar, .time', function(evt) {
+  $(".chatroom-item").on('click', '.avatar, .time, .name', function(evt) {
     evt.preventDefault();
     evt.stopImmediatePropagation();
     var $this = $(this);
@@ -1703,11 +1748,20 @@ ChatRoomClient.prototype.bindEvent = function() {
     var name = $p.find('.time b').text();
     var id = $p.find('.time b').attr('data-id');
     if(id === self.userId) return;
+    if($this.parent().hasClass('chatroom-log-welcome')) {
+      $p = $this.parent();
+      id = $p.attr('data-id');
+      avatar = $p.find('.avatar').attr('src');
+      name = $p.find('.name').text();
+    }
     self.createPrivateChat({
       avatar: avatar,
       name: name,
       id: id
     }, true);
+    self.addInfoLog({
+      msg: '与 ' + name + ' 私聊'
+    }, id);
   });
   $(".chatroom-info").on('click', function(evt) {
     evt.preventDefault();
@@ -1727,25 +1781,11 @@ ChatRoomClient.prototype.bindEvent = function() {
   if(/Mac OS/i.test(navigator.appVersion)) {
     $(".chatroom textarea").attr('placeholder', '按 Command+Enter 发送');
   }
-  $(window).on('beforeunload', function() {
+  $(window).on('beforeunload close', function() {
     self.socket.emit('disconnet', {
       id: self.userId
     });
   });
-};
-
-
-ChatRoomClient.prototype.reciveMsg = function(data, type) {
-  if(type === 'PONG') {
-    $('.chatroom-tribe .name strong').text(data.count);
-    if($('.chatroom').hasClass('chatroom-fold') && this.totalCount) {
-      $('.chatroom .count').eq(0).text(this.totalCount).css('visibility', 'visible');
-    }
-    return;
-  }
-  if(type === 'PONG2') {
-    console.warn(data);
-  }
 };
 
 ChatRoomClient.prototype.ping = function() {
@@ -1753,7 +1793,6 @@ ChatRoomClient.prototype.ping = function() {
     id: this.userId
   });
 };
-
 
 ChatRoomClient.prototype.createPrivateChat = function(data, setCurrent) {
   if($('.chatroom-item[data-id="' + data.id + '"]').size()) return;
@@ -1778,15 +1817,14 @@ ChatRoomClient.prototype.createPrivateChat = function(data, setCurrent) {
     $('.chatroom-tribes>li').last().addClass('current');
     $('.chatroom-item').last().addClass('current');
   }
-  if(data.toId) {
+  if(data.targetId) {
     this.addInfoLog({
       msg: '与 ' + data.name + ' 私聊'
-    }, data.toId);
+    }, data.targetId);
   }
 };
 
-
-ChatRoomClient.prototype.addChatLog = function(data, isSelf) {
+ChatRoomClient.prototype.addChatLog = function(data, id, isSelf) {
   if(isSelf) {
     data.name = '我';
   }
@@ -1801,24 +1839,23 @@ ChatRoomClient.prototype.addChatLog = function(data, isSelf) {
     if($1 === 'avatar' && (!data || !data[$1])) {
       return 'http://avatar.duoshuo.com/avatar-50/292/117200.jpg';
     }
-    return data && data[$1] || '';
+    return htmlspecialchars(data && data[$1] || '');
   });
-  var $target = $(".chatroom-item[data-id='group']");
-  var $itemId = $(".chatroom-item[data-id='" + data.id + "']");
-  var $itemToId = $(".chatroom-item[data-id='" + data.toId + "']");
-  if($itemId.size()) {
-    $target = $itemId;
-  }
-  if($itemToId.size()) {
-    $target = $itemToId;
-  }
+  var $target = $(".chatroom-item[data-id='" + id + "']");
   $target.append($log).scrollTop(1E5);
 };
 
 ChatRoomClient.prototype.addInfoLog = function(data, id) {
-  var $info = '<div class="chatroom-log-info">' + data.msg + '</div>';
-  var id = id || 'group';
-  var $target = $(".chatroom-item[data-id='" + id + "']");
+  var $info = '<div class="chatroom-log-info">' + htmlspecialchars(data.msg) + '</div>';
+  var $target = $(".chatroom-item[data-id='" + htmlspecialchars(id) + "']");
+  $target.append($info).scrollTop(1E5);
+};
+
+ChatRoomClient.prototype.addWelcomeLog = function(data) {
+  var $info = '<div class="chatroom-log-info chatroom-log-welcome" data-id="' +
+      htmlspecialchars(data.id) + '">欢迎 <img class="avatar" src="' + htmlspecialchars(data.avatar)
+        + '"><strong class="name">' + htmlspecialchars(data.name) + '</strong> 加入群聊！</div>';
+  var $target = $(".chatroom-item[data-id='group']");
   $target.append($info).scrollTop(1E5);
 };
 
@@ -1840,7 +1877,7 @@ ChatRoomClient.prototype.updateCount = function(id) {
   }
 };
 
-if(!isMobile.any() && !window.chatRoomClient) {
+if(!isMobile.any() && !window.chatRoomClient && !operation.isIE()) {
   window.chatRoomClient = new ChatRoomClient();
 }
 });
