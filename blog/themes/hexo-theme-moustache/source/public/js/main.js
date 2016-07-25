@@ -1861,7 +1861,6 @@ ChatRoomClient.prototype.scroll = function(id, isSelf) {
   var $box = $('.chatroom-pannel-bd');
   var H = $target.height();
   var DELTA = 600;
-  console.log(isSelf, $box.scrollTop(), H );
   if(isSelf || $box.scrollTop() < H - DELTA) {
     $box.scrollTop(H);
     $target.attr('data-lastscroll', H);
