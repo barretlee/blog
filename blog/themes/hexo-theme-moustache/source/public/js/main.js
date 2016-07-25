@@ -1542,8 +1542,9 @@ function htmlspecialchars(str){
 }
 var ChatRoomClient = function() {
   this.users = [];
+  this.totalCount = 0;
   this.socket = io.connect('http://123.56.230.53:29231/');
-  // this.socket = io.connect('http://localhost:29231');
+  // this.socket = io.connect();
   this.startup();
   this.init();
 };
@@ -1576,7 +1577,7 @@ ChatRoomClient.prototype.startup = function() {
           '<div class="chatroom-item current" data-id="group">',
           '</div>',
         '</div>',
-        '<div class="chatroom-pannel-ft"><textarea type="text" class="chatroom-input" placeholder="按 Ctrl+Enter 发送"></textarea></div>',
+        '<div class="chatroom-pannel-ft"><textarea type="text" class="chatroom-input" placeholder="按 Ctrl+Enter 发送"></textarea><span class="chatroom-send-btn">发送</span></div>',
       '</div>',
     '</div>'
   ].join('\n');
@@ -1699,7 +1700,7 @@ ChatRoomClient.prototype.bindEvent = function() {
   });
   $('.chatroom-input').on('keydown', function(evt) {
     var $this = $(this);
-    if((evt.ctrlKey || evt.metaKey) && evt.keyCode == '13' && $.trim($this.val())) {
+    if((evt.ctrlKey || evt.metaKey) && evt.keyCode == '13' && $.trim($this.val()) || evt.isTrigger) {
       var targetId = $('.chatroom-tribe.current').attr('data-id');
       var data = {
         id: self.userId,
@@ -1714,18 +1715,25 @@ ChatRoomClient.prototype.bindEvent = function() {
       return false;
     }
   });
+  $('.chatroom-send-btn').on('click', function(evt) {
+    $('.chatroom-input').trigger('keydown');
+  });
   $('.chatroom-tribes').on('click', 'li', function(evt) {
     evt.preventDefault();
     var id = $(this).attr('data-id');
+    var $target = $('.chatroom-item[data-id="' + id + '"]');
     $('.chatroom-tribes').find('li').removeClass('current');
     $('.chatroom-item').removeClass('current');
     $(this).addClass('current');
-    $('.chatroom-item[data-id="' + id + '"]').addClass('current');
+    $target.addClass('current').scrollTop(1E5);
     $(this).find('.count').text(0).css('visibility', 'hidden');
-    this.totalCount -= parseInt($(this).find('.count').text());
+    var count = parseInt($(this).find('.count').text());
+    count = isNaN(count) ? 0 : +count;
+    this.totalCount -= count;
     setTimeout(function() {
       $('.chatroom textarea').focus();
     }, 10);
+    $('.chatroom-pannel-bd').scrollTop($target.attr('data-lastscroll'));
   });
   $('.chatroom-tribes').on('click', 'i', function(evt) {
     evt.preventDefault();
@@ -1737,7 +1745,9 @@ ChatRoomClient.prototype.bindEvent = function() {
     $('.chatroom-item').removeClass('current');
     $('.chatroom-item[data-id="group"]').addClass('current');
     $('.chatroom-tribe[data-id="group"]').addClass('current');
-    this.totalCount -= parseInt($(this).find('.count').text());
+    var count = parseInt($(this).find('.count').text());
+    count = isNaN(count) ? 0 : +count;
+    this.totalCount -= count;;
   });
   $(".chatroom-item").on('click', '.avatar, .time, .name', function(evt) {
     evt.preventDefault();
@@ -1805,7 +1815,7 @@ ChatRoomClient.prototype.createPrivateChat = function(data, setCurrent) {
     '</li>'
   ];
   var $li = tabXtpl.join('').replace(/<%\s*?(\w+)\s*?%>/gm, function($0, $1) {
-    return data && data[$1] || '';
+    return htmlspecialchars(data && data[$1] || '');
   });
   $(".chatroom-tribes").append($li);
   var id = data && data.id;
@@ -1819,7 +1829,7 @@ ChatRoomClient.prototype.createPrivateChat = function(data, setCurrent) {
   }
   if(data.targetId) {
     this.addInfoLog({
-      msg: '与 ' + data.name + ' 私聊'
+      msg: '与 ' + htmlspecialchars(data.name) + ' 私聊'
     }, data.targetId);
   }
 };
@@ -1842,13 +1852,27 @@ ChatRoomClient.prototype.addChatLog = function(data, id, isSelf) {
     return htmlspecialchars(data && data[$1] || '');
   });
   var $target = $(".chatroom-item[data-id='" + id + "']");
-  $target.append($log).scrollTop(1E5);
+  $target.append($log);
+  this.scroll(id, isSelf);
 };
+
+ChatRoomClient.prototype.scroll = function(id, isSelf) {
+  var $target = $(".chatroom-item[data-id='" + id + "']");
+  var $box = $('.chatroom-pannel-bd');
+  var H = $target.height();
+  var DELTA = 600;
+  console.log(isSelf, $box.scrollTop(), H );
+  if(isSelf || $box.scrollTop() < H - DELTA) {
+    $box.scrollTop(H);
+    $target.attr('data-lastscroll', H);
+  }
+}
 
 ChatRoomClient.prototype.addInfoLog = function(data, id) {
   var $info = '<div class="chatroom-log-info">' + htmlspecialchars(data.msg) + '</div>';
   var $target = $(".chatroom-item[data-id='" + htmlspecialchars(id) + "']");
-  $target.append($info).scrollTop(1E5);
+  // $target.append($info).scrollTop(1E5);
+  this.scroll(id);
 };
 
 ChatRoomClient.prototype.addWelcomeLog = function(data) {
@@ -1856,14 +1880,16 @@ ChatRoomClient.prototype.addWelcomeLog = function(data) {
       htmlspecialchars(data.id) + '">欢迎 <img class="avatar" src="' + htmlspecialchars(data.avatar)
         + '"><strong class="name">' + htmlspecialchars(data.name) + '</strong> 加入群聊！</div>';
   var $target = $(".chatroom-item[data-id='group']");
-  $target.append($info).scrollTop(1E5);
+  // $target.append($info).scrollTop(1E5);
+  this.scroll(data.id);
 };
 
 ChatRoomClient.prototype.updateCount = function(id) {
   var $li = $('.chatroom-tribe[data-id="' + id + '"]');
-  if(!$li.size() || $li.hasClass('current')) return;
+  // if(!$li.size() || $li.hasClass('current')) return;
   var $target = $li.find('.count');
   var count = parseInt($target.text());
+  count = isNaN(count) ? 0 : +count;
   if(++count > 99) {
     count = 99;
   }
@@ -1876,7 +1902,6 @@ ChatRoomClient.prototype.updateCount = function(id) {
     $('.chatroom .count').eq(0).text(this.totalCount).css('visibility', 'visible');
   }
 };
-
 if(!isMobile.any() && !window.chatRoomClient && !operation.isIE()) {
   window.chatRoomClient = new ChatRoomClient();
 }
