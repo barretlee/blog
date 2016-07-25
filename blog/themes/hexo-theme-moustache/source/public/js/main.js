@@ -1645,7 +1645,7 @@ ChatRoomClient.prototype.checkRobot = function() {
 ChatRoomClient.prototype.changeName = function() {
   if($('.chatroom-rename').size()) return;
   var self = this;
-  var str = '<div class="chatroom-rename" style="display:none;"><input type="text" value="' +
+  var str = '<div class="chatroom-rename" style="display:none;"><label>取个名字：</label><input type="text" value="' +
     htmlspecialchars(self.userName) +'" placeholder="不要取太长的名字啦~"><span>确认</span></div>';
   $(str).appendTo($('.chatroom')).fadeIn();
   $('.chatroom-rename span').on('click', function() {
@@ -1680,6 +1680,9 @@ ChatRoomClient.prototype.socketEvent = function() {
   self.socket.on('pm', function(data) {
     if(data.type == 'OFFLINE') {
       return self.addInfoLog(data, data.id);
+    }
+    if(data.type == 'ATTENSION') {
+      return self.addInfoLog(data, 'group');
     }
     if($('.chatroom-fold').size()) {
         var str = "<img class='alert-avatar' src='" +
@@ -1829,6 +1832,9 @@ ChatRoomClient.prototype.createPrivateChat = function(data, setCurrent) {
     '</li>'
   ];
   var $li = tabXtpl.join('').replace(/<%\s*?(\w+)\s*?%>/gm, function($0, $1) {
+    if($1 === 'avatar' && (!data || !data[$1])) {
+      return 'http://avatar.duoshuo.com/avatar-50/292/117200.jpg';
+    }
     return htmlspecialchars(data && data[$1] || '');
   });
   $(".chatroom-tribes").append($li);
@@ -1884,7 +1890,8 @@ ChatRoomClient.prototype.scroll = function(id, isSelf) {
 ChatRoomClient.prototype.addInfoLog = function(data, id) {
   var $info = '<div class="chatroom-log-info">' + htmlspecialchars(data.msg) + '</div>';
   var $target = $(".chatroom-item[data-id='" + htmlspecialchars(id) + "']");
-  // $target.append($info).scrollTop(1E5);
+  $target.append($info);
+  // .scrollTop(1E5);
   this.scroll(id);
 };
 
@@ -1893,7 +1900,8 @@ ChatRoomClient.prototype.addWelcomeLog = function(data) {
       htmlspecialchars(data.id) + '">欢迎 <img class="avatar" src="' + htmlspecialchars(data.avatar)
         + '"><strong class="name">' + htmlspecialchars(data.name) + '</strong> 加入群聊！</div>';
   var $target = $(".chatroom-item[data-id='group']");
-  // $target.append($info).scrollTop(1E5);
+  $target.append($info);
+  // .scrollTop(1E5);
   this.scroll(data.id);
 };
 
