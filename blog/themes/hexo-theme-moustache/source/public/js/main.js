@@ -1,11 +1,7 @@
 var weiboName = "@Barret李靖";
-
 var duoshuoName = "";
-
 var disqusName = "";
-
 var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
-
 $(function() {
     var text = '';
     var m = navigator.appVersion.match(/MSIE (\d+)/i);
@@ -20,6 +16,15 @@ $(function() {
         $(".rainbow").addClass('notice').html(text).hide().fadeIn();
     }
 });
+
+if(window.location.protocol == 'https:') {
+    $("img").each(function() {
+        var src = $(this).attr('src');
+        if(/ww1.sinaimg.cn/.test(src)) {
+            $(this).attr('src', src.replace('ww1.', 'www.'));
+        }
+    });
+}
 
 /*!
  * jQuery Cookie Plugin v1.4.1
