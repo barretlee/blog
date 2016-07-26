@@ -1537,7 +1537,9 @@ $(function() {
 })();
 
 $(function(){
+
 function htmlspecialchars(str){
+  str = str || '';
   str = str.replace(/&/g, '&amp;');
   str = str.replace(/</g, '&lt;');
   str = str.replace(/>/g, '&gt;');
@@ -1619,7 +1621,7 @@ ChatRoomClient.prototype.connection = function(cb) {
       if(window.sessionStorage) {
         var userId = window.sessionStorage.getItem('userId');
         if(userId) {
-          self.userId = userId;
+          self.userId = userId.length > 12 ? userId.slice(0, 12) : userId;
           self.userName = userId.slice(2);
         } else {
           window.sessionStorage.setItem('userId', self.userId);
@@ -1659,7 +1661,7 @@ ChatRoomClient.prototype.changeName = function() {
   $('.chatroom-rename span').on('click', function() {
     var $input = $('.chatroom-rename input');
     if($.trim($input.val())) {
-      self.userName = $input.val().slice(0, 20);
+      self.userName = $.trim($input.val()).slice(0, 12);
       self.socket.emit('createUser', {
         userId: self.userId,
         userName: self.userName,
@@ -1686,6 +1688,10 @@ ChatRoomClient.prototype.socketEvent = function() {
     self.updateCount('group');
   });
   self.socket.on('pm', function(data) {
+    if(data.type == 'DISCONNECT') {
+      chatRoomClient.socket.disconnect();
+      return self.addInfoLog(data, 'group');
+    }
     if(data.type == 'OFFLINE') {
       return self.addInfoLog(data, data.id);
     }
@@ -1931,6 +1937,7 @@ ChatRoomClient.prototype.updateCount = function(id) {
     $('.chatroom .count').eq(0).text(this.totalCount).css('visibility', 'visible');
   }
 };
+
 if(!isMobile.any() && !window.chatRoomClient
     && !operation.isIE() && window.location.protocol == 'http:') {
   window.chatRoomClient = new ChatRoomClient();
