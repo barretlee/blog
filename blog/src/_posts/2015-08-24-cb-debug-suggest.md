@@ -174,7 +174,7 @@ gulp.task('javascript', function() {
 
 ```
 
-<p>关于 sourceMap 的 gulp 插件配置，详情可以<a href="https://www.npmjs.com/package/gulp-sourcemaps">戳这里</a>。不仅仅是 JavaScript，CSS 也有 source maps，这个信息可以在 Chrome 控制台的设置选项中看到：</p>
+<p>关于 sourceMap 的 gulp 插件配置，详情可以<a href="//www.npmjs.com/package/gulp-sourcemaps">戳这里</a>。不仅仅是 JavaScript，CSS 也有 source maps，这个信息可以在 Chrome 控制台的设置选项中看到：</p>
 <p><img src="http://images0.cnblogs.com/blog2015/387325/201508/242227387805954.png" alt=""></p>
 <p><strong>代码的拉取</strong></p>
 <p>如果一个项目只有你知道如何修改，那这个项目的技术设计就有点糟糕了，为了让众人都能处理你项目中的问题，一定要需要一个简洁的模式为开发者快速搭建测试环境，文档是一方面，如果有个一键操作的命令，那就更棒了！</p>

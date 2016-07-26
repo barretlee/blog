@@ -14,7 +14,7 @@ date: 2013-12-29 08:18:00
 
 <div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/12/29/how-to-achieve-loading-module.html" target="_blank">博客园</a>.</div>
 
-<p>相信很多人都用过 seajs、 requirejs 等这些模块加载器，他们都是十分便捷的工程管理工具，简化了代码的结构，更重要的是消除了各种文件依赖和命名冲突问题，并利用 AMD / CMD 规范统一了格式。如果你不太明白模块化的作用，建议看看玉伯写的<a href="https://github.com/seajs/seajs/issues/547" target="_blank">一篇文章</a>。</p>
+<p>相信很多人都用过 seajs、 requirejs 等这些模块加载器，他们都是十分便捷的工程管理工具，简化了代码的结构，更重要的是消除了各种文件依赖和命名冲突问题，并利用 AMD / CMD 规范统一了格式。如果你不太明白模块化的作用，建议看看玉伯写的<a href="//github.com/seajs/seajs/issues/547" target="_blank">一篇文章</a>。</p>
 <p>为什么他们会想到使用模块化加载呢，我觉得主要是两点。</p>
 <ul>
 <li>
@@ -249,7 +249,7 @@ index.html -|          └> d.js
 <p><img src="http://images.cnitblog.com/blog/387325/201312/29201709-355dd08fe5b4497a919e6fe159c8df4c.jpg" alt=""></p>
 <h4>4. CMD 规范的介绍</h4>
 <p>上面写了一大堆内容，也实现了模块加载器的原型，但是放在实际应用中，他就是个废品，回到最开始，我们为什么要使用模块化加载。目的是为了不去使用麻烦的命名空间，把复杂的模块依赖交给 require 这个函数去管理，但实际上呢，上面拿到的所有模块都是暴露在全局变量中的，也就是说，如果 a.js 和 b.js 中存在命名相同的变量，后者将会覆盖前者，这是我们不愿意看到的。为了处理此类问题，我们有必要把所有的模块都放到一个闭包中，这样一来，只要不使用 window.vars 命名，闭包之间的变量是不会相互影响的。我们可以使用自己的方式去管理代码，不过有人已经研究处理一套标准，而且是全球统一，那就拿着用吧~</p>
-<p>关于 CMD 规范，我这里就不多说了，可以去看看<a href="https://github.com/cmdjs/specification/blob/master/draft/module.md" target="_blank">草案</a>，玉伯也翻译了一份，<a href="https://github.com/seajs/seajs/issues/242" target="_blank">戳我</a>。每一模块有且仅有一个对外公开的接口 exports，如：</p>
+<p>关于 CMD 规范，我这里就不多说了，可以去看看<a href="//github.com/cmdjs/specification/blob/master/draft/module.md" target="_blank">草案</a>，玉伯也翻译了一份，<a href="//github.com/seajs/seajs/issues/242" target="_blank">戳我</a>。每一模块有且仅有一个对外公开的接口 exports，如：</p>
 
 ```
 define(function(require, exports) {
@@ -308,6 +308,6 @@ Event.off = function(evt){
 <p>然后就是很多很多细节，本文的目的并不是写一个类似 seajs 的模块管理工具，只是稍微说几句自己对这玩意儿的看法，如果说的有错，请多多吐槽！</p>
 <h3>三、参考资料</h3>
 <ul>
-<li><a href="https://github.com/seajs/seajs/issues" target="_blank">https://github.com/seajs/issues</a> seajs issues</li>
+<li><a href="//github.com/seajs/seajs/issues" target="_blank">//github.com/seajs/issues</a> seajs issues</li>
 </ul>
 

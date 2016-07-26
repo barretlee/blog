@@ -84,7 +84,7 @@ date: 2013-08-11 12:17:00
 
 
 <p>　　2. media query虽然好用，<strong><span>但是低版本IE不支持</span></strong>，不要纠结，咱把他给忽视掉~O(&cap;_&cap;)O~</p>
-<p>　　如果你太固执一定要考虑的话，推荐这个：<a href="https://code.google.com/p/css3-mediaqueries-js/">https://code.google.com/p/css3-mediaqueries-js/</a></p>
+<p>　　如果你太固执一定要考虑的话，推荐这个：<a href="//code.google.com/p/css3-mediaqueries-js/">//code.google.com/p/css3-mediaqueries-js/</a></p>
 
 ```
 <!--[if lt IE 9]>
@@ -98,7 +98,7 @@ date: 2013-08-11 12:17:00
 
 <h3>关于测试工具</h3>
 <p>　　1. 这个网站，你可以试试，戳<a href="http://dfcb.github.io/Responsivator/" target="_blank">测试工具</a></p>
-<p>　　2. chrome下有一个插件，叫做Moblile/Tablet Divice Testing，下载地址：<a href="https://chrome.google.com/webstore/detail/mobiletablet-device-testi/elmekokodcohlommfikpmojheggnbelo" target="_blank">戳我</a></p>
+<p>　　2. chrome下有一个插件，叫做Moblile/Tablet Divice Testing，下载地址：<a href="//chrome.google.com/webstore/detail/mobiletablet-device-testi/elmekokodcohlommfikpmojheggnbelo" target="_blank">戳我</a></p>
 <p><img src="http://images.cnitblog.com/blog/387325/201308/11115330-20656f7059b8442b8d4443946c499ad5.jpg" alt=""></p>
 
 

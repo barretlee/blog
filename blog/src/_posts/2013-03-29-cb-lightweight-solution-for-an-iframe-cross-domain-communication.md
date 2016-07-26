@@ -75,7 +75,7 @@ messenger.send(message);
 <p>虽然国内也有人提过使用"about:blank"进行iframe通信的，但是代码的封装和可读性都不是太好，<a href="http://www.ne.jp/asahi/nanto/moon/2011/12/08/ie-post-message.html" target="_blank">本方案</a>是一日本人所提出<span>，我觉得处理的很好，所以就拿出来和大家分享下</span>。虽然尝试过优化轮询那一块，但暂时无果，有兴趣的朋友可以一起研究下~</p>
 <p><strong>DEMO：<a href="http://www.alloyteam.com/wp-content/uploads/2012/08/parent.html" target="_blank">点击这里</a></strong></p>
 <p><strong>脚本下载：<a href="http://biqing.alloyteam.com/lab/messenger/messenger.js" target="_blank">http://biqing.alloyteam.com/lab/messenger/messenger.js</a></strong></p>
-<p><strong>GitHub：<a href="https://github.com/biqing/MessengerJS" target="_blank">https://github.com/biqing/MessengerJS</a></strong></p>
+<p><strong>GitHub：<a href="//github.com/biqing/MessengerJS" target="_blank">//github.com/biqing/MessengerJS</a></strong></p>
 
 
 <p><strong>原文链接：http://www.alloyteam.com/2012/08/lightweight-solution-for-an-iframe-cross-domain-communication</strong></p>

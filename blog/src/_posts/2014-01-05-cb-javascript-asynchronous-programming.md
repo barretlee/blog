@@ -344,7 +344,7 @@ function f(){
 
 <p>把事件全部交给 E 这个控制器管理，可以完全掌握事件被订阅的次数，以及订阅者的信息，管理起来特别方便。</p>
 <p>4） Promise 对象（deferred 对象）</p>
-<p>关于这里的内容可以看看 <a href="https://www.imququ.com/post/promises-when-js.html" target="_blank">屈屈</a> 写的文章，说的比较详细。</p>
+<p>关于这里的内容可以看看 <a href="//www.imququ.com/post/promises-when-js.html" target="_blank">屈屈</a> 写的文章，说的比较详细。</p>
 <p><a href="http://promisesaplus.com/" target="_blank">Promise/A+</a> 规范是对 <a href="http://wiki.commonjs.org/wiki/Promises/A" target="_blank">Promise/A</a> 规范的补充和修改，他出现的目的是为了统一异步编程中的接口，JS中的异步编程是十分普遍的事情，也出现了很多的异步库，如果不统一接口，对开发者来说也是一件十分痛苦的事情。</p>
 <p>在Promises/A规范中，每个任务都有三种状态：默认(pending)、完成(fulfilled)、失败(rejected)。</p>
 <ul>
@@ -528,7 +528,7 @@ fs.readdir(source, function(err, files) {
 <li><a href="http://www.cnblogs.com/rubylouvre/archive/2011/03/14/1982699.html" target="_blank">javascript 异步编程</a> 司徒正美</li>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html" target="_blank">HTML Specification</a> web develop group</li>
 <li><a href="http://promisesaplus.com/" target="_blank">Promise/A+ 规范</a></li>
-<li><a href="https://www.imququ.com/post/promises-when-js.html" target="_blank">异步编程：When.js快速上手</a> JerrryQu</li>
+<li><a href="//www.imququ.com/post/promises-when-js.html" target="_blank">异步编程：When.js快速上手</a> JerrryQu</li>
 <li><a href="http://book.douban.com/subject/10745151/" target="_blank">《Async Javascript》</a> By Trevor Burnham</li>
 <li><a href="http://www.web-tinker.com/article/20444.html" target="_blank">非常有意义，却尚未兼容的SharedWorker</a> 次碳酸钴</li>
 <li><a href="http://www.cnblogs.com/_franky/archive/2010/11/23/1885773.html" target="_blank">HTML5 Web Worker</a> Franky</li>

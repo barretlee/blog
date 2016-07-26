@@ -17,7 +17,7 @@ date: 2014-05-15 01:32:00
 <li><a href="http://ued.taobao.org/blog/2014/04/xtpl/" target="_blank">基于前后端分离的模版探索</a></li>
 <li><a href="http://ued.taobao.org/blog/2014/04/modelproxy/" target="_blank">Midway-ModelProxy &mdash; 轻量级的接口配置建模框架</a></li>
 <li><a href="http://ued.taobao.org/blog/2014/05/midway-security/" target="_blank">前后端分离模式下的安全解决方案</a></li>
-<li><a href="https://github.com/lifesinger/lifesinger.github.com/issues/184" target="_blank">Web 研发模式演变</a></li>
+<li><a href="//github.com/lifesinger/lifesinger.github.com/issues/184" target="_blank">Web 研发模式演变</a></li>
 </ul>
 <p>如果是一个很小的网站，是用那么多层来处理请求和响应，确实是冗余的，不过我打算将这个网站设计成一个实时平台，这个平台中包含了很多很多的通信模块，所有后端选用 NodeJS 作为 I/O 处理器，这是可以理解的。php 用于通信，连接消耗大，而且不方便并行处理，效率很低。在网络通信和I/O处理上，NodeJS是很优秀的工具。</p>
 <h3>1. 小小网站，为啥我要如此看重后端</h3>

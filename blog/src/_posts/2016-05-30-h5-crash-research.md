@@ -22,16 +22,16 @@ date: 2016-05-30 00:30:12
 
 下图是 H5 Crash 的大致流程图：
 
-![H5 Crash 流程图](http://img.alicdn.com/tfs/TB1FCOOKXXXXXccXXXXXXXXXXXX-676-667.png)
+![H5 Crash 流程图](//img.alicdn.com/tfs/TB1FCOOKXXXXXccXXXXXXXXXXXX-676-667.png)
 
 由于前端没办法捕捉到页面 Crash 的状态和堆栈，但是 H5 页面上发生的错误会传递到 Java 和更底层的 Native 直到容器异常退出，在退出的那一刻，容器会将堆栈写入到日志中，当下次打开容器时（也可能是定时上报）就会上报这些堆栈信息。
 
 ### H5 Crash 原因初探
 
-测试代码 [仓库地址](https://github.com/barretlee/h5crash.git)：
+测试代码 [仓库地址](//github.com/barretlee/h5crash.git)：
 
 ```bash
-git clone https://github.com/barretlee/h5crash.git;
+git clone //github.com/barretlee/h5crash.git;
 cd demo;
 ```
 
@@ -42,7 +42,7 @@ H5 Crash 的原因不太明显，但是从经验上判断和摸索，大致归�
 **1. 内存问题**
 
 - 测试方法：使用闭包，不断增加内存量，看看增加到哪个区间大小， webview 容器会出现异常
-- 测试地址：<https://rawgit.com/barretlee/h5crash/master/demo/crash-memory.html>（微信、微博或者其他客户端打开该页面的用户，可以点进去测试下，选择 100M 内存，不出意外，你的客户端会闪退。）
+- 测试地址：<//rawgit.com/barretlee/h5crash/master/demo/crash-memory.html>（微信、微博或者其他客户端打开该页面的用户，可以点进去测试下，选择 100M 内存，不出意外，你的客户端会闪退。）
 
 ```html
 <script>
@@ -83,7 +83,7 @@ var closure = Closure();
 Layers 数的获取比较麻烦，Chrome Driver 没有提供该数据的接口，目前也没有比较好的办法拿到这个数据。
 
 - 测试方法：通过不同的方式创建层，观察页面的 Crash 情况
-- 测试地址：<https://rawgit.com/barretlee/h5crash/master/demo/crash-layer.html>
+- 测试地址：<//rawgit.com/barretlee/h5crash/master/demo/crash-layer.html>
 
 ```html
 <style>.transform {
@@ -166,7 +166,7 @@ var layer = Layer();
 **3. 并发过多问题**
 
 - 测试方法：尝试并发发出多种不同的请求（Fetch请求、XHR 请求、Script/CSS 资源请求），观察页面 Crash 情况
-- 测试地址：<https://rawgit.com/barretlee/h5crash/master/demo/crash-request.html>
+- 测试地址：<//rawgit.com/barretlee/h5crash/master/demo/crash-request.html>
 
 ```html
 <script>

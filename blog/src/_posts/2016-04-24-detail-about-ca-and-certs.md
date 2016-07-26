@@ -62,15 +62,15 @@ OV 和 EV 证书相当昂贵，使用方可以为这些颁发出来的证书买�
 
 前文 [HTTPS证书生成原理和部署细节](http://www.barretlee.com/blog/2015/10/05/how-to-build-a-https-server/) 提到如果本地生成公/私钥对和对应未签证的证书，如果使用的证书没有签证，或者未在浏览器受信的 CA 签证，你会看到下图的问题：
 
-![net:ERR_CERT_AUTHORITY_INVALID](http://ww4.sinaimg.cn/large/6c0378f8gw1f36o0231kaj20fh0dd0ti.jpg)
+![net:ERR_CERT_AUTHORITY_INVALID](//ww1.sinaimg.cn/large/6c0378f8gw1f36o0231kaj20fh0dd0ti.jpg)
 
 上图出现的错误是 `net:ERR_CERT_AUTHORITY_INVALID`，我们生成证书和公/私钥对的流程都是正确的，但是浏览器不认这张证书，并且提示证书授权不通过；如果通过其他与 Common Name 不同的域名去访问，如我注册的时候使用的 `localhost`，但是访问的时候用的 `127.0.0.1`，还会报出这样的错误：
 
-![net:ERR_CERT_COMMON_NAME_INVALID](http://ww1.sinaimg.cn/large/6c0378f8gw1f36o3s81yfj20lk0dw75v.jpg)
+![net:ERR_CERT_COMMON_NAME_INVALID](//ww1.sinaimg.cn/large/6c0378f8gw1f36o3s81yfj20lk0dw75v.jpg)
 
 错误码为 `net:ERR_CERT_COMMON_NAME_INVALID`，意思是 Common Name 不匹配，具体校验流程可以在浏览器的 DevTools 中看到：
 
-![DevTools](http://ww2.sinaimg.cn/large/6c0378f8gw1f36o5lmwxdj20og0cmdhb.jpg)
+![DevTools](//ww1.sinaimg.cn/large/6c0378f8gw1f36o5lmwxdj20og0cmdhb.jpg)
 
 从上面几张图，可以大致了解 CA 和证书会做哪些事情，证书由域名、公司信息、序列号和签名信息组成，当我们通过 HTTPS 访问页面时，浏览器会主动验证证书信息是否匹配，也会验证证书是否有效。
 
@@ -105,9 +105,9 @@ OpenSSL 是一个免费开源的库，它提供了构建数字证书的命令行
 
 然而在一些情况下，我们没必要去 CA 机构购买证书，比如在内网的测试环境中，为了验证 HTTPS 下的一些问题，我们不需要部署昂贵的证书，这个时候自建 Root CA，给自己颁发证书就显得很有价值了。
 
-本节内容较多，主要是代码演示生成证书和验证的过程，可以跳过看下一节，直接看 [这里](https://github.com/barretlee/autocreate-ca/README.md)：
+本节内容较多，主要是代码演示生成证书和验证的过程，可以跳过看下一节，直接看 [这里](//github.com/barretlee/autocreate-ca/README.md)：
 
-- `git clone https://github.com/barretlee/autocreate-ca.git`
+- `git clone //github.com/barretlee/autocreate-ca.git`
 - 依次执行 `install-rootCA.sh`、`install-intermediateCA.sh` 和 `install-websiteConfig.sh`
 
 首先找到一个放置证书的文件夹，比如 `/root/ca` 下，下方的测试也在改目录下，如果你要更换其他目录，记得替换下文中的目录地址。
@@ -127,7 +127,7 @@ $ chmod 700 private
 $ touch index.txt
 $ echo 1000 > serial
 $ wget -O /root/ca/openssl.cnf \ 
-    https://raw.githubusercontent.com/barretlee/autocreate-ca/master/cnf/root-ca
+    //raw.githubusercontent.com/barretlee/autocreate-ca/master/cnf/root-ca
 ```
 
 创建 root key，密码可为空，设定权限为只可读：
@@ -229,7 +229,7 @@ $ touch index.txt
 $ echo 1000 > serial
 $ echo 1000 > /root/ca/intermediate/crlnumber
 $ wget -O /root/ca/openssl.cnf \
-    https://raw.githubusercontent.com/barretlee/autocreate-ca/master/cnf/intermediate-ca
+    //raw.githubusercontent.com/barretlee/autocreate-ca/master/cnf/intermediate-ca
 ```
 
 创建 intermediate key，密码可为空，设定权限为只可读：
@@ -399,17 +399,17 @@ https.createServer(options, function(req, res) {
   res.writeHead(200);
   res.end('hello world');
 }).listen(8000, function(){
-  console.log('Open URL: https://www.barretlee.com:8000');
+  console.log('Open URL: //www.barretlee.com:8000');
 });
 ```
 
 可以看到这样的效果：
 
-![小绿锁出来了](http://ww1.sinaimg.cn/large/6c0378f8gw1f373ltah7zj20oc09aaan.jpg)
+![小绿锁出来了](//ww1.sinaimg.cn/large/6c0378f8gw1f373ltah7zj20oc09aaan.jpg)
 
 查看证书的详细信息：
 
-![证书的详细信息](http://ww4.sinaimg.cn/large/6c0378f8gw1f373mf9bpfj20qw0u6n3d.jpg)
+![证书的详细信息](//ww1.sinaimg.cn/large/6c0378f8gw1f373mf9bpfj20qw0u6n3d.jpg)
 
 回到最初的问题：
 
@@ -428,8 +428,8 @@ SNI 就是用来解决这个问题的，官方解释是
 然后有将近 25% 的浏览器不支持该字段的扩展，这个问题有两个通用解决方案：
 
 - 使用 VIP 服务器，每个域名对应一个 VIP，然后 VIP 与统一接入服务对接，通过 ip 来分发证书，不过运维成本很高，可能也需要大量的 VIP 服务器
-- 采用多泛域名，将多个泛域名证书打包进一个证书，可以看看 [淘宝](https://www.taobao.com) 页面的证书
-![taobao cert](http://ww4.sinaimg.cn/large/6c0378f8gw1f3740ay3glj210g15kqcf.jpg)
+- 采用多泛域名，将多个泛域名证书打包进一个证书，可以看看 [淘宝](//www.taobao.com) 页面的证书
+![taobao cert](//ww1.sinaimg.cn/large/6c0378f8gw1f3740ay3glj210g15kqcf.jpg)
 它的缺点是每次添加域名都需要更新证书。
 
 ### 几个细节知识点
@@ -459,5 +459,5 @@ __3. PKI 体系__
 
 ### 拓展阅读
 
-- https://jamielinux.com/docs/openssl-certificate-authority/index.html
+- //jamielinux.com/docs/openssl-certificate-authority/index.html
 - http://www.ert7.com/service/knowledge/3999.html

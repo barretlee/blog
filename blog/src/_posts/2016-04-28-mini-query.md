@@ -38,7 +38,7 @@ firstStyleSheet.removeRule(0);
 
 IE8 有些调皮，需要修复点小问题，源码地址：
 
-- git clone <https://github.com/barretlee/MiniQuery>
+- git clone <//github.com/barretlee/MiniQuery>
 - `npm install mini-query`
 
 代码预览：

@@ -378,7 +378,7 @@ var barretTpl = function(str, data) {
 ```
 
 
-<p>这样一来就更加简单了，使用方式就是 <code>barretTpl(str, data)</code>， 这里的str可以是模板代码，也可以是一个DOM元素的id~ 可以看看这两段代码：<a href="https://gist.github.com/barretlee/7765698" target="_blank">https://gist.github.com/barretlee/7765698</a>, <a href="https://gist.github.com/barretlee/7765587" target="_blank">https://gist.github.com/barretlee/7765587</a></p>
+<p>这样一来就更加简单了，使用方式就是 <code>barretTpl(str, data)</code>， 这里的str可以是模板代码，也可以是一个DOM元素的id~ 可以看看这两段代码：<a href="//gist.github.com/barretlee/7765698" target="_blank">//gist.github.com/barretlee/7765698</a>, <a href="//gist.github.com/barretlee/7765587" target="_blank">//gist.github.com/barretlee/7765587</a></p>
 <p>也可以直接戳这个<a href="http://qianduannotes.duapp.com/demo/javascript-template.html" target="_blank">demo</a>。</p>
 
 

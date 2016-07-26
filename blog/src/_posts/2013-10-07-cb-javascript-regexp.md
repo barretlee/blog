@@ -29,7 +29,7 @@ console.log(res);
 
 ```
 
-<p>　　憋了几分钟= =||，我也觉得这个正则不是特别好理解（红黑相间了，应该稍微清晰点），有些朋友可能不知道（?:content）是什么意思，还有类似（?!content）和(?=content)分组和前瞻的知识，建议去问问<a title="javascript 正则" href="http://www.baidu.com/s?wd=javascript+%E6%AD%A3%E5%88%99" target="_blank">度哥</a>和<a title="javascript 正则" href="https://www.google.com.hk/search?q=javascript+%E6%AD%A3%E5%88%99" target="_blank">谷娘</a>。</p>
+<p>　　憋了几分钟= =||，我也觉得这个正则不是特别好理解（红黑相间了，应该稍微清晰点），有些朋友可能不知道（?:content）是什么意思，还有类似（?!content）和(?=content)分组和前瞻的知识，建议去问问<a title="javascript 正则" href="http://www.baidu.com/s?wd=javascript+%E6%AD%A3%E5%88%99" target="_blank">度哥</a>和<a title="javascript 正则" href="//www.google.com.hk/search?q=javascript+%E6%AD%A3%E5%88%99" target="_blank">谷娘</a>。</p>
 
 
 <h3><strong>一. 正则应用<strong>小</strong>DEMO示例</strong></h3>
@@ -136,7 +136,7 @@ var colors = {
 
 
 <h3><strong>三. 小结</strong></h3>
-<p>类似很多的前端模板，<a href="https://github.com/aui/artTemplate/blob/master/template.js" target="_blank">artTemplate</a>，<a href="https://github.com/wangxiao/BaiduTemplate/blob/master/baiduTemplate.js" target="_blank">baiduTemplate</a>等都是对正则表达式的绝伦应用，很值得去看看源码，好好钻研人家都考虑了那些容易出错的点，源码都不长，两三百行。了解一个大概比较容易，但是当自己动手的时候总会发现很多细节问题处理不好，我那上面几个正则就倒弄了半天= =</p>
+<p>类似很多的前端模板，<a href="//github.com/aui/artTemplate/blob/master/template.js" target="_blank">artTemplate</a>，<a href="//github.com/wangxiao/BaiduTemplate/blob/master/baiduTemplate.js" target="_blank">baiduTemplate</a>等都是对正则表达式的绝伦应用，很值得去看看源码，好好钻研人家都考虑了那些容易出错的点，源码都不长，两三百行。了解一个大概比较容易，但是当自己动手的时候总会发现很多细节问题处理不好，我那上面几个正则就倒弄了半天= =</p>
 <p>另外一个配色方案，随便弄的，戳这里<a href="http://qianduannotes.sinaapp.com/highlight/" target="_blank">SAE/highlight</a>。</p>
 <p>正则表达式，用起来还是挺方便的。正则技能，你值得拥有～</p>
 

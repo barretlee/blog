@@ -156,7 +156,7 @@ toBox.appendChild(tpl.content.cloneNode(true)); // 插入
 <h3>七、参考资料</h3>
 <ul>
 <li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage//scripting-1.html#the-template-element" target="_blank">http://www.whatwg.org/specs/web-apps/current-work/multipage//scripting-1.html#the-template-element</a> W3C</li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template</a> MDN</li>
+<li><a href="//developer.mozilla.org/en-US/docs/Web/HTML/Element/template" target="_blank">//developer.mozilla.org/en-US/docs/Web/HTML/Element/template</a> MDN</li>
 <li><a href="http://www.c-sharpcorner.com/UploadFile/370e35/template-tag-in-html5/" target="_blank">http://www.c-sharpcorner.com/UploadFile/370e35/template-tag-in-html5/</a> Sunny Kumar</li>
 </ul>
 

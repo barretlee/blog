@@ -13,7 +13,7 @@ date: 2016-07-21 22:29:37
 
 当我们沉浸在旺盛的需求之中时，整个人便会成为一台工作的机器，切着类似的页面，写着同样的逻辑，重复着昨天或者上个月做的事情，时间久了，觉得腻味，没有什么创新，也没有明显的成长。用一句通俗的话来讲：工作五年，后面四年重复着第一年的活儿。
 
-![https://unsplash.com/photos/EaGsRRRcKjc by Khara Woods](http://ww4.sinaimg.cn/large/6c0378f8gw1f61wl4o981j20p00dwwhx.jpg)
+![//unsplash.com/photos/EaGsRRRcKjc by Khara Woods](//ww1.sinaimg.cn/large/6c0378f8gw1f61wl4o981j20p00dwwhx.jpg)
 
 <!--more-->
 

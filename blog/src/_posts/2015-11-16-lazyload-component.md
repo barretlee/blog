@@ -16,7 +16,7 @@ date: 2015-11-16 22:30:59
 
 <!--more-->
 
-- 仓库地址：<https://github.com/barretlee/lazyload>
+- 仓库地址：<//github.com/barretlee/lazyload>
 - Demo地址：<http://barretlee.github.io/lazyload/demo/index.html>
 
 核心代码：
@@ -40,7 +40,7 @@ Lazyload.prototype._detectElementIfInScreen = function() {
 
 这里主要用到了 `getBoundingClientRect` 这个函数，兼容性没话说，IE6 都兼容，他的作用是获取元素距离视窗上下左右的距离：
 
-![Chrome getBoundingClientRect](http://www.barretlee.com/blogimgs/2015/11/20151101_a1f44914.jpg)
+![Chrome getBoundingClientRect](//www.barretlee.com/blogimgs/2015/11/20151101_a1f44914.jpg)
 
 配置了两个参数：
 
@@ -50,7 +50,7 @@ Lazyload.prototype._detectElementIfInScreen = function() {
 使用方式：
 
 ```
-<script src="https://raw.githubusercontent.com/barretlee/lazyload/master/index.js"></script>
+<script src="//raw.githubusercontent.com/barretlee/lazyload/master/index.js"></script>
 
 <div class="box">
   <div class="item"><img src data-src="img-path"></div>

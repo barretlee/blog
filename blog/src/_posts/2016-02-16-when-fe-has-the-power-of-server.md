@@ -165,8 +165,8 @@ caches.open('test-cache').then(function(cache) {
 ### 拓展阅读
 
 - http://www.html5rocks.com/zh/tutorials/file/xhr2/
-- https://www.web-tinker.com/article/20882.html
-- https://davidwalsh.name/fetch
-- https://developer.mozilla.org/en-US/docs/Web/API/Cache
-- https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
+- //www.web-tinker.com/article/20882.html
+- //davidwalsh.name/fetch
+- //developer.mozilla.org/en-US/docs/Web/API/Cache
+- //developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
 

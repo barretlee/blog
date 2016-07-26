@@ -103,7 +103,7 @@ window.addEventListener('unload', function(event) {
 
 `window.name` 是浏览器给我们开放的一个接口，设置该属性的值后，即便页面发生了跳转，这个值依然不会变化，并且可以跨域使用。
 
-这里存在的问题是，该属性可能被开发者用于其他途径。我们可以限制开发者直接使用 `window.name`，封装接口，通过接口调用，如 aralejs 提供的 [nameStorage](https://github.com/aralejs/name-storage)，
+这里存在的问题是，该属性可能被开发者用于其他途径。我们可以限制开发者直接使用 `window.name`，封装接口，通过接口调用，如 aralejs 提供的 [nameStorage](//github.com/aralejs/name-storage)，
 
 ```javascript
 nameStorage.setItem(key, value);
@@ -129,7 +129,7 @@ nameStorage:origin-name?key1=value1&key2=value2
 
 上面提到的各种方案，不乏黑科技，然而存在的问题还是一大堆，如果团队的开发者执行力不够，中途容易出现各种麻烦。所以真正能够解决这个问题的，必然还是浏览器本身！
 
-为什么不能给用户提供这样一个 API，即使页面跳转了，也能够将上个页面的请求发出去呢？庆幸的是，W3C 工作组也想到了这个问题，提出了 `Beacon API` 的 [草案](https://www.w3.org/TR/beacon/)。
+为什么不能给用户提供这样一个 API，即使页面跳转了，也能够将上个页面的请求发出去呢？庆幸的是，W3C 工作组也想到了这个问题，提出了 `Beacon API` 的 [草案](//www.w3.org/TR/beacon/)。
 
 `Beacon API` 允许开发者发送少量错误分析和上报的信息，它的特点很明显：
 

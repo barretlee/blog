@@ -103,7 +103,7 @@ box.onscroll();
 insert(len - 1);
 </script>
 ```
-可以戳这个 [demo](http://rawgithub.com/barretlee/9744160/raw/a71dd5561a910b48063cc81e8ee7b042cfeb1574/gistfile1.html)，或者看这里 <https://gist.github.com/barretlee/9744160>
+可以戳这个 [demo](http://rawgithub.com/barretlee/9744160/raw/a71dd5561a910b48063cc81e8ee7b042cfeb1574/gistfile1.html)，或者看这里 <//gist.github.com/barretlee/9744160>
 
 ### 三、算法说明
 

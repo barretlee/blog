@@ -20,7 +20,7 @@ date: 2016-02-14 10:00:00
 
 在知乎和 V2ex 上搜了一番，在 github 上找到了一个还比较满意的开源项目，使用 perl 语言编写的，虽然不动 perl ，但是人家提供了丰富的 API 可以调用，于是就深入了解了下。
 
-![img](http://www.barretlee.com/blogimgs/2016/02/20160202_f7aea0c0.png)
+![img](//www.barretlee.com/blogimgs/2016/02/20160202_f7aea0c0.png)
 
 ### Mojo-Webqq 的安装和使用
 
@@ -75,7 +75,7 @@ $client->run();
 curl http://127.0.0.1:5000/openqq/send_message?qq=xxxxx&content=hello
 ```
 
-具体可以翻阅 [文档说明](https://github.com/sjdy521/Mojo-Webqq/blob/master/README.md)
+具体可以翻阅 [文档说明](//github.com/sjdy521/Mojo-Webqq/blob/master/README.md)
 
 ### IRC 相关学习
 

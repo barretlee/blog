@@ -15,7 +15,7 @@ date: 2016-07-13 00:15:49
 
 <!--more-->
 
-![https://unsplash.com/@dtopkin1 by Dayne Topkin](http://ww4.sinaimg.cn/large/6c0378f8gw1f5rkudyzzoj20p00dwt9x.jpg)
+![//unsplash.com/@dtopkin1 by Dayne Topkin](//ww1.sinaimg.cn/large/6c0378f8gw1f5rkudyzzoj20p00dwt9x.jpg)
 
 记得之前 [winter](http://weibo.com/u/1196343093) 在微博上说，不要对知识存在偏见性，人家吵架说什么什么东西不要学，千万千万别信，但是他们吵架时提到的知识点，记得赶紧收进口袋装好。那么，ES6 这个话题呢？你是否对这个话题存在偏见性？
 
@@ -23,7 +23,7 @@ date: 2016-07-13 00:15:49
 
 ECMAScript 6，很多地方称之为 ECMAScript 2015，从老外们的博客来看，貌似更倾向于后面的叫法，这个并不重要。
 
-ECMAScript 是一个标准，从 1.0 发展至今，目前已经进入 [ES7 草案阶段](https://tc39.github.io/ecma262/)，其中有两个版本是我们熟知的，ECMAScript 3.1 和 ECMAScript 5.0，旧版的 IE 实现都是基于 3.1 规范，而 IE9 以后及现代浏览器基本都依照 ES5.0 规范。
+ECMAScript 是一个标准，从 1.0 发展至今，目前已经进入 [ES7 草案阶段](//tc39.github.io/ecma262/)，其中有两个版本是我们熟知的，ECMAScript 3.1 和 ECMAScript 5.0，旧版的 IE 实现都是基于 3.1 规范，而 IE9 以后及现代浏览器基本都依照 ES5.0 规范。
 
 标准的每个版本都会经历多个阶段：提案、草案、标准、实验性、文档和历史标准。其中 Draft/REC/RFC 三种状态是阅读规范是最常看到的，到了 RFC 的文档基本就不会再变化了，后续的变化会提到下一个版本的提案或草案中。
 

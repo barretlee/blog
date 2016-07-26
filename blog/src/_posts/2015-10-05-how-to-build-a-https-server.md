@@ -13,7 +13,7 @@ date: 2015-10-05 15:29:39
 
 今天摸索了下 HTTPS 的证书生成，以及它在 Nginx 上的部署。由于博客托管在 github 上，没办法部署证书，先记录下，后续有需要方便快捷操作。本文的阐述不一定完善，但是可以让一个初学者了解大致的原理，同时跟着操作可以为自己的博客/网站部署一个 HTTPS 证书。
 
-[![https](http://www.barretlee.com/blogimgs/2015/10/20151001_65a3140b.jpg)](https://www.hallaminternet.com/assets/https.jpg)
+[![https](//www.barretlee.com/blogimgs/2015/10/20151001_65a3140b.jpg)](//www.hallaminternet.com/assets/https.jpg)
 
 <!--more-->
 
@@ -21,7 +21,7 @@ date: 2015-10-05 15:29:39
 
 看看下面，部分电信用户访问京东首页的时候，会看到右下角有一个浮动广告：
 
-![京东首页被电信DNS注入](http://www.barretlee.com/blogimgs/2015/10/20151001_b342b301.jpg)
+![京东首页被电信DNS注入](//www.barretlee.com/blogimgs/2015/10/20151001_b342b301.jpg)
 
 小白用户以为是京东有意放置的，细心的用户会发现，这个 iframe 一层嵌一层的恶心广告很明显是电信/中间人通过 DNS 劫持注入进去的，十分恶心，没有关闭按钮。
 
@@ -31,7 +31,7 @@ HTTPS 区别于 HTTP，它多了加密(encryption)，认证(verification)，鉴�
 
 ### 简述 HTTPS 的运作
 
-[![HTTPS交互](http://www.barretlee.com/blogimgs/2015/10/20151001_b347f684.jpg)](http://image.beekka.com/blog/2014/bg2014092003.png)
+[![HTTPS交互](//www.barretlee.com/blogimgs/2015/10/20151001_b347f684.jpg)](http://image.beekka.com/blog/2014/bg2014092003.png)
 
 如上图所示，简述如下：
 
@@ -165,7 +165,7 @@ https.createServer(options, function(req, res) {
 短短几行代码就构建了一个简单的 https 服务器，options 将私钥和证书带上。然后利用 curl 测试：
 
 ```bash
-➜  https  curl https://localhost:8000
+➜  https  curl //localhost:8000
 curl: (60) SSL certificate problem: Invalid certificate chain
 More details here: http://curl.haxx.se/docs/sslcerts.html
 
@@ -181,10 +181,10 @@ If you'd like to turn off curl's verification of the certificate, use
  the -k (or --insecure) option.
 ```
 
- 当我们直接访问时，`curl https://localhost:8000` 一堆提示，原因是没有经过 CA 认证，添加 `-k` 参数能够解决这个问题：
+ 当我们直接访问时，`curl //localhost:8000` 一堆提示，原因是没有经过 CA 认证，添加 `-k` 参数能够解决这个问题：
  
 ```bash
-➜  https  curl -k https://localhost:8000
+➜  https  curl -k //localhost:8000
 hello world%
 ```
 
@@ -229,7 +229,7 @@ hello world
 
 如果你的代码没有输出 `hello world`，说明证书生成的时候存在问题。也可以通过浏览器访问：
 
-![https证书问题](http://www.barretlee.com/blogimgs/2015/10/20151001_9bf819eb.jpg)
+![https证书问题](//www.barretlee.com/blogimgs/2015/10/20151001_9bf819eb.jpg)
 
 提示错误：
 
@@ -237,7 +237,7 @@ hello world
 
 原因是浏览器没有 CA 证书，只有 CA 证书，服务器才能够确定，这个用户就是真实的来自 localhost 的访问请求（比如不是代理过来的）。
 
-你可以点击 `继续前往localhost（不安全）` 这个链接，相当于执行 `curl -k https://localhost:8000`。如果我们的证书不是自己颁发，而是去靠谱的机构去申请的，那就不会出现这样的问题，因为靠谱机构的证书会放到浏览器中，浏览器会帮我们做很多事情。初次尝试的同学可以去 [startssl.com](https://startssl.com) 申请一个免费的证书。
+你可以点击 `继续前往localhost（不安全）` 这个链接，相当于执行 `curl -k //localhost:8000`。如果我们的证书不是自己颁发，而是去靠谱的机构去申请的，那就不会出现这样的问题，因为靠谱机构的证书会放到浏览器中，浏览器会帮我们做很多事情。初次尝试的同学可以去 [startssl.com](//startssl.com) 申请一个免费的证书。
 
 ### Nginx 部署
 
@@ -255,7 +255,7 @@ ssl_prefer_server_ciphers on;
 add_header Strict-Transport-Security "max-age=31536000; includeSubdomains";
 ```
 
-会发现，网页 URL 地址框左边已经多出了一个小绿锁。当然，部署好了之后可以去[这个网站](https://www.ssllabs.com/ssltest/analyze.html)看看测评分数，如果分数是 A+，说明你的 HTTPS 的各项配置都还不错，速度也很快。
+会发现，网页 URL 地址框左边已经多出了一个小绿锁。当然，部署好了之后可以去[这个网站](//www.ssllabs.com/ssltest/analyze.html)看看测评分数，如果分数是 A+，说明你的 HTTPS 的各项配置都还不错，速度也很快。
 
 
 ### 小结

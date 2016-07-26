@@ -46,9 +46,9 @@ date: 2016-01-08 10:54:22
 
 - <http://publicdomainarchive.com/>
 - <http://www.gratisography.com/>
-- <https://unsplash.com/>
-- <https://picjumbo.com/>
-- <https://pixabay.com/>
+- <//unsplash.com/>
+- <//picjumbo.com/>
+- <//pixabay.com/>
 
 规范和流程只是最后环节，重点还是需要团队有人分享。
 

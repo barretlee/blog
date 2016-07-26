@@ -125,7 +125,7 @@ function is_pjax(){
 <h3>三、开源的PJAX库</h3>
 <p>已经有人对这个东西做了封装，我就不重复造轮子了。</p>
 <ul>
-<li>welefen封装的库，对jquery、qwrap和kissy都做了封装，<a href="https://github.com/welefen/pjax" target="_blank">github地址</a></li>
+<li>welefen封装的库，对jquery、qwrap和kissy都做了封装，<a href="//github.com/welefen/pjax" target="_blank">github地址</a></li>
 <li>Yahoo团队 <a href="http://yuilibrary.com/yui/docs/pjax/" target="_blank">PJAX地址</a></li>
 </ul>
 <p>并不是页面中所有的链接都需要使用PJAX加载，所有在需要这个东西的a标签上加一个属性，如<code>data-pjax=true</code>，然后统一添加事件。</p>

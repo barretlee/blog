@@ -247,7 +247,7 @@ Host coding-taobaofed
 ➜  ~ git clone git@coding-taobaofed:taobaofed/blog.git
 ```
 
-如果是在已有的仓库中，其默认 origin 配置会是：`https://git.coding.net/taobaofed/blog.git` 或者 `git@git.coding.net:taobaofed/blog.git`，你可以将仓库下的 `.git/config` 文件修改下：
+如果是在已有的仓库中，其默认 origin 配置会是：`//git.coding.net/taobaofed/blog.git` 或者 `git@git.coding.net:taobaofed/blog.git`，你可以将仓库下的 `.git/config` 文件修改下：
 
 ```
 [remote "origin"]

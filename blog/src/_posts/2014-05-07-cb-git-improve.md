@@ -19,7 +19,7 @@ date: 2014-05-07 09:00:00
 
 ```
 cd dir  # 这里不用新建一个项目名的文件夹，dir为git文件夹的父文件夹
-git clone https://github.com/barretlee/Micro-Share
+git clone //github.com/barretlee/Micro-Share
 
 ```
 
@@ -29,14 +29,14 @@ git clone https://github.com/barretlee/Micro-Share
 cd path/to/Project
 git init
 # 添加远程目录
-git remote add origin https://github.com/barretlee/Micro-Share
+git remote add origin //github.com/barretlee/Micro-Share
 
 ```
 
 <p>这些都是最基本的了，上面的 remote add 是添加一个远程目录，你也可以添加多个远程目录，什么情况下会添加多个呢？比如：我想把别人的代码处理之后放到自己的 git 仓库上去,</p>
 
 ```
-git remote add origin https://github.com/barretlee/Micro-Share
+git remote add origin //github.com/barretlee/Micro-Share
 git remote add mine http://your/path/to/git
 # 拉取远程代码到 init 之后的 master 主干上
 git fetch origin master

@@ -167,7 +167,7 @@ root.appendChild(document.importNode(temp.content));
 <li>Number.parseFloat()</li>
 <li>Number.isInteger()</li>
 </ul>
-<p>具体细节可以去 <a href="https://developer.mozilla.org/en/" target="_blank">MDN</a> 上搜查。</p>
+<p>具体细节可以去 <a href="//developer.mozilla.org/en/" target="_blank">MDN</a> 上搜查。</p>
 <h3>六、对象的扩展</h3>
 <p>在 ES5.1 中我们看到了 Object 的灵活性提高了很多，加入了 create、defineProperty、freeze 等等很多十分有用的方法，而在 ES6 中，依然继续加强：</p>
 <h4>1. <code>Object.is()</code></h4>

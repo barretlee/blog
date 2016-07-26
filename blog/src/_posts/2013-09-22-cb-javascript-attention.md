@@ -243,7 +243,7 @@ o.a=1;
 
 
 <p>简单总结这么多，推荐\<a title="次碳酸钴" href="http://www.web-tinker.com/" target="_blank">次碳酸钴</a>"童鞋的博客，细致入微、内容深刻，博客入口：<a title="次碳酸钴" href="http://www.web-tinker.com/" target="_blank">http://www.web-tinker.com</a></p>
-<p>关于JavaScript strict mode的详细介绍，请移步：<a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/Strict_mode" rel="nofollow" target="_blank">MDN Strict_mode</a></p>
+<p>关于JavaScript strict mode的详细介绍，请移步：<a href="//developer.mozilla.org/en-US/docs/JavaScript/Reference/Functions_and_function_scope/Strict_mode" rel="nofollow" target="_blank">MDN Strict_mode</a></p>
 
 
 

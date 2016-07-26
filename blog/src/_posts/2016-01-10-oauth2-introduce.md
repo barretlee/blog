@@ -30,7 +30,7 @@ Github 会对用户的权限做分类，比如读取仓库信息的权限、写�
 
 ```
 // 用户登录 github，协商
-GET https://github.com/login/oauth/authorize
+GET //github.com/login/oauth/authorize
 
 // 协商凭证
 params = {
@@ -56,7 +56,7 @@ Location: http://my-website.com?code=xxx
 
 ```
 // 网站和 github 之间的协商
-POST https://github.com/login/oauth/access_token
+POST //github.com/login/oauth/access_token
 
 // 协商凭证包括 github 给用户盖的章和 github 发给我的门票
 params = {
@@ -83,7 +83,7 @@ response = {
 
 ```
 // 访问用户数据
-GET https://api.github.com/user?access_token=e72e16c7e42f292c6912e7710c838347ae178b4a
+GET //api.github.com/user?access_token=e72e16c7e42f292c6912e7710c838347ae178b4a
 ```
 
 上一步 github 已经把最后的绿卡 access_token 给我了，通过 github 提供的 API 加绿卡就能够访问用户的信息了，能获取用户的哪些权限在 response 中也给了明确的说明，scope 为 user 和 gist，也就是只能获取 user 组和 gist 组两个小组的权限，user 组中就包含了用户的名字和邮箱等信息了。

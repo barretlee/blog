@@ -38,7 +38,7 @@ Github Pages 玩熟之后，下一步要做的就是，抛弃它——程序员�
 
 于是我又开始了下一波的折腾。趁着阿里云主机到期之前的半个月，把散布在各处的博客整合下。也就是您现在看到的这个博客内容。简约、明了，风格上学习了简书的布局、设计上参考了阮一峰同学的博客。包括整合各处博客，格式化博客内容，编写主题，调试页面等，花了整整三天时间，够呛的！不过，按照之前玩转博客的时间情况，可以确定，这个设计和博客的部署至少会伴随我五到十年。
 
-刚开始我把这个基于 [hexo](http://hexo.io) 构建的博客部署在 [github](https://github.com/barretlee/blog) 上，我在家里打开速度还过得去，2-3s，但是放到群里，让朋友们测试了下，有的喊出了 20s 的加载时间，这着实让我大吃一惊，果然 github 这种外国货还是不适合我们，于是在 [阿安](http://annn.me/) 的建议下，又将部署地址换到了 [gitcafe](https://help.gitcafe.com/manuals/help/pages-services)。为了方便让 github 的用户顺利迁移到 gitcafe，gitcafe 的几乎就是一个 github 的复制品，包括创建 gitcafe pages，在仓库中弄一个 `gitcafe-pages` 的分支就行了。不过，说句良心话，gitcafe 的体验略好；）
+刚开始我把这个基于 [hexo](http://hexo.io) 构建的博客部署在 [github](//github.com/barretlee/blog) 上，我在家里打开速度还过得去，2-3s，但是放到群里，让朋友们测试了下，有的喊出了 20s 的加载时间，这着实让我大吃一惊，果然 github 这种外国货还是不适合我们，于是在 [阿安](http://annn.me/) 的建议下，又将部署地址换到了 [gitcafe](//help.gitcafe.com/manuals/help/pages-services)。为了方便让 github 的用户顺利迁移到 gitcafe，gitcafe 的几乎就是一个 github 的复制品，包括创建 gitcafe pages，在仓库中弄一个 `gitcafe-pages` 的分支就行了。不过，说句良心话，gitcafe 的体验略好；）
 
 ### 静态博客，找地方托管
 

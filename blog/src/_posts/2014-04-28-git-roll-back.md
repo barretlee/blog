@@ -41,7 +41,7 @@ commit 后面的一串字符就是 SHA 字符。
     
 肯定会出现这样的错误提示：
 
-    error: failed to push some refs to 'https://github.com/barretlee/barretlee.github.io.git'
+    error: failed to push some refs to '//github.com/barretlee/barretlee.github.io.git'
     hint: Updates were rejected because the tip of your current branch is behind
     hint: its remote counterpart. Integrate the remote changes (e.g.
     hint: 'git pull ...') before pushing again.

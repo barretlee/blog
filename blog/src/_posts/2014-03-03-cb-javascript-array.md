@@ -289,7 +289,7 @@ xhr.send();
 <h3>五、参考资料</h3>
 <ul>
 <li><a href="http://www.javascripture.com/ArrayBuffer" target="_blank">http://www.javascripture.com/ArrayBuffer</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array</a> MDN Array</li>
+<li><a href="//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank">//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array</a> MDN Array</li>
 <li><a href="http://www.html5rocks.com/zh/tutorials/file/xhr2/" target="_blank">http://www.html5rocks.com/zh/tutorials/file/xhr2/</a> html5rocks</li>
 <li><a href="http://technet.microsoft.com/zh-cn/ie/br212485" target="_blank">http://technet.microsoft.com/zh-cn/ie/br212485</a> MSDN</li>
 </ul>

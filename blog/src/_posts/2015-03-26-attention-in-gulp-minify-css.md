@@ -41,4 +41,4 @@ gulp.task('css', function(){
 }
 ```
 
-具体其他配置请移步[官方文档](https://github.com/jakubpawlowicz/clean-css#how-to-set-compatibility-mode)。
+具体其他配置请移步[官方文档](//github.com/jakubpawlowicz/clean-css#how-to-set-compatibility-mode)。

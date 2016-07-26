@@ -47,7 +47,7 @@ alert(aa) //11
 ```
 
 <p><span>关于这两者的兼容性问题，可以到这里查看</span><a href="http://kangax.github.io/es5-compat-table/es6/" target="_blank">http://kangax.github.io/es5-compat-table/es6/</a></p>
-<p>Node已经支持了const和let关键词，可以这样使用<code>node --harmony</code>和<code>use strict</code>。目前一些浏览器还不支持这样的写法，但是利用defs.js这个库可以ES3也支持这个。他的原理就是利用<a href="https://github.com/ariya/esprima" target="_blank">esprima</a>来编译并重写你的代码。比如：</p>
+<p>Node已经支持了const和let关键词，可以这样使用<code>node --harmony</code>和<code>use strict</code>。目前一些浏览器还不支持这样的写法，但是利用defs.js这个库可以ES3也支持这个。他的原理就是利用<a href="//github.com/ariya/esprima" target="_blank">esprima</a>来编译并重写你的代码。比如：</p>
 
 ```
 "use strict";
@@ -79,5 +79,5 @@ fn();
 
 ```
 
-<p><span>详情可以去</span><a href="https://github.com/olov/defs" target="_blank">https://github.com/olov/defs</a><span>这里瞅瞅。</span></p>
+<p><span>详情可以去</span><a href="//github.com/olov/defs" target="_blank">//github.com/olov/defs</a><span>这里瞅瞅。</span></p>
 

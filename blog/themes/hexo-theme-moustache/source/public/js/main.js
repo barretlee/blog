@@ -248,7 +248,7 @@ var operation = {
 
         $.removeCookie("visitor");
         duoshuoName && $.ajax({
-            url: "http://" + duoshuoName + ".duoshuo.com/api/threads/listPosts.jsonp?thread_key=/&require=visitor",
+            url: "//" + duoshuoName + ".duoshuo.com/api/threads/listPosts.jsonp?thread_key=/&require=visitor",
             dataType: "jsonp",
             timeout: 5000,
             success: function(data) {
@@ -305,7 +305,7 @@ var operation = {
         });
     },
     insertWeibo: function() {
-        var htmlStr = '<iframe width="330" height="350" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=330&height=350&fansRow=1&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1812166904&verifier=73dc4ca5&dpc=1"></iframe>';
+        var htmlStr = '<iframe width="330" height="350" class="share_self"  frameborder="0" scrolling="no" src="//widget.weibo.com/weiboshow/index.php?language=&width=330&height=350&fansRow=1&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1812166904&verifier=73dc4ca5&dpc=1"></iframe>';
         if (/\/entry\//.test(window.location.href) && !isMobile.any() && ($(window).width() > 992) && !$(".share_self").size()) {
             // $(window).on("load", function() {
                 var $ifr = $(".rightbar-frame");
@@ -430,7 +430,7 @@ var operation = {
                     var img = dataURItoBlob(shareCanvas.toDataURL('image/png'));
                     //var url = window.URL.createObjectURL();
 
-                    var base = "http://tmpfile.coding.io/";
+                    var base = "//tmpfile.coding.io/";
                     var fd = new FormData();
                     fd.append("img", img);
                     $this.text("分享中..");
@@ -497,7 +497,7 @@ var operation = {
             $input.on("keyup change keydown", function(evt) {
                 var val = $.trim($input.val());
                 if (val && (evt.which == 13 || evt.type == 'change')) {
-                    window.open('https://www.google.com.hk/search?q=site:www.barretlee.com ' + val);
+                    window.open('//www.google.com.hk/search?q=site:www.barretlee.com ' + val);
                 }
             });
             $(".entry-page-search i").on("click", function() {
@@ -1276,7 +1276,7 @@ $(function() {
 //                         var $form = $(".ds-replybox form");
 //                         $form.find("input[name='author_name']").remove();
 //                         $form.append("<input type='hidden' name='author_name' value='" + author + "'>");
-//                         $.post("http://barretlee.duoshuo.com/api/posts/create.json", $form.serialize(), function() {
+//                         $.post("//barretlee.duoshuo.com/api/posts/create.json", $form.serialize(), function() {
 //                             $clone.remove();
 //                             $(".comments-info").text("提交成功").hide().fadeIn("fast");
 //                             setTimeout(function() {
@@ -1593,7 +1593,7 @@ ChatRoomClient.prototype.connection = function(cb) {
     }
     self.userId = data.id;
     self.userName = self.userId.slice(2);
-    self.userAvatar = 'http://avatar.duoshuo.com/avatar-50/292/117200.jpg';
+    self.userAvatar = '//avatar.duoshuo.com/avatar-50/292/117200.jpg';
     if(window.DUOSHUO && window.DUOSHUO.visitor
        && window.DUOSHUO.visitor.data.user_id) {
       var userInfo = window.DUOSHUO.visitor.data;
@@ -1836,7 +1836,7 @@ ChatRoomClient.prototype.createPrivateChat = function(data, setCurrent) {
   ];
   var $li = tabXtpl.join('').replace(/<%\s*?(\w+)\s*?%>/gm, function($0, $1) {
     if($1 === 'avatar' && (!data || !data[$1])) {
-      return 'http://avatar.duoshuo.com/avatar-50/292/117200.jpg';
+      return '//avatar.duoshuo.com/avatar-50/292/117200.jpg';
     }
     return htmlspecialchars(data && data[$1] || '');
   });
@@ -1870,7 +1870,7 @@ ChatRoomClient.prototype.addChatLog = function(data, id, isSelf) {
   ];
   var $log = logXtpl.join('\n').replace(/<%\s*?(\w+)\s*?%>/gm, function($0, $1) {
     if($1 === 'avatar' && (!data || !data[$1])) {
-      return 'http://avatar.duoshuo.com/avatar-50/292/117200.jpg';
+      return '//avatar.duoshuo.com/avatar-50/292/117200.jpg';
     }
     return htmlspecialchars(data && data[$1] || '');
   });
@@ -1926,7 +1926,8 @@ ChatRoomClient.prototype.updateCount = function(id) {
     $('.chatroom .count').eq(0).text(this.totalCount).css('visibility', 'visible');
   }
 };
-if(!isMobile.any() && !window.chatRoomClient && !operation.isIE()) {
+if(!isMobile.any() && !window.chatRoomClient
+    && !operation.isIE() && window.location.protocol == 'http:') {
   window.chatRoomClient = new ChatRoomClient();
 }
 });

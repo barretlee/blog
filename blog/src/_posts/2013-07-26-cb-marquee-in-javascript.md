@@ -90,7 +90,7 @@ Marquee.prototype = {
 };
 ```
 
-<p>gists地址：<a href="https://gist.github.com/barretlee/6095976">https://gist.github.com/barretlee/6095976</a></p>
+<p>gists地址：<a href="//gist.github.com/barretlee/6095976">//gist.github.com/barretlee/6095976</a></p>
 <p>代码写的比较粗糙，下面说说这个<strong>思路</strong>：</p>
 <p><img src="http://images.cnitblog.com/blog/387325/201307/26221029-f82024416caf481a91ad51b1576d33d0.jpg" alt=""></p>
 <p>BoxA和BoxB内容相同，当BoxA滚动离开外层盒子时，把scrollTop设置成，当前的scrollTop - BoxA的高度，记得再加上一个1.</p>

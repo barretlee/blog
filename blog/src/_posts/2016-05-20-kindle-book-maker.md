@@ -16,12 +16,12 @@ date: 2016-05-20 12:01:20
 
 本项目旨在写一个 Kindle 电子书的构建工具，从互联网上抓取数据，合并整合都生成一本小巧的 `.mobi` 电子书。而使用这个工具，你只需要编辑下配置文件，或者直接运行命令行工具。
 
-- 项目地址：<https://github.com/barretlee/kindleBookMaker>
+- 项目地址：<//github.com/barretlee/kindleBookMaker>
 - 基本原理：根据 OPF 规范生成 KF8 格式的 `.mobi` 电子书
 
 <!--more-->
 
-<s>**注意：** 项目中提供的 [/bin/kindlegen](https://github.com/barretlee/kindleBookMaker/blob/master/bin/kindlegen) 文件只适用于 Mac 系统，如果您使用的是 windows，需要在这里下载对应的 [kindleGen](http://www.amazon.com/gp/feature.html?docId=1000765211)，并替换本项目中的文件。</s>  感谢 [hillwah](https://github.com/hillwah) 的 PR，帮我添加了对其他平台的支持。
+<s>**注意：** 项目中提供的 [/bin/kindlegen](//github.com/barretlee/kindleBookMaker/blob/master/bin/kindlegen) 文件只适用于 Mac 系统，如果您使用的是 windows，需要在这里下载对应的 [kindleGen](http://www.amazon.com/gp/feature.html?docId=1000765211)，并替换本项目中的文件。</s>  感谢 [hillwah](//github.com/hillwah) 的 PR，帮我添加了对其他平台的支持。
 
 ### 项目结构
 
@@ -33,18 +33,18 @@ date: 2016-05-20 12:01:20
 
 下图为该工具的一个结构图： 
 
-![Kindle Book Maker](http://img.alicdn.com/tfs/TB1B_rJJVXXXXcvXXXXXXXXXXXX-809-584.png)
+![Kindle Book Maker](//img.alicdn.com/tfs/TB1B_rJJVXXXXcvXXXXXXXXXXXX-809-584.png)
 
 抓到数据后，工具会帮助分析过滤数据，尤其对 hexo 生成的文件做了特殊的处理，后续也会添加几个扩展功能（比如之间转换 markdown 文件），如果 html 中包含了远程内容——CSS、图片等——程序会全部抓取过来。
 
-最后，使用官方提供了 [kindleGen](http://www.amazon.com/gp/feature.html?docId=1000765211) 工具构建，我已经把这个文件放到了 [/bin/kindlegen](https://github.com/barretlee/kindleBookMaker/blob/master/bin/kindlegen) 下，大约 28M，有点大。
+最后，使用官方提供了 [kindleGen](http://www.amazon.com/gp/feature.html?docId=1000765211) 工具构建，我已经把这个文件放到了 [/bin/kindlegen](//github.com/barretlee/kindleBookMaker/blob/master/bin/kindlegen) 下，大约 28M，有点大。
 
 ### 使用方法
 
 可以下载代码之后，尝试运行下已经提供了一个 DEMO（封面图片就懒得换了，是我自己的头像）：
 
 ```bash
-git clone https://github.com/barretlee/kindleBookMaker.git;
+git clone //github.com/barretlee/kindleBookMaker.git;
 cd kindleBookMaker;
 npm install;
 node index;
@@ -125,7 +125,7 @@ module.exports = {
 - `bookInfo`, 注意设置 `coverImage`，它为书籍封面图片
 - `ouput`, 可选参数, 默认值为 `./build` 和 `[name]`
 - `singlePage`, 可选参数, 从 URI 爬取数据时会用到
-- `push2kindle`, 可选参数, `kindle` 参数为你设备对应的推送邮箱, 可以在 [这里](https://www.amazon.cn/mn/dcw/myx.html/ref=kinw_myk_redirect#/home/settings/payment) 设置
+- `push2kindle`, 可选参数, `kindle` 参数为你设备对应的推送邮箱, 可以在 [这里](//www.amazon.cn/mn/dcw/myx.html/ref=kinw_myk_redirect#/home/settings/payment) 设置
 
 
 ### Todo

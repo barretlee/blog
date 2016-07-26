@@ -78,7 +78,7 @@ function cancelFullScreen() {
 ```
 
 <h4>3. 浏览器兼容性</h4>
-<p><span>IE 用户就甭看了，刚测试，IE11 不兼容</span>（需要加前缀 ms）。对于浏览器的兼容情况，请戳<a href="https://developer.mozilla.org/en/DOM/Using_full-screen_mode#AutoCompatibilityTable" target="_blank">这里</a>。目前 Firefox 兼容，不过有点离谱。他会弹出一个让你全屏的提示，此时确实是全屏的，但当你点击提示中的\允许"时，屏幕又退出了全屏，真是让人匪夷所思。我测试的版本（27.0.1）有这个问题，当然，这是浏览器本身的问题，不用纠结。</p>
+<p><span>IE 用户就甭看了，刚测试，IE11 不兼容</span>（需要加前缀 ms）。对于浏览器的兼容情况，请戳<a href="//developer.mozilla.org/en/DOM/Using_full-screen_mode#AutoCompatibilityTable" target="_blank">这里</a>。目前 Firefox 兼容，不过有点离谱。他会弹出一个让你全屏的提示，此时确实是全屏的，但当你点击提示中的\允许"时，屏幕又退出了全屏，真是让人匪夷所思。我测试的版本（27.0.1）有这个问题，当然，这是浏览器本身的问题，不用纠结。</p>
 <p><img src="http://images.cnitblog.com/i/387325/201403/010319363967428.png" alt="" width="553" height="195"></p>
 <p>Chrome 对于新特性的支持永远是站在前排，不得不佩服 google 开发工程师的牛掰！</p>
 <h3>二、3 个 bug</h3>
@@ -152,8 +152,8 @@ element { overflow:auto; }
 ```
 
 <p>3. 浏览器提供的两个方便开发的东西：</p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/document.mozFullScreenElement" target="_blank">fullscreenElement</a>：如果这个属性为空，则浏览器处于非全屏状态，否则就是处于全屏。</p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/document.mozFullScreenEnabled" target="_blank">fullscreenEnabled</a>：这个属性告诉你浏览器 document 是否可以全屏。</p>
+<p><a href="//developer.mozilla.org/en-US/docs/Web/API/document.mozFullScreenElement" target="_blank">fullscreenElement</a>：如果这个属性为空，则浏览器处于非全屏状态，否则就是处于全屏。</p>
+<p><a href="//developer.mozilla.org/en-US/docs/Web/API/document.mozFullScreenEnabled" target="_blank">fullscreenEnabled</a>：这个属性告诉你浏览器 document 是否可以全屏。</p>
 <p>4. 也可以使用 keydown 来控制全屏，如：</p>
 
 ```

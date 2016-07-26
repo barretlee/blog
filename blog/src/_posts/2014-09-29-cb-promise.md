@@ -76,7 +76,7 @@ promise(ok).then(ok_1).then(ok_2).then(ok_3).reslove(value)------+
 <p>在 resolve 之前，promise 的每一个 then 都会将回调函数压入队列，resolve 后，将 resolve 的值送给队列的第一个函数，第一个函数执行完毕后，将执行结果再送入下一个函数，依次执行完队列。一连串下来，一气呵成，没有丝毫间断。</p>
 <h4 id="_4"><a class="headeranchor-link" name="user-content-_4" href="#_4"></a>三、简单的封装</h4>
 <p>如果了解 Promise，可以移步下方，看看对 Promise 的封装：</p>
-<p>Github: <a href="https://github.com/barretlee/myPromise" target="_blank">https://github.com/barretlee/myPromise</a>DEMO: <a href="http://barretlee.github.io/myPromise/index.html" target="_blank">http://barretlee.github.io/myPromise/index.html</a></p>
+<p>Github: <a href="//github.com/barretlee/myPromise" target="_blank">//github.com/barretlee/myPromise</a>DEMO: <a href="http://barretlee.github.io/myPromise/index.html" target="_blank">http://barretlee.github.io/myPromise/index.html</a></p>
 <p>如果还不是很了解，可以往下阅读全文，了解一二。</p>
 <h3 id="promise_2"><a class="headeranchor-link" name="user-content-promise_2" href="#promise_2"></a>第二章 Promise 原理</h3>
 <h4 id="promise_3"><a class="headeranchor-link" name="user-content-promise_3" href="#promise_3"></a>一、什么是 Promise ？</h4>
@@ -540,7 +540,7 @@ Promise.race([true, Promise.resolve(1), ...]).then(function(value){
 
 <p>只要 race 参数中有一个 resolve 或者 reject，then 回调就会出发。</p>
 <h4 id="_6"><a class="headeranchor-link" name="user-content-_6" href="#_6"></a>二、基于事件响应的异步模型</h4>
-<p><a href="http://weibo.com/shyvo">@朴灵</a> 写的 <a href="https://github.com/JacksonTian/eventproxy">EventProxy</a> 就是基于事件响应的异步模型，按理说，这个实现的逻辑是最清晰的，不过代码量稍微多一点。</p>
+<p><a href="http://weibo.com/shyvo">@朴灵</a> 写的 <a href="//github.com/JacksonTian/eventproxy">EventProxy</a> 就是基于事件响应的异步模型，按理说，这个实现的逻辑是最清晰的，不过代码量稍微多一点。</p>
 
 ```
 function taskA(){
@@ -578,7 +578,7 @@ E.all(["taskA", "taskB"], function(A, B){
 <li><a href="http://mweb.baidu.com/p/javascript-async-2-promises-a.html">JavaScript中的异步梳理（2）&mdash;&mdash;使用Promises/A</a></li>
 <li><a href="http://www.web-tinker.com/article/20154.html">jQuery的Deferred对象</a></li>
 <li><a href="http://blog.qivhou.com/translation/2013/08/20/promise-deferred-objects-in-javascript-pt2-practical-use/">JavaScript中的Promise和Deferred对象 第二部分：实战</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN</a></li>
+<li><a href="//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN</a></li>
 <li><a href="http://www.cnblogs.com/hustskyking/p/javascript-asynchronous-programming.html">JavaScript异步编程原理</a></li>
 </ul>
 

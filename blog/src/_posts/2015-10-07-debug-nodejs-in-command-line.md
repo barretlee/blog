@@ -15,7 +15,7 @@ date: 2015-10-07 23:54:23
 ---
 
 
-NodeJS 自 2009 年显露人间，到现在已经六个年头了，由于各种原因，中间派生出了个兄弟，叫做 iojs，最近兄弟继续合体，衍生出了 nodejs4.0 版本，这东西算是 `nodejs new 1.0` 版本，原班人马都统一到一个战线上。我没有太关注 nodejs 背后的开发，但一直是它的忠实使用者，通读了 v4.1.2 的 [文档](https://nodejs.org/api/)，感觉从开发者角度去看，也没啥大的变化，所以这两个兄弟分开这么久，主要是在底层内建模块上做改造，上层建筑尚未有大的变更，具体可以看 [这篇文章](https://medium.com/node-js-javascript/4-0-is-the-new-1-0-386597a3436d)。
+NodeJS 自 2009 年显露人间，到现在已经六个年头了，由于各种原因，中间派生出了个兄弟，叫做 iojs，最近兄弟继续合体，衍生出了 nodejs4.0 版本，这东西算是 `nodejs new 1.0` 版本，原班人马都统一到一个战线上。我没有太关注 nodejs 背后的开发，但一直是它的忠实使用者，通读了 v4.1.2 的 [文档](//nodejs.org/api/)，感觉从开发者角度去看，也没啥大的变化，所以这两个兄弟分开这么久，主要是在底层内建模块上做改造，上层建筑尚未有大的变更，具体可以看 [这篇文章](//medium.com/node-js-javascript/4-0-is-the-new-1-0-386597a3436d)。
 
 如果你一直用着 nodejs，然而一直都在写最基本的小 demo，很少深入的去剖析 nodejs 的性能问题，甚至连如何 debug 代码、如何发现性能问题都不知从哪里下手，那么赶紧往下读吧！
 
@@ -72,7 +72,7 @@ watch, unwatch, watchers, repl, restart, kill, list, scripts, breakOnException, 
 |setBreakpoint(), sb() | 在当前行设置断点|
 |setBreakpoint(line), sb(line) | 在 line 行设置断点|
 
-上面几个是常用的，更多命令可以[戳这里](https://nodejs.org/api/debugger.html#debugger_commands_reference)。
+上面几个是常用的，更多命令可以[戳这里](//nodejs.org/api/debugger.html#debugger_commands_reference)。
 
 ### NodeJS的调试原理
 
@@ -86,7 +86,7 @@ Debugger listening on port 5858
 
 可以访问下 `http://localhost:5858`，会看到：
 
-![node debug port 5858](http://www.barretlee.com/blogimgs/2015/10/20151003_0cc888c2.jpg)
+![node debug port 5858](//www.barretlee.com/blogimgs/2015/10/20151003_0cc888c2.jpg)
 
 它告诉我们 nodejs 在打开文件的时候启动了内建调试功能，并且监听端口 5858 过来的调试命令。除了在命令行中直接调试之外，我们还可以通过另外两种方式去调试这个代码：
 
@@ -126,7 +126,7 @@ NodeJS 提供的内建调试十分强大，它告诉 V8，在执行代码的时�
 
 这里的 `--web-port` 是 Chrome Devtools 的调试页面地址端口，`--debug-port` 为 NodeJS 启动的内建 debug 端口，我们可以在 `http://localhost:8080/debug?port=5858` 打开页面，调试使用 `--debug(-brk)` 参数打开的程序。
 
-更多设置可以查阅[官方文档](https://www.npmjs.com/package/node-inspector)。
+更多设置可以查阅[官方文档](//www.npmjs.com/package/node-inspector)。
 
 #### IDE调试
 
@@ -134,13 +134,13 @@ Eclipse 和 webstorm 的工具栏中都有一个叫做 Run 的选择栏，在这
 
 **第一步，为程序添加一个启动程序**
 
-![step 1](http://www.barretlee.com/blogimgs/2015/10/20151003_6988a758.jpg)
+![step 1](//www.barretlee.com/blogimgs/2015/10/20151003_6988a758.jpg)
 
 如果没有 Nodejs 的选项（如在 phpstorm 中），可以手动配置下。
 
 **第二步，配置执行项**
 
-![step 2](http://www.barretlee.com/blogimgs/2015/10/20151003_52fb09e8.jpg)
+![step 2](//www.barretlee.com/blogimgs/2015/10/20151003_52fb09e8.jpg)
 
 - `Node interpreter` 是你 node 程序的位置
 - `Node parameters` 是开启 nodejs 程序的选项，如果使用了 ES6 特性，需要开始 `--harmony` 模式，如果需要远程调试程序，可以使用 `--debug` 命令，我们采用控制台调试，显然是不需要添加 `--debug` 参数的。
@@ -149,7 +149,7 @@ Eclipse 和 webstorm 的工具栏中都有一个叫做 Run 的选择栏，在这
 
 **第三步，断点，调试**
 
-![step 3](http://www.barretlee.com/blogimgs/2015/10/20151003_4f41e088.jpg)
+![step 3](//www.barretlee.com/blogimgs/2015/10/20151003_4f41e088.jpg)
 
 其他 IDE 工具的调试大同小异，其原理也是通过 TCP 连接到 Nodejs 开启的内建调试端口。
 
@@ -219,7 +219,7 @@ V8 提供了很多程序启动选项：
 
 这些启动项都可以让我们查看 V8 在执行时的各种 log 日志，对于排查隐晦问题比较有用。然而这堆日志并不太好看，我们可以将日志输出来之后交给专业的工具帮我们分析，相比很多人都用过 Chrome DevTools 的 JavaScript CPU Profile，它在这里：
 
-![js profile](http://www.barretlee.com/blogimgs/2015/10/20151003_50333da0.jpg)
+![js profile](//www.barretlee.com/blogimgs/2015/10/20151003_50333da0.jpg)
 
 通过 Profile 可以找到具体函数在整个程序中的执行时间和执行时间占比，从而分析到具体的代码问题，V8 也提供了 Profile 日志导出：
 

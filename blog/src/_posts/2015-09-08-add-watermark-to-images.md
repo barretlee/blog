@@ -16,7 +16,7 @@ date: 2015-09-08 21:27:57
 
 <!--more-->
 
-这个库的地址是：<https://github.com/zhangyuanwei/node-images>，它是一个跨平台极为轻量的图片编解码工具，同时附加了一些图片的操作函数，如：
+这个库的地址是：<//github.com/zhangyuanwei/node-images>，它是一个跨平台极为轻量的图片编解码工具，同时附加了一些图片的操作函数，如：
 
 - `.size()` 比例伸缩
 - `.draw(img, x, y)` 在图片上绘制一个图片
@@ -55,7 +55,7 @@ images(sourceImg)
 
 晒一张本博客的一个水印截图：
 
-![博客水印截图](http://www.barretlee.com/blogimgs/2015/09/201592102.jpg)
+![博客水印截图](//www.barretlee.com/blogimgs/2015/09/201592102.jpg)
 
 看到右下角的水印了么 ；）
 

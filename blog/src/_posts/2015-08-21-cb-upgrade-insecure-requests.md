@@ -15,7 +15,7 @@ date: 2015-08-21 11:08:00
 
 <p>HTTPS 是 HTTP over Secure Socket Layer，以安全为目标的 HTTP 通道，所以在 HTTPS 承载的页面上不允许出现 http 请求，一旦出现就是提示或报错：</p>
 <blockquote>
-<p>Mixed Content: The page at "<a href="https://www.taobao.com/">https://www.taobao.com/</a>" was loaded over HTTPS, but requested an insecure image "<a href="http://g.alicdn.com/s.gif">http://g.alicdn.com/s.gif</a>". This content should also be served over HTTPS.</p>
+<p>Mixed Content: The page at "<a href="//www.taobao.com/">//www.taobao.com/</a>" was loaded over HTTPS, but requested an insecure image "<a href="http://g.alicdn.com/s.gif">http://g.alicdn.com/s.gif</a>". This content should also be served over HTTPS.</p>
 </blockquote>
 <p>HTTPS改造之后，我们可以在很多页面中看到如下警报：</p>
 <p><img src="http://images0.cnblogs.com/blog2015/387325/201508/211107536449320.png" alt=""></p>
@@ -29,7 +29,7 @@ header("Content-Security-Policy: upgrade-insecure-requests");
 
 ```
 
-<p>我们的页面是 https 的，而这个页面中包含了大量的 http 资源（图片、iframe等），页面一旦发现存在上述响应头，会在加载 http 资源时自动替换成 https 请求。可以查看 google 提供的一个 <a href="https://googlechrome.github.io/samples/csp-upgrade-insecure-requests/index.html">demo</a>：</p>
+<p>我们的页面是 https 的，而这个页面中包含了大量的 http 资源（图片、iframe等），页面一旦发现存在上述响应头，会在加载 http 资源时自动替换成 https 请求。可以查看 google 提供的一个 <a href="//googlechrome.github.io/samples/csp-upgrade-insecure-requests/index.html">demo</a>：</p>
 <p><img src="http://images0.cnblogs.com/blog2015/387325/201508/211108018005511.png" alt=""></p>
 <p>不过让人不解的是，这个资源发出了两次请求，猜测是浏览器实现的 bug：</p>
 <p><img src="http://images0.cnblogs.com/blog2015/387325/201508/211108089252988.png" alt=""></p>
@@ -45,6 +45,6 @@ header("Content-Security-Policy: upgrade-insecure-requests");
 <h3 id="_1"><a class="headeranchor-link" name="user-content-_1" href="#_1"></a>相关阅读</h3>
 <ul>
 <li><a href="http://www.w3.org/TR/mixed-content/">http://www.w3.org/TR/mixed-content/</a></li>
-<li><a href="https://www.chromestatus.com/feature/6534575509471232">https://www.chromestatus.com/feature/6534575509471232</a></li>
+<li><a href="//www.chromestatus.com/feature/6534575509471232">//www.chromestatus.com/feature/6534575509471232</a></li>
 </ul>
 

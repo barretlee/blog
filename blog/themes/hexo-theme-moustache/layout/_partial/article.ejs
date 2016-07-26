@@ -7,7 +7,7 @@
         <%- partial('post/category', {post: page}) %>
       </div>
       <div class="post-title-wrapper">
-        <h1 class="post-title" itemprop="name"><%= page.title %><img src="http://barretlee.duoshuo.com/api/qrcode/getImage.png?size=240&text=<%- config.url %><%- url_for(page.path) %>" alt="扫码分享" onerror="this.style.display='none';"></h1>
+        <h1 class="post-title" itemprop="name"><%= page.title %><img src="//barretlee.duoshuo.com/api/qrcode/getImage.png?size=240&text=<%- config.url %><%- url_for(page.path) %>" alt="扫码分享" onerror="this.style.display='none';"></h1>
         <a href="<%- url_for('/about/') %>"><img src="<%- url_for(theme.imgs.avatar150) %>" alt="<%- config.author %>" /></a>
       </div>
       <div class="post-info">
@@ -27,7 +27,7 @@
       <div class="post-content" itemprop="articleBody">
         <div class="shit-spider" title="防爬虫不注明出处" tabindex="0" aria-hidden="true">
           <p>原文地址：<a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a>，<a href="<%- config.url %><%- url_for(page.path) %>#comments">参与评论</a></p>
-          <img src="http://www.barretlee.com/blogimgs/avatar150.png">
+          <img src="//www.barretlee.com/blogimgs/avatar150.png">
         </div>
         <%- page.content %>
         <!--<p class="article-info">文/<a href="<%- url_for('about/') %>"><img src="/avatar150.png">李靖</a>　微信公众号：barretlee_com</p><p class="this-page-link" aria-hidden="true">本文链接：<a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a></p>

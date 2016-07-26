@@ -273,7 +273,7 @@ alert("Barret李靖")//");
 ```
 
 <p><strong>9. url</strong></p>
-<p>url中可以使用很多协议 http:// https:// javascript: vbscript: data:等等，利用这些属性，可以找到很多的空隙。</p>
+<p>url中可以使用很多协议 http:// // javascript: vbscript: data:等等，利用这些属性，可以找到很多的空隙。</p>
 
 ```
 <a href="data:text/html,<script>alert(" barret李靖")<="" script="">">XSS</a>
@@ -367,7 +367,7 @@ function parseURL(){
 <li>http://ha.ckers.org/xsscalc.html</li>
 <li>chrome插件 （xss Encode，百度之）</li>
 <li>抓包工具，<a href="http://www.telerik.com/download/fiddler" target="_blank">fiddler4</a>  <a href="http://www.charlesproxy.com/latest-release/download.do" target="_blank">chales</a></li>
-<li>白名单过滤工具<a href="https://github.com/leizongmin/js-xss" target="_blank">github/js-xss</a></li>
+<li>白名单过滤工具<a href="//github.com/leizongmin/js-xss" target="_blank">github/js-xss</a></li>
 
 </ol>
 <h3>八、小结</h3>
@@ -387,6 +387,6 @@ function parseURL(){
 <li><a href="http://drops.wooyun.org/tips/147" target="_blank">http://drops.wooyun.org/tips/147</a></li>
 <li><a href="http://www.web-tinker.com/article/20468.html" target="_blank">http://www.web-tinker.com/article/20468.html</a></li>
 <li><a href="http://www.wooyun.org/whitehats/%E5%BF%83%E4%BC%A4%E7%9A%84%E7%98%A6%E5%AD%90" target="_blank">http://www.wooyun.org/whitehats/%E5%BF%83%E4%BC%A4%E7%9A%84%E7%98%A6%E5%AD%90</a></li>
-<li><a href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet" target="_blank">https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet</a></li>
+<li><a href="//www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet" target="_blank">//www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet</a></li>
 
 </ul>

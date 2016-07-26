@@ -13,9 +13,9 @@ description: ECMAScript 6 目前基本成为业界标准，它的普及速度比
 
 ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快很多，主要原因是现代浏览器对 ES6 的支持相当迅速，尤其是 Chrome 和 Firefox 浏览器，已经支持 ES6 中绝大多数的特性。
 
-![https://unsplash.com/photos/iCtJF-A5hvs by Jeff Hopper](http://ww1.sinaimg.cn/large/6c0378f8gw1f5npzp64c0j20p00dw77u.jpg)
+![//unsplash.com/photos/iCtJF-A5hvs by Jeff Hopper](//ww1.sinaimg.cn/large/6c0378f8gw1f5npzp64c0j20p00dw77u.jpg)
 
-本文译自 Github 上的[一篇文章](https://github.com/metagrover/ES6-for-humans)，目的是对还不太熟悉 ES6 语法的同学做一个简单的扫盲。
+本文译自 Github 上的[一篇文章](//github.com/metagrover/ES6-for-humans)，目的是对还不太熟悉 ES6 语法的同学做一个简单的扫盲。
 
 <!--more-->
 
@@ -117,7 +117,7 @@ function Person(){
 var person = new Person();
 ```
 
-在 [这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#Lexical_this) 可以阅读更多 `this` 在箭头函数中的词法特性。
+在 [这里](//developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#Lexical_this) 可以阅读更多 `this` 在箭头函数中的词法特性。
 
 ### 3. 函数参数默认值
 
@@ -439,7 +439,7 @@ let c = new Porsche();
 
 当然，你也可以在子类方法中调用父类的方法，如 `super.parentMethodName()`。
 
-在 [这里](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) 阅读更多关于类的介绍。
+在 [这里](//developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) 阅读更多关于类的介绍。
 
 有几点值得注意的是：
 

@@ -44,7 +44,7 @@ date: 2013-10-31 05:00:00
 
 
 <h3>吃透一个知识点</h3>
-<p>　　上面也说了怎么去解决一个问题，如何吃透一个知识点，这个也需要拿出来谈一谈。有些网站的内容是比较有权威性质的，比如<a href="http://www.whatwg.org/" target="_blank">http://www.whatwg.org/</a>、<a href="https://developer.mozilla.org/" target="_blank">https://developer.mozilla.org/</a>、<a href="http://www.w3.org/" target="_blank">http://www.w3.org/</a>等，如果你对这些网站比较熟悉而且英文水平还行的话，建议直接去查找你要的答案，一定可以找到（不过很难找）。</p>
+<p>　　上面也说了怎么去解决一个问题，如何吃透一个知识点，这个也需要拿出来谈一谈。有些网站的内容是比较有权威性质的，比如<a href="http://www.whatwg.org/" target="_blank">http://www.whatwg.org/</a>、<a href="//developer.mozilla.org/" target="_blank">//developer.mozilla.org/</a>、<a href="http://www.w3.org/" target="_blank">http://www.w3.org/</a>等，如果你对这些网站比较熟悉而且英文水平还行的话，建议直接去查找你要的答案，一定可以找到（不过很难找）。</p>
 <p>　　要弄清楚这个知识点包含哪些关键词，这样在网络上搜到的结果才是靠谱的，很多人真的不会搜索！大学有一门课程叫做<code>文件情报检索</code>，感兴趣的童鞋可以去选修这门课，我这里也有这门课程的相关PPT，可以给我邮件(<a href="mailto:barret.china@gmail.com" target="_blank">barret.china@gmail.com</a>)。</p>
 
 
@@ -126,7 +126,7 @@ date: 2013-10-31 05:00:00
 
 
 <h3>前端构架</h3>
-<p>　　很多公司都在研究一套属于自己的前端集成解决方案，如百度的<a title="FIS" href="http://fis.baidu.com/" target="_blank">FIS</a>，阿里的<a title="seajs" href="https://github.com/seajs/seajs" target="_blank">seajs</a>等，也有很多牛人在研究自己的前端库、框架，如司徒正美的<a title="avalon" href="https://github.com/RubyLouvre/avalon" target="_blank">avalon</a>，老赵的<a title="wind.js" href="https://github.com/JeffreyZhao/jscex" target="_blank">wind.js</a>，cujojs的<a title="when.js" href="https://github.com/cujojs/when" target="_blank">when.js</a>等等，看看这些人的博客，也会感叹，人家两三年前也开始搞起来了，代码写的也是相当出色的！</p>
+<p>　　很多公司都在研究一套属于自己的前端集成解决方案，如百度的<a title="FIS" href="http://fis.baidu.com/" target="_blank">FIS</a>，阿里的<a title="seajs" href="//github.com/seajs/seajs" target="_blank">seajs</a>等，也有很多牛人在研究自己的前端库、框架，如司徒正美的<a title="avalon" href="//github.com/RubyLouvre/avalon" target="_blank">avalon</a>，老赵的<a title="wind.js" href="//github.com/JeffreyZhao/jscex" target="_blank">wind.js</a>，cujojs的<a title="when.js" href="//github.com/cujojs/when" target="_blank">when.js</a>等等，看看这些人的博客，也会感叹，人家两三年前也开始搞起来了，代码写的也是相当出色的！</p>
 <p>说这些东西，是为了说明，前端方面水很深，如果发现自己没啥事干了，这些东西一定会让你有所触动，也算是学到一定水平之后会主动去学习的东西。</p>
 
 

@@ -343,7 +343,7 @@ window.onerror = function(){
 <li><a href="http://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html">JavaScript Source Map 详解</a> by 阮一峰</li>
 <li><a href="http://www.w3.org/TR/2010/WD-html5-20100624/webappapis.html#handler-window-onerror">HTML5标准-window.onerror</a></li>
 <li><a href="http://msdn.microsoft.com/en-us/library/cc197053%28VS.85%29.aspx">MSDN-window.onerror</a></li>
-<li><a href="https://developer.mozilla.org/en/DOM/window.onerror">MDN-window.onerror</a></li>
+<li><a href="//developer.mozilla.org/en/DOM/window.onerror">MDN-window.onerror</a></li>
 <li><a href="http://www.w3.org/TR/2015/WD-network-error-logging-20150305/">网络错误日志</a></li>
 
 </ul>

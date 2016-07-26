@@ -14,7 +14,7 @@ date: 2015-09-19 16:52:19
 
 <!--more-->
 
-源码地址：<https://github.com/demo-platform/pop-img>
+源码地址：<//github.com/demo-platform/pop-img>
 
 DEMO：<http://demo-platform.github.io/pop-img/>
 

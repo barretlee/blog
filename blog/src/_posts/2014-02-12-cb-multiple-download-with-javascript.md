@@ -18,7 +18,7 @@ date: 2014-02-12 09:50:00
 <p>对于文件的下载，可以说是一个十分常见的话题，前端的很多项目中都会有这样的需求，比如 highChart 统计图的导出，在线图片编辑中的图片保存，在线代码编辑的代码导出等等。而很多时候，我们只给了一个链接，用户需要右键点击链接，然后选择\另存为"，这个过程虽说不麻烦，但还是需要两步操作，倘若用户想保存页面中的多个链接文件，就得重复操作很多次，最常见的就是英语听力网站上的音频下载，手都要点麻！</p>
 <p>本文的目的是介绍如何利用 javascript 进行多文件的下载，也就是当用户点击某个链接或者按钮的时候，同时下载多个文件。这里的\同时"用的不是很准确，在现代浏览器中可以实现多文件的并行下载，而在一些老版本浏览器，如IE8-，此类的浏览器就只能进行单个文件的下载，但是我们可以让多个文件依次保存下来，算是串行下载吧~</p>
 <p>若要要无视实现细节，可以直接跳到第三部分，或者戳：</p>
-<p>代码封装：<a href="https://github.com/barretlee/javascript-multiple-download/blob/master/lib.js" target="_blank">lib.js</a></p>
+<p>代码封装：<a href="//github.com/barretlee/javascript-multiple-download/blob/master/lib.js" target="_blank">lib.js</a></p>
 <p>DEMO：<a href="http://rawgithub.com/barretlee/javascript-multiple-download/master/test/test.html" target="_blank">javascript-multiple-download</a>&nbsp;(HTTPS，第三个有bug，具体原因下面有说明)</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="http://qianduannotes.duapp.com/demo/javascript-multiple-download/test/test.html" target="_blank">javascript-multiple-download</a>&nbsp;(HTTP，测试正常)</p>
 
@@ -57,7 +57,7 @@ Base64 在HTML中的使用：
 ```
 
 <h4>3. Blob 流</h4>
-<p>Blob 对象表示不可变的、包含原始数据的类文件对象。具体的内容可以参阅<a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob" target="_blank">MDN文档</a>。</p>
+<p>Blob 对象表示不可变的、包含原始数据的类文件对象。具体的内容可以参阅<a href="//developer.mozilla.org/en-US/docs/Web/API/Blob" target="_blank">MDN文档</a>。</p>
 <p>他的使用也是特别的方便，如：</p>
 
 ```
@@ -66,7 +66,7 @@ var oMyBlob = new Blob(aFileParts, {type : 'text/html'}); // the blob
 
 ```
 
-<p>Blob 接收两个参数，一个是数组类型的数据对象，他可以是 ArrayBuffer、ArrayBufferView、Blob、String 等诸多类型；第二个参数是 MINE 类型设置。而本文我们要用到的是 <code>URLcreateObjectURL()</code> 这个函数，他的作用是将一个 URL 所代表的内容转化成一个 <a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMString" target="_blank">DOMString</a>，产生的结果是一个 文件对象 或者 Blob 对象。</p>
+<p>Blob 接收两个参数，一个是数组类型的数据对象，他可以是 ArrayBuffer、ArrayBufferView、Blob、String 等诸多类型；第二个参数是 MINE 类型设置。而本文我们要用到的是 <code>URLcreateObjectURL()</code> 这个函数，他的作用是将一个 URL 所代表的内容转化成一个 <a href="//developer.mozilla.org/en-US/docs/Web/API/DOMString" target="_blank">DOMString</a>，产生的结果是一个 文件对象 或者 Blob 对象。</p>
 <h4>4. 二进制流</h4>
 <p>我们利用 File API 读取文件的时候，拿到的是数据的二进制流格式，这些类型可以直接被 ArrayBuffer 等接收，本文中没有用到，就不细说了。</p>
 <h3>二、JavaScript 多文件下载</h3>
@@ -169,10 +169,10 @@ isImg && ifr.contentWindow.document.write("<img src="" +
 <p>这个也比较好处理，直接把文件写入到 iframe 中，然后在执行保存。</p>
 <h3>三、代码的封装与接口介绍</h3>
 <h4>1. 代码的封装以及相关 DEMO</h4>
-<p>封装：<a href="https://github.com/barretlee/javascript-multiple-download/blob/master/lib.js" target="_blank">lib.js</a></p>
+<p>封装：<a href="//github.com/barretlee/javascript-multiple-download/blob/master/lib.js" target="_blank">lib.js</a></p>
 <p>DEMO：<a href="http://rawgithub.com/barretlee/javascript-multiple-download/master/test/test.html" target="_blank">javascript-multiple-download</a>&nbsp;(HTTPS，第三个有bug)</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="http://qianduannotes.duapp.com/demo/javascript-multiple-download/test/test.html" target="_blank">javascript-multiple-download</a>&nbsp;(HTTP，测试正常)</p>
-<p>Bug 说明，经过一番细节处理之后，基本兼容各个浏览器，我把代码放在 https://raw.github.com 上托管，可能因为是 https 传输，第三个测试中报错了，报错的具体内容是：<span>HTTPS 安全受到 http://rawgithub.com/barretlee/javascript-multiple-download/master/file/test.jpg 的威胁</span>，而 test.txt 文件没有报错。放到 http 协议下测试运行结果是可观的。（<span>这点我没有去深究，肯定是有深层安全方面原因的，难道就因为他是 jpg图片格式？ </span>&nbsp; 谢&nbsp;<a href="https://www.imququ.com/" target="_blank">@屈屈</a><span>&nbsp;</span>提醒，跨协议传输存在安全问题）后面的 demo 我放在 BAE 上，没有问题，不过没测试 safari 和 opera。</p>
+<p>Bug 说明，经过一番细节处理之后，基本兼容各个浏览器，我把代码放在 //raw.github.com 上托管，可能因为是 https 传输，第三个测试中报错了，报错的具体内容是：<span>HTTPS 安全受到 http://rawgithub.com/barretlee/javascript-multiple-download/master/file/test.jpg 的威胁</span>，而 test.txt 文件没有报错。放到 http 协议下测试运行结果是可观的。（<span>这点我没有去深究，肯定是有深层安全方面原因的，难道就因为他是 jpg图片格式？ </span>&nbsp; 谢&nbsp;<a href="//www.imququ.com/" target="_blank">@屈屈</a><span>&nbsp;</span>提醒，跨协议传输存在安全问题）后面的 demo 我放在 BAE 上，没有问题，不过没测试 safari 和 opera。</p>
 <h4>2. 接口的调用</h4>
 <p>提供了三个接口，支持单文件下载，多文件下载，多文件下载自定义命名。</p>
 <p>1）单文件下载</p>
@@ -249,6 +249,6 @@ Header set Content-Disposition attachment
 <ul>
 <li><a href="http://www.alloyteam.com/2014/01/use-js-file-download/" target="_blank">在浏览器端用JS创建和下载文件</a> AlloyTeam</li>
 <li><a href="http://thezedienblog.blogspot.com/2013/05/starting-file-download-with-javascript.html" target="_blank">Starting file download with Javascript</a> Ahzaz's Blog</li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Blob" target="_blank">Blob 流</a> MDN</li>
+<li><a href="//developer.mozilla.org/en-US/docs/Web/API/Blob" target="_blank">Blob 流</a> MDN</li>
 </ul>
 

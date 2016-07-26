@@ -63,7 +63,7 @@ if(time() - $_POST['tid'] > 60*2 ||
 <p>所谓的token，其实就是在登录之前向服务器发送一个请求，获取准入的一个临时密码，这个临时密码是由服务器给出，所以不存在上面所说的时间不准确问题，同时这个token也是一个随机的字符串，只能单次使用，hacker很难获取，即便获取也无法使用，因为下一步登录所需的信息他没有。</p>
 <p>很多童鞋都用过人人、QQ、微博的开发平台，其中OAuth认证也就是这个原理。就拿人人开发平台的认证来说，他的认证流程是这样的：&nbsp;</p>
 <p><img src="http://images.cnitblog.com/blog/387325/201311/26144042-63a32b86b7574f06adb31c99a39b4316.png" alt="renren"></p>
-<p>通过你在平台申请的API KEY向https://graph.renren.com/oauth/authorize请求一个临时密码，也就是token code，然后利用token code向https://graph.renren.com/oauth/token请求用户数据。整个流程十分简单。</p>
+<p>通过你在平台申请的API KEY向//graph.renren.com/oauth/authorize请求一个临时密码，也就是token code，然后利用token code向//graph.renren.com/oauth/token请求用户数据。整个流程十分简单。</p>
 <p>这是一个简单的demo，获取你的头像和姓名。<a href="http://qianduannotes.duapp.com/renren/enter.html" target="_blank">人人OAuth认证demo</a></p>
 <p>使用token的弊端是需要额外发送一次请求，过程稍微复杂。有些公司VPN通道就是利用token做密码，为了保证高安全性，他们使用的是一个信息与服务器同步硬件设备，和银行发的动态口令一样，每次登陆都需要输入这个口令，那这个口令也就是token，不过他不是网络传输获取，所以安全性更高。</p>
 

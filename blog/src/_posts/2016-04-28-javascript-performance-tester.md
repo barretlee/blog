@@ -15,7 +15,7 @@ date: 2016-04-28 20:00:23
 
 平时写些小页面小程序，一般不会出现性能问题，但是在大的工程，或者在写一个框架、类库的时候，代码的性能就需要提高一个优先级了。测试代码的性能有多种方案：
 
-- 在 <https://jsperf.com> 上测试
+- 在 <//jsperf.com> 上测试
 - 使用 `console.time` 来收集代码执行的时间
 ```javascript
 console.time('Name');
@@ -28,7 +28,7 @@ console.timeEnd('Name');
 
 本文自然就是自己撸一个简单易用的测试工具，效果如下图：
 
-![JavaScript 代码执行效率对比工具](https://img.alicdn.com/tps/TB1d238JpXXXXcoXFXXXXXXXXXX-446-570.gif)
+![JavaScript 代码执行效率对比工具](//img.alicdn.com/tps/TB1d238JpXXXXcoXFXXXXXXXXXX-446-570.gif)
 
 
 ### 设计分析
@@ -36,16 +36,16 @@ console.timeEnd('Name');
 可以先把代码下载下来，跑起来：
 
 ```bash
-git clone https://github.com/barretlee/performance.git
+git clone //github.com/barretlee/performance.git
 cd performance/test;
 open index.html;
 ```
 
-或者直接打开测试页面：<https://barretlee.github.io/performance/test/>。
+或者直接打开测试页面：<//barretlee.github.io/performance/test/>。
 
 点击代码按钮，Performance 会循环执行 button 中的代码，持续时间是设定的 1000ms，每次执行完，都会计算出相对效率，100% 是效率最高的，剩下的自然就是效率比较低的，从而可以比较清晰地看出程序之间性能差异。
 
 ### 相关阅读
 
-- https://share.web-tinker.com/performance.js
+- //share.web-tinker.com/performance.js
 

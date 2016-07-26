@@ -352,7 +352,7 @@ require('net').createServer(function(o){
 <p>对这部分感兴趣的同学，可以再去深究。提供了<a href="http://files.cnblogs.com/hustskyking/ws.zip" target="_blank">参考代码下载</a>。</p>
 <h4>4. 相关开源库参考</h4>
 <p><a href="http://socketo.me" target="_blank">http://socketo.me</a> Ratchet 为 php 封装的一个 WebSockets 库。 ]</p>
-<p>Google 上搜索 <a href="https://www.google.com.hk/search?q=php+websocket+class" target="_blank">php+websoket+class</a>，也能找到不少相关的资料。</p>
+<p>Google 上搜索 <a href="//www.google.com.hk/search?q=php+websocket+class" target="_blank">php+websoket+class</a>，也能找到不少相关的资料。</p>
 <h3>三、参考资料</h3>
 <ul>
 <li><a href="http://www.php.net/manual/zh/ref.sockets.php" target="_blank">http://www.php.net/manual/zh/ref.sockets.php</a> php manual</li>

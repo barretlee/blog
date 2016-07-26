@@ -36,5 +36,5 @@ date: 2013-11-04 01:26:00
 <li>缩短第一屏的内容，后几屏的内容用js异步+判断滚动条动作载入，减少构建Render树和布局render树的时间</li>
 
 </ul>
-<p>关于浏览器的工作原理，有兴趣的可以上网<a href="https://www.google.com.hk/search?q=%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86" target="_blank">搜搜</a>。</p>
+<p>关于浏览器的工作原理，有兴趣的可以上网<a href="//www.google.com.hk/search?q=%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86" target="_blank">搜搜</a>。</p>
 

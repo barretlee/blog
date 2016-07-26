@@ -208,7 +208,7 @@ addEventListener("keyup",function(e){
 <h3>四、参考文章</h3>
 <ul>
 <li><a href="http://www.csdn.net/article/2013-07-10/2816178-Web-Audio-API-Firefox" target="_blank">http://www.csdn.net/article/2013-07-10/2816178-Web-Audio-API-Firefox</a> CSND</li>
-<li><a href="https://hacks.mozilla.org/2013/07/web-audio-api-comes-to-firefox/">https://hacks.mozilla.org/2013/07/web-audio-api-comes-to-firefox/</a> Mozilla</li>
+<li><a href="//hacks.mozilla.org/2013/07/web-audio-api-comes-to-firefox/">//hacks.mozilla.org/2013/07/web-audio-api-comes-to-firefox/</a> Mozilla</li>
 <li><a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/#toc-context" target="_blank">http://www.html5rocks.com/en/tutorials/webaudio/intro/#toc-context</a> html5rocks</li>
 <li><a href="http://www.w3.org/TR/webaudio/" target="_blank">http://www.w3.org/TR/webaudio/</a> W3 Group</li>
 <li><a href="http://www.web-tinker.com/article/20497.html" target="_blank">http://www.web-tinker.com/article/20497.html</a>&nbsp;次碳酸钴</li>

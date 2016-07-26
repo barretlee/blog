@@ -14,7 +14,7 @@ date: 2015-09-02 15:50:55
 博客迁移没有注意 URL 地址的变化，导致百度和 google 这两只爬虫引擎短时间内找不到路。近段时间研究了下国内最大搜索引擎百度和国际最大搜索引擎google的站长工具，说下感受。
 
 - 百度的站长工具地址：<http://zhanzhang.baidu.com/dashboard/index>
-- google 的站长工具地址: <https://www.google.com/webmasters/tools/home>
+- google 的站长工具地址: <//www.google.com/webmasters/tools/home>
 
 最近墙的比较厉害，google 不一定能访问进去（我平时用的 [GreenVPN](http://gjsq.link/)，还挺不错的，速度快，支持的国家也多）。
 

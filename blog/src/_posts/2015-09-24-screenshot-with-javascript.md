@@ -54,7 +54,7 @@ phantomjs render.js
 
 这个方案比较粗糙，但是对于简单的页面，以上操作就能导出一张几乎与原状一模一样的图片。当然，我们想到的，也有人实现出来了，`html2canvas` 就是一个关注度很高的 js 截屏库，它考虑的内容会更多更全面。比如：
 
-![截屏分享](http://www.barretlee.com/blogimgs/2015/09/20150904_0187d488.jpg)
+![截屏分享](//www.barretlee.com/blogimgs/2015/09/20150904_0187d488.jpg)
 
 我博客左侧的微博小图标，hover 上去有一个微博分享，这里我就使用了这个库截取博客全文视图（考虑小屏手机，我把宽度设置成 480，比较窄），其实现是很简单的：
 
@@ -86,7 +86,7 @@ var shareUrl = "http://service.weibo.com/share/share.php?appkey=YOUR_APP_KEY&tit
 
 这里的 picUrl 必须是一个 http 可请求到的地址，实在是无奈呀，在 [coding.net](http://coding.net) 写了一个小应用，用来临时储存图片（10分钟之后删除上传图片），有需要的可以试用下：
 
-- 源码地址：<https://github.com/demo-platform/resolve-blob>
+- 源码地址：<//github.com/demo-platform/resolve-blob>
 - Demo地址：<http://tmpfile.coding.io>
 
 JQuery 用户可以这样搞：

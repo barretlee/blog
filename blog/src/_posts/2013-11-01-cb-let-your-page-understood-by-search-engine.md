@@ -119,7 +119,7 @@ date: 2013-11-01 03:40:00
 <li><strong>使用URL属性</strong>，比如我的博客首页有很多文章列表，对列表中的每一篇文章都应用URL的itemscope标记，这样效果会比较好</li>
 </ul>
 <h4>3.测试你的标记</h4>
-<p>Google提供了许多相关的测试工具来测试这些schema标记语法，比如这个：<a href="https://support.google.com/webmasters/answer/146645?hl=zh-Hans" target="_blank">google webmasters</a>，你可以用这些工具来检测格式是不是正确。</p>
+<p>Google提供了许多相关的测试工具来测试这些schema标记语法，比如这个：<a href="//support.google.com/webmasters/answer/146645?hl=zh-Hans" target="_blank">google webmasters</a>，你可以用这些工具来检测格式是不是正确。</p>
 
 
 <h3>三、进阶话题：机器可理解的版本信息</h3>

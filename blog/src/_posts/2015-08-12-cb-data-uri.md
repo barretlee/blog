@@ -11,7 +11,7 @@ date: 2015-08-12 09:38:00
 
 <div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2015/08/12/data-uri.html" target="_blank">博客园</a>.</div>
 
-<p><span>Data URL 早在 1995 年就被提出，那个时候有很多个版本的 Data URL Schema 定义陆续出现在 </span><a href="https://zh.wikipedia.org/zh-cn/VRML">VRML</a><span> 之中，随后不久，其中的一个版本被提上了议案&mdash;&mdash;将它做个一个嵌入式的资源放置在 HTML 语言之中。从 </span><a href="http://www.ietf.org/rfc/rfc2397.txt">RFC</a><span> 文档定稿的时间来看（1998年），它是一个很受欢迎的发明。</span></p>
+<p><span>Data URL 早在 1995 年就被提出，那个时候有很多个版本的 Data URL Schema 定义陆续出现在 </span><a href="//zh.wikipedia.org/zh-cn/VRML">VRML</a><span> 之中，随后不久，其中的一个版本被提上了议案&mdash;&mdash;将它做个一个嵌入式的资源放置在 HTML 语言之中。从 </span><a href="http://www.ietf.org/rfc/rfc2397.txt">RFC</a><span> 文档定稿的时间来看（1998年），它是一个很受欢迎的发明。</span></p>
 <p>Data URIs 定义的内容可以作为小文件被插入到其他文档之中。URI 是 <code>uniform resource identifier</code> 的缩写，它定义了接受内容的协议以及附带的相关内容，如果附带的相关内容是一个地址，那么此时的 URI 也是一个 URL (<code>uniform resource locator</code>)，如：</p>
 
 ```
@@ -158,8 +158,8 @@ http://example.com/text.php?t="><script src="data:text/html,<script>alert(" xss"
 <h3 id="_4"><a class="headeranchor-link" name="user-content-_4" href="#_4"></a>扩展阅读</h3>
 <ul>
 <li><a href="http://www.ietf.org/rfc/rfc2397.txt">RFC 2397</a> RFC文档</li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/data_URIs">MDN - data_URIs</a> MDN文档</li>
-<li><a href="https://msdn.microsoft.com/en-us/library/cc848897(VS.85).aspx">MSDN - data Protocal</a> MSDN文档</li>
+<li><a href="//developer.mozilla.org/zh-CN/docs/data_URIs">MDN - data_URIs</a> MDN文档</li>
+<li><a href="//msdn.microsoft.com/en-us/library/cc848897(VS.85).aspx">MSDN - data Protocal</a> MSDN文档</li>
 <li><a href="http://www.nczonline.net/blog/2009/10/27/data-uris-explained/">NC - data_uris_explained</a></li>
 <li><a href="http://www.phpied.com/mhtml-when-you-need-data-uris-in-ie7-and-under/">phpied - MHTML</a></li>
 </ul>
