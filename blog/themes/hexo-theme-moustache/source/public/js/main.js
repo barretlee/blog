@@ -1740,7 +1740,7 @@ ChatRoomClient.prototype.bindEvent = function() {
   $('.chatroom-tribes').on('click', 'li', function(evt) {
     evt.preventDefault();
     var id = $(this).attr('data-id');
-    var $target = $('.chatroom-item[data-id="' + id + '"]');
+    var $target = $('.chatroom-item[data-id="' + htmlspecialchars(id) + '"]');
     $('.chatroom-tribes').find('li').removeClass('current');
     $('.chatroom-item').removeClass('current');
     $(this).addClass('current');
@@ -1760,7 +1760,7 @@ ChatRoomClient.prototype.bindEvent = function() {
     var $p = $(this).parent('li');
     var id = $p.attr('data-id');
     $p.remove();
-    $(".chatroom-item[data-id='" + id + "']").remove();
+    $(".chatroom-item[data-id='" + htmlspecialchars(id) + "']").remove();
     $('.chatroom-item').removeClass('current');
     $('.chatroom-item[data-id="group"]').addClass('current');
     $('.chatroom-tribe[data-id="group"]').addClass('current');
@@ -1825,7 +1825,7 @@ ChatRoomClient.prototype.ping = function() {
 };
 
 ChatRoomClient.prototype.createPrivateChat = function(data, setCurrent) {
-  if($('.chatroom-item[data-id="' + data.id + '"]').size()) return;
+  if($('.chatroom-item[data-id="' + htmlspecialchars(data.id) + '"]').size()) return;
   var tabXtpl = [
     '<li class="chatroom-tribe" data-id="<% id %>">',
       '<img src="<% avatar %>" alt="<% name %>">',
@@ -1842,7 +1842,7 @@ ChatRoomClient.prototype.createPrivateChat = function(data, setCurrent) {
   });
   $(".chatroom-tribes").append($li);
   var id = data && data.id;
-  var $pannel = '<div class="chatroom-item" data-id="' + id + '"></div>';
+  var $pannel = '<div class="chatroom-item" data-id="' + htmlspecialchars(id) + '"></div>';
   $(".chatroom-pannel-bd").append($pannel);
   if(setCurrent) {
     $('.chatroom-tribe').removeClass('current');
@@ -1874,13 +1874,13 @@ ChatRoomClient.prototype.addChatLog = function(data, id, isSelf) {
     }
     return htmlspecialchars(data && data[$1] || '');
   });
-  var $target = $(".chatroom-item[data-id='" + id + "']");
+  var $target = $(".chatroom-item[data-id='" + htmlspecialchars(id) + "']");
   $target.append($log);
   this.scroll(id, isSelf);
 };
 
 ChatRoomClient.prototype.scroll = function(id, isSelf) {
-  var $target = $(".chatroom-item[data-id='" + id + "']");
+  var $target = $(".chatroom-item[data-id='" + htmlspecialchars(id) + "']");
   var $box = $('.chatroom-pannel-bd');
   var H = $target.height();
   var DELTA = 300;
@@ -1909,7 +1909,7 @@ ChatRoomClient.prototype.addWelcomeLog = function(data) {
 };
 
 ChatRoomClient.prototype.updateCount = function(id) {
-  var $li = $('.chatroom-tribe[data-id="' + id + '"]');
+  var $li = $('.chatroom-tribe[data-id="' + htmlspecialchars(id) + '"]');
   // if(!$li.size() || $li.hasClass('current')) return;
   var $target = $li.find('.count');
   var count = parseInt($target.text());
