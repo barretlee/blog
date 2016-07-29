@@ -1418,7 +1418,12 @@ $(function() {
 })();
 
 ;typeof history.pushState === 'function' && (function() {
-
+    // if(!$('html').hasAttr('loaded')) {
+    //     var href = window.location.href;
+    //     history.replaceState({
+    //         url: href
+    //     }, '', href);
+    // }
     var pageCache = window.pageCache = window.pageCache || {};
     function pjax(url, tag) {
         if(!tag) {
@@ -1950,3 +1955,37 @@ if(!isMobile.any() && !window.chatRoomClient
   window.chatRoomClient = new ChatRoomClient();
 }
 });
+
+// 页面统计
+$(function() {
+var bszTag = {
+    bszs: ["site_pv", "page_pv", "site_uv"],
+    texts: function(a) {
+        this.bszs.map(function(b) {
+            var c = document.getElementById("busuanzi_value_" + b);
+            c && (c.innerHTML = a[b])
+        })
+    },
+    hides: function() {
+        this.bszs.map(function(a) {
+            var b = document.getElementById("busuanzi_container_" + a);
+            b && (b.style.display = "none")
+        })
+    },
+    shows: function() {
+        this.bszs.map(function(a) {
+            var b = document.getElementById("busuanzi_container_" + a);
+            b && (b.style.display = "inline")
+        })
+    }
+};
+
+$.ajax({
+    url: "//busuanzi.ibruce.info/busuanzi",
+    dataType: 'jsonp',
+    jsonp: 'jsonpCallback',
+    success: function(a) {
+        bszTag.texts(a), bszTag.shows()
+    }
+});
+})();
