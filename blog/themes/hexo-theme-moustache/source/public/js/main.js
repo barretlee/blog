@@ -1622,20 +1622,21 @@ ChatRoomClient.prototype.connection = function(cb) {
           self.userAvatar = info.avatar;
         }
       } catch(e) {}
-    } else {
-      if(window.sessionStorage) {
-        var userId = window.sessionStorage.getItem('userId');
-        if(userId) {
-          self.userId = userId.length > 12 ? userId.slice(0, 12) : userId;
-          self.userName = userId.slice(2);
-        } else {
-          window.sessionStorage.setItem('userId', self.userId);
-        }
-      }
     }
-    if(window.sessionStorage) {
-      window.sessionStorage.setItem('userId', self.userId);
-    }
+    // else {
+    //   if(window.sessionStorage) {
+    //     var userId = window.sessionStorage.getItem('userId');
+    //     if(userId) {
+    //       self.userId = userId.length > 12 ? userId.slice(0, 12) : userId;
+    //       self.userName = userId.slice(2);
+    //     } else {
+    //       window.sessionStorage.setItem('userId', self.userId);
+    //     }
+    //   }
+    // }
+    // if(window.sessionStorage) {
+    //   window.sessionStorage.setItem('userId', self.userId);
+    // }
     if(!self.nameChanged) {
       self.nameChanged = true;
       self.changeName();
