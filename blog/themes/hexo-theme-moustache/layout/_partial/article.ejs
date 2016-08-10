@@ -7,7 +7,7 @@
         <%- partial('post/category', {post: page}) %>
       </div>
       <div class="post-title-wrapper">
-        <h1 class="post-title" itemprop="name"><%= page.title %><img src="//barretlee.duoshuo.com/api/qrcode/getImage.png?size=240&text=<%- config.url %><%- url_for(page.path) %>" alt="扫码分享" onerror="this.style.display='none';"></h1>
+        <h1 class="post-title" itemprop="name"><%= page.title %><img src="https://game.weixin.qq.com/cgi-bin/comm/qrcode?s=10&m=1&d=http:<%- config.url %><%- url_for(page.path) %>" alt="扫码分享" onerror="this.style.display='none';"></h1>
         <a href="<%- url_for('/about/') %>"><img src="<%- url_for(theme.imgs.avatar150) %>" alt="<%- config.author %>" /></a>
       </div>
       <div class="post-info">
