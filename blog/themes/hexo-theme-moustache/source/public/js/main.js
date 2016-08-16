@@ -44,6 +44,7 @@ function notify(notice) {
       if(notice.url) {
         window.open(notice.url);
       } else {
+        $('.chatroom-fold .chatroom-info').trigger('click');
         window.focus();
       }
       notification.close();
@@ -351,11 +352,7 @@ var operation = {
   alertMsg: function(msg, tag) {
     if (!msg) return;
     if (tag && 'Notification' in window) {
-      notify({
-        body: msg.body,
-        icon: msg.icon,
-        title: msg.title
-      });
+      notify(msg);
       return ;
     }
     var $msg = $(".alertInfo").size() ? $(".alertInfo") : $("<div class='alertInfo'></div>").appendTo($("body"));
@@ -1796,7 +1793,6 @@ $(function() {
             icon: htmlspecialchars(data.avatar),
             title: '群聊消息'
           }, true);
-          $('.chatroom-fold .chatroom-info').trigger('click');
         } else {
           window.operation && operation.alertMsg(str);
         }
