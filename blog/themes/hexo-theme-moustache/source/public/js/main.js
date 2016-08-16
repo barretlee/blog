@@ -41,7 +41,11 @@ function notify(notice) {
 
   if (notification) {
     notification.onclick = function() {
-      window.focus();
+      if(notice.url) {
+        window.open(url);
+      } else {
+        window.focus();
+      }
       notification.close();
     }
   }
@@ -347,11 +351,12 @@ var operation = {
   alertMsg: function(msg, tag) {
     if (!msg) return;
     if (tag && 'Notification' in window) {
-      return notify({
+      notify({
         body: msg.body,
         icon: msg.icon,
         title: msg.title
       });
+      return ;
     }
     var $msg = $(".alertInfo").size() ? $(".alertInfo") : $("<div class='alertInfo'></div>").appendTo($("body"));
     $msg = $($msg);
