@@ -1791,6 +1791,7 @@ $(function() {
             icon: htmlspecialchars(data.avatar),
             title: '群聊消息'
           }, true);
+          $('.chatroom-fold .chatroom-info').trigger('click');
         } else {
           window.operation && operation.alertMsg(str);
         }
