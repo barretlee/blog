@@ -1790,7 +1790,7 @@ $(function() {
             body: htmlspecialchars(data.name) + "の私信，右下角查看",
             icon: htmlspecialchars(data.avatar),
             title: '群聊消息'
-          });
+          }, true);
         } else {
           window.operation && operation.alertMsg(str);
         }
