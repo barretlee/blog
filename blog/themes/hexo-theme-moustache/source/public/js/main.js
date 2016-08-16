@@ -42,7 +42,7 @@ function notify(notice) {
   if (notification) {
     notification.onclick = function() {
       if(notice.url) {
-        window.open(url);
+        window.open(notice.url);
       } else {
         window.focus();
       }
