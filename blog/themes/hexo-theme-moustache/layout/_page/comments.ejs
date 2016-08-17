@@ -15,8 +15,8 @@
 		</h2>
     <h3>最近 200 位访客 <small style="margin-left; 10px; display:none;" id="commentVisitorHook"><a href="javascript:void 0;">view</a></small></h3>
     <div class="ds-recent-visitors" data-num-items="200"></div>
-    <h3>最近 30 条评论</h3>
-		<div class="ds-recent-comments" data-num-items="30" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
+    <h3>最近 50 条评论</h3>
+		<div class="ds-recent-comments" data-num-items="50" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
 		<%- partial("page_footer") %>
 	</div>
 </div>
@@ -51,6 +51,7 @@ window.onload = function() {
       if($(".ds-avatar").size() > 0) {
         clearInterval(self.timer);
         self.storeGuests();
+        $(".ds-avatar a").removeAttr('onclick');
         $("#commentVisitorHook").show();
       }
     }, 200);
