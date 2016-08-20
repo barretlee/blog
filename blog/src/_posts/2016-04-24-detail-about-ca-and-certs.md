@@ -459,5 +459,5 @@ __3. PKI 体系__
 
 ### 拓展阅读
 
-- //jamielinux.com/docs/openssl-certificate-authority/index.html
+- http://jamielinux.com/docs/openssl-certificate-authority/index.html
 - http://www.ert7.com/service/knowledge/3999.html

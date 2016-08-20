@@ -47,5 +47,5 @@ open index.html;
 
 ### 相关阅读
 
-- //share.web-tinker.com/performance.js
+- http://share.web-tinker.com/performance.js
 
