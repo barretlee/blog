@@ -204,5 +204,5 @@ GraphQL 的出现场景跟 React 类似，React 是前端应对不同场景的�
 - <http://www.csdn.net/article/1970-01-01/2815164> By 李晶
 - <http://cnberg.com/archive/2013-fe/> By Berg
 - <http://www.infoq.com/cn/articles/2014-review-front-end-part> By 黄丹
-- <//medium.com/@shijuvar/web-development-trends-for-2015-and-beyond-c2d3c1ef5718> By Shiju Varghese
-- <//github.com/kuitos/kuitos.github.io/issues/32> By Kuitos
+- <http://medium.com/@shijuvar/web-development-trends-for-2015-and-beyond-c2d3c1ef5718> By Shiju Varghese
+- <http://github.com/kuitos/kuitos.github.io/issues/32> By Kuitos

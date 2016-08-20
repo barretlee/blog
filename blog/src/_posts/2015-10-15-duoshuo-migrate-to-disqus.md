@@ -20,7 +20,7 @@ date: 2015-10-15 15:59:57
 
 开始在网上搜罗了一番，没找到好用的，很多都是 python 写的，表示没学过 python，网上找了 [一个方案](http://blog.jamespan.me/2015/04/21/the-duoshuo-migrator/) 试用，出了好几个问题，最终还是没有搞定。所以自己重新捯饬了一个 nodejs 版本的：
 
-- 仓库地址：<//github.com/barretlee/duoshuo-migrate-to-disqus>
+- 仓库地址：<http://github.com/barretlee/duoshuo-migrate-to-disqus>
 - 参考文档：[disqus 格式文档](//help.disqus.com/customer/portal/articles/472150-custom-xml-import-format)
 - 参考文档：[多说格式文档](http://dev.duoshuo.com/docs/500fc3cdb17b12d24b00000a)
 

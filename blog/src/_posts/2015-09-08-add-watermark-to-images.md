@@ -16,7 +16,7 @@ date: 2015-09-08 21:27:57
 
 <!--more-->
 
-这个库的地址是：<//github.com/zhangyuanwei/node-images>，它是一个跨平台极为轻量的图片编解码工具，同时附加了一些图片的操作函数，如：
+这个库的地址是：<http://github.com/zhangyuanwei/node-images>，它是一个跨平台极为轻量的图片编解码工具，同时附加了一些图片的操作函数，如：
 
 - `.size()` 比例伸缩
 - `.draw(img, x, y)` 在图片上绘制一个图片

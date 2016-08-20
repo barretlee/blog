@@ -86,7 +86,7 @@ var shareUrl = "http://service.weibo.com/share/share.php?appkey=YOUR_APP_KEY&tit
 
 这里的 picUrl 必须是一个 http 可请求到的地址，实在是无奈呀，在 [coding.net](http://coding.net) 写了一个小应用，用来临时储存图片（10分钟之后删除上传图片），有需要的可以试用下：
 
-- 源码地址：<//github.com/demo-platform/resolve-blob>
+- 源码地址：<http://github.com/demo-platform/resolve-blob>
 - Demo地址：<http://tmpfile.coding.io>
 
 JQuery 用户可以这样搞：
