@@ -101,7 +101,7 @@ function compileCode(code) {
 
 似乎这么做就可以了，但既然用到了 ES6 的特性，我们便不能忽略 ES6 中一个可以控制 `with` 关键词行为的变量。
 
-### `Symbol.unscopables`
+### Symbol.unscopables
 
 `Symbol` 是 JS 的第七种数据类型，它能够产生一个唯一的值，同时也具备一些内建属性，这些属性可以用来进行元编程（meta programming），即对语言本身编程，影响语言行为。其中一个内建属性 `Symbol.unscopables`，通过它可以影响 `with` 的行为。
 
