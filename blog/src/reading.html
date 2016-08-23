@@ -23,19 +23,24 @@ function htmlspecialchars(str){
 }
 
 function notify(notice) {
+  notice = notify || {};
   if (!("Notification" in window)) {
     window.console && console.warn("浏览器不支持提醒");
   } else if (Notification.permission === "granted") {
-    var notification = new Notification(notice.title, notice);
+    if(notice.title) {
+      var notification = new Notification(notice.title, notice);
+    }
   } else if (Notification.permission !== 'denied') {
     Notification.requestPermission(function(permission) {
       if (permission === "granted") {
-        var notification = new Notification(notice.title, notice);
+        if(notice.title) {
+          var notification = new Notification(notice.title, notice);
+        }
       }
     });
   }
 
-  if (notification) {
+  if (notification && notice.title) {
     notification.onclick = function() {
       if(notice.url) {
         window.open(notice.url);
@@ -172,6 +177,9 @@ body {
   max-width: 700px;
   margin: 50px auto;
   counter-reset: listLi;
+}
+.wrapper h1 {
+  font-size: 30px;
 }
 .wrapper ul {
   list-style-type: none;
