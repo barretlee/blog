@@ -86,7 +86,7 @@ curl -X POST //dnsapi.cn/Record.Modify -d 'login_email=YOUR_REGISTER_EMAIL&login
 
 前两个请求是 GET 方式，而这里的请求是 POST 方式，具体文档在 [这里](http://www.dnspod.cn/docs/records.html#record-modify)。有人用 [python](//gist.github.com/chuangbo/833369) 和 [php](//github.com/William-Sang/ddns) 都写了工具，我就没有重复早轮了，后面 php 那个稍微靠谱点，但是查询本地外网 IP 用了他自己提供的服务，我做了点修改（改成使用 ipinfo.io 提供的服务，稍微靠谱点），可以戳这里：
 
-Github：<//github.com/barretlee/ddns>
+Github：<http://github.com/barretlee/ddns>
 
 __3. 定时推__
 

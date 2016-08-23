@@ -19,7 +19,7 @@ date: 2014-04-21 00:00:00
 
 解决方案是：将 cloneNode 拿到的代码片段在 clone 一次。如同 IE6 下浮动元素 margin 的渲染，是 IE6 的 bug，通过设置 inline 可以解决。
 
-- Bug 地址：<//bugs.webkit.org/show_bug.cgi?id=6617>
+- Bug 地址：<http://bugs.webkit.org/show_bug.cgi?id=6617>
 - Bug 测试源码：[link](//webkit.googlesource.com/WebKit/+/a847461eedf68a16e2d2491447608ea3bf9d7890/LayoutTests/fast/dom/clone-node-form-elements-with-attr.html)
 - JQ中对这个 bug 的阐述：<http://bugs.jquery.com/ticket/5832>
 - JQ对这个bug 的处理：<http://bugs.jquery.com/ticket/5929>

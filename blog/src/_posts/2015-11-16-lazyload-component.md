@@ -16,7 +16,7 @@ date: 2015-11-16 22:30:59
 
 <!--more-->
 
-- 仓库地址：<//github.com/barretlee/lazyload>
+- 仓库地址：<http://github.com/barretlee/lazyload>
 - Demo地址：<http://barretlee.github.io/lazyload/demo/index.html>
 
 核心代码：

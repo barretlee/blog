@@ -5,6 +5,7 @@
   <channel>
     <% url = 'http:' + url %>
     <title><%-: config.title | cdata %></title>
+    <% url = 'http:' + url %>
     <link><%- encodeURI(url) %></link>
     <script xmlns="http://www.w3.org/1999/xhtml" src="/public/js/rss.js"></script>
     <atom:link href="<%- encodeURI(feed_url) %>" rel="self" type="application/rss+xml"/>

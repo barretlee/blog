@@ -175,7 +175,7 @@ patch:
 - [安装及配置 Mac 上的 Rime 输入法——鼠鬚管 (Squirrel)](http://www.dreamxu.com/install-config-squirrel/)
 - [Rime输入法—鼠须管(Squirrel)词库添加及配置](http://www.jianshu.com/p/cffc0ea094a7)
 
-当然，可以直奔官网的说明：<//github.com/rime/home/wiki>。
+当然，可以直奔官网的说明：<http://github.com/rime/home/wiki>。
 
 我用了两天，感觉很棒。我的皮肤设置（`squirrel.custom.yaml`）为：
 

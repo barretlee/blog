@@ -16,7 +16,7 @@ date: 2016-05-20 12:01:20
 
 本项目旨在写一个 Kindle 电子书的构建工具，从互联网上抓取数据，合并整合都生成一本小巧的 `.mobi` 电子书。而使用这个工具，你只需要编辑下配置文件，或者直接运行命令行工具。
 
-- 项目地址：<//github.com/barretlee/kindleBookMaker>
+- 项目地址：<http://github.com/barretlee/kindleBookMaker>
 - 基本原理：根据 OPF 规范生成 KF8 格式的 `.mobi` 电子书
 
 <!--more-->
