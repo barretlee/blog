@@ -1,0 +1,338 @@
+layout: false
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小胡子哥正在看</title>
+</head>
+<body>
+
+<script src="/public/js/jquery.js"></script>
+<script src="/public/js/socket.io.js"></script>
+<script>
+function htmlspecialchars(str){
+  str = str || '';
+  str = str.replace(/&/g, '&amp;');
+  str = str.replace(/</g, '&lt;');
+  str = str.replace(/>/g, '&gt;');
+  str = str.replace(/"/g, '&quot;');
+  str = str.replace(/'/g, '&#039;');
+  return str;
+}
+
+function notify(notice) {
+  if (!("Notification" in window)) {
+    window.console && console.warn("浏览器不支持提醒");
+  } else if (Notification.permission === "granted") {
+    var notification = new Notification(notice.title, notice);
+  } else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function(permission) {
+      if (permission === "granted") {
+        var notification = new Notification(notice.title, notice);
+      }
+    });
+  }
+
+  if (notification) {
+    notification.onclick = function() {
+      if(notice.url) {
+        window.open(notice.url);
+      } else {
+        window.focus();
+      }
+      notification.close();
+    }
+  }
+}
+var Reading = function() {
+  if(window.location.protocol === 'https:') {
+    window.location.reload(window.location.href.replace('https:', 'http:'));
+  }
+  this.socket = io.connect('http://123.56.230.53:29232/');
+  // this.socket = io.connect();
+  this.init();
+};
+
+Reading.prototype.init = function() {
+  var self = this;
+  this.socket.on('broadcast', function(data) {
+    console.log(data);
+    if(data.url && data.title) {
+      if(data.img == 'http://ifttt.com/images/no_image_card.png') {
+        data.img = '';
+      }
+      // data.img = data.img || 'http://avatar.duoshuo.com/avatar-50/292/117200.jpg';
+      self.add(data);
+      notify({
+        title: "小胡子哥推荐阅读",
+        icon: data.img || 'http://avatar.duoshuo.com/avatar-50/292/117200.jpg',
+        body: data.title,
+        url: data.url
+      });
+    }
+  });
+};
+
+Reading.prototype.add = function(data) {
+  var tpl = [
+    '<li>',
+    '  <a href="<% url %>" target="_blank">',
+    '    <img src="<% img %>" alt="<% title %>">',
+    '    <div>',
+    '      <h2><% title %></h2>',
+    '      <p><% detail %></p>',
+    '    </div>',
+    '  </a>',
+    '</li>'
+  ].join('\n');
+  data = data || {};
+  var item = tpl.replace(/<%\s*?(\w+)\s*%>/g, function($0, $1) {
+    return htmlspecialchars($1 && data[$1]) || '';
+  });
+  $(item).hide().prependTo($('.wrapper ul')).slideDown(200);
+};
+
+$(function() {
+  window.reading = new Reading();
+});
+
+</script>
+
+<div class="rainbow"></div>
+<div class="wrapper">
+  <div class="title">
+    <h1>小胡子哥正在看</h1>
+    <p>实时推送小胡子哥推荐的资讯和技术看点</p>
+    <p class="info">
+      <a href="http://www.barretlee.com/entry/" target="_blank" class="btn">逛逛博客</a>
+      <span>/</span>
+      <a href="http://weibo.com/173248656" target="_blank" class="btn wb">微博关注</a>
+      <span>/</span>
+      <a href="https://github.com/barretlee/pocket/issues" target="_blank" class="btn history">历史推送</a>
+    </p>
+  </div>
+  <ul>
+    <li>
+      <a href="http://www.barretlee.com" target="_blank">
+        <img src="http://www.barretlee.com/avatar150.png" alt="小胡子哥">
+        <div>
+          <h2>小胡子哥的个人博客</h2>
+          <p>分享生活，分享技术，小胡子哥带你走进大前端！</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<style>
+a {
+  text-decoration: none;
+  color: #333;
+  outline: none;
+}
+a:hover {
+  text-decoration: none;
+  color: #000;
+}
+a img {
+  border: none;
+}
+img {
+  background: #EEE;
+}
+html, body  {
+  height: 100%;
+}
+body {
+  -webkit-tap-highlight-color: transparent;
+  font-size: 16px;
+  color: #2f2f2f;
+  background: #fff;
+  font-family: Georgia, serif;
+}
+.rainbow {
+  height: 4px;
+  text-indent: -9999px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  right: -2px;
+  z-index: 108;
+  background: #003973;
+  background: -moz-linear-gradient(left, #003973 0%, #e5e5be 100%);
+  background: -webkit-linear-gradient(left, #003973 0%, #e5e5be 100%);
+  background: linear-gradient(to right, #003973 0%, #e5e5be 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003973', endColorstr='#e5e5be',GradientType=0 );
+  left: -2px;
+}
+.wrapper {
+  width: 100%;
+  max-width: 700px;
+  margin: 50px auto;
+  counter-reset: listLi;
+}
+.wrapper ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 20px;
+}
+.wrapper ul li {
+  list-style-type: none;
+  margin: 0 0 20px 0;
+  position: relative;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+  font-size: 15px;
+  border-radius: 3px;
+  overflow: hidden;
+  color: #333;
+  transition: transform 0.2s;
+  transform: translateZ(0);
+  will-change: inherit;
+  background: #FFF;
+  counter-increment: listLi;
+}
+.wrapper ul li::after {
+  list-style-type: none;
+  margin: 0;
+  content: counter(listLi);
+  position: absolute;
+  right: 18px;
+  top: -1px;
+  background: #6CBCCA;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.8), 0px 1px 0px rgba(0, 0, 0, 0.3);
+  color: #FFF;
+  font-size: 19px;
+  padding: 3px 6px;
+  transition: background 0.3s;
+}
+.wrapper ul li:hover {
+  list-style-type: none;
+  transition: transform 0.2s;
+  transform: scale(1.05);
+}
+.wrapper ul li:hover::after {
+  background: #5595A0;
+  transition: background 0.3s;
+}
+.wrapper ul li img {
+  float: left;
+  height: 150px;
+  width: 150px;
+  text-align: center;
+  line-height: 150px;
+  text-shadow: 1px 1px 1px #CCC;
+  overflow: hidden;
+}
+.wrapper ul li div {
+  padding: 20px 20px 10px 170px;
+}
+.wrapper ul li div h2 {
+  margin-top: 0;
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+.wrapper ul li div p {
+  margin: 0;
+  font-weight: lighter;
+  line-height: 30px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.title h1 {
+  line-height: 50px;
+  margin: 0;
+}
+.title p {
+  margin: 15px 0;
+}
+.title .info {
+  margin: 15px 0;
+}
+.title .btn {
+  display: inline-block;
+  background-color: #6CBCCA;
+  color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 24px;
+  border-radius: 4px;
+  margin: 10px;
+  transition: all 0.3s;
+}
+.title .btn:hover {
+  background-color: #5595A0;
+  transition: all 0.3s;
+}
+.title .btn.wb {
+  background: #fa7d3c;
+}
+.title .btn.wb:hover {
+  background: #df601e;
+}
+.title .btn.history {
+  background: #4caf50;
+}
+.title .btn.history:hover {
+  background: #1b9120;
+}
+@media screen and (max-width: 641px) {
+  .wrapper ul li::after {
+    left: 10px;
+    right: auto;
+  }
+  .wrapper ul li img {
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+  }
+  .wrapper ul li div {
+    padding-left: 135px;
+  }
+  .wrapper ul li div h2 {
+    font-size: 18px;
+  }
+  .wrapper ul li div p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .title p span {
+    display: none;
+  }
+  .title .btn {
+    margin: 0;
+    padding: 10px 15px;
+  }
+}
+@media screen and (max-width: 341px) {
+  .wrapper ul li::after {
+    left: 10px;
+    right: auto;
+  }
+  .wrapper ul li img {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+  }
+  .wrapper ul li div {
+    padding-left: 95px;
+  }
+  .wrapper ul li div h2 {
+    font-size: 18px;
+    height: 21px;
+    overflow: hidden;
+  }
+  .wrapper ul li div p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .title p span {
+    display: none;
+  }
+}
+</style>
+</body>
+</html>
