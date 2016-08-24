@@ -144,6 +144,7 @@ body {
   margin-top: 0;
   font-size: 26px;
   margin-bottom: 12px;
+  word-break: break-word;
 }
 .wrapper ul li div p {
   margin: 0;
@@ -345,7 +346,14 @@ Reading.prototype.add = function(data) {
   ].join('\n');
   data = data || {};
   var item = tpl.replace(/<%\s*?(\w+)\s*%>/g, function($0, $1) {
-    return htmlspecialchars($1 && data[$1]) || '';
+    var ctt = data[$1] || '';
+    if($1 === 'title') {
+      data[$1] = ctt.slice(0, 200);
+    }
+    if($1 === 'detail') {
+      data[$1] = ctt.slice(0, 1000);
+    }
+    return htmlspecialchars(ctt);
   });
   $(item).hide().prependTo($('.wrapper ul')).slideDown(200);
 };
