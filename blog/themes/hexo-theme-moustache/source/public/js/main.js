@@ -627,7 +627,7 @@ var operation = {
       $(this).attr("id", "comments");
 
       $(".nav-detail>div").hide().eq(index).fadeIn();
-    }).eq(0).trigger('click');
+    });
     $(".relative-to-comment").on("click", function() {
       $(".footer-nav a").eq(0).trigger("click");
     });
