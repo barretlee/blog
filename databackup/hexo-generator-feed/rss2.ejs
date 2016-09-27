@@ -25,7 +25,7 @@
       <content:encoded><% if (post.description){ %><%-: post.description | cdata %>
       <% } else if (post.excerpt){ %><%-: post.excerpt | cdata %>
       <% } else {%><%-: post.content.substring(0, 140) | cdata %><% } %></content:encoded>
-      <% if (post.comments){ %><comments><%- encodeURI(url + post.path) %>#disqus_thread</comments><% } %>
+      <% if (post.comments){ %><comments><%- encodeURI(url + post.path) %>#comments</comments><% } %>
     </item>
     <% }) %>
   </channel>
