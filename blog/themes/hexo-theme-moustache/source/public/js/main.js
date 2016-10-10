@@ -690,7 +690,7 @@ var operation = {
     });
 
     $toTop.on("click", function(evt) {
-      var $obj = $("body");
+      var $obj = $("body,html");
       $obj.animate({
         scrollTop: 0
       }, 240);
