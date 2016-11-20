@@ -45,7 +45,7 @@ nginx -s stop;
 nginx -t;
 ```
 
-`-s`，signal，意思就是向 nginx 发送 `start|reload|stop` 命令，但是很好理解的。先看一个最简单的 `nginx.conf` 配置：
+`-s`，signal，意思就是向 nginx 发送 `start|reload|stop` 命令，还是很好理解的。先看一个最简单的 `nginx.conf` 配置：
 
 ```nginx
 events {
@@ -132,7 +132,7 @@ index /html/index.html /php/index.php;
 
 重定向页面设置
 ```nginx
-error_page    404    /404.html;
+error_page    404         /404.html;
 error_page    502  503    /50x.html;
 error_page    404  =200   /1x1.gif;
 
@@ -250,3 +250,5 @@ http {
 ### 小结
 
 本文内容为阅读《深入理解 Nginx 模块开发和架构解析》时做的一点笔记，以前配置 Nginx 服务器总是得上网找答案，现在把这些项都理解并记到脑子里了，还是担心忘记，博客稍作记录。
+
+十分建议读者边阅读边动手尝试，利用 `nginx -t` 测试下语法；遇到问题 Google 搜索下，上手会很快，后续有空会详细介绍下 Nginx 运维知识。
