@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "hexo": {
-    "version": "3.1.1"
+    "version": "3.2.2"
   },
   "dependencies": {
-    "hexo": "^3.1.0",
-    "hexo-deployer-ftpsync": "~0.1.1",
+    "hexo": "^3.2.2",
+    "hexo-deployer-ftpsync": "^0.1.1",
     "hexo-deployer-git": "0.0.4",
     "hexo-deployer-heroku": "0.0.3",
     "hexo-deployer-rsync": "~0.1.1",

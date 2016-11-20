@@ -4,7 +4,7 @@
 			if(name && name[0] && name[0].name) {
 		%>
 		<ul><% name = name[0].name; var limit = 5, count = 0;
-			site.posts.each(function(p){
+			site.posts.sort('date', 'desc').each(function(p){
 				var cates = {};
 				for(var key in p.categories.data) {
 					var n = p.categories.data[key].name;

@@ -44,7 +44,7 @@
 		</div>
 		<div class="rightbar-frame" aria-hidden="true"></div>
 	</div>
-		<% var recentPost = site.posts.data[1];
+		<% var recentPost = site.posts.sort('date', 'desc').data[1];
 		var rTitle = recentPost.title;
 		var excerpt = recentPost.excerpt.replace(/<[^>]+?>|\n/gm, '') || recentPost.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 100) + "...";
 		var m = recentPost.content.match(/<img src="([^"]+?)"/);
@@ -73,7 +73,7 @@
 		<div class="entry-recent-posts">
 			<h2><a href="<%- url_for('/blog/archives/') %>" aria-hidden="true">博客归档 »</a>近期文章</h2>
 			<ul itemscope itemtype="http://schema.org/Article">
-			<% site.posts.slice(0, 12).each(function(post){ %>
+			<% site.posts.sort('date', 'desc').limit(12).each(function(post){ %>
 				<li><span itemprop="timeCreated" aria-hidden="true"><%- moment(post.date).format("YYYY-MM-DD") %> » </span><a href="<%- url_for(post.path) %>" itemprop="url" itemprop="name"><%- post.title %>
 					<% if(0 && post.mark) { %>
 						<em tabindex="0" aria-hidden="true" class="entry-item-tag"><%- post.mark %></em>

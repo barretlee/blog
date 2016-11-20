@@ -45,7 +45,8 @@ mkfile:
 
 # 初始化,执行 cnpm install
 init:
-	cnpm i;
+	cd blog; cnpm i;
+	cd write; cnpm i;
 	git remote add origin https://github.com/barretlee/blog.git;
 	git remote add origin https://git.coding.net/barretlee/blog.git;
 

@@ -5,6 +5,7 @@ databackup/posts
 databackup/music
 blogsources
 themes/landscape
+preview/
 
 .idea
 node_modules

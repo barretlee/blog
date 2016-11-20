@@ -1,4 +1,4 @@
-<% var recentPost = site.posts.data[0];
+<% var recentPost = site.posts.sort('date', 'desc').data[0];
 	var rTitle = recentPost.title;
 	var excerpt = recentPost.excerpt || recentPost.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 48) + "...";
 %>
