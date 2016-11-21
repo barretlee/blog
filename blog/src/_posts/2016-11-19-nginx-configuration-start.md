@@ -83,8 +83,8 @@ listen 127.0.0.1 default_server accept_filter=dataready backlog=1024
 
 主机名配置
 ```nginx
-server_name www.barret.com barret.com
-server_name *.barret.com
+server_name www.barretlee.com barretlee.com
+server_name *.barretlee.com
 server_name ~^\.barret\.com$
 ```
 
@@ -169,12 +169,12 @@ Nginx 具备超强的高并发高负载能力，一般会作为前端的服务�
 
 **1、负载均衡配置**
 
-upstream，定义一个上有服务器集群
+upstream，定义一个上游服务器集群
 ```nginx
 upstream backend {
     # ip_hash;
-    server s1.barret.com;
-    server s2.barret.com;
+    server s1.barretlee.com;
+    server s2.barretlee.com;
 }
 server {
     location / {
