@@ -1455,6 +1455,10 @@ typeof history.pushState === 'function' && (function() {
   //         url: href
   //     }, '', href);
   // }
+  var href = window.location.href;
+  history.replaceState({
+      url: href
+  }, '', href);
   var pageCache = window.pageCache = window.pageCache || {};
 
   function pjax(url, tag) {
@@ -1531,8 +1535,9 @@ typeof history.pushState === 'function' && (function() {
     //     window.rTimer && clearInterval(window.rTimer);
     // }
   }
-  window.onpopstate = function() {
-    var currentState = history.state;
+  window.onpopstate = function(e) {
+    console.warn(e.state);
+    var currentState = e.state;
     if (currentState) {
       if (window.console && window.console.info) {
         console.info('navigator back: ' + currentState.url);
