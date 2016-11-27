@@ -1536,7 +1536,6 @@ typeof history.pushState === 'function' && (function() {
     // }
   }
   window.onpopstate = function(e) {
-    console.warn(e.state);
     var currentState = e.state;
     if (currentState) {
       if (window.console && window.console.info) {
