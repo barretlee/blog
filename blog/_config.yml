@@ -70,7 +70,7 @@ theme: hexo-theme-moustache
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
 - type: git
-  repository: https://git.coding.net/barretlee/blog.git
+  repository: https://git.coding.net/barretlee/myblog.git
   branch: coding-pages
   message: build at local, send to coding-pages {{ now("YYYY-MM-DD HH:mm:ss") }}
 - type: git
@@ -103,5 +103,3 @@ deploy:
 #   ignore: [ignore]
 #   connections: [connections]
 #   verbose: [true|false]
-
-
