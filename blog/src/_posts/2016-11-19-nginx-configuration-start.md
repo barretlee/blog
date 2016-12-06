@@ -45,7 +45,7 @@ nginx -s stop;
 nginx -t;
 ```
 
-`-s`，signal，意思就是向 nginx 发送 `start|reload|stop` 命令，但是很好理解的。先看一个最简单的 `nginx.conf` 配置：
+`-s`，signal，意思就是向 nginx 发送 `start|reload|stop` 命令，还是很好理解的。先看一个最简单的 `nginx.conf` 配置：
 
 ```nginx
 events {
@@ -83,8 +83,8 @@ listen 127.0.0.1 default_server accept_filter=dataready backlog=1024
 
 主机名配置
 ```nginx
-server_name www.barret.com barret.com
-server_name *.barret.com
+server_name www.barretlee.com barretlee.com
+server_name *.barretlee.com
 server_name ~^\.barret\.com$
 ```
 
@@ -97,7 +97,8 @@ location = / {
 }
 location ^~ /images/ {
     # 前半部分匹配 ^~
-    # 可以使用正则，如 location ~* \.(gif|jpg|png)$ { }
+    # 可以使用正则，如：
+    # location ~* \.(gif|jpg|png)$ { }
 }
 location / {
     # 如果以上都未匹配，会进入这里
@@ -132,7 +133,7 @@ index /html/index.html /php/index.php;
 
 重定向页面设置
 ```nginx
-error_page    404    /404.html;
+error_page    404         /404.html;
 error_page    502  503    /50x.html;
 error_page    404  =200   /1x1.gif;
 
@@ -160,20 +161,20 @@ location / {
 
 ### Nginx 配置反向代理服务器
 
-反向代理（reserve proxy）方式是指用大力服务器来接受 Internet 上的连接请求，然后将请求转发给内部网络中的上游服务器，并将上游服务器上得到的结果返回给 Internet 上请求连接的客户端，此时代理服务器对外的表现就是一个 Web 服务器。
+反向代理（reserve proxy）方式是指用代理服务器来接受 Internet 上的连接请求，然后将请求转发给内部网络中的上游服务器，并将上游服务器上得到的结果返回给 Internet 上请求连接的客户端，此时代理服务器对外的表现就是一个 Web 服务器。
 
 Nginx 具备超强的高并发高负载能力，一般会作为前端的服务器直接向客户端提供静态文件服务；而业务一般还包含一些业务逻辑需要 Apache、Tomcat 等服务器来处理，故通常 Nginx 对外表现即为静态 Web 服务器也是反向代理服务器。
 
-缺点是增加了一次请求的处理时间，优点是降低了上有服务器的负载，尽量将压力放在 Nginx 服务器上。
+缺点是增加了一次请求的处理时间，优点是降低了上游服务器的负载，尽量将压力放在 Nginx 服务器上。
 
 **1、负载均衡配置**
 
-upstream，定义一个上有服务器集群
+upstream，定义一个上游服务器集群
 ```nginx
 upstream backend {
     # ip_hash;
-    server s1.barret.com;
-    server s2.barret.com;
+    server s1.barretlee.com;
+    server s2.barretlee.com;
 }
 server {
     location / {
@@ -239,7 +240,7 @@ http {
             proxy_pass http://127.0.0.1:9000;
         }
         # 上面处理出错或者未找到的，返回对应状态码文件
-        error_page    404    /404.html;
+        error_page    404            /404.html;
         error_page    502  503  504  /50x.html;
     }
 }
@@ -250,3 +251,5 @@ http {
 ### 小结
 
 本文内容为阅读《深入理解 Nginx 模块开发和架构解析》时做的一点笔记，以前配置 Nginx 服务器总是得上网找答案，现在把这些项都理解并记到脑子里了，还是担心忘记，博客稍作记录。
+
+十分建议读者边阅读边动手尝试，利用 `nginx -t` 测试语法，遇到问题就 Google 搜索下，上手会很快。后续有空会详细介绍 Nginx 运维知识。
