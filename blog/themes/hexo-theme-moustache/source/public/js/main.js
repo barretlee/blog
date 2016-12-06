@@ -1637,6 +1637,10 @@ $(function() {
     this.addInfoLog({
       msg: '提示：点击头像可进入私聊'
     }, 'group');
+    $('.chatroom-item[data-id="group"]').append('<div class="chatroom-log-info"><img src="/circle.jpg" width="200"></div>');
+    this.addInfoLog({
+      msg: '上面是条广告，接着聊。'
+    }, 'group');
   };
 
   ChatRoomClient.prototype.startup = function() {
