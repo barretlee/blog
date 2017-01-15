@@ -71,7 +71,7 @@
 		</div>
 
 		<div class="entry-recent-posts">
-			<h2><a href="<%- url_for('/blog/archives/') %>" aria-hidden="true">博客归档 »</a>近期文章</h2>
+			<h2><a href="<%- url_for('/blog/categories/JavaScript/') %>" aria-hidden="true">博客归档 »</a>近期文章</h2>
 			<ul itemscope itemtype="http://schema.org/Article">
 			<% site.posts.sort('date', 'desc').limit(12).each(function(post){ %>
 				<li><span itemprop="timeCreated" aria-hidden="true"><%- moment(post.date).format("YYYY-MM-DD") %> » </span><a href="<%- url_for(post.path) %>" itemprop="url" itemprop="name"><%- post.title %>
@@ -83,7 +83,7 @@
 								data-thread-key="<%- post.slug || post.path %>"
 								data-disqus-identifier="<%- post.slug || post.path %>"></b></span></li>
 			<% }) %>
-			<% if(site.posts.length >125) {%>
+			<% if(site.posts.length > 125) {%>
 				<li><a href="<%- url_for("/blog/archives/") %>">更多文章...</a></li>
 			<% } %>
 			</ul>

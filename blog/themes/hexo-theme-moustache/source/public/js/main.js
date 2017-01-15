@@ -529,7 +529,7 @@ var operation = {
     });
     if ($(".entry-page-search").size()) {
       var $input = $(".entry-page-search input");
-      $input.on("keyup change keydown", function(evt) {
+      $input.on("change", function(evt) {
         var val = $.trim($input.val());
         if (val && (evt.which == 13 || evt.type == 'change')) {
           window.open('//www.google.com.hk/search?q=site:www.barretlee.com ' + val);
@@ -1548,7 +1548,7 @@ typeof history.pushState === 'function' && (function() {
     $('a').on('click', function(evt) {
       var href = $(this).prop('href');
       var host = window.location.host;
-      if (href.indexOf(host) > -1 && href.indexOf('#') == -1 && !/^\/(ST|tools)/i.test(location.pathname) && !$(this).parent('#indexLogo').size() && !/\.(jpg|jpeg|png|gif|js|css|woff|ttf)(\?.*)?$/.test(href) && !evt.metaKey && !evt.ctrlKey) {
+      if (href.indexOf(host) > -1 && href.indexOf('#') == -1 && !/^\/(ST|tools)/i.test(location.pathname) && !$(this).parent('#indexLogo').size() && !/\.(jpg|jpeg|png|gif|js|css|woff|ttf)(\?.*)?$/.test(href) && !evt.metaKey && !evt.ctrlKey && !/rss2\.xml$/.test(href)) {
         evt.preventDefault();
         if (window.console && window.console.info) {
           console.info('navigator: ' + href);
