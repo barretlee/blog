@@ -49,13 +49,15 @@ class wbSDK extend SDK {
 class wbSDK extend SDK {
   wbLogin() { /*外包登录*/ }
   wbPublish() {
-      if (this.checkPublish() { this.publish(); }
+    if (this.checkPublish() {
+      this.publish();
+    }
   }
   //...
 }
 ```
 
-一段时间之后，这个平台影响力做大了，部门 B、C、D 的同学都想使用这个工具，小喜此时觉得蛋有点疼，原因是每个部门的登录、检测和发布都有差异，为了让更多人收益于这个 SDK 工具，小喜只好硬着头皮写了这些代码：
+一段时间之后，这个平台影响力做大了，部门 B、C、D 的同学都想使用这个工具，小喜此时觉得蛋有点疼，原因是每个部门的登录、检测和发布都有差异，为了让更多人受益于这个 SDK 工具，小喜只好硬着头皮写了这些代码：
 
 ```javascript
 class B_SDK extend SDK {
