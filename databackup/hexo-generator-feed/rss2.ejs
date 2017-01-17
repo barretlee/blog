@@ -3,7 +3,6 @@
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <% url = 'http:' + url %>
     <title><%-: config.title | cdata %></title>
     <link><%- encodeURI(url) %></link>
     <script xmlns="http://www.w3.org/1999/xhtml" src="/public/js/rss.js"></script>
