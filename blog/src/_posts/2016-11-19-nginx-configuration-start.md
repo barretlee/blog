@@ -1,3 +1,4 @@
+---
 title: Nginx 配置简述
 description: 不论是本地开发，还是远程到 Server 开发，还是给提供 demo 给人看效果，我们时常需要对 Nginx 做配置，Nginx
   的配置项相当多，配置起来也比较麻烦。不过，我们往往只是需要一个静态 Server，或者一个反向代理 Server，这对 Nginx 来说小菜一碟。

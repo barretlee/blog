@@ -1,3 +1,4 @@
+---
 title: 聊聊设计模式（1）：桥接模式
 warning: true
 categories:

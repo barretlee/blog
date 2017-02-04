@@ -1,3 +1,4 @@
+---
 title: 有意思的 git-log
 description: 之前写过几篇 git 相关的文章，内容很基础，但发现最近被搜索引擎检索的量还比较大，最近正好在阅读 git 相关的资料，准备将不错的几个点，详细地说一说，记录下来写出来分享给大家。今天要说的便是常用的 `git log` 命令。
 warning: true
@@ -240,15 +241,3 @@ alias gitlog="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%
 ![git log](//ww4.sinaimg.cn/large/6c0378f8gw1f6imxm25vtj21kw16p7wh.jpg)
 
 本文完。
-
-
-
-
-
-
-
-
-
-
-
-

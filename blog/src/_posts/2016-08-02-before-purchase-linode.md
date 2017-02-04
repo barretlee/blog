@@ -1,3 +1,4 @@
+---
 title: 入 linode 之前
 description: 之前购买的 GreenVPN 最近死活越不了墙，在阿里云上尝试用 wget 下载资源，貌似能够连接上。于是尝试在阿里云上配置 shadowsocks，配置时提示需要使用 pip，而使用 pip 就得升级 Python(≥2.6)，折腾了一番，升级了 Python 也安装了 pip，最后却发现下载速度奇慢。
 warning: true

@@ -1,3 +1,4 @@
+---
 title: 我需要学习 ECMAScript 6 么？
 description: 前几天翻译了一篇 ECMAScript 6 的入门文章，看到几则评论说 JavaScript 越来越像 Java 了，我暗暗地笑了笑。也有同学很疑惑是否有必要学习 ES6，使用 TypeScript 的同学也有类似的疑惑。
 warning: true
