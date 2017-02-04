@@ -4,8 +4,9 @@ categories:
   - 前端杂烩
 tags:
   - 设计模式
+  - 桥接模式
 date: 2017-01-16 20:57:09
-description:
+description: 桥接模式（Bridge Pattern），也有很多地方称之为桥连模式，不管怎么叫，记得有个桥（bridge）就行了，重点要理解这个「桥」是如何连接的，什么场景下需要使用桥接模式。
 ---
 
 
