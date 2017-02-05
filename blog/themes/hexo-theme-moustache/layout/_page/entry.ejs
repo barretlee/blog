@@ -4,7 +4,7 @@
 		<a href="/" tabindex="0" aria-label="回到小胡子哥首页导航"><%- config.author %></a> <font aria-hidden="true">» 博客</font>
 		 <em  class="arrow-expend" aria-hidden="true" tabindex="0" aria-label="点击展开网页导航">▾
 			<ul role="group">
-				<li><a href="<%- url_for("/message/") %>">留言</a></li>
+				<li><a href="<%- url_for("/message/") %>">问答</a></li>
 				<li><a href="<%- url_for("/about/") %>">关于</a></li>
 				<li><a href="<%- url_for("/demo/") %>">实验室</a></li>
 				<li><a href="<%- url_for("/comments/") %>">最近评论</a></li>
@@ -18,7 +18,7 @@
     </span>
 	</h1>
 
-	<div class="clearfix">
+	<div class="clearfix response-overflow">
 	<div class="rightbar">
 		<div class="entry-cates" aria-hidden="true">
 			<h2>文章分类</h2>
@@ -71,7 +71,7 @@
 		</div>
 
 		<div class="entry-recent-posts">
-			<h2><a href="<%- url_for('/blog/categories/JavaScript/') %>" aria-hidden="true">博客归档 »</a>近期文章</h2>
+			<h2><a href="<%- url_for('/blog/categories/前端杂烩/') %>" aria-hidden="true">博客归档 »</a>近期文章</h2>
 			<ul itemscope itemtype="http://schema.org/Article">
 			<% site.posts.sort('date', 'desc').limit(12).each(function(post){ %>
 				<li><span itemprop="timeCreated" aria-hidden="true"><%- moment(post.date).format("YYYY-MM-DD") %> » </span><a href="<%- url_for(post.path) %>" itemprop="url" itemprop="name"><%- post.title %>
