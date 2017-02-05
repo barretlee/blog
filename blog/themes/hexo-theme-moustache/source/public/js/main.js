@@ -1549,7 +1549,8 @@ typeof history.pushState === 'function' && (function() {
     $('a').on('click', function(evt) {
       var href = $(this).prop('href');
       var host = window.location.host;
-      if (href.indexOf(host) > -1 && href.indexOf('#') == -1 && !/^\/(ST|tools)/i.test(location.pathname) && !$(this).parent('#indexLogo').size() && !/\.(jpg|jpeg|png|gif|js|css|woff|ttf)(\?.*)?$/.test(href) && !evt.metaKey && !evt.ctrlKey && !/rss2\.xml$/.test(href)) {
+      var hasJump = $(this).prop('target') === '_blank';
+      if (href.indexOf(host) > -1 && href.indexOf('#') == -1 && !/^\/(ST|tools)/i.test(location.pathname) && !$(this).parent('#indexLogo').size() && !/\.(jpg|jpeg|png|gif|js|css|woff|ttf)(\?.*)?$/.test(href) && !evt.metaKey && !evt.ctrlKey && !/rss2\.xml$/.test(href) && !hasJump) {
         evt.preventDefault();
         if (window.console && window.console.info) {
           console.info('navigator: ' + href);
