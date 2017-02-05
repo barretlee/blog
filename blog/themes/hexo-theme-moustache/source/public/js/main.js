@@ -226,7 +226,9 @@ var operation = {
     $.getScript("/public/js/wechat.js", function() {
       $ctt.prepend(wechatStr);
       wechat('network', function(res) {
-        $(".wechat-net").text(res.err_msg.split(':')[1]);
+        var network = res.err_msg.split(':')[1];
+        network = network == 'wifi' ? 'wifi' : network == 'wwan' ? '3g' : '4g';
+        $(".wechat-net").text(network);
       });
       $(".wechat-email").on("click", function() {
         var data = {
@@ -236,7 +238,8 @@ var operation = {
             return $imgs.length > 2 ? $imgs.eq(1).attr("src") : '';
           },
           link: window.location.href,
-          desc: $(".ds-share").attr("data-content").replace(/<[^>]*?>/gmi, ""),
+          // desc: $(".ds-share").attr("data-content").replace(/<[^>]*?>/gmi, ""),
+          desc: '文章链接地址：',
           title: $(".ds-share").attr("data-title")
         };
         wechat('email', data, function() {});
