@@ -1501,6 +1501,7 @@ typeof history.pushState === 'function' && (function() {
     var body = data.body;
     $.getScript('/public/js/main.js');
     $('script[src*="duoshuo"],script[src*="baidu"],script[src*="google"],link[href*="duoshuo"]').remove();
+    document.title = title || '小胡子哥的个人网站';
     $('body').html(body);
     if (window.DUOSHUO) {
       DUOSHUO.Widget();
