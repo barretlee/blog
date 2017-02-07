@@ -10,11 +10,15 @@ tags:
 date: 2017-02-07 08:35:03
 ---
 
-Facade，中文译为门面、外观，所以本文要讲的 Facade Pattern 翻译时经常看到有两个名字，门面模式和外观模式。这是一个在 JavaScript 中被经常用到的设计模式：
+Facade，中文译为门面、外观，所以本文要讲的 Facade Pattern 翻译时经常看到有两个名字，门面模式和外观模式。
+
+![https://unsplash.com/search/facade?photo=5NArdqS7FW4 by Chris Barbalis](http://ww1.sinaimg.cn/large/6c0378f8gy1fchm1y9bubj20p00dw42z)
+
+这是一个在 JavaScript 中被经常用到的设计模式：
 
 ```js
-class modA() {}
-class modB() {}
+class modA {}
+class modB {}
 
 // 门面模式实例
 class Facade {
@@ -30,8 +34,6 @@ class Facade {
 ```
 
 `modA` 和 `modB` 是客户端运行的两个依赖系统，例子中通过 `Facade` 类做了简单封装，客户端便可以使用少量代码快捷启动两个子系统，这里的 `Facade` 就是两个子系统的门面，客户端跟门面而不会直接与子系统打交道。
-
-![https://unsplash.com/search/facade?photo=5NArdqS7FW4 by Chris Barbalis](http://ww1.sinaimg.cn/large/6c0378f8gy1fchm1y9bubj20p00dw42z)
 
 <!--more-->
 
@@ -70,7 +72,7 @@ async function Zan() {
 小苏在进行团队代码 review 的时候，看到了这个问题，为了减少团队在这一块的开销，他让小喜使用 NodeJS 做了一层封装，代码变动其实并不大，从客户端调用 HTTP 接口，变成了 Node 调用 HSF 接口：
 
 ```js
-class Facade() {
+class Facade {
     zan () {
         let record = await payWithZFB();
         let track = await addRecord(record);
