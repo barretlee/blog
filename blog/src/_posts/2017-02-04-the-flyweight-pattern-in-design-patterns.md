@@ -90,7 +90,7 @@ class DevicePool {
     // hash 表保存设备信息
     devicePool = {};
     create(type, xxx, ...) {
-        if (devicePool[type]) return;
+        if (devicePool[type]) return devicePool[type];
         const device = new Device(type, xxx, ...);
         devicePool[type] = device;
         return device;
