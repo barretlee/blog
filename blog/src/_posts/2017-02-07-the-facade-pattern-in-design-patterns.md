@@ -14,6 +14,8 @@ Facade，中文译为门面、外观，所以本文要讲的 Facade Pattern 翻�
 
 ![https://unsplash.com/search/facade?photo=5NArdqS7FW4 by Chris Barbalis](http://ww1.sinaimg.cn/large/6c0378f8gy1fchm1y9bubj20p00dw42z)
 
+<!--more-->
+
 这是一个在 JavaScript 中被经常用到的设计模式：
 
 ```js
@@ -34,8 +36,6 @@ class Facade {
 ```
 
 `modA` 和 `modB` 是客户端运行的两个依赖系统，例子中通过 `Facade` 类做了简单封装，客户端便可以使用少量代码快捷启动两个子系统，这里的 `Facade` 就是两个子系统的门面，客户端跟门面而不会直接与子系统打交道。
-
-<!--more-->
 
 上面的例子比较抽象，还是有些晦涩的，下面看一个实际的场景。
 
