@@ -486,7 +486,7 @@ var operation = {
           var img = dataURItoBlob(shareCanvas.toDataURL('image/png'));
           //var url = window.URL.createObjectURL();
 
-          var base = "//tmpfile.coding.io/";
+          var base = "//123.56.230.53:3300/";
           var fd = new FormData();
           fd.append("img", img);
           $this.text("分享中..");
