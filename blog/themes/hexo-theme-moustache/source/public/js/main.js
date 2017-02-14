@@ -16,8 +16,11 @@ var params = {};
 }();
 
 if (params['share']) {
-  $('.post-info, .tools-wrapper, .share-article, .post-relative, .single-page-footer, .sidebar, #nmlist, .chatroom, .copyright').hide();
-  $('<p style="color:#555;text-align:right; font-size:14px;">文 / 小胡子哥</p>').prependTo('.post-content');
+  $('html').addClass('shareMode');
+  $('<p style="color:#555;text-align:right; font-size:14px;" id="authorAppend">文 / 小胡子哥</p>').prependTo('.post-content');
+} else {
+  $('html').removeClass('shareMode');
+  $('#authorAppend').remove();
 }
 
 $(function() {
