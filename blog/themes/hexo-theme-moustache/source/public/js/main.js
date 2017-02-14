@@ -2,6 +2,24 @@ var weiboName = "@Barret李靖";
 var duoshuoName = "";
 var disqusName = "";
 var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
+
+var params = {};
+~function() {
+  var search = location.href.split('?')[1];
+  search = search && search.split('&') || [];
+  for(var i = 0; i < search.length; i++){
+    var m = search[i].split('=');
+    if (m && m[0]) {
+      params[m[0]] = m[1];
+    }
+  }
+}();
+
+if (typeof params['share'] !== null) {
+  $('.post-info, .tools-wrapper, .share-article, .post-relative, .single-page-footer, .sidebar, #nmlist, .chatroom, .copyright').hide();
+  $('<p style="color:#555;text-align:right; font-size:14px;">文 / 小胡子哥</p>').prependTo('.post-content');
+}
+
 $(function() {
   var text = '';
   var m = navigator.appVersion.match(/MSIE (\d+)/i);
