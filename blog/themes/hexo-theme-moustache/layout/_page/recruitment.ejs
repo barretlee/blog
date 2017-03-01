@@ -2,7 +2,7 @@
   <div class="cate-wraper post">
     <h2>
       <%- partial("../_partial/post/rss.ejs") %>
-      <a href="/" tabindex="0" aria-label="回到小胡子哥首页导航"><%- config.author %></a> <font aria-hidden="true">» 淘宝网2016实习生校招答疑</font>
+      <a href="/" tabindex="0" aria-label="回到小胡子哥首页导航"><%- config.author %></a> <font aria-hidden="true">» 淘宝网2017实习生校招答疑</font>
        <em  class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾
         <ul role="group" aria-labelledby="i1" aria-expanded="false">
           <li><a href="<%- url_for("/entry/") %>">博客</a></li>
@@ -20,30 +20,46 @@
       });
     </script>
     <div class="post-content">
-      <div class="history-article">
+
+
+      <div>
+        <p>这个页面用了几年了，下方的历史留言和新留言对你应该都有帮助。</p>
+        <p>阿里巴巴 2017 校招内推开始了，目标是实习生（毕业时间：2018.1.1-2018.12.31），不是应届生，应届生校招走的是社招标准，发的是正式 offer，目前应该不招收应届生。来阿里之后连续三年都在帮同学们内推，今年继续。</p>
+        <p>技术岗位有，前端、安全、算法、C++研发、Java研发、数据研发、客户端、测试等工程师，简历可以发到我的邮箱（barret.china@gmail.com），如果两天之内没有回复你，也不用等了，应该是你的简历没过关。前几年收的简历太多，个人精力有限，今年我只回复成功内推的简历，内推后系统会即刻给你的邮箱发一封邮件，注意查收。</p>
+        <p>
+        如果你有疑问，可以微信搜索公众号「小胡子哥」，也可以直接扫描下方二维码，关注后回复 “答疑” 两个字，给你传授一点经验。</p>
+        <p><img src="/follow.jpg" alt="小胡子哥公众号" style="width:250px;"></p>
+        <p>当然，也可以在下方留言。</p>
+      </div>
+
+
+      <style>.hide {display: none;}</style>
+      <div class="history-article hide">
         <p>内推已经结束，感谢大家对我的信任，信息同步不及时之处还请见谅。</p>
         内推面试在四月之前也会结束，如果还没有收到最后通知，那就意味着内推失败了，希望你能够加强学习，后续校招过程中良好发挥。本次内推不影响后续正常流程的简历投递（笔试、面试等）。
       </div>
-      <p>Hi，各位校友/朋友，大家好!</p>
-      <p>阿里巴巴的春季校招已经开启，无论你是设计、前端、后端、算法、运营还是其他方面的研究者，都可以尝试下~ 我在淘宝网工作，职位是 web 前端工程师，如果你对前端感兴趣，可以跟我一起交流下。感兴趣的同学，可以将简历发送到我的邮箱（下方）。</p>
-      <h4>回答几个疑问：</h4>
-      <ul>
-        <li>工作地点？北京、杭州，部分岗位广州、上海；</li>
-        <li>毕业时间要求？限定在 2017-01-01 ~ 2020-12-31 范围内，应届生要不要？请注意限定时间；</li>
-        <li>门槛要求？勤奋好学好问好思考有扎实基础；</li>
-        <li>岗位信息？<a href="https://campus.alibaba.com/traineePositionList.htm" target="_blank">戳我</a> ;</li>
-        <li>我还有疑问？<del>可以加入 QQ 群：427804291（即将解散，不用加入），答疑可能没那么频繁</del>，大家有问题建议在这里提问, 这里的问题我一定会回答。</li>
-      </ul>
-      <h4>我的联系方式：</h4>
-      <ul>
-        <li>微信：barret_china （备注，学校-学院-姓名）</li>
-        <li>QQ：173248656 （备注同上，不过我很少用）</li>
-        <li>邮件：barret.china@gmail.com （如果以上社交工具我未及时回复，请邮件我）</li>
-        <li>更多联系方式：<a href="//www.barretlee.com/about/#contact">http://www.barretlee.com/about/#contact</a></li>
-      </ul>
-      <h4>最后：</h4>
-      <p>招聘门槛相对还是比较高的，建议好好写简历，去年很多校友给我发的简历，很多都过不了关...</p>
-      <p><strong>注意：</strong>只能被内推一次，重复投递无效。</p>
+      <div class="hide">
+        <p>Hi，各位校友/朋友，大家好!</p>
+        <p>阿里巴巴的春季校招已经开启，无论你是设计、前端、后端、算法、运营还是其他方面的研究者，都可以尝试下~ 我在淘宝网工作，职位是 web 前端工程师，如果你对前端感兴趣，可以跟我一起交流下。感兴趣的同学，可以将简历发送到我的邮箱（下方）。</p>
+        <h4>回答几个疑问：</h4>
+        <ul>
+          <li>工作地点？北京、杭州，部分岗位广州、上海；</li>
+          <li>毕业时间要求？限定在 2017-01-01 ~ 2020-12-31 范围内，应届生要不要？请注意限定时间；</li>
+          <li>门槛要求？勤奋好学好问好思考有扎实基础；</li>
+          <li>岗位信息？<a href="https://campus.alibaba.com/traineePositionList.htm" target="_blank">戳我</a> ;</li>
+          <li>我还有疑问？<del>可以加入 QQ 群：427804291（即将解散，不用加入），答疑可能没那么频繁</del>，大家有问题建议在这里提问, 这里的问题我一定会回答。</li>
+        </ul>
+        <h4>我的联系方式：</h4>
+        <ul>
+          <li>微信：barret_china （备注，学校-学院-姓名）</li>
+          <li>QQ：173248656 （备注同上，不过我很少用）</li>
+          <li>邮件：barret.china@gmail.com （如果以上社交工具我未及时回复，请邮件我）</li>
+          <li>更多联系方式：<a href="//www.barretlee.com/about/#contact">http://www.barretlee.com/about/#contact</a></li>
+        </ul>
+        <h4>最后：</h4>
+        <p>招聘门槛相对还是比较高的，建议好好写简历，去年很多校友给我发的简历，很多都过不了关...</p>
+        <p><strong>注意：</strong>只能被内推一次，重复投递无效。</p>
+      </div>
     </div>
     <%- partial("page_footer") %>
   </div>
