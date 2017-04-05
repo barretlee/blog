@@ -1,5 +1,5 @@
 ---
-title: 我接受大家吐槽
+title: 关于开源精神和小密圈
 description: 看到有人关注和吐槽，我就过来说几句吧，当然我也知道，不管我下面说什么，都会有人赞和踩。
 warning: true
 categories:
@@ -9,9 +9,11 @@ tags:
 date: 2017-04-03 10:13:31
 ---
 
-![脉脉吐槽](http://ww1.sinaimg.cn/large/6c0378f8gy1fe9a3wsyrvj20ku0fmwfw.jpg)
+<!-- ![脉脉吐槽](http://ww1.sinaimg.cn/large/6c0378f8gy1fe9a3wsyrvj20ku0fmwfw.jpg)
 
-看到有人关注和吐槽，我就过来说几句吧，当然我也知道，不管我下面说什么，都会有人顶和踩。
+看到有人关注和吐槽，我就过来说几句吧，当然我也知道，不管我下面说什么，都会有人顶和踩。 -->
+
+以下是回复脉脉上的一条匿名吐槽。
 
 <!--more-->
 
