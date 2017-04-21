@@ -66,7 +66,7 @@ Sublime Text，Visual Studio Code，Atom，WebStorm 等编辑器，前三者的�
 
 ### 接下来就是插件配置
 
-考虑一个 IDE，我会首先看看它是否有类似于 `Sync` 的插件，我有几台电脑，不可能每次换电脑都让我重新配置一次，我可经不起这个折腾，实际上，Atom 和 VSC 都提供了 `Sync` 插件，比如 VSC de  `Settings Sync`，可以轻松将 IDE 的所有配置一键备份到 github 上，也可以将 github 上的配置一键拉取下来，然后重启 IDE 就可以共享同样的配置了。这个配置并不复杂，考虑到新手，我来简单介绍下它的使用：
+考虑一个 IDE，我会首先看看它是否有类似于 `Sync` 的插件，我有几台电脑，不可能每次换电脑都让我重新配置一次，我可经不起这个折腾，实际上，Atom 和 VSC 都提供了 `Sync` 插件，比如 VSC 的 `Settings Sync`，可以轻松将 IDE 的所有配置一键备份到 github 上，也可以将 github 上的配置一键拉取下来，然后重启 IDE 便可以共享同样的配置了。这个配置并不复杂，考虑到新手同学，我来简单介绍下它的使用：
 
 - 在左侧的 sidebar 选中最后一个，搜索 `Sync`，不出意外，你会从前几个中找到下载量很高的那个 `Settings Sync`；
 - 安装后，摁下 `Command + Shift + P` 打开控制面板，搜索 Sync，选择 `update/upload` 可以上传你的配置，选择 `Download` 会下载远程配置；
@@ -90,7 +90,7 @@ VSC 内置了许多插件，需要我们配置的其实已经不太多了，我�
 - `View In Browser`，打开 html 文件
 - `Document This`，自动生成注释
 - `File Peek`，类似于 Go To Definition，点击后定位文件
-- `Image Preview`，在行号左侧的小槽中展示图片的预览
+- `Image Preview`，在行号左侧的小槽中展示图片的预览，MD 中也可以 hover 预览
 
 以上是用的比较多的，还装了几十个使用频度比较低的插件，主要包括 Snippet 和文件高亮配置，可以在这里查看：<https://gist.github.com/barretlee/a5170eb6ca1805f66687063d2e3a4983>，你也可以通过 `Settings Sync` 将这个配置下载下来，id 就是后面半截：`a5170eb6ca1805f66687063d2e3a4983`。
 
