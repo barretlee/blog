@@ -96,8 +96,28 @@ VSC 内置了许多插件，需要我们配置的其实已经不太多了，我�
 
 ### 在命令行打开 VSC
 
-在安装好 VSC 后，直接配置 `.bash_profile` 或者 `.zshrc` 文件，
+在安装好 VSC 后，直接配置 `.bash_profile` 或者 `.zshrc` 文件：
 
+```bash
+alias vsc='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code';
+VSC_BIN='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin';
+PATH=$VSC_BIN:$PATH;
+export PATH;
+```
+
+然后让配置生效，在控制台执行：
+
+```bash
+# 如果没有安装 zsh，可能是 ~/.bash_profile
+source ~/.zshrc 
+```
+
+这个时候就可以在全局打开了：
+
+```bash
+# -a 的意思是不要新开窗口，在当前已经打开的 vsc 中打开文件
+vsc path/to/file.ext -a 
+```
 ### 小结
 
 一款好的 IDE 能够帮助我们预防很多程序上愚蠢的问题，也能够聚合一系列小工具，避免我们频繁地切换工作区间。VSC 只是众多选择中的一个，熟悉其他编辑器的套路也是一样的。
