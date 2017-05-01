@@ -23,12 +23,14 @@ Wordpress 在设置完站点 URL 和主页 URL 后，所有的资源引用都指
 
 ```php
 function get_option( $option, $default = false ) {
-  var $BLOG_DEBUG = $_COOKIE["blog_debug"];
-	var $IS_URL_REG = "/^https?:\/\/[\w-_.:]+$/";
-  if ( $BLOG_DEBUG && preg_match($IS_URL_REG, $BLOG_DEBUG)
+
+  $BLOG_DEBUG = $_COOKIE["blog_debug"];　
+  
+  if ( $BLOG_DEBUG && preg_match("/^https?:\/\/[\w-_.:]+$/", $BLOG_DEBUG)
     && ($option == 'siteurl' || $option == 'home') ) {
     return $BLOG_DEBUG;
   }
+
   // ...
 }
 ```
