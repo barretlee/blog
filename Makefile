@@ -1,6 +1,6 @@
 .PHONY: r d b h n i c p run backup deploy help new mkfile init clear goroot pull
 
-ROOT = ~/work/blogsys/
+ROOT = ~/websites/blog-hexo/
 DRAFTS = ${ROOT}blog/src/_drafts/
 POSTS = ${ROOT}blog/src/_posts/
 POSTS_IMG = ${ROOT}blog/src/blogimgs/
