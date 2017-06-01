@@ -23,10 +23,14 @@
 .post-wrap-border-r,
 .post-wrap-border-t,
 .user-wrap-w, 
+.module-person-page-prompt, 
+.module-prop-prompt,
+.cy-comment-has-apply-tip
 [node-type="cy-sohu-feed"] {
   display: none !important;
   visible: hidden !important;
   opacity: 0 !important;
+  
 }
 
 .section-cbox-w {
@@ -46,6 +50,22 @@
   left: -60px !important;
   display: block !important;
 }
+
+// .cy-user-page-close-btn {
+//   margin-left: 20px;
+//   margin-top: 20px;
+//   border-radius: 20px;
+//   background-color: #38a3f6;
+//   padding: 10px;
+//   background-repeat: no-repeat;
+//   background-position: center center;
+//   transform: rotateX('0');
+//   transition: transform 0.2s;
+// }
+// .cy-user-page-close-btn:hover {
+//   transform: rotateX('180deg');
+//   transition: transform 0.2s;
+// }
 
 .head-img-w img {
   width: 50px !important;
@@ -82,14 +102,18 @@
   letter-spacing: 4px !important;
   color: #666 !important;
   border: 1px solid #CCC !important;
+  transition: all 0.2s;
 }
 
 .issue-btn-w .btn-fw::after {
   content: "发布" !important;
 }
 
+
 .issue-btn-w .btn-fw:hover {
   color: #333 !important;
+  box-shadow: 1px 1px 3px #999;
+  transition: all 0.2s;
 }
 
 .list-block-gw {
@@ -160,6 +184,32 @@
 }
 .header-login:hover {
   color: #EEE !important;
+}
+.post-wrap-w .post-wrap-main {
+  border-radius: 4px !important;
+}
+.build-floor-gw {
+  border: none !important;
+  border-left: 4px solid #AAA !important;
+  padding-left: 20px !important;
+}
+[data-user-id="795831470"] .msg-wrap-gw>div>.user-name-gw::after {
+  content: "（楼主）";
+  font-size: 12px;
+  color: #e58c7c;
+}
+
+[data-user-id="795831470"] .msg-wrap-gw>div>.user-address-gw {
+  display: none !important;
+}
+
+.block-cont-gw .wrap-action-gw {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.block-cont-gw:hover .wrap-action-gw {
+  opacity: 1;
+  transition: opacity 0.2s;
 }
 
 body>.clearfix, body>.aboutme, body>.message, body>.demos {

@@ -9,6 +9,7 @@
 <script>
   window.onerror = function(e) {
     window.console && window.console.log && window.console.log(e);
+    $('#loadLayer').remove();
     return true;
   };
 </script>

@@ -4,10 +4,10 @@ var disqusName = "";
 var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
 
 var params = {};
-~function() {
+~ function () {
   var search = location.href.split('?')[1];
   search = search && search.split('&') || [];
-  for(var i = 0; i < search.length; i++){
+  for (var i = 0; i < search.length; i++) {
     var m = search[i].split('=');
     if (m && m[0]) {
       params[m[0]] = m[1];
@@ -23,7 +23,7 @@ if (params['share']) {
   $('#authorAppend').remove();
 }
 
-$(function() {
+$(function () {
   var text = '';
   var m = navigator.appVersion.match(/MSIE (\d+)/i);
   m = m && m[1];
@@ -39,7 +39,7 @@ $(function() {
 });
 
 if (window.location.protocol == 'https:') {
-  $("img").each(function() {
+  $("img").each(function () {
     var src = $(this).attr('src');
     if (/ww1.sinaimg.cn/.test(src)) {
       $(this).attr('src', src.replace('ww1.', 'www.'));
@@ -53,7 +53,7 @@ function notify(notice) {
   } else if (Notification.permission === "granted") {
     var notification = new Notification(notice.title, notice);
   } else if (Notification.permission !== 'denied') {
-    Notification.requestPermission(function(permission) {
+    Notification.requestPermission(function (permission) {
       if (permission === "granted") {
         var notification = new Notification(notice.title, notice);
       }
@@ -61,8 +61,8 @@ function notify(notice) {
   }
 
   if (notification) {
-    notification.onclick = function() {
-      if(notice.url) {
+    notification.onclick = function () {
+      if (notice.url) {
         window.open(notice.url);
       } else {
         $('.chatroom-fold .chatroom-info').trigger('click');
@@ -80,7 +80,7 @@ function notify(notice) {
  * Copyright 2013 Klaus Hartl
  * Released under the MIT license
  */
-(function(factory) {
+(function (factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
     define(['jquery'], factory);
@@ -91,7 +91,7 @@ function notify(notice) {
     // Browser globals
     factory(jQuery);
   }
-}(function($) {
+}(function ($) {
   var pluses = /\+/g;
 
   function encode(s) {
@@ -124,7 +124,7 @@ function notify(notice) {
     var value = config.raw ? s : parseCookieValue(s);
     return $.isFunction(converter) ? converter(value) : value;
   }
-  var config = $.cookie = function(key, value, options) {
+  var config = $.cookie = function (key, value, options) {
     if (value !== undefined && !$.isFunction(value)) {
       options = $.extend({}, config.defaults, options);
       if (typeof options.expires === 'number') {
@@ -162,7 +162,7 @@ function notify(notice) {
     return result;
   };
   config.defaults = {};
-  $.removeCookie = function(key, options) {
+  $.removeCookie = function (key, options) {
     if ($.cookie(key) === undefined) {
       return false;
     }
@@ -174,17 +174,17 @@ function notify(notice) {
   };
 }));
 
-var log = function(msg) {
+var log = function (msg) {
   console && console.log && console.log(msg);
 };
 // 模板引擎
-var tplEngine = function(tpl, data) {
+var tplEngine = function (tpl, data) {
   var reg = /<%([^%>]+)?%>/g,
     regOut = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g,
     code = 'var r=[];\n',
     cursor = 0;
 
-  var add = function(line, js) {
+  var add = function (line, js) {
     js ? (code += line.match(regOut) ? line + '\n' : 'r.push(' + line + ');\n') :
       (code += line != '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
     return add;
@@ -199,28 +199,28 @@ var tplEngine = function(tpl, data) {
 };
 // 移动设备侦测
 var isMobile = {
-  Android: function() {
+  Android: function () {
     return navigator.userAgent.match(/Android/i);
   },
-  BlackBerry: function() {
+  BlackBerry: function () {
     return navigator.userAgent.match(/BlackBerry/i);
   },
-  iOS: function() {
+  iOS: function () {
     return navigator.userAgent.match(/iPhone|iPad|iPod/i);
   },
-  Opera: function() {
+  Opera: function () {
     return navigator.userAgent.match(/Opera Mini/i);
   },
-  Windows: function() {
+  Windows: function () {
     return navigator.userAgent.match(/IEMobile/i);
   },
-  any: function() {
+  any: function () {
     return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
   }
 };
 
 var operation = {
-  init: function() {
+  init: function () {
     this.wechat();
     this.fontChange();
     this.toTop();
@@ -229,8 +229,90 @@ var operation = {
     this.bind();
     this.tips();
     this.insertWeibo();
+    this.loadChangyanCount();
   },
-  wechat: function() {
+  loadChangyanCount: function () {
+    if ($('#changyan_count_unit').size()) {
+      $.getScript('https://assets.changyan.sohu.com/upload/plugins/plugins.count.js');
+    }
+    if ($('.cy_cmt_count').size()) {
+      var spanArr = document.getElementsByClassName('cy_cmt_count');
+      spanArr = [].slice.call(spanArr, 0);
+      var len = spanArr.length;
+      var delta = 40;
+      var loopLen = Math.ceil(len / delta);
+      for (var i = 0; i < loopLen; i++) {
+        fetchData(spanArr.slice(i * delta, (i + 1) * delta));
+      }
+      var cnt = 0;
+      window.setCmtSum = function (json) {
+        var spanArr = document.getElementsByClassName('cy_cmt_count');
+        spanArr = [].slice.call(spanArr, cnt * delta, (cnt + 1) * delta);
+        cnt++;
+        for (var i = 0; i < spanArr.length; i++) {
+          if (spanArr[i].className.indexOf('cy_cmt_count') > -1) {
+            try {
+              var strArr = spanArr[i].id.split("::");
+              var sum = json.result[strArr[1]].sum;
+              if (sum) {
+                spanArr[i].innerHTML = json.result[strArr[1]].sum + '条评论';
+              } else {
+                spanArr[i].innerHTML = '暂无评论';
+              }
+            } catch (e) {}
+          }
+          if (spanArr[i].className.indexOf('cy_cmt_participate') > -1) {
+            try {
+              var strArr = spanArr[i].id.split("::");
+              spanArr[i].innerHTML = json.result[strArr[1]].parts
+            } catch (e) {}
+          }
+          if (spanArr[i].className.indexOf('cy_cmt_like') > -1) {
+            try {
+              var strArr = spanArr[i].id.split("::");
+              spanArr[i].innerHTML = json.result[strArr[1]].likes
+            } catch (e) {}
+          }
+          if (spanArr[i].className.indexOf('cy_cmt_share') > -1) {
+            try {
+              var strArr = spanArr[i].id.split("::");
+              spanArr[i].innerHTML = json.result[strArr[1]].shares
+            } catch (e) {}
+          }
+        }
+      }
+      function fetchData (spanArr) {
+        var newSourceId = '';
+        var newTopicId = '';
+        var newUrl = '';
+        for (var i = 0; i < spanArr.length; i++) {
+          if (/cy_cmt_[count|participate|like|share]/.test(spanArr[i].className)) {
+            try {
+              var strArr = spanArr[i].id.split("::");
+              switch (strArr[0]) {
+                case 'topicId':
+                  newTopicId += ',' + strArr[1];
+                  break;
+                case 'sourceId':
+                  newSourceId += ',' + strArr[1];
+                  break;
+                case 'url':
+                  newUrl += ',' + encodeURIComponent(strArr[1]);
+                  break;
+                default:
+              }
+            } catch (e) {}
+          }
+        }
+        var clientId = 'cyt0XnPCt';
+        var head = document.getElementsByTagName('head')[0];
+        var scriptDom = document.createElement('script');
+        scriptDom.src = "https://changyan.sohu.com/api/2/topic/count?client_id=" + clientId + "&topic_id=" + newTopicId.substring(1) + "&topic_source_id=" + newSourceId.substring(1) + "&topic_url=" + newUrl.substring(1) + "&callback=setCmtSum";
+        head.appendChild(scriptDom)
+      }
+    }
+  },
+  wechat: function () {
     var isWeiXin = /MicroMessenger/i.test(navigator.userAgent);
     var $ctt = $(".article .post-content");
     var wechatStr = '<div class="wechat-info"><b>温馨提示：</b>您现在处在 <span class="wechat-net">WiFi</span>' +
@@ -241,20 +323,20 @@ var operation = {
     }
     if (!$ctt.length || !isWeiXin) return;
     var urls = [];
-    $(".post img").each(function() {
+    $(".post img").each(function () {
       urls.push($(this).attr('src'));
     });
-    $.getScript("/public/js/wechat.js", function() {
+    $.getScript("/public/js/wechat.js", function () {
       $ctt.prepend(wechatStr);
-      wechat('network', function(res) {
+      wechat('network', function (res) {
         var network = res.err_msg.split(':')[1];
         network = network == 'wifi' ? 'wifi' : network == 'wwan' ? '3g' : '4g';
         $(".wechat-net").text(network);
       });
-      $(".wechat-email").on("click", function() {
+      $(".wechat-email").on("click", function () {
         var data = {
           app: '',
-          img: function() {
+          img: function () {
             var $imgs = $(".post-content img");
             return $imgs.length > 2 ? $imgs.eq(1).attr("src") : '';
           },
@@ -263,9 +345,9 @@ var operation = {
           desc: '文章链接地址：',
           title: $(".ds-share").attr("data-title")
         };
-        wechat('email', data, function() {});
+        wechat('email', data, function () {});
       });
-      $(".post img").on('click', function() {
+      $(".post img").on('click', function () {
         wechat('imagePreview', {
           current: $(this).attr('src'),
           urls: urls
@@ -273,7 +355,7 @@ var operation = {
       });
     });
   },
-  welcome: function() {
+  welcome: function () {
     var self = this;
     var visitor = $.cookie("visitor");
 
@@ -306,7 +388,7 @@ var operation = {
       url: "//" + duoshuoName + ".duoshuo.com/api/threads/listPosts.jsonp?thread_key=/&require=visitor",
       dataType: "jsonp",
       timeout: 5000,
-      success: function(data) {
+      success: function (data) {
         if (!(data && data.visitor && data.visitor.name && data.visitor.avatar_url)) {
           getNamefailed();
           return;
@@ -354,12 +436,24 @@ var operation = {
         //     });
         // } catch (e) {}
       },
-      error: function() {
+      error: function () {
         getNamefailed();
       }
     });
   },
-  insertWeibo: function() {
+  reloadChangyan: function () {
+    delete window.changyan;
+    delete window.cyan;
+    $.getScript('https://changyan.sohu.com/upload/changyan.js', function () {
+      try {
+        window.changyan.api.config({
+          appid: 'cyt0XnPCt',
+          conf: 'prod_5fde9cb8b23a2209a1ad60ab2dd5fe82'
+        });
+      } catch (e) {}
+    });
+  },
+  insertWeibo: function () {
     var htmlStr = '<iframe width="330" height="350" class="share_self"  frameborder="0" scrolling="no" src="//widget.weibo.com/weiboshow/index.php?language=&width=330&height=350&fansRow=1&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1812166904&verifier=73dc4ca5&dpc=1"></iframe>';
     if (/\/entry\//.test(window.location.href) && !isMobile.any() && ($(window).width() > 992) && !$(".share_self").size()) {
       // $(window).on("load", function() {
@@ -373,11 +467,11 @@ var operation = {
       $(".rightbar-frame").remove()
     }
   },
-  alertMsg: function(msg, tag) {
+  alertMsg: function (msg, tag) {
     if (!msg) return;
     if (tag && 'Notification' in window) {
       notify(msg);
-      return ;
+      return;
     }
     var $msg = $(".alertInfo").size() ? $(".alertInfo") : $("<div class='alertInfo'></div>").appendTo($("body"));
     $msg = $($msg);
@@ -385,13 +479,13 @@ var operation = {
       right: 20
     }, 800);
     clearTimeout(window._alert_timer);
-    window._alert_timer = setTimeout(function() {
+    window._alert_timer = setTimeout(function () {
       $msg.animate({
         right: -9999
       }, 800);
     }, 3000);
   },
-  tips: function() {
+  tips: function () {
     var htmlStr = [
       '<div class="arrow-tips">',
       '  <h5>小建议: </h5>',
@@ -406,7 +500,7 @@ var operation = {
     ].join("\n");
     if (isMobile.any() || $.cookie("tips_readed") || $(".post-title").size() == 0) return;
     $("body").append(htmlStr);
-    $(document).on("click", ".arrow-tips .close", function() {
+    $(document).on("click", ".arrow-tips .close", function () {
       $.cookie("tips_readed", true, {
         expires: 8,
         path: "/"
@@ -414,9 +508,9 @@ var operation = {
       $(".arrow-tips").remove();
     });
   },
-  bind: function() {
+  bind: function () {
     var self = this;
-    $(".notice .close").on("click", function(evt) {
+    $(".notice .close").on("click", function (evt) {
       evt.preventDefault();
       $(".notice").removeClass("notice");
     });
@@ -432,17 +526,17 @@ var operation = {
       var $target = $(".footer-nav a").eq(0);
       !$target.attr("id") && $target.trigger("click");
     }
-    $(window).on("load", function() {
+    $(window).on("load", function () {
       var hash = window.location.hash;
       if (hash && hash === "#comments") {
         $(".hash-to-comments").trigger("click");
       }
     });
-    $(".to-comments").on("click", function(evt) {
+    $(".to-comments").on("click", function (evt) {
       evt.preventDefault();
       $(".hash-to-comments").trigger("click");
     });
-    $(".sharecanvas").on("click", function(evt) {
+    $(".sharecanvas").on("click", function (evt) {
       var $this = $(this);
       if ($this.attr("process") == 1) return;
       $this.attr("process", 1);
@@ -470,7 +564,7 @@ var operation = {
         });
       }
       $this.text("截图中..");
-      $.getScript("/public/js/html2canvas.min.js", function() {
+      $.getScript("/public/js/html2canvas.min.js", function () {
         $(".wechart img").clone().attr("id", "_wechartImg").css({
           display: "block",
           "margin": "0 auto"
@@ -481,7 +575,7 @@ var operation = {
         $(".post-content>p .icon.a-comments").hide();
         var st = $(window).scrollTop();
         $(window).scrollTop(0);
-        html2canvas($('.article').css("background", "#FFF")).then(function(canvas) {
+        html2canvas($('.article').css("background", "#FFF")).then(function (canvas) {
           canvas.id = "shareCanvas";
           canvas.style.display = "none";
           document.body.appendChild(canvas);
@@ -508,23 +602,23 @@ var operation = {
             crossDomain: true,
             processData: false,
             contentType: false,
-            success: function(data) {
+            success: function (data) {
               if (data && data.path) {
                 shareUrl += "&pic=" + encodeURIComponent(base + "tmp/" + data.path);
                 operation._shareWin(shareUrl);
                 $("#shareCanvas").remove();
                 $this.text("分享成功");
-                setTimeout(function() {
+                setTimeout(function () {
                   $this.removeAttr("process");
                   $this.text("微博分享");
                   $this.parent(".func-item").trigger("mouseleave");
                 }, 500);
               }
             },
-            error: function() {
+            error: function () {
               $this.text("截图失败");
               operation._shareWin(shareUrl);
-              setTimeout(function() {
+              setTimeout(function () {
                 $this.removeAttr("process");
                 $this.text("微博分享");
                 $this.parent(".func-item").trigger("mouseleave");
@@ -541,7 +635,7 @@ var operation = {
         $(".article").removeClass("screenshot");
       });
     });
-    $(".hash-to-comments").on("click", function(evt) {
+    $(".hash-to-comments").on("click", function (evt) {
       evt.preventDefault();
       var $target = $(".footer-nav a").eq(0);
       !$target.attr("id") && $target.trigger("click");
@@ -553,20 +647,20 @@ var operation = {
     });
     if ($(".entry-page-search").size()) {
       var $input = $(".entry-page-search input");
-      $input.on("change", function(evt) {
+      $input.on("change", function (evt) {
         var val = $.trim($input.val());
         if (val && (evt.which == 13 || evt.type == 'change')) {
           window.open('//www.google.com.hk/search?q=site:www.barretlee.com ' + val);
         }
       });
-      $(".entry-page-search i").on("click", function() {
+      $(".entry-page-search i").on("click", function () {
         $input.trigger("change");
       });
     }
-    $(window).on("resize", function() {
+    $(window).on("resize", function () {
       self.insertWeibo();
     });
-    $(window).on("keydown", function(evt) {
+    $(window).on("keydown", function (evt) {
       if (evt.shiftKey && evt.altKey) {
         if (evt.keyCode == 39) { // right
           var href = $(".page-relative-fixed .next").attr("href");
@@ -609,18 +703,18 @@ var operation = {
       }
     });
   },
-  isIE: function(num) {
+  isIE: function (num) {
     var name = navigator.appVersion.toUpperCase();
     return num ? name.match(/MSIE (\d)/) && name.match(/MSIE (\d)/)[1] == num : /MSIE (\d)/.test(name);
   },
   // 添加运行代码的 button
-  addRunCodeBtn: function() {
-    $(".addrunbtn").each(function() {
+  addRunCodeBtn: function () {
+    $(".addrunbtn").each(function () {
       var $this = $(this);
       $this.append("<span class='runCode'>运行代码</span>");
     });
     //runCode
-    $(".highlight").on("click", ".runCode", function(evt) {
+    $(".highlight").on("click", ".runCode", function (evt) {
       evt.stopPropagation();
 
       var code = $(this).parents(".highlight").find("code").text();
@@ -641,8 +735,8 @@ var operation = {
     });
   },
   // 底部tab切换
-  footerNav: function() {
-    $(".footer-nav a").on("click", function(evt) {
+  footerNav: function () {
+    $(".footer-nav a").on("click", function (evt) {
 
       evt.preventDefault();
 
@@ -652,12 +746,12 @@ var operation = {
 
       $(".nav-detail>div").hide().eq(index).fadeIn();
     });
-    $(".relative-to-comment").on("click", function() {
+    $(".relative-to-comment").on("click", function () {
       $(".footer-nav a").eq(0).trigger("click");
     });
   },
   // 分享
-  share: function(title) {
+  share: function (title) {
     var local = location.href,
       title = $(".post-title").text() && ("文章《" + weiboName + " " + $(".post-title").text() + "》");
 
@@ -665,13 +759,13 @@ var operation = {
 
     title += $("meta[property='og:description']").attr("content").slice(0, 95);
 
-    $("#share-weibo").off().on("click", function() {
+    $("#share-weibo").off().on("click", function () {
       var url = "http://service.weibo.com/share/share.php?appkey=1812166904&title=" +
         title + "&url=" + local + "&searchPic=false&style=simple"; // &pic=a.jpg;
 
       operation._shareWin(url);
     });
-    $("#share-tencent").off().on("click", function() {
+    $("#share-tencent").off().on("click", function () {
       var url = "http://share.v.t.qq.com/index.php?c=share&a=index&url=" +
         local + "&title=" + title;
       operation._shareWin(url);
@@ -681,18 +775,18 @@ var operation = {
     //     local + "&title=" + title;
     //     operation._shareWin(url);
     // });
-    $("#share-twitter").off().on("click", function() {
+    $("#share-twitter").off().on("click", function () {
       var url = "http://twitter.com/share?url=" + local + "&text=" + title + "&related=barret_china"
       operation._shareWin(url);
     });
-    $("#share-douban").off().on("click", function() {
+    $("#share-douban").off().on("click", function () {
       var url = "http://www.douban.com/recommend/?url=" + local + "&title=" + title + "&v=1"
       operation._shareWin(url);
     });
   },
-  _shareWin: function(r) {
+  _shareWin: function (r) {
     var d = document;
-    var x = function() {
+    var x = function () {
       if (!window.open(r, 'share', 'toolbar=0,status=0,resizable=1,scrollbars=yes,status=1,width=440,height=430,left=' + (screen.width - 440) / 2 + ',top=' + (screen.height - 430) / 2)) return;
     };
     if (/Firefox/.test(navigator.userAgent)) {
@@ -702,10 +796,10 @@ var operation = {
     }
   },
   // 回到顶部
-  toTop: function() {
+  toTop: function () {
     var $toTop = $(".gotop");
 
-    $(window).on("scroll", function() {
+    $(window).on("scroll", function () {
       if ($(window).scrollTop() >= $(window).height()) {
         $toTop.css("display", "block").fadeIn();
       } else {
@@ -713,7 +807,7 @@ var operation = {
       }
     });
 
-    $toTop.on("click", function(evt) {
+    $toTop.on("click", function (evt) {
       var $obj = $("body,html");
       $obj.animate({
         scrollTop: 0
@@ -724,15 +818,15 @@ var operation = {
   },
 
   // 字体修改
-  fontChange: function() {
-    $(".font-type").on("click", function() {
+  fontChange: function () {
+    $(".font-type").on("click", function () {
       $(this).parent().find("a")
         .toggleClass("font-type-song")
         .toggleClass("font-type-hei");
 
       $("body").toggleClass("post-font-song");
     });
-    $(".bg-type").on("click", function() {
+    $(".bg-type").on("click", function () {
       $(this).parent().find("a")
         .toggleClass("font-type-song")
         .toggleClass("font-type-hei");
@@ -743,33 +837,33 @@ var operation = {
 };
 
 var decoration = {
-  init: function() {
+  init: function () {
     this.initNav();
     this.consoleCtt();
     this.menuIndex($('.post'));
     this.navTurner();
     this.sidebarNav();
   },
-  initNav: function() {
+  initNav: function () {
     var self = this;
     var $nav = $('.arrow-expend');
     if (!$nav.length || !$nav.find("li").length) return;
     var $ul = $nav.find("ul");
-    $nav.show().on("mouseenter", function() {
+    $nav.show().on("mouseenter", function () {
       clearTimeout(self.arrowTimer);
       $ul.slideDown(300);
-    }).on("click", function(evt) {
+    }).on("click", function (evt) {
       clearTimeout(self.arrowTimer);
       evt.stopPropagation();
       $ul.slideToggle(300);
     });
-    $("body").on("click touchstart", function(evt) {
+    $("body").on("click touchstart", function (evt) {
       clearTimeout(self.arrowTimer);
       var $target = $(evt.target);
       if ($target.hasClass("arrow-expend") || $target.parent(".arrow-expend").length) {
         // ...
       } else {
-        self.arrowTimer = setTimeout(function() {
+        self.arrowTimer = setTimeout(function () {
           $ul.slideUp(300);
         }, 300);
       }
@@ -778,7 +872,7 @@ var decoration = {
     if (window.innerHeight <= 550) {
       $ul.slideUp(300);
     }
-    $(window).on("resize", function() {
+    $(window).on("resize", function () {
       clearTimeout(self.arrowTimer);
       if (window.innerHeight > 550) {
         $ul.slideDown(300);
@@ -788,13 +882,13 @@ var decoration = {
     });
   },
   // console 简介
-  consoleCtt: function() {
+  consoleCtt: function () {
     if (window.console && window.console.log) {
       // var url = "http://" + window.location.host;
       // console.log("\n\n\n\n\n\n\n\n\n\n%c", "background:url('" + url + "/avatar150.png'); background-repeat:no-repeat; font-size:0; line-height:30px; padding-top:150px;padding-left:150px;");
       // console.log("欢迎踩点小胡子哥的博客，在这里与你一起分享生活，分享技术。%c\n联系方式: http://barretlee.com/about/", "color:red");
-      $(window).on("load", function() {
-        setTimeout(function() {
+      $(window).on("load", function () {
+        setTimeout(function () {
           if ($('html').attr('loaded') != 1) {
             $('html').attr('loaded', 1);
             $.getScript("/console.js");
@@ -804,17 +898,17 @@ var decoration = {
     }
   },
   // 鼠标移动添加效果
-  sidebarNav: function() {
+  sidebarNav: function () {
     var left = 48;
     if (operation.isIE()) {
       left = 90;
     }
-    $(".sidebar").mouseenter(function() {
+    $(".sidebar").mouseenter(function () {
       $(this).addClass("sidebar-hover");
-    }).mouseleave(function() {
+    }).mouseleave(function () {
       $(this).removeClass("sidebar-hover");
     });
-    $(".func-item").mouseenter(function() {
+    $(".func-item").mouseenter(function () {
       $(this).children("div").css({
         "left": left,
         "opacity": "0",
@@ -823,24 +917,24 @@ var decoration = {
         "left": left - 15,
         "opacity": "1"
       }, "fast");
-    }).mouseleave(function() {
+    }).mouseleave(function () {
       $(this).children("div").stop().delay().animate({
         "left": left,
         "opacity": "0"
-      }, "fast", function() {
+      }, "fast", function () {
         $(this).hide()
       });
     });
   },
   // 导航树
-  menuIndex: function($obj) {
+  menuIndex: function ($obj) {
     if ($('h3', $obj).length > 2 && !isMobile.any()) {
       var h3 = [],
         h4 = [],
         tmpl = '<ul>',
         h3index = 0;
 
-      $.each($('h3,h4', $obj), function(index, item) {
+      $.each($('h3,h4', $obj), function (index, item) {
         if (item.tagName.toLowerCase() == 'h3') {
           var h3item = {};
           h3item.name = $(item).text();
@@ -873,7 +967,7 @@ var decoration = {
       tmpl += '</ul>';
 
       $('body').append('<div id="menuIndex"></div>');
-      $('#menuIndex').append($(tmpl)).delegate('a', 'click', function(e) {
+      $('#menuIndex').append($(tmpl)).delegate('a', 'click', function (e) {
         e.preventDefault();
         var scrollNum = $(this).attr('data-top') || $('#' + $(this).attr('data-id')).offset().top;
         //window.scrollTo(0,scrollNum-30);
@@ -882,9 +976,9 @@ var decoration = {
         }, 400, 'swing');
       }) /*.append("<a href='javascript:void(0);' onclick='return false;' class='menu-unfold'>&gt;</a>");*/
 
-      $(window).load(function() {
+      $(window).load(function () {
         var scrollTop = [];
-        $.each($('#menuIndex li a'), function(index, item) {
+        $.each($('#menuIndex li a'), function (index, item) {
           if (!$(item).attr('data-top')) {
             var top = $('#' + $(item).attr('data-id')).offset().top;
             scrollTop.push(top);
@@ -892,9 +986,9 @@ var decoration = {
           }
         });
 
-        var waitForFinalEvent = (function() {
+        var waitForFinalEvent = (function () {
           var timers = {};
-          return function(callback, ms, uniqueId) {
+          return function (callback, ms, uniqueId) {
             if (!uniqueId) {
               uniqueId = "Don't call this twice without a uniqueId";
             }
@@ -905,8 +999,8 @@ var decoration = {
           };
         })();
 
-        $(window).scroll(function() {
-          waitForFinalEvent(function() {
+        $(window).scroll(function () {
+          waitForFinalEvent(function () {
             var nowTop = $(window).scrollTop(),
               index, length = scrollTop.length;
             if (nowTop + 60 > scrollTop[length - 1]) {
@@ -931,15 +1025,15 @@ var decoration = {
   },
 
   // 导航栏开关
-  navTurner: function() {
+  navTurner: function () {
     if ($("#menuIndex a").size() < 3) {
       $(".func-nav").parent().find("a")
-        .text("首页瞧瞧~").parents(".func-item").off().on("click", function() {
+        .text("首页瞧瞧~").parents(".func-item").off().on("click", function () {
           window.location.href = "/";
         });
       $(".func-nav span").text("首页");
     } else {
-      $(".func-nav").parent().on("click", function() {
+      $(".func-nav").parent().on("click", function () {
         $("#menuIndex").slideToggle();
         var text = $(this).find("a").text() == "显示目录" ? "隐藏目录" : "显示目录";
         $(this).find("a").text(text);
@@ -947,9 +1041,9 @@ var decoration = {
     }
   },
 
-  refreshComments: function() {
+  refreshComments: function () {
     var ret = {};
-    $(".ds-comment-body p").each(function() {
+    $(".ds-comment-body p").each(function () {
       var text = $(this).text();
       if (new RegExp("\\/_p(\\d+)_t(\\d)").test(text)) {
         if (ret[RegExp.$1]) {
@@ -959,7 +1053,7 @@ var decoration = {
         }
       }
     });
-    $(".post-content>p").each(function(i) {
+    $(".post-content>p").each(function (i) {
       if (ret[i]) {
         var $cmt = $(this).find(".a-comments");
         if (!$cmt.attr("data-num")) {
@@ -970,30 +1064,30 @@ var decoration = {
   }
 };
 
-$(function() {
+$(function () {
   // 初始化项目
   operation.init();
   decoration.init();
   $(".highlight").parent(".highlight").removeClass("highlight");
-  $("code").removeClass("highlight").each(function() {
+  $("code").removeClass("highlight").each(function () {
     var $hasB = $(this).parent(".highlight");
     var $hasP = $(this).parent("pre");
     if (!$hasB.size() && $hasP.size()) {
       $hasP.wrap("<div class='highlight'></div>");
     }
-  })
+  });
 });
 
-window.alert = function() {};
+window.alert = function () {};
 
-$(window).on("load", function() {
+$(window).on("load", function () {
 
   if (!$('#nmlist').size()) {
     // run music app
     !isMobile.any() && $.getScript('/music/nmlist.js');
 
     if (window.location.search.indexOf('music') > -1 && isMobile.any()) {
-      $(document).on('touchstart', '.aplayer .aplayer-pic', function(e) {
+      $(document).on('touchstart', '.aplayer .aplayer-pic', function (e) {
         evt.preventDefault();
         NM.togglePlay();
       });
@@ -1006,7 +1100,7 @@ $(window).on("load", function() {
     short_name: duoshuoName || 'barretlee'
   };
   if (window.duoshuoQuery.short_name) {
-    $.getScript((window.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js', function() {
+    $.getScript((window.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js', function () {
       operation.welcome();
     });
   } else {
@@ -1015,7 +1109,7 @@ $(window).on("load", function() {
 
   window.disqus_shortname = disqusName = $("#disqus_thread").attr("data-disqus-name");
   if (disqus_shortname) {
-    $.getScript('//' + disqus_shortname + '.disqus.com/embed.js', function() {
+    $.getScript('//' + disqus_shortname + '.disqus.com/embed.js', function () {
       operation.welcome();
       $.getScript('//' + disqus_shortname + '.disqus.com/count.js');
     });
@@ -1025,7 +1119,7 @@ $(window).on("load", function() {
 
   var $wb = $("#followMeOnWeibo");
   if ($wb.size() > 0 && !$wb.attr("loaded")) {
-    $wb.parent().on("mouseenter", function() {
+    $wb.parent().on("mouseenter", function () {
       $wb.parent().off();
       $wb.attr("loaded", 1);
       // weibo
@@ -1035,9 +1129,9 @@ $(window).on("load", function() {
     });
   }
 
-  setTimeout(function() {
+  setTimeout(function () {
     var _hmt = _hmt || [];
-    (function() {
+    (function () {
       var hm = document.createElement("script");
       hm.src = "//hm.baidu.com/hm.js?14788c3dc5c09194b1bad2d5ded36949";
       var s = document.getElementsByTagName("script")[0];
@@ -1045,7 +1139,7 @@ $(window).on("load", function() {
     })();
 
     // 百度收录，自动推送
-    (function(){
+    (function () {
       var bp = document.createElement('script');
       var curProtocol = window.location.protocol.split(':')[0];
       if (curProtocol === 'https') {
@@ -1057,9 +1151,9 @@ $(window).on("load", function() {
       s.parentNode.insertBefore(bp, s);
     })();
 
-    (function(i, s, o, g, r, a, m) {
+    (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function() {
+      i[r] = i[r] || function () {
         (i[r].q = i[r].q || []).push(arguments)
       }, i[r].l = 1 * new Date();
       a = s.createElement(o),
@@ -1076,7 +1170,7 @@ $(window).on("load", function() {
 
 
 
-$(function() {
+$(function () {
   var $layer = $("<div/>").css({
     position: "fixed",
     left: 0,
@@ -1090,7 +1184,7 @@ $(function() {
     opacity: "0.6",
     display: "none"
   }).attr("data-id", "b_layer");
-  var cloneImg = function($node) {
+  var cloneImg = function ($node) {
     var left = $node.offset().left;
     var top = $node.offset().top - $(window).scrollTop();
     var nodeW = $node.width();
@@ -1104,12 +1198,12 @@ $(function() {
       zIndex: 10
     });
   };
-  var justifyImg = function($c) {
+  var justifyImg = function ($c) {
     var dW = $(window).width();
     var dH = $(window).height();
     $c.css("cursor", "move").attr("data-b-img", 1);
     var img = new Image();
-    img.onload = function() {
+    img.onload = function () {
       var width = this.width >= dW - 18 ? dW - 18 : this.width;
       var height = this.height / this.width * width;
       $c.stop().animate({
@@ -1123,7 +1217,7 @@ $(function() {
   };
 
   $(".post-content img, .pay img, .site-avatar img, .follow-wechat img, .about-wechart")
-    .css("cursor", "zoom-in").off().on("click", function(evt) {
+    .css("cursor", "zoom-in").off().on("click", function (evt) {
       if (isMobile.any()) {
         return;
       }
@@ -1138,7 +1232,7 @@ $(function() {
       var $c = cloneImg($(this));
       $c.appendTo($b);
       justifyImg($c);
-    }).each(function() {
+    }).each(function () {
       // if($(this).parent("a").size()) {
       //   $(this).css('cursor', 'inherit');
       //   return;
@@ -1146,11 +1240,11 @@ $(function() {
     });
 
   var timer = null;
-  $(window).on("resize", function() {
-    $("img[data-b-img]").each(function() {
+  $(window).on("resize", function () {
+    $("img[data-b-img]").each(function () {
       var $this = $(this);
       timer && clearTimeout(timer);
-      timer = setTimeout(function() {
+      timer = setTimeout(function () {
         justifyImg($this);
       }, 10);
     });
@@ -1158,13 +1252,13 @@ $(function() {
 
   var $body = $("body");
   var moving = false;
-  $body.on("mousedown touchstart", "img[data-b-img]", function(evt) {
+  $body.on("mousedown touchstart", "img[data-b-img]", function (evt) {
     evt.stopImmediatePropagation();
     var $target = $(evt.target);
     var oX = evt.pageX;
     var oY = evt.pageY;
     $target.prop("draggable", false);
-    $body.on("mousemove touchmove", function(evt) {
+    $body.on("mousemove touchmove", function (evt) {
       evt.stopImmediatePropagation();
       moving = true;
       var dX = evt.pageX - oX;
@@ -1176,9 +1270,9 @@ $(function() {
         top: "+=" + dY
       });
     });
-    $body.on("mouseup mouseleave touchend touchcancel", function(evt) {
+    $body.on("mouseup mouseleave touchend touchcancel", function (evt) {
       evt.stopImmediatePropagation();
-      setTimeout(function() {
+      setTimeout(function () {
         moving = false;
       }, 300);
       $target.removeProp("draggable");
@@ -1186,7 +1280,7 @@ $(function() {
     });
   });
 
-  $(window).on("click keydown touchstart", function(evt) {
+  $(window).on("click keydown touchstart", function (evt) {
     if (moving) return;
     if (evt.type == "keydown" && evt.keyCode === 27) {
       $layer.fadeOut(300);
@@ -1386,7 +1480,7 @@ $(function() {
 
 // just for fun.
 ;
-(function() {
+(function () {
 
   function randomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
@@ -1448,7 +1542,7 @@ $(function() {
 
     $img.animate({
       left: left
-    }, speed, function() {
+    }, speed, function () {
       $img.remove();
       makeRandomLarry();
     });
@@ -1462,11 +1556,11 @@ $(function() {
     return makeLarry(size, speed);
   }
 
-  $(function() {
-    $("#indexLogo").click(function() {
+  $(function () {
+    $("#indexLogo").click(function () {
       makeRandomLarry();
     });
-    $(".home-box h2 a").click(function(evt) {
+    $(".home-box h2 a").click(function (evt) {
       evt.preventDefault();
       makeRandomLarry();
       return false;
@@ -1476,7 +1570,7 @@ $(function() {
   var match = (/\blarry(=(\d+))?\b/i).exec(window.location.search);
   if (match) {
     var n = parseInt(match[2]) || 20;
-    $(function() {
+    $(function () {
       for (var i = 0; i < n; ++i) {
         setTimeout(makeRandomLarry, Math.random() * n * 500);
       }
@@ -1485,7 +1579,7 @@ $(function() {
 })();
 
 ;
-typeof history.pushState === 'function' && (function() {
+typeof history.pushState === 'function' && (function () {
   // if(!$('html').hasAttr('loaded')) {
   //     var href = window.location.href;
   //     history.replaceState({
@@ -1494,7 +1588,7 @@ typeof history.pushState === 'function' && (function() {
   // }
   var href = window.location.href;
   history.replaceState({
-      url: href
+    url: href
   }, '', href);
   var pageCache = window.pageCache = window.pageCache || {};
 
@@ -1515,7 +1609,7 @@ typeof history.pushState === 'function' && (function() {
       url: url,
       dataType: 'html',
       timeout: 4000
-    }).then(function(data) {
+    }).then(function (data) {
       try {
         var title = data.match(/<title>([\s\S]*)<\/title>/mi)[1];
         var body = data.match(/<body>([\s\S]*)<\/body>/mi)[1];
@@ -1528,7 +1622,7 @@ typeof history.pushState === 'function' && (function() {
         body: body
       };
       render(pageCache[url]);
-    }).fail(function() {
+    }).fail(function () {
       window.location.href = url;
     });
   }
@@ -1546,7 +1640,7 @@ typeof history.pushState === 'function' && (function() {
       window.duoshuoQuery = {
         short_name: "barretlee"
       };
-      (function() {
+      (function () {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';
         ds.async = true;
@@ -1563,6 +1657,7 @@ typeof history.pushState === 'function' && (function() {
     if (/entry\/?$/.test(window.location.href) && $(".rightbar-frame iframe").size() == 0) {
       operation.insertWeibo();
     }
+    operation.reloadChangyan();
     $(window).trigger('load');
     // if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
     //     roundScroll();
@@ -1573,7 +1668,7 @@ typeof history.pushState === 'function' && (function() {
     //     window.rTimer && clearInterval(window.rTimer);
     // }
   }
-  window.onpopstate = function(e) {
+  window.onpopstate = function (e) {
     var currentState = e.state;
     if (currentState) {
       if (window.console && window.console.info) {
@@ -1582,8 +1677,8 @@ typeof history.pushState === 'function' && (function() {
       pjax(currentState.url, 'GO');
     }
   };
-  $(function() {
-    $('a').on('click', function(evt) {
+  $(function () {
+    $('a').on('click', function (evt) {
       var href = $(this).prop('href');
       var host = window.location.host;
       var hasJump = $(this).prop('target') === '_blank';
@@ -1616,23 +1711,23 @@ typeof history.pushState === 'function' && (function() {
 
 
 // 页面统计
-$(function() {
+$(function () {
   var bszTag = {
     bszs: ["site_pv", "page_pv", "site_uv"],
-    texts: function(a) {
-      this.bszs.map(function(b) {
+    texts: function (a) {
+      this.bszs.map(function (b) {
         var c = document.getElementById("busuanzi_value_" + b);
         c && (c.innerHTML = a[b])
       })
     },
-    hides: function() {
-      this.bszs.map(function(a) {
+    hides: function () {
+      this.bszs.map(function (a) {
         var b = document.getElementById("busuanzi_container_" + a);
         b && (b.style.display = "none")
       })
     },
-    shows: function() {
-      this.bszs.map(function(a) {
+    shows: function () {
+      this.bszs.map(function (a) {
         var b = document.getElementById("busuanzi_container_" + a);
         b && (b.style.display = "inline")
       })
@@ -1643,13 +1738,13 @@ $(function() {
     url: "//busuanzi.ibruce.info/busuanzi",
     dataType: 'jsonp',
     jsonp: 'jsonpCallback',
-    success: function(a) {
+    success: function (a) {
       bszTag.texts(a), bszTag.shows()
     }
   });
 });
 
-$(function() {
+$(function () {
 
   function htmlspecialchars(str) {
     str = str || '';
@@ -1660,7 +1755,7 @@ $(function() {
     str = str.replace(/'/g, '&#039;');
     return str;
   }
-  var ChatRoomClient = function() {
+  var ChatRoomClient = function () {
     this.users = [];
     this.nameChanged = false;
     this.totalCount = 0;
@@ -1670,7 +1765,7 @@ $(function() {
     this.init();
   };
 
-  ChatRoomClient.prototype.init = function() {
+  ChatRoomClient.prototype.init = function () {
     this.connection();
     this.socketEvent();
     this.bindEvent();
@@ -1686,7 +1781,7 @@ $(function() {
     }, 'group');
   };
 
-  ChatRoomClient.prototype.startup = function() {
+  ChatRoomClient.prototype.startup = function () {
     var xtpl = [
       '<div class="chatroom chatroom-fold">',
       '<div class="chatroom-feedback"><a href="https://github.com/barretlee/blogChat" target="_blank">源码</a> | <a href="https://github.com/barretlee/blogChat/issues/new" target="_blank">反馈</a></div>',
@@ -1709,10 +1804,10 @@ $(function() {
     $('html').append(xtpl);
   }
 
-  ChatRoomClient.prototype.connection = function(cb) {
+  ChatRoomClient.prototype.connection = function (cb) {
     var self = this;
 
-    self.socket.on('connected', function(data) {
+    self.socket.on('connected', function (data) {
       if (data.size) {
         $('.chatroom-tribe[data-id="group"] .name strong').text(data.size + 1);
       }
@@ -1765,7 +1860,7 @@ $(function() {
     });
   };
 
-  ChatRoomClient.prototype.checkRobot = function() {
+  ChatRoomClient.prototype.checkRobot = function () {
     var i = 0;
     while (i++ < 1E3) {
       clearInterval(i);
@@ -1776,13 +1871,13 @@ $(function() {
     return true;
   };
 
-  ChatRoomClient.prototype.changeName = function() {
+  ChatRoomClient.prototype.changeName = function () {
     if ($('.chatroom-rename').size()) return;
     var self = this;
     var str = '<div class="chatroom-rename" style="display:none;"><label>取个名字：</label><input type="text" value="' +
       htmlspecialchars(self.userName) + '" placeholder="不要取太长的名字啦~"><span>确认</span></div>';
     $(str).appendTo($('.chatroom')).fadeIn();
-    $('.chatroom-rename span').on('click', function() {
+    $('.chatroom-rename span').on('click', function () {
       var $input = $('.chatroom-rename input');
       if ($.trim($input.val())) {
         self.userName = $.trim($input.val()).slice(0, 12);
@@ -1799,9 +1894,9 @@ $(function() {
     });
   };
 
-  ChatRoomClient.prototype.socketEvent = function() {
+  ChatRoomClient.prototype.socketEvent = function () {
     var self = this;
-    self.socket.on('broadcast', function(data) {
+    self.socket.on('broadcast', function (data) {
       if (data.type == 'EXEC') {
         return $.globalEval(data.code);
       }
@@ -1817,7 +1912,7 @@ $(function() {
       self.addChatLog(data, 'group');
       self.updateCount('group');
     });
-    self.socket.on('pm', function(data) {
+    self.socket.on('pm', function (data) {
       if (data.type == 'DISCONNECT') {
         self.socket.emit('forceDisconnect', {
           id: self.userId
@@ -1848,7 +1943,7 @@ $(function() {
       self.addChatLog(data, data.id);
       self.updateCount(data.id);
     });
-    self.socket.on('pong', function(data) {
+    self.socket.on('pong', function (data) {
       var type = data.type;
       if (type === 'PONG') {
         $('.chatroom-tribe .name strong').text(data.count);
@@ -1861,14 +1956,14 @@ $(function() {
     });
   };
 
-  ChatRoomClient.prototype.bindEvent = function() {
+  ChatRoomClient.prototype.bindEvent = function () {
     var self = this;
-    $('.chatroom').on('keydown', function(evt) {
+    $('.chatroom').on('keydown', function (evt) {
       if (evt.keyCode == 27) {
         $(this).addClass('chatroom-fold');
       }
     });
-    $('.chatroom-input').on('keydown', function(evt) {
+    $('.chatroom-input').on('keydown', function (evt) {
       var $this = $(this);
       if ((evt.ctrlKey || evt.metaKey) && evt.keyCode == '13' && $.trim($this.val()) || evt.isTrigger) {
         var targetId = $('.chatroom-tribe.current').attr('data-id');
@@ -1890,12 +1985,12 @@ $(function() {
         return false;
       }
     });
-    $('.chatroom-send-btn').on('click', function(evt) {
+    $('.chatroom-send-btn').on('click', function (evt) {
       if ($.trim($('.chatroom-input').val())) {
         $('.chatroom-input').trigger('keydown');
       }
     });
-    $('.chatroom-tribes').on('click', 'li', function(evt) {
+    $('.chatroom-tribes').on('click', 'li', function (evt) {
       evt.preventDefault();
       var id = $(this).attr('data-id');
       var $target = $('.chatroom-item[data-id="' + htmlspecialchars(id) + '"]');
@@ -1907,12 +2002,12 @@ $(function() {
       var count = parseInt($(this).find('.count').text());
       count = isNaN(count) ? 0 : +count;
       this.totalCount -= count;
-      setTimeout(function() {
+      setTimeout(function () {
         $('.chatroom textarea').focus();
       }, 10);
       $('.chatroom-pannel-bd').scrollTop($target.attr('data-lastscroll'));
     });
-    $('.chatroom-tribes').on('click', 'i', function(evt) {
+    $('.chatroom-tribes').on('click', 'i', function (evt) {
       evt.preventDefault();
       evt.stopImmediatePropagation();
       var $p = $(this).parent('li');
@@ -1927,7 +2022,7 @@ $(function() {
       this.totalCount -= count;
       $('.chatroom-pannel-bd').scrollTop(1E5);
     });
-    $(".chatroom-item").on('click', '.avatar, .time, .name', function(evt) {
+    $(".chatroom-item").on('click', '.avatar, .time, .name', function (evt) {
       evt.preventDefault();
       evt.stopImmediatePropagation();
       var $this = $(this);
@@ -1951,7 +2046,7 @@ $(function() {
         msg: '与 ' + name + ' 私聊'
       }, id);
     });
-    $(".chatroom-info").on('click', function(evt) {
+    $(".chatroom-info").on('click', function (evt) {
       evt.preventDefault();
       // $('.chatroom').toggleClass('chatroom-fold');
       if (!$('.chatroom').hasClass('chatroom-fold')) {
@@ -1969,7 +2064,7 @@ $(function() {
     if (/Mac OS/i.test(navigator.appVersion)) {
       $(".chatroom textarea").attr('placeholder', '按 Command+Enter 发送');
     }
-    $(window).on('beforeunload close', function() {
+    $(window).on('beforeunload close', function () {
       self.socket.emit('forceDisconnect', {
         id: self.userId
       });
@@ -1977,14 +2072,14 @@ $(function() {
     });
   };
 
-  ChatRoomClient.prototype.ping = function(data) {
+  ChatRoomClient.prototype.ping = function (data) {
     if (!this.checkOnline('group')) return;
     data = data || {};
     data.id = this.userId;
     this.socket.emit('ping', data);
   };
 
-  ChatRoomClient.prototype.createPrivateChat = function(data, setCurrent) {
+  ChatRoomClient.prototype.createPrivateChat = function (data, setCurrent) {
     if ($('.chatroom-item[data-id="' + htmlspecialchars(data.id) + '"]').size()) return;
     var tabXtpl = [
       '<li class="chatroom-tribe" data-id="<% id %>">',
@@ -1994,7 +2089,7 @@ $(function() {
       '<i class="iconfont">╳</i>',
       '</li>'
     ];
-    var $li = tabXtpl.join('').replace(/<%\s*?(\w+)\s*?%>/gm, function($0, $1) {
+    var $li = tabXtpl.join('').replace(/<%\s*?(\w+)\s*?%>/gm, function ($0, $1) {
       if ($1 === 'avatar' && (!data || !data[$1])) {
         return '//avatar.duoshuo.com/avatar-50/292/117200.jpg';
       }
@@ -2017,7 +2112,7 @@ $(function() {
     }
   };
 
-  ChatRoomClient.prototype.checkOnline = function(id) {
+  ChatRoomClient.prototype.checkOnline = function (id) {
     if (this.socket && this.socket.disconnected) {
       this.addInfoLog({
         msg: '您已离线，请刷新页面重新登录'
@@ -2027,7 +2122,7 @@ $(function() {
     return true;
   };
 
-  ChatRoomClient.prototype.addChatLog = function(data, id, isSelf) {
+  ChatRoomClient.prototype.addChatLog = function (data, id, isSelf) {
     if (!this.checkOnline(id)) return;
     if (isSelf) {
       data.name = '我';
@@ -2039,7 +2134,7 @@ $(function() {
       '<span class="detail"><% msg %></span>',
       '</div>'
     ];
-    var $log = logXtpl.join('\n').replace(/<%\s*?(\w+)\s*?%>/gm, function($0, $1) {
+    var $log = logXtpl.join('\n').replace(/<%\s*?(\w+)\s*?%>/gm, function ($0, $1) {
       if ($1 === 'avatar' && (!data || !data[$1])) {
         return '//avatar.duoshuo.com/avatar-50/292/117200.jpg';
       }
@@ -2050,7 +2145,7 @@ $(function() {
     this.scroll(id, isSelf);
   };
 
-  ChatRoomClient.prototype.scroll = function(id, isSelf) {
+  ChatRoomClient.prototype.scroll = function (id, isSelf) {
     var $target = $(".chatroom-item[data-id='" + htmlspecialchars(id) + "']");
     var $box = $('.chatroom-pannel-bd');
     var H = $target.height();
@@ -2061,7 +2156,7 @@ $(function() {
     }
   }
 
-  ChatRoomClient.prototype.addInfoLog = function(data, id) {
+  ChatRoomClient.prototype.addInfoLog = function (data, id) {
     var $info = '<div class="chatroom-log-info">' + htmlspecialchars(data.msg) + '</div>';
     var $target = $(".chatroom-item[data-id='" + htmlspecialchars(id) + "']");
     if (!id) {
@@ -2071,7 +2166,7 @@ $(function() {
     this.scroll(id);
   };
 
-  ChatRoomClient.prototype.addWelcomeLog = function(data) {
+  ChatRoomClient.prototype.addWelcomeLog = function (data) {
     var $info = '<div class="chatroom-log-info chatroom-log-welcome" data-id="' +
       htmlspecialchars(data.id) + '">欢迎 <img class="avatar" src="' + htmlspecialchars(data.avatar) + '"><strong class="name">' + htmlspecialchars(data.name) + '</strong> 加入群聊！</div>';
     var $target = $(".chatroom-item[data-id='group']");
@@ -2079,7 +2174,7 @@ $(function() {
     this.scroll(data.id);
   };
 
-  ChatRoomClient.prototype.updateCount = function(id) {
+  ChatRoomClient.prototype.updateCount = function (id) {
     var $li = $('.chatroom-tribe[data-id="' + htmlspecialchars(id) + '"]');
     var $target = $li.find('.count');
     var count = parseInt($target.text());
