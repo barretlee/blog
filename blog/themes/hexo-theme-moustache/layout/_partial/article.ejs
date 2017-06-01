@@ -20,9 +20,10 @@
         <span tabindex="0" aria-hidden="true">标签: <%- partial('post/tag', {post: page}) %></span>
         <span class="aria-readonly">下面是正文内容</span>
         <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
-                      class="ds-thread-count hash-to-comments disqus-comment-count"
+                      class="ds-thread-count hash-to-comments disqus-comment-count cy_cmt_count"
                       data-thread-key="<%- page.slug || page.path %>"
-                      data-disqus-identifier="<%- page.slug || page.path %>"></a></span>
+                      data-disqus-identifier="<%- page.slug || page.path %>"
+                      id="sourceId::<%- page.slug || page.path %>"></a></span>
         <span tabindex="0" aria-hidden="true" id="busuanzi_container_site_pv">热度: <span id="busuanzi_value_page_pv"></span></span>
       </div>
       <div class="post-content" itemprop="articleBody">

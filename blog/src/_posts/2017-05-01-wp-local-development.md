@@ -1,13 +1,11 @@
----
 title: Wordpress 本地调试
-description: 最近准备把博客迁移到 Wordpress 上，在主机上部署好了 Wordpress
-  后，遇到了一个头疼的问题，我期望将线上的环境同步一份到本地，本地代码与服务器保持同步，本地修改后可以及时预览。
 warning: true
 categories:
   - 网络交互
 tags:
   - Wordpress
-date: 2017-05-01 23:25:24
+date: 2017-05-01 23:25:00
+description:
 ---
 
 

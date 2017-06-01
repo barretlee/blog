@@ -103,3 +103,24 @@ deploy:
 #   ignore: [ignore]
 #   connections: [connections]
 #   verbose: [true|false]
+
+# hey Admin
+# admin:
+#   name: barretlee
+#   password: u201012877
+#   secret: barret lee's secret
+#   expire: 60*1
+#   # cors: http://localhost:3000
+
+# hexo-admin authentification
+admin:
+  username: barretlee
+  password_hash: $2a$10$FbsgxcpJq2waz3ztBIvQKeYMjyf7HugaMrNZHTaByD6FtZd8FE9EO
+  secret: barret lee's secret
+  deployCommand: ls
+
+metadata:
+  description: description
+
+search:
+  path: szpost
