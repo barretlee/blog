@@ -2,8 +2,8 @@ options:
   lineNumbers: true
   imagePath: /blogimgs
   askImageFilename: true
-  spellcheck: true
+  spellcheck: false
 editor:
   lineNumbers: true
   inputStyle: contenteditable
-  spellcheck: true
+  spellcheck: false
