@@ -117,7 +117,7 @@ admin:
   username: barretlee
   password_hash: $2a$10$FbsgxcpJq2waz3ztBIvQKeYMjyf7HugaMrNZHTaByD6FtZd8FE9EO
   secret: barret lee's secret
-  deployCommand: 
+  deployCommand: ls -lh;
 
 metadata:
   description: description

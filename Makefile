@@ -57,10 +57,16 @@ clear:
 
 # 打开 hexo 本地服务
 run:
+ifneq (${F},)
+	cd blog; \
+	rm -rf ${DEPLOY_GIT}; \
+	hexo clean;
+	hexo g;
+endif
 	git pull origin master; \
 	cd blog; \
 	open ${LOCAL}; \
-	hexo s -g;
+	hexo s -d --debug;
 
 # 备份文件,部署到 coding 和 github
 deploy:
@@ -68,9 +74,10 @@ ifneq (${F},)
 	cd blog; \
 	rm -rf ${DEPLOY_GIT}; \
 	hexo clean;
+	hexo g;
 endif
 	cd blog; \
-	hexo d -g; \
+	hexo d; \
 	open ${WEB};
 	git add --all; \
 	git commit -am "backup"; \
