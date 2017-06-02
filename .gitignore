@@ -18,7 +18,5 @@ blog/node_modules
 *.log
 .sync
 
-blog/db.json
-
 ./**/_config.yml
 nohup.out
