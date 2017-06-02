@@ -64,6 +64,7 @@ run:
 # 备份文件,部署到 coding 和 github
 deploy:
 	cd blog; \
+	hexo clean; \
 	hexo d -g; \
 	open ${WEB};
 	git add --all; \
