@@ -70,6 +70,7 @@ ifneq (${F},)
 	hexo clean;
 endif
 	cd blog; \
+	hexo d -g; \
 	open ${WEB};
 	git add --all; \
 	git commit -am "backup"; \
