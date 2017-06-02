@@ -14,6 +14,7 @@ blog/node_modules
 /demo
 
 /algorithm
+db.json
 
 *.log
 .sync
