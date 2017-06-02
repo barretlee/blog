@@ -21,3 +21,4 @@ blog/node_modules
 blog/db.json
 
 ./**/_config.yml
+nohup.out
