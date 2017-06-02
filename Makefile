@@ -59,13 +59,12 @@ clear:
 run:
 	cd blog; \
 	open ${LOCAL}; \
-	hexo g;\
-	hexo s -g --debug;
+	hexo s -g;
 
 # 备份文件,部署到 coding 和 github
 deploy:
 	cd blog; \
-	hexo d -g --debug; \
+	hexo d -g; \
 	open ${WEB};
 	git add --all; \
 	git commit -am "backup"; \
