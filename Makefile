@@ -30,7 +30,7 @@ p: pull
 
 # 拉取远程代码
 pull:
-	git pull coding master;
+	git pull origin master;
 
 # 回到根文件夹
 goroot:
@@ -58,17 +58,12 @@ clear:
 # 打开 hexo 本地服务
 run:
 	cd blog; \
-	hexo g; \
 	open ${LOCAL}; \
 	hexo s;
 
-# 备份文件,部署到 gitcafe 和 github
+# 备份文件,部署到 coding 和 github
 deploy:
 	cd blog; \
-	rm -rf ${BUILD}; \
-	rm -rf ${DEPLOY_GIT}; \
-	rm db.json; \
-	hexo g; \
 	hexo d; \
 	open ${WEB};
 	git add --all; \
