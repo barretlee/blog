@@ -1,5 +1,4 @@
 var weiboName = "@Barret李靖";
-var duoshuoName = "";
 var disqusName = "";
 var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
 
@@ -384,62 +383,6 @@ var operation = {
     }
 
     $.removeCookie("visitor");
-    duoshuoName && $.ajax({
-      url: "//" + duoshuoName + ".duoshuo.com/api/threads/listPosts.jsonp?thread_key=/&require=visitor",
-      dataType: "jsonp",
-      timeout: 5000,
-      success: function (data) {
-        if (!(data && data.visitor && data.visitor.name && data.visitor.avatar_url)) {
-          getNamefailed();
-          return;
-        }
-        var id = data.visitor.user_id;
-        var name = data.visitor.name;
-        var avatar = data.visitor.avatar_url;
-        if (/大额大额/.test(name)) {
-          name = "亲爱的";
-        }
-        var htmlStr = makeHtml(name, avatar);
-        self.alertMsg(htmlStr);
-
-        var info = {
-          id: id,
-          name: name,
-          avatar: avatar
-        };
-        // 目前登录人缓存半天
-        $.cookie("visitor", JSON.stringify(info), {
-          expires: 0.25,
-          path: "/"
-        });
-        $.cookie("visitor_history", JSON.stringify(info), {
-          expires: 100,
-          path: "/"
-        });
-
-        // 缓存历史登录者
-        // var histories = $.cookie("visitor_history");
-        // try {
-        //     histories = JSON.parse(histories);
-        // } catch (e) {
-        //     histories = {};
-        // }
-        // histories = {
-        //   id: id,
-        //   name: name,
-        //   avatar: avatar
-        // };
-        // try {
-        //     $.cookie("visitor_history", JSON.stringify(histories), {
-        //         expires: 100,
-        //         path: "/"
-        //     });
-        // } catch (e) {}
-      },
-      error: function () {
-        getNamefailed();
-      }
-    });
   },
   reloadChangyan: function () {
     delete window.changyan;
@@ -1095,17 +1038,6 @@ $(window).on("load", function () {
     }
   }
 
-  duoshuoName = $(".ds-thread").attr("data-name");
-  window.duoshuoQuery = {
-    short_name: duoshuoName || 'barretlee'
-  };
-  if (window.duoshuoQuery.short_name) {
-    $.getScript((window.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js', function () {
-      operation.welcome();
-    });
-  } else {
-    operation.welcome();
-  }
 
   window.disqus_shortname = disqusName = $("#disqus_thread").attr("data-disqus-name");
   if (disqus_shortname) {
@@ -1631,24 +1563,9 @@ typeof history.pushState === 'function' && (function () {
     var title = data.title;
     var body = data.body;
     $.getScript('/public/js/main.js');
-    $('script[src*="duoshuo"],script[src*="baidu"],script[src*="google"],link[href*="duoshuo"]').remove();
+    $('script[src*="baidu"],script[src*="google"]').remove();
     document.title = title || '小胡子哥的个人网站';
     $('body').html(body);
-    if (window.DUOSHUO) {
-      DUOSHUO.Widget();
-    } else {
-      window.duoshuoQuery = {
-        short_name: "barretlee"
-      };
-      (function () {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';
-        ds.async = true;
-        ds.src = (window.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-    }
     if (!window.location.hash) {
       window.scrollTo(0, 0);
     }
@@ -1813,35 +1730,18 @@ $(function () {
       }
       self.userId = data.id;
       self.userName = self.userId.slice(2);
-      self.userAvatar = '//avatar.duoshuo.com/avatar-50/292/117200.jpg';
-      if (window.DUOSHUO && window.DUOSHUO.visitor && window.DUOSHUO.visitor.data.user_id) {
-        var userInfo = window.DUOSHUO.visitor.data;
-        self.userId = userInfo.user_id;
-        self.userName = userInfo.name;
-        self.userAvatar = userInfo.avatar_url;
-      } else if ($.cookie && ($.cookie('visitor') || $.cookie('visitor_history'))) {
-        var info = $.cookie('visitor') || $.cookie('visitor_history');
-        try {
-          var info = JSON.parse(info);
-          if (info.id && info.name && info.avatar) {
-            self.userId = info.id;
-            self.userName = info.name;
-            self.userAvatar = info.avatar;
-          }
-        } catch (e) {}
-      } else {
-        if (window.localStorage) {
-          var userId = window.localStorage.getItem('userId');
-          if (userId) {
-            self.userId = userId.length > 12 ? userId.slice(0, 12) : userId;
-            self.userName = userId.slice(2);
-          } else {
-            window.localStorage.setItem('userId', self.userId);
-          }
-          var userName = window.localStorage.getItem('userName');
-          if (userName) {
-            self.userName = userName;
-          }
+      self.userAvatar = '/blogimgs/moustache.jpg';
+      if (window.localStorage) {
+        var userId = window.localStorage.getItem('userId');
+        if (userId) {
+          self.userId = userId.length > 12 ? userId.slice(0, 12) : userId;
+          self.userName = userId.slice(2);
+        } else {
+          window.localStorage.setItem('userId', self.userId);
+        }
+        var userName = window.localStorage.getItem('userName');
+        if (userName) {
+          self.userName = userName;
         }
       }
       if (window.localStorage) {
@@ -2091,7 +1991,7 @@ $(function () {
     ];
     var $li = tabXtpl.join('').replace(/<%\s*?(\w+)\s*?%>/gm, function ($0, $1) {
       if ($1 === 'avatar' && (!data || !data[$1])) {
-        return '//avatar.duoshuo.com/avatar-50/292/117200.jpg';
+        return '/blogimgs/moustache.jpg';
       }
       return htmlspecialchars(data && data[$1] || '');
     });
@@ -2136,7 +2036,7 @@ $(function () {
     ];
     var $log = logXtpl.join('\n').replace(/<%\s*?(\w+)\s*?%>/gm, function ($0, $1) {
       if ($1 === 'avatar' && (!data || !data[$1])) {
-        return '//avatar.duoshuo.com/avatar-50/292/117200.jpg';
+        return '/blogimgs/moustache.jpg';
       }
       return htmlspecialchars(data && data[$1] || '');
     });

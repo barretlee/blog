@@ -40,7 +40,6 @@
     <div class="share-article clearfix">
       <%var excerpt = page.excerpt.replace(/<[^>]+?>|\n/gm, '') || page.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 110) + "...";%>
       <div class="ds-share" data-thread-key="<%- page.slug || page.path %>" data-title="<%= page.title %>" data-images="<%- post.images %>" data-content="<%- excerpt %>" data-url="<%- config.url %><%- url_for(page.path) %>">
-        <%- partial('post/duoshuoShare') %>
       </div>
     </div>
     <!-- <%- partial('post/circle') %> -->
