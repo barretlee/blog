@@ -64,9 +64,12 @@ run:
 
 # 备份文件,部署到 coding 和 github
 deploy:
+ifneq (${F},)
 	cd blog; \
-	hexo clean; \
-	hexo d -g; \
+	rm -rf ${DEPLOY_GIT}; \
+	hexo clean;
+endif
+	cd blog; \
 	open ${WEB};
 	git add --all; \
 	git commit -am "backup"; \
