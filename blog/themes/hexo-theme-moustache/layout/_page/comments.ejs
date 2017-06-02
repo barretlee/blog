@@ -13,194 +13,196 @@
         </ul>
       </em>
 		</h2>
-    <h3>最近 200 位访客 <small style="margin-left; 10px; display:none;" id="commentVisitorHook"><a href="javascript:void 0;">view</a></small></h3>
-    <div class="ds-recent-visitors" data-num-items="200"></div>
-    <h3>最近 50 条评论</h3>
-		<div class="ds-recent-comments" data-num-items="50" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
+    <h3>活跃用户 <small style="margin-left; 10px; display:none;" id="commentVisitorHook"><a href="javascript:void 0;">view</a></small></h3>
+    <div id="cyHotusers" role="cylabs" data-use="hotusers" style="margin:0;margin-left:20px;"></div>
+    <script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cyt0XnPCt"></script>
+    <h3>热门评论</h3>
+		<div id="cyReping" role="cylabs" data-use="reping"></div>
+    <script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cyt0XnPCt"></script>
 		<%- partial("page_footer") %>
 	</div>
 </div>
 <%- partial("../_partial/sidebar") %>
 <script>
-window.onload = function() {
-  try {
-    var arr = JSON.parse(localStorage.getItem('__guests__'));
-    var ret = {};
-    for(var i = 0; i < arr.length; i++) {
-      var item = arr[i];
-      if(ret[item.n]) {
-        continue;
-      } else {
-        ret[item.n] = item;
-      }
-    }
-    var data = [];
-    for(var key in ret) {
-      data.push(ret[key]);
-    }
-    localStorage.setItem('__guests__', JSON.stringify(data));
-  }catch(e){}
-  // store
-  var CommentVisitor = function(){
-    this.bind();
-  };
+// window.onload = function() {
+//   try {
+//     var arr = JSON.parse(localStorage.getItem('__guests__'));
+//     var ret = {};
+//     for(var i = 0; i < arr.length; i++) {
+//       var item = arr[i];
+//       if(ret[item.n]) {
+//         continue;
+//       } else {
+//         ret[item.n] = item;
+//       }
+//     }
+//     var data = [];
+//     for(var key in ret) {
+//       data.push(ret[key]);
+//     }
+//     localStorage.setItem('__guests__', JSON.stringify(data));
+//   }catch(e){}
+//   // store
+//   var CommentVisitor = function(){
+//     this.bind();
+//   };
 
-  CommentVisitor.prototype.bind = function(){
-    var self = this;
-    self.timer = setInterval(function(){
-      if($(".ds-avatar").size() > 0) {
-        clearInterval(self.timer);
-        self.storeGuests();
-        $(".ds-avatar a").removeAttr('onclick');
-        $("#commentVisitorHook").show();
-      }
-    }, 200);
-    $("#commentVisitorHook a").on("click", function(evt){
-      evt.preventDefault();
-      self.showVisitors();
-    });
-  };
+//   CommentVisitor.prototype.bind = function(){
+//     var self = this;
+//     self.timer = setInterval(function(){
+//       if($(".ds-avatar").size() > 0) {
+//         clearInterval(self.timer);
+//         self.storeGuests();
+//         $(".ds-avatar a").removeAttr('onclick');
+//         $("#commentVisitorHook").show();
+//       }
+//     }, 200);
+//     $("#commentVisitorHook a").on("click", function(evt){
+//       evt.preventDefault();
+//       self.showVisitors();
+//     });
+//   };
 
-  CommentVisitor.prototype._unique = function(arr, key){
-    arr = arr || [];
-    if(!key) return $.unique(arr);
-    var ret = [], hash = {};
-    for(var i = 0, len = arr.length; i < len; i++) {
-      if(arr[i][key] in hash) {
-        continue;
-      } else {
-        hash[arr[i][key]] = 1;
-        ret.push(arr[i]);
-      }
-    }
-    return ret;
-  };
+//   CommentVisitor.prototype._unique = function(arr, key){
+//     arr = arr || [];
+//     if(!key) return $.unique(arr);
+//     var ret = [], hash = {};
+//     for(var i = 0, len = arr.length; i < len; i++) {
+//       if(arr[i][key] in hash) {
+//         continue;
+//       } else {
+//         hash[arr[i][key]] = 1;
+//         ret.push(arr[i]);
+//       }
+//     }
+//     return ret;
+//   };
 
-  CommentVisitor.prototype.storeGuests = function(open){
-    var urls = [];
-    $(".ds-avatar a").each(function(){
-      var blog = $(this).attr('href');
-      if(!/weibo\.com|t\.qq\.com|baidu\.com|javascript|douban\.com/.test(blog)){
-        var $img = $(this).find("img");
-        urls.push({
-          n: $img.attr("alt"),
-          a: $img.attr("src"),
-          u: blog
-        });
-      }
-    });
-    urls = this._unique(urls, 'u');
-    // if(open) {
-    //   for(var i = 0; i < urls.length; i++) window.open(urls[i]['u']);
-    // }
-    var store = localStorage.getItem('__guests__');
-    var originLen = 0;
-    if(store){
-      store = JSON.parse(store);
-      originLen = store.length;
-    } else {
-      store = [];
-    }
-    store = urls.concat(store);
-    store = this._unique(store, 'u');
-    if(store.length > originLen) {
-      localStorage.setItem("__guests__", JSON.stringify(store));
-    }
-  };
+//   CommentVisitor.prototype.storeGuests = function(open){
+//     var urls = [];
+//     $(".ds-avatar a").each(function(){
+//       var blog = $(this).attr('href');
+//       if(!/weibo\.com|t\.qq\.com|baidu\.com|javascript|douban\.com/.test(blog)){
+//         var $img = $(this).find("img");
+//         urls.push({
+//           n: $img.attr("alt"),
+//           a: $img.attr("src"),
+//           u: blog
+//         });
+//       }
+//     });
+//     urls = this._unique(urls, 'u');
+//     // if(open) {
+//     //   for(var i = 0; i < urls.length; i++) window.open(urls[i]['u']);
+//     // }
+//     var store = localStorage.getItem('__guests__');
+//     var originLen = 0;
+//     if(store){
+//       store = JSON.parse(store);
+//       originLen = store.length;
+//     } else {
+//       store = [];
+//     }
+//     store = urls.concat(store);
+//     store = this._unique(store, 'u');
+//     if(store.length > originLen) {
+//       localStorage.setItem("__guests__", JSON.stringify(store));
+//     }
+//   };
 
-  CommentVisitor.prototype.showVisitors = function(){
-    var style = (function(){/*
-    <style>
-      body {
-        font-family: Georgia, serif;
-      }
-      * {
-        transition: 0.2s all;
-        -webkit-user-select: none;
-      }
-      h1 {
-        text-align: center;
-      }
-      ul::after {
-        content: "[ Total " counter(unread) " visitors ]";
-        color: #F40;
-        margin-left: 6px;
-        line-height: 70px;
-        font-size: 20px;
-      }
-      ul {
-        font-size: 12px;
-        counter-reset: unread;
-      }
-      li {
-        border: 1px solid #EEE;
-        list-style: none;
-        height: 50px;
-        line-height: 20px;
-        box-shadow: 3px 3px 5px #CCC;
-        margin-bottom: 10px;
-        width: 300px;
-        padding: 8px 12px;
-        float: left;
-        margin-right: 20px;
-        counter-increment: unread;
-      }
-      li:hover {
-        background: #F1F1F1;
-      }
-      img {
-        width: 50px;
-        height: 50px;
-        border-radius: 100%;
-        vertical-align: middle;
-        margin-right: 10px;
-        float: left;
-      }
-      a {
-        text-decoration: none;
-        margin-right: 20px;
-        width: 200px;
-        vertical-align: middle;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: block;
-        color: orange;
-      }
-      a:visited {
-        color: #666;
-      }
-    </style>
-    */}).toString().replace(/^[\s\S]+?\/\*|\*\/[\s\S]*?$/gm, '');
-    var store = localStorage.getItem('__guests__');
-    if(store) {
-      store = JSON.parse(store);
-      store = this._unique(store, 'u');
-      var str = ['<ul>'];
-      for(var i = 0, len = store.length; i < len; i++) {
-        var a = store[i]['a'];
-        var n = store[i]['n'];
-        var u = store[i]['u'];
-        str.push("<li><img src='" + a + "'><span>" + n + "</span><a target='_blank' href='" + u + "'>" + u +
-          "</a></li>");
-      }
-      str.push("</ul>");
-      var DOMStr = "<head><link rel='shortcut icon' href='//www.barretlee.com/favicon.ico' type='image/x-icon'></head><h1>小胡子哥的个人网站回访名单</h1>" + str.join("\n") + style;
+//   CommentVisitor.prototype.showVisitors = function(){
+//     var style = (function(){/*
+//     <style>
+//       body {
+//         font-family: Georgia, serif;
+//       }
+//       * {
+//         transition: 0.2s all;
+//         -webkit-user-select: none;
+//       }
+//       h1 {
+//         text-align: center;
+//       }
+//       ul::after {
+//         content: "[ Total " counter(unread) " visitors ]";
+//         color: #F40;
+//         margin-left: 6px;
+//         line-height: 70px;
+//         font-size: 20px;
+//       }
+//       ul {
+//         font-size: 12px;
+//         counter-reset: unread;
+//       }
+//       li {
+//         border: 1px solid #EEE;
+//         list-style: none;
+//         height: 50px;
+//         line-height: 20px;
+//         box-shadow: 3px 3px 5px #CCC;
+//         margin-bottom: 10px;
+//         width: 300px;
+//         padding: 8px 12px;
+//         float: left;
+//         margin-right: 20px;
+//         counter-increment: unread;
+//       }
+//       li:hover {
+//         background: #F1F1F1;
+//       }
+//       img {
+//         width: 50px;
+//         height: 50px;
+//         border-radius: 100%;
+//         vertical-align: middle;
+//         margin-right: 10px;
+//         float: left;
+//       }
+//       a {
+//         text-decoration: none;
+//         margin-right: 20px;
+//         width: 200px;
+//         vertical-align: middle;
+//         overflow: hidden;
+//         text-overflow: ellipsis;
+//         display: block;
+//         color: orange;
+//       }
+//       a:visited {
+//         color: #666;
+//       }
+//     </style>
+//     */}).toString().replace(/^[\s\S]+?\/\*|\*\/[\s\S]*?$/gm, '');
+//     var store = localStorage.getItem('__guests__');
+//     if(store) {
+//       store = JSON.parse(store);
+//       store = this._unique(store, 'u');
+//       var str = ['<ul>'];
+//       for(var i = 0, len = store.length; i < len; i++) {
+//         var a = store[i]['a'];
+//         var n = store[i]['n'];
+//         var u = store[i]['u'];
+//         str.push("<li><img src='" + a + "'><span>" + n + "</span><a target='_blank' href='" + u + "'>" + u +
+//           "</a></li>");
+//       }
+//       str.push("</ul>");
+//       var DOMStr = "<head><link rel='shortcut icon' href='//www.barretlee.com/favicon.ico' type='image/x-icon'></head><h1>小胡子哥的个人网站回访名单</h1>" + str.join("\n") + style;
 
-      if(window.URL && window.URL.createObjectURL) {
-        window.open(URL.createObjectURL(new Blob([DOMStr], {
-          type: "text/html; charset=UTF-8"
-        })));
-      } else {
-        var blank = window.open("about:blank");
-        blank.document.write(DOMStr);
-        blank.document.close();
-        blank.opener = null;
-      }
-    }
-  };
+//       if(window.URL && window.URL.createObjectURL) {
+//         window.open(URL.createObjectURL(new Blob([DOMStr], {
+//           type: "text/html; charset=UTF-8"
+//         })));
+//       } else {
+//         var blank = window.open("about:blank");
+//         blank.document.write(DOMStr);
+//         blank.document.close();
+//         blank.opener = null;
+//       }
+//     }
+//   };
 
-  setTimeout(function() {
-    window.commentVisitor = new CommentVisitor();
-  }, 1E3);
-};
+//   setTimeout(function() {
+//     window.commentVisitor = new CommentVisitor();
+//   }, 1E3);
+// };
 </script>
