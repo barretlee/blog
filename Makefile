@@ -57,6 +57,7 @@ clear:
 
 # 打开 hexo 本地服务
 run:
+	git pull origin master; \
 	cd blog; \
 	open ${LOCAL}; \
 	hexo s -g;
