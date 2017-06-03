@@ -29,20 +29,12 @@
       <div class="post-content" itemprop="articleBody">
         <div class="shit-spider" title="防爬虫不注明出处" tabindex="0" aria-hidden="true">
           <p>原文地址：<a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a>，<a href="<%- config.url %><%- url_for(page.path) %>#comments">参与评论</a></p>
-          <img src="//www.barretlee.com/blogimgs/avatar150.png">
+          <img src="//www.barretlee.com/blogimgs/avatar.png" width="150">
         </div>
         <%- page.content %>
-        <!--<p class="article-info">文/<a href="<%- url_for('about/') %>"><img src="/avatar150.png">李靖</a>　微信公众号：barretlee_com</p><p class="this-page-link" aria-hidden="true">本文链接：<a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a></p>
-        <p><a class="to-comments" href="<%- config.url %><%- url_for(page.path) %>#comments" aria-hidden="true">☞ 参与评论</a></p> -->
       </div>
     </div>
     <%- partial('post/warning') %>
-    <div class="share-article clearfix">
-      <%var excerpt = page.excerpt.replace(/<[^>]+?>|\n/gm, '') || page.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 110) + "...";%>
-      <div class="ds-share" data-thread-key="<%- page.slug || page.path %>" data-title="<%= page.title %>" data-images="<%- post.images %>" data-content="<%- excerpt %>" data-url="<%- config.url %><%- url_for(page.path) %>">
-      </div>
-    </div>
-    <!-- <%- partial('post/circle') %> -->
     <%- partial('post/copyright') %>
     <em class="arrow-expend icon" tabindex="0" aria-hidden="true">&#xe618;
       <ul>

@@ -352,6 +352,19 @@ var operation = {
           urls: urls
         });
       });
+
+      var data = {
+        'app': 'wxddd17adddf433070',    // 选填，默认为空
+        'img': 'http://www.barretlee.com/blogimgs/avatar.png',
+        'link': window.location.href,
+        'desc': $('meta[name="description"]').attr('content'),
+        'title': $('.post-title').text()
+      };
+      var callback = function() {};
+
+      wechat('friend', data, callback);           // 朋友
+      wechat('timeline', data, callback);         // 朋友圈
+      wechat('weibo', data, callback);            // 微博
     });
   },
   welcome: function () {
@@ -1544,6 +1557,7 @@ typeof history.pushState === 'function' && (function () {
     }).then(function (data) {
       try {
         var title = data.match(/<title>([\s\S]*)<\/title>/mi)[1];
+        var description = data.match(/<meta name="description" content="<([^"]*?)"/mi)[1];
         var body = data.match(/<body>([\s\S]*)<\/body>/mi)[1];
       } catch (e) {
         window.location.href = url;
@@ -1551,6 +1565,7 @@ typeof history.pushState === 'function' && (function () {
       }
       pageCache[url] = {
         title: title,
+        description: description,
         body: body
       };
       render(pageCache[url]);
