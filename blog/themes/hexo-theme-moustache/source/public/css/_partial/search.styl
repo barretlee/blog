@@ -14,6 +14,35 @@
   font-size: 14px;
 }
 
+#local-search-close {
+  content: 'x';
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #fff;
+  color: #888;
+  border-radius: 100%;
+  line-height: 20px;
+  text-align: center;
+  font-size: 16px;
+  font-family: consolas;
+  border: 1px solid #CCC;
+  display: block;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: normal;
+  transform: rotateZ(0);
+  transition: all 0.3s;
+  &:hover {
+    border-color: #666;
+    color: #222;
+    transform: rotateZ(180deg);
+    transition: all 0.3s;
+  }
+}
+
 .local-search-result-cls {
   position: absolute;
   z-index: 99;

@@ -20,6 +20,7 @@
 
 var searchFunc = function (path, search_id, content_id) {
   'use strict';
+  var BTN = "<i id='local-search-close'>x</i>";
   $.ajax({
     url: path,
     dataType: "xml",
@@ -113,10 +114,14 @@ var searchFunc = function (path, search_id, content_id) {
         });
         str += "</ul>";
         if (str.indexOf('<li>') === -1) {
-          return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，更换下搜索词试试吧~<span></ul>";
+          return $resultContent.innerHTML = BTN + "<ul><span class='local-search-empty'>没有找到内容，更换下搜索词试试吧~<span></ul>";
         }
-        $resultContent.innerHTML = str;
+        $resultContent.innerHTML = BTN + str;
       });
     }
+  });
+  $(document).on('click', '#local-search-close', function() {
+    $('#local-search-input').val('');
+    $('#local-search-result').html('');
   });
 }
