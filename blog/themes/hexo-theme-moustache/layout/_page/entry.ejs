@@ -12,9 +12,10 @@
 			</ul>
 		</em>
 		<%- partial("../_partial/post/rss.ejs") %>
-		<span class="entry-page-search">
-        <input type="text" placeholder="Google 站内搜索">
-        <i class="icon" aria-hidden="true">&#x2708;</i>
+		<span class="entry-page-search local-search-google local-search">
+        <input type="text" placeholder="站内搜索" id="local-search-input">
+        <i class="icon" aria-hidden="true" title="点击进入 Google 搜索">&#x2708;</i>
+				<div id="local-search-result" class="local-search-result-cls"></div>
     </span>
 	</h1>
 	<div class="clearfix response-overflow">

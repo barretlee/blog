@@ -120,7 +120,9 @@ admin:
   deployCommand: cd ..; make d; make b P=1;
 
 metadata:
-  description: description
+  description: 小胡子哥的个人网站
+  warning: true
 
 search:
-  path: szpost
+  path: search.xml
+  field: post

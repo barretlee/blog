@@ -229,6 +229,14 @@ var operation = {
     this.tips();
     this.insertWeibo();
     this.loadChangyanCount();
+    this.initSearch();
+  },
+  initSearch: function() {
+    if ($('.local-search').size() && !isMobile.any()) {
+      $.getScript('/public/js/search.js', function() {
+        searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+      });
+    }
   },
   loadChangyanCount: function () {
     if ($('#changyan_count_unit').size()) {
@@ -601,16 +609,19 @@ var operation = {
         window.location.hash = "#comments";
       }
     });
-    if ($(".entry-page-search").size()) {
-      var $input = $(".entry-page-search input");
-      $input.on("change", function (evt) {
+    if ($(".local-search-google").size()) {
+      var $input = $(".local-search-google input");
+      // $input.on("change", function (evt) {
+      //   var val = $.trim($input.val());
+      //   if (val && (evt.which == 13 || evt.type == 'change')) {
+      //     window.open('//www.google.com.hk/search?q=site:www.barretlee.com ' + val);
+      //   }
+      // });
+      $(".local-search-google i").on("click", function () {
         var val = $.trim($input.val());
-        if (val && (evt.which == 13 || evt.type == 'change')) {
+        if (val) {
           window.open('//www.google.com.hk/search?q=site:www.barretlee.com ' + val);
         }
-      });
-      $(".entry-page-search i").on("click", function () {
-        $input.trigger("change");
       });
     }
     $(window).on("resize", function () {
@@ -712,8 +723,9 @@ var operation = {
       title = $(".post-title").text() && ("文章《" + weiboName + " " + $(".post-title").text() + "》");
 
     if (!title) title += "好站分享 " + weiboName + " ";
-
-    title += $("meta[property='og:description']").attr("content").slice(0, 95);
+    try{
+      title += $("meta[property='og:description']").attr("content").slice(0, 95);
+    } catch (e){}
 
     $("#share-weibo").off().on("click", function () {
       var url = "http://service.weibo.com/share/share.php?appkey=1812166904&title=" +
