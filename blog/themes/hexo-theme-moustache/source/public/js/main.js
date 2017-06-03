@@ -1557,7 +1557,7 @@ typeof history.pushState === 'function' && (function () {
     }).then(function (data) {
       try {
         var title = data.match(/<title>([\s\S]*)<\/title>/mi)[1];
-        var description = data.match(/<meta name="description" content="<([^"]*?)"/mi)[1];
+        var description = data.match(/<meta name="description" content="([^\"]+?)"/mi)[1];
         var body = data.match(/<body>([\s\S]*)<\/body>/mi)[1];
       } catch (e) {
         window.location.href = url;
@@ -1577,9 +1577,11 @@ typeof history.pushState === 'function' && (function () {
   function render(data) {
     var title = data.title;
     var body = data.body;
+    var description = data.description;
     $.getScript('/public/js/main.js');
     $('script[src*="baidu"],script[src*="google"]').remove();
     document.title = title || '小胡子哥的个人网站';
+    $('meta[name="description"]').attr('content', description);
     $('body').html(body);
     if (!window.location.hash) {
       window.scrollTo(0, 0);
@@ -1590,6 +1592,7 @@ typeof history.pushState === 'function' && (function () {
       operation.insertWeibo();
     }
     operation.reloadChangyan();
+    operation.wechat();
     $(window).trigger('load');
     // if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
     //     roundScroll();
