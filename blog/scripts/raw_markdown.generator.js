@@ -1,5 +1,3 @@
-var fs = require('hexo-fs');
-
 hexo.extend.generator.register('raw_markdown', function(locals){
   // console.log(locals.posts.data[locals.posts.data.length - 1]);process.exit();
   var list = {posts: [], pages: []};
