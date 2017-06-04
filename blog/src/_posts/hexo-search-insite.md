@@ -1,5 +1,5 @@
 title: 为 Hexo 博客增加一个站内搜索
-description: description
+description: ' 最近两个周末在 Hexo 博客的构建上做了不少事情，我会分成几篇文章一一叙述，首先来说一说 Hexo 的一个插件 `hexo-generator-search`，利用它可以给博客增加一个站内搜索'
 warning: true
 author: 小胡子哥
 tags: []

@@ -1,5 +1,7 @@
 title: 通过 admin 后台管理 hexo 博客
-description: 小胡子哥的个人网站
+description: >-
+  为了能够方便管理博客，我自己写过一个简单的 Blog Writer，然后配合 MakeFile
+  来简化流程，事实上，还是太麻烦了。在网上搜罗了一番，找到了两个博客管理后台，一个叫做 `hexo-hey`，界面还是做的挺不错的，但是呢
 warning: true
 author: 小胡子哥
 tags: []
