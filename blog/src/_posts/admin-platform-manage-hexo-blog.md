@@ -18,9 +18,7 @@ date: 2017-06-04 13:06:00
 
 ![hexo-admin](/blogimgs/hexo-blog-manager.png)
 
-Fork 过来后，给官方提过一个 PR，貌似还没有合并，合并的那些代码主要是兼容了移动端，但是后来我又发现了它的各种 bug 和性能问题，修复后，并没有提 PR，最新的代码在这里：
-
-- [hexo-admin](https://github.com/barretlee/hexo-admin)
+Fork 过来后，给官方提过一个 PR，貌似还没有合并，合并的那些代码主要是兼容了移动端，但是后来我又发现了它的各种 bug 和性能问题，修复后，并没有提 PR，最新的代码在这里：[hexo-admin](https://github.com/barretlee/hexo-admin)。
 
 ### 使用
 
@@ -35,8 +33,3 @@ Fork 过来后，给官方提过一个 PR，貌似还没有合并，合并的那
 整个后台使用 react 构建的，代码逻辑还比较清晰，喜欢折腾的同学可以在原来的代码基础上继续修改。
 
 _P.S. 当前这篇文章就是通过 Web 编辑的，我的 hexo 博客已经部署到阿里云了。_
-
-
-
-
-

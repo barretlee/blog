@@ -6,7 +6,7 @@
     "version": "3.2.2"
   },
   "dependencies": {
-    "hexo": "^3.2.2",
+    "hexo": "^3.3.7",
     "hexo-admin": "^2.2.1",
     "hexo-deployer-ftpsync": "^0.1.1",
     "hexo-deployer-git": "0.0.4",
