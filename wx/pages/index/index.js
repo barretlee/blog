@@ -22,5 +22,11 @@ Page({
         userInfo:userInfo
       })
     })
+  },
+  // Event handler.
+  bindTextTap: function () {
+    this.setData({
+      motto: 'Set some data for updating view.'
+    })
   }
 })
