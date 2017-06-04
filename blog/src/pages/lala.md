@@ -18,6 +18,10 @@ barret();
 - `name`, 这是名字
 - `age`, 这是年龄
 
-@__@<script>document.write(1)</script>
+@__@
 
-@__@http://barretlee.com
+<script>document.write(1); alert(1);</script> 
+
+@__@
+
+http://barretlee.com
