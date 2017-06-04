@@ -20,7 +20,7 @@ barret();
 
 @__@
 
-<script>document.write(1); alert(1);</script> 
+<script>document.write(1);</script> 
 
 @__@
 
