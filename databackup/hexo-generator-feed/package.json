@@ -1,0 +1,75 @@
+{
+  "name": "hexo-generator-feed2",
+  "version": "1.0.3",
+  "description": "Feed generator plugin for Hexo",
+  "main": "index",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hexojs/hexo-generator-feed.git"
+  },
+  "keywords": [
+    "hexo",
+    "rss",
+    "feed",
+    "atom",
+    "generator"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "object-assign": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "cheerio": "^0.19.0",
+    "coveralls": "^2.11.2",
+    "gulp": "^3.8.9",
+    "gulp-istanbul": "^0.5.0",
+    "gulp-jshint": "^1.8.6",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-mocha": "^2.0.0",
+    "hexo": "^3.0.0",
+    "jshint-stylish": "^1.0.0",
+    "mocha": "^2.0.1",
+    "rimraf": "^2.2.8"
+  },
+  "gitHead": "565ddcc0552352fd6433fafd48ead729bfb3e1be",
+  "bugs": {
+    "url": "https://github.com/hexojs/hexo-generator-feed/issues"
+  },
+  "homepage": "https://github.com/hexojs/hexo-generator-feed#readme",
+  "_id": "hexo-generator-feed@1.0.3",
+  "_shasum": "7a4ab550627135754f5fef9e2f3fd89a47b3ced0",
+  "_from": "hexo-generator-feed@*",
+  "_npmVersion": "3.1.2",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "name": "tommy351",
+    "email": "tommy351@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "tommy351",
+      "email": "tommy351@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "7a4ab550627135754f5fef9e2f3fd89a47b3ced0",
+    "size": 3260,
+    "noattachment": false,
+    "key": "hexo-generator-feed/-/hexo-generator-feed-1.0.3.tgz",
+    "tarball": "http://registry.npm.alibaba-inc.com/hexo-generator-feed/download/hexo-generator-feed-1.0.3.tgz"
+  },
+  "publish_time": 1439395049778,
+  "_cnpm_publish_time": 1439395049778,
+  "_resolved": "http://registry.npm.alibaba-inc.com/hexo-generator-feed/download/hexo-generator-feed-1.0.3.tgz"
+}

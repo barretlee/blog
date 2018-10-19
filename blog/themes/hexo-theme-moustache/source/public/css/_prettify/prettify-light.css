@@ -1,0 +1,170 @@
+/*
+    Name:     Paraíso (light)
+    Author:   Jan T. Sott
+    License:  Creative Commons Attribution-ShareAlike 3.0 Unported License
+    URL:      https://github.com/idleberg/Paraiso-Google-Code-Prettify
+
+    Inspired by the art of Rubens LP (http://www.rubenslp.com.br)
+*/
+
+/* plain text */
+.pln {
+  color: #2f1e2e;
+}
+
+@media screen {
+  /* string content */
+  .str {
+    color: #48b685;
+  }
+
+  /* a keyword */
+  .kwd {
+    color: #815ba4;
+  }
+
+  /* a comment */
+  .com {
+    color: #8d8687;
+  }
+
+  /* a type name */
+  .typ {
+    color: #06b6ef;
+  }
+
+  /* a literal value */
+  .lit {
+    color: #f99b15;
+  }
+
+  /* punctuation */
+  .pun {
+    color: #2f1e2e;
+  }
+
+  /* lisp open bracket */
+  .opn {
+    color: #2f1e2e;
+  }
+
+  /* lisp close bracket */
+  .clo {
+    color: #2f1e2e;
+  }
+
+  /* a markup tag name */
+  .tag {
+    color: #ef6155;
+  }
+
+  /* a markup attribute name */
+  .atn {
+    color: #f99b15;
+  }
+
+  /* a markup attribute value */
+  .atv {
+    color: #5bc4bf;
+  }
+
+  /* a declaration */
+  .dec {
+    color: #f99b15;
+  }
+
+  /* a variable name */
+  .var {
+    color: #ef6155;
+  }
+
+  /* a function name */
+  .fun {
+    color: #06b6ef;
+  }
+}
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str {
+    color: #006600;
+  }
+
+  .kwd {
+    color: #006;
+    font-weight: bold;
+  }
+
+  .com {
+    color: #600;
+    font-style: italic;
+  }
+
+  .typ {
+    color: #404;
+    font-weight: bold;
+  }
+
+  .lit {
+    color: #004444;
+  }
+
+  .pun, .opn, .clo {
+    color: #444400;
+  }
+
+  .tag {
+    color: #006;
+    font-weight: bold;
+  }
+
+  .atn {
+    color: #440044;
+  }
+
+  .atv {
+    color: #006600;
+  }
+}
+/* Style */
+pre.highlight {
+    font-family: Consolas;
+    font-size: 16px;
+    line-height: 1.5;
+    background: #F8F8F8;
+    padding: 20px;
+    /*border: 10px solid #E0DFCC;*/
+    /*border-radius: 10px;*/
+    border: 1px solid #EEE;
+    overflow-x: auto;
+}
+pre.highlight code {
+  font-family: Consolas;
+}
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L4,
+li.L5,
+li.L6,
+li.L7,
+li.L8,
+li.L9 {
+  /* */
+}
+
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+  /* */
+}

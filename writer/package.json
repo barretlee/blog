@@ -1,0 +1,9 @@
+{
+  "name": "hexo-local-writer",
+  "version": "0.0.1",
+  "dependencies": {
+    "formidable": "^1.0.17",
+    "images": "~2.1.8",
+    "markdown-js": "0.0.3"
+  }
+}

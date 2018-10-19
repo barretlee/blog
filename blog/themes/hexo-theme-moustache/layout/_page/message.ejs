@@ -1,0 +1,23 @@
+<div class="container message">
+	<div class="cate-wraper post">
+		<h2>
+      <%- partial("../_partial/post/rss.ejs") %>
+			<a href="/" tabindex="0" aria-label="回到小胡子哥首页导航"><%- config.author %></a> <font aria-hidden="true">» 问答</font>
+       <em  class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾
+        <ul role="group" aria-labelledby="i1" aria-expanded="false">
+          <li><a href="<%- url_for("/entry/") %>">博客</a></li>
+          <li><a href="<%- url_for("/about/") %>">关于</a></li>
+          <li><a href="<%- url_for("/demo/") %>">实验室</a></li>
+        <li><a href="<%- url_for("/comments/") %>">最近评论</a></li>
+          <li><a href="<%- url_for("/friends/") %>">友情链接</a></li>
+        </ul>
+      </em>
+		</h2>
+		<p><%- site.data.text.message %></p>
+    <div style="margin: 40px 0;">
+      <%- partial("../_partial/post/circle") %>
+    </div>
+		<%- partial("page_footer") %>
+	</div>
+</div>
+<%- partial("../_partial/sidebar") %>

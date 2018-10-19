@@ -1,0 +1,61 @@
+<div class="normal-page-header">
+  <div class="normal-page-header-wrapper">
+    <a class="normal-page-logo" href="<%- url_for("/entry/") %>" target="_blank">
+      <img src="/blogimgs/avatar150.png" alt="小胡子哥">
+      <b>小胡子哥的个人网站</b>
+    </a>
+    <ul class="nomal-page-nav">
+      <li><a href="<%- url_for("/entry/") %>">博客</a></li>
+      <li><a href="<%- url_for("/about/") %>">关于</a></li>
+    </ul>
+  </div>
+</div>
+<div class="normal-page-content post-content">
+
+  <div class="normal-page-info">
+    <h4>
+      <% var origin = page._content.split('@__@')[2]; if (origin) { %>
+      <a href="<%- origin.replace(/([^<]+)[\s\S]*/, '$1') %>" class="normal-page-origin" target="_blank">原文地址</a>
+      <% } %>
+      <%- page.title %>
+      <!--<img src="https://game.weixin.qq.com/cgi-bin/comm/qrcode?s=10&amp;m=1&amp;d=<%- page.permalink %>" alt="扫码分享" onerror="this.style.display='none';">-->
+    </h4>
+    <div class="post-info">
+      <span>作者: <a href="<%- url_for('about/') %>"><%- config.author %></a></span>
+      <span>
+        <time itemprop="timeCreated" aria-hidden="true"><%- moment(page.date).format('YYYY-MM-DD HH:mm:ss') %></time>
+        <span class="aria-readonly">本文发布时间为<%- moment(page.date).format('YYYY年MM月DD日HH时mm分ss秒') %></span>
+      </span>
+      <span tabindex="0" aria-hidden="true">标签: <%- partial('post/tag', {post: page}) %></span>
+      <span class="aria-readonly">下面是正文内容</span>
+      <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
+                    class="ds-thread-count hash-to-comments disqus-comment-count"
+                    data-thread-key="<%- page.slug || page.path %>"
+                    data-disqus-identifier="<%- page.slug || page.path %>"
+                    id="changyan_count_unit"></a></span>
+      <span tabindex="0" aria-hidden="true" id="busuanzi_container_site_pv">热度: <span id="busuanzi_value_page_pv"></span></span>
+    </div>
+  </div>
+
+  <hr class="normal-page-seperator">
+  <div class="normal-page-ctt-wrapper">
+    <div class="normal-page-body">
+      <div class="normal-page-body-wrapper">
+        <%- page.content.split('@__@')[0] %>
+      </div>
+    </div>
+    <hr class="normal-page-seperator hide">
+    <div class="normal-page-result">
+      <div class="normal-page-result-wrapper">
+        <%- page._content.split('@__@')[1] %>
+      </div>
+    </div>
+  </div>
+  <hr class="normal-page-seperator normal-page-seperator-left">
+</div>
+
+
+<div class="normal-page-footer">
+  <%- partial("page_footer") %>
+  <%- partial('_partial/search', {wrapStyle: 'top: 10px;', inputStyle: 'opacity: 1;'}) %>
+</div>

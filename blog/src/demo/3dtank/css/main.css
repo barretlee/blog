@@ -1,0 +1,298 @@
+@font-face {
+  font-family: 'Courgette';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Courgette Regular'), local('Courgette-Regular'), url(../font/Courgette.ttf) format('truetype');
+}
+body {
+    background:whiteSmoke;
+    overflow:hidden;
+}
+body, div, canvas {
+    margin:0;
+    padding:0;
+}
+body h1 {
+    text-align: center;
+    font-size: 50px; 
+    font-weight: 800; 
+    font-family: 'Courgette', cursive; 
+    text-shadow: rgba(0,0,0,0.5) 0 1px 5px; 
+    color:#045FB4; 
+}
+.wraper {
+    width:1280px;
+    margin:0 auto;
+    margin-top: 30px;
+    position:relative;
+}
+.player {
+    float: left;
+    height:500px;
+    width:260px; 
+    border:1px solid #DCDCDC;
+    border-radius: 8px;
+    position:relative;
+}
+.player-info {
+    height:325px;
+    padding:10px;
+}
+.info {
+    margin-left:100px;
+    line-height: 30px;
+}
+.infoB {
+    margin-left:30px;
+    margin-right: 70px;
+}
+.avatar {
+    width:80px;
+    height:80px;
+    padding:2px;
+    border-radius: 8px;
+    float:left;
+    -webkit-animation: glow 1s infinite alternate ease-in-out;
+}
+.avatarB {
+    float:right;
+}
+.blood {
+    position:absolute;
+    height:300px;
+    width:15px;
+    right:10px;
+    top:20px;
+    border-radius:5px;
+    overflow:hidden;
+    background:-webkit-gradient(linear, 0% 100%, 0% 0%, from(red), color-stop(0.5, yellow), to(green));
+    box-shadow:0 0 4px #2AC3FF;
+    -webkit-animation: glow2 1s infinite alternate ease-in-out;
+}
+.bloodB {
+    left:10px;
+}
+.blood div {
+    position:absolute;
+    border-radius:5px;
+    bottom:100%;
+    left:0;
+    right:0;
+    top:0;
+    background:white;
+    color:white;
+    -webkit-transition:all 1s ease-in-out;
+}
+.rein {
+    width:250px;
+    height:150px;
+    margin:0 4px;
+    border-radius: 8px;
+}
+.pujie {
+    border: 5px solid #EE2635;
+    font-size: 50px;
+    font-family: "隶书";
+    color:#EE2635;
+    height:50px;
+    width:100px;
+    opacity: 0.8;
+    position:absolute;
+    line-height: 50px;
+    -webkit-transform: rotate(-30deg);
+    -webkit-transition:all 1s ease-in;
+    right:190px;
+    top:140px;
+}
+.pujieL {
+    left:170px;
+    top:140px;
+    -webkit-animation: pujieL 1s 1 alternate ease-in;
+}
+.pujieR {
+    -webkit-animation: pujieR 1s 1 alternate ease-in;   
+}
+#playA {
+    margin-left: 100px;
+}
+#playB {
+    margin-right: 100px;
+}
+.w {
+    float:left;
+    background:rgba(3, 33, 255, .6);
+    width:500px;
+    display:inline-block;
+    border-radius: 8px;
+    -webkit-perspective:500;
+    margin: 0 20px;
+}
+.box {
+    width:500px;
+    height:500px;
+    position:relative;
+    -webkit-transform-style: preserve-3d;
+    /*-webkit-transform: rotateY(40deg);*/
+    -webkit-transition:all 1s ease-in-out;
+}
+.inBox {
+    width:300px;
+    height:300px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0px 0px 2px white;
+    background:rgba(255,255,255,.2);
+    /*background:#779443;*/
+    position:absolute;
+    top:100px;
+    left:100px;
+    color:white;
+}
+.box-forward {
+    -webkit-transform: rotateY(0deg) translateZ(150px);
+}
+.box-back {
+    -webkit-transform: rotateY(180deg) translateZ(150px);
+}
+.box-left {
+    -webkit-transform: rotateY(270deg) translateZ(150px);
+}
+.box-right {
+    -webkit-transform: rotateY(90deg) translateZ(150px);
+}
+.box-top {
+    -webkit-transform:rotateX(90deg) translateZ(150px);
+}
+.box-bottom {
+    -webkit-transform:rotateX(-90deg) translateZ(150px);
+}
+
+.inBox div{ height:100%; line-height:300px; font-size: 30px;}
+
+
+.tank { 
+    position:absolute; 
+    border: 1px solid yellow;
+}
+.circle { 
+    position:absolute; 
+    border: 1px solid yellow; 
+    width:10px; 
+    height:10px; 
+    border-radius: 10px;
+    top:4px; 
+    right:1px;
+}
+.gun { 
+    border:1px solid yellow; 
+    border-right: none; 
+    position:absolute; 
+    height:22px; 
+    bottom:7px; 
+    left:6.5px;
+    -webkit-transform-origin:50% 100%; 
+}
+.bullet { 
+    position:absolute; 
+    border:1px solid #1C04CA; 
+    width:3px; 
+    height:3px; 
+    border-radius: 3px;
+}
+
+
+#layer {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:white;
+    opacity:0.6;
+}
+#stripe {
+    position:absolute;
+    left:0;
+    right:0;
+    height:250px;
+    background:#CCC;
+    opacity:0.6;
+}
+.tankBox {
+    margin-top: 40px;
+    margin-right: 20px;
+    min-height: 160px;
+    overflow:hidden;
+    padding: 20px;
+}
+.tankBox>span {
+    margin: 0 10px 10px 0;
+}
+#tankBoxB {
+    margin-right: 0;
+    margin-left: 20px;    
+}
+@-webkit-keyframes glow {
+    0% {
+        -webkit-box-shadow: 0 0 4px rgba(72, 106, 170, 0.5);
+        border-color: rgba(160, 179, 214, 0.5);         
+    }
+    100% {
+        -webkit-box-shadow: 0 0 4px rgba(72, 106, 170, 1.0), 0 0 12px rgba(0, 140, 255, 1.0);
+        border-color: rgba(160, 179, 214, 1.0); 
+    }
+}
+@-webkit-keyframes glow2 {
+    0% {
+        -webkit-box-shadow: 0 0 4px rgba(72, 106, 170, 0.5);
+        border-color: rgba(160, 179, 214, 0.5);         
+    }
+    100% {
+        -webkit-box-shadow: 0 0 2px rgba(72, 106, 170, 1.0), 0 0 7px rgba(0, 140, 255, 1.0);
+        border-color: rgba(160, 179, 214, 1.0); 
+    }
+}
+@-webkit-keyframes pujieL {
+    0% {
+        border: 10px solid #EE2635;
+        font-size: 100px;
+        color:#EE2635;
+        height:100px;
+        width:220px;
+        line-height: 100px;
+        opacity:0;
+        left:90px;
+        top:70px;
+    }
+    100% {
+        border: 5px solid #EE2635;
+        font-size: 50px;
+        color:#EE2635;
+        height:50px;
+        width:110px;
+        line-height: 50px;
+        opacity:1;
+    }
+}
+@-webkit-keyframes pujieR {
+    0% {
+        border: 10px solid #EE2635;
+        font-size: 100px;
+        color:#EE2635;
+        height:100px;
+        width:220px;
+        line-height: 100px;
+        opacity:0;
+        right:90px;
+        top:70px;
+    }
+    100% {
+        border: 5px solid #EE2635;
+        font-size: 50px;
+        color:#EE2635;
+        height:50px;
+        width:110px;
+        line-height: 50px;
+        opacity:1;
+    }
+}

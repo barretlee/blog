@@ -1,0 +1,8 @@
+<% if (post.tags && post.tags.length){ %>
+<%- list_tags(post.tags, {
+  amount: 2,
+  show_count: false,
+  class: 'article-tag',
+  style: 'none'
+}) %>
+<% } %>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html<% if(config.language) {%> lang="<%- config.language %>"<% } %>>
+<head><%
+var title = page.title;
+var type = "article";
+if (is_archive()){
+	title = 'Archives';
+	type = 'archives page';
+	if (is_month()){
+		title += ': ' + page.year + '/' + page.month;
+	} else if (is_year()){
+		title += ': ' + page.year;
+	}
+} else if (is_category()){
+	title = 'Category: ' + page.category;
+	type = "category page";
+} else if (is_tag()){
+	title = 'Tag: ' + page.tag;
+	type = "tag page";
+}
+var ogtitle = title ? title : config.author;
+title = ogtitle + ' | ' + config.title;
+var description = config.description
+if(page.description) {
+	description = page.description
+} else if(page.content) {
+	description = page.content.replace(/<\/?[\s\S]+?>|\n/gm, '').slice(0, 150);
+}
+%>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
+  <meta name="author" content="<%- theme.social.google %>">
+  <meta name="email" content="<%- theme.social.mail %>">
+  <meta name="description" content="<%= description %>">
+  <meta property="og:type" content="<%- type %>">
+  <meta property="og:title" content="<%= title %>">
+  <meta property="og:url" content="<%- config.url %><%- url_for(page.path) %>">
+  <meta property="og:site_name" content="<%- page.title %>">
+  <meta property="og:description" content="<%= description %>">
+  <meta name="generator" content="https://hexo.io" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link href="<%- config.url %><%- theme.imgs.app_icon %>" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="<%- config.url %><%- theme.imgs.favicon %>" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="<%- config.url %><%- theme.pages.feed %>" title="<%= config.title %>" />
+  <% if (page.prev){ %><link rel="prev" href="<%- config.url %><%- url_for(page.prev.path) %>" title="<%= page.prev.title %>" /><% } %>
+  <% if (page.next){ %><link rel="next" href="<%- config.url %><%- url_for(page.next.path) %>" title="<%= page.next.title %>" /><% } %>
+  <link rel="start" href="<%- config.url %><%- url_for('entry/') %>" title="Blog Entry" />
+  <link rel="stylesheet" href="/public/css/style.css?v=20170604">
+</head>
+<span class="aria-readonly" tabindex="0" aria-hidden="true">小胡子哥的博客良好支持读屏软件阅读，请放心使用。</span>

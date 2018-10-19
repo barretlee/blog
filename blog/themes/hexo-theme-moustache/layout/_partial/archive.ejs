@@ -1,0 +1,120 @@
+<% var _cates = {}, cates = [];
+for(var key in site.categories.data) {
+  var name = site.categories.data[key].name;
+  if(!_cates[name]) {_cates[name] = 1;}
+}
+cates = Object.keys(_cates);
+var _tags = {}, tags = [];
+for(var key in site.tags.data) {
+  var tname = site.tags.data[key].name;
+  if(!_tags[tname]) {_tags[tname] = 1;}
+}
+tags = Object.keys(_tags);
+%>
+
+<div class="container">
+  <div class="cate-wraper post">
+    <div class="share-article clearfix">
+      <%- partial("post/share") %>
+      <h2>
+        <a href="/" tabindex="0" aria-label="回到小胡子哥首页导航"><%- config.author %></a> <font aria-hidden="true">»</font>
+        <a href="<%- url_for("entry/") %>">博客</a>
+         <em  class="arrow-expend" tabindex="0" aria-label="点击展开网页导航">▾
+          <ul>
+            <li><a href="<%- url_for("/message/") %>">问答</a></li>
+            <li><a href="<%- url_for("/about/") %>">关于</a></li>
+            <li><a href="<%- url_for("/demo/") %>">实验室</a></li>
+            <li><a href="<%- url_for("/comments/") %>">最近评论</a></li>
+            <li><a href="<%- url_for("/friends/") %>">友情链接</a></li>
+          </ul>
+        </em> <font aria-hidden="true">»</font>
+        <% var archiveText = '';
+          if(is_archive()){
+            archiveText = "文章归档";
+          } else if(is_category() || is_tag()) {
+            archiveText = "文章分类";
+          } else {
+            archiveText = "文章列表";
+          }
+          if(page.year){
+            archiveText = "<a href='" + url_for("blog/archives/") + "'>" + archiveText + "</a>";
+          }%>
+        <%- archiveText %>
+        <% if(page.year) { %><font aria-hidden="true">»</font> <%- page.year %><% } %>
+      </h2>
+    </div>
+    <% if(!is_archive() && (cates.length > 1 || tags.length > 1)){%>
+    <div class="cate-header text-info">
+    <div>
+      <span>类别:</span>
+      <div class="cate-list">
+      <% var data = is_category() ? cates : is_tag() ? tags : [];
+         var type = is_category() ? "categories" : "tags";
+         var comp =  is_category() ? "category" : "tag";
+         var curTag = '';
+        data.forEach(function(t) {
+          var on = page[comp] == t;
+          if(on) curTag = t;
+          var url = url_for('/blog/' + type + '/' + t + "/");
+      %>
+        <a href='<%- url %>'<% if(on){ %> class='cate-header_on' onclick='return false;'<% } %>><%- t %></a>
+      <% }) %>
+      <% if(is_tag() && curTag == 'snippets') { %>
+      <style>.cate-header {display: none !important;}</style>
+      <% } %>
+      </div>
+    </div>
+  </div>
+  <% } %>
+  <div class="cate-detail response-overflow">
+    <% var ret = {}, tag = page.tag, cate = page.category;
+    site.posts.sort('date', 'desc').each(function(post){
+      var year = post.date.year();
+      if(!ret[year]) {
+        ret[year] = [];
+      }
+      var pcates = [], ptags = [];
+      for(var key in post.categories.data) {
+        pcates.push(post.categories.data[key].name);
+      }
+      for(key in post.tags.data) {
+        ptags.push(post.tags.data[key].name);
+      }
+      if(is_category() && (pcates.indexOf(cate) > -1) ||
+          is_tag() && (ptags.indexOf(tag) > -1) || is_archive()){
+        if(page.year && (page.year !== year)) return;
+        ret[year].push(post);
+      }
+    });
+    Object.keys(ret).sort(function(a,b){return a < b}).forEach(function(year){
+      var data = ret[year];
+      if(!data.length) return;
+    %>
+    <a href="<%- url_for('blog/archives/' + year + "/") %>" class="archive-year"><strong><%= year %> 年</strong></a>
+    <ul>
+      <% data.forEach(function(post){ %>
+      <li>
+        <a href="<%- url_for(post.path) %>"><%- post.title %>
+        <% if(0 && post.mark) { %>
+          <em class="entry-item-tag"><%- post.mark %></em>
+        <% } %>
+        </a>
+        <span>(<%- moment(post.date).format("YYYY/MM/DD") %><% if(is_tag()) {%>
+          · 归类:<%- partial('post/category', {post: post, separator: "/"}) %>
+        <% } else { %>
+          · 标签:<%- partial('post/tag', {post: post}) %>
+        <% } %> ·<span
+              class="ds-thread-count disqus-comment-count cy_cmt_count"
+              data-thread-key="<%- post.slug || post.path %>"
+              data-disqus-identifier="<%- post.slug || post.path %>"
+              id="sourceId::<%- post.slug || post.path %>"
+              ></span>)</span>
+      </li>
+      <% }) %>
+    </ul>
+    <% })%>
+  </div>
+</div>
+</div>
+<%- partial('sidebar') %>
+<%- partial('_partial/footer') %>

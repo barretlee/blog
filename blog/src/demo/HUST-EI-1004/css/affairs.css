@@ -1,0 +1,6 @@
+/*affairs*/
+.sWrap { border-left-color: #E4FFBA;}
+.sTitle { color: #8CBF3D;}
+ul.notice-list  li a { border-color: #8CBF3D;}
+ul.notice-list  li a:hover, #notice-list-on { color: #8CBF3D;}
+ul.notice-list  li a  strong{ color: #8CBF3D;}

@@ -1,0 +1,60 @@
+{
+  "name": "hexo-lazyload-image2",
+  "version": "1.0.7",
+  "description": "a hexo plugin which is used to have all images support lazyload, with the help of this functionality, it will improve lots of the loading proformance.",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Troy-Yang/hexo-lazyload-image.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Troy-Yang/hexo-lazyload-image/issues"
+  },
+  "keywords": [
+    "hexo",
+    "hexo plugin",
+    "image lazyload"
+  ],
+  "author": {
+    "name": "Troy Yang"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^4.3.0",
+    "uglify-js": "^3.0.27"
+  },
+  "gitHead": "bc0bd046582fbc3f417666db93d136afc7cfb68c",
+  "homepage": "https://github.com/Troy-Yang/hexo-lazyload-image#readme",
+  "_id": "hexo-lazyload-image@1.0.2",
+  "_shasum": "c849797fd1f1dfd08a284adc53b7e637cd2c8faa",
+  "_from": "hexo-lazyload-image@*",
+  "_npmVersion": "3.10.10",
+  "_nodeVersion": "6.10.0",
+  "_npmUser": {
+    "name": "troyyang",
+    "email": "yangzhouemail@163.com"
+  },
+  "dist": {
+    "shasum": "c849797fd1f1dfd08a284adc53b7e637cd2c8faa",
+    "size": 5211,
+    "noattachment": false,
+    "tarball": "http://registry.npm.taobao.org/hexo-lazyload-image/download/hexo-lazyload-image-1.0.2.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "troyyang",
+      "email": "yangzhouemail@163.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/hexo-lazyload-image-1.0.2.tgz_1501594550223_0.8024547728709877"
+  },
+  "directories": {},
+  "publish_time": 1501594550337,
+  "_cnpm_publish_time": 1501594550337,
+  "_resolved": "http://registry.npm.taobao.org/hexo-lazyload-image/download/hexo-lazyload-image-1.0.2.tgz"
+}

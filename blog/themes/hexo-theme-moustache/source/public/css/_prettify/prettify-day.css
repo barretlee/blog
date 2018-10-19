@@ -1,0 +1,163 @@
+/*
+    Name:     Zissou: Belafonte (Day)
+    Author:   Jan T. Sott
+    License:  Creative Commons Attribution-ShareAlike 3.0 Unported License
+    URL:      https://github.com/idleberg/Zissou-Google-Code-Prettify
+*/
+
+/* plain text */
+.pln {
+  color: #20111b;
+}
+
+@media screen {
+  /* string content */
+  .str {
+    color: #858162;
+  }
+
+  /* a keyword */
+  .kwd {
+    color: #97522c;
+  }
+
+  /* a comment */
+  .com {
+    color: #7a6e6a;
+  }
+
+  /* a type name */
+  .typ {
+    color: #426a79;
+  }
+
+  /* a literal value */
+  .lit {
+    color: #7ca89e;
+  }
+
+  /* punctuation */
+  .pun {
+    color: #20111b;
+  }
+
+  /* lisp open bracket */
+  .opn {
+    color: #20111b;
+  }
+
+  /* lisp close bracket */
+  .clo {
+    color: #20111b;
+  }
+
+  /* a markup tag name */
+  .tag {
+    color: #be100e;
+  }
+
+  /* a markup attribute name */
+  .atn {
+    color: #7ca89e;
+  }
+
+  /* a markup attribute value */
+  .atv {
+    color: #989a9c;
+  }
+
+  /* a declaration */
+  .dec {
+    color: #7ca89e;
+  }
+
+  /* a variable name */
+  .var {
+    color: #be100e;
+  }
+
+  /* a function name */
+  .fun {
+    color: #426a79;
+  }
+}
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str {
+    color: #006600;
+  }
+
+  .kwd {
+    color: #006;
+    font-weight: bold;
+  }
+
+  .com {
+    color: #600;
+    font-style: italic;
+  }
+
+  .typ {
+    color: #404;
+    font-weight: bold;
+  }
+
+  .lit {
+    color: #004444;
+  }
+
+  .pun, .opn, .clo {
+    color: #444400;
+  }
+
+  .tag {
+    color: #006;
+    font-weight: bold;
+  }
+
+  .atn {
+    color: #440044;
+  }
+
+  .atv {
+    color: #006600;
+  }
+}
+/* Style */
+pre.highlight {
+  font-family: Consolas;
+  font-size: 14px;
+  line-height: 1.5;
+  border: 1px dashed #CCC;
+  background: #F8F8F8;
+  padding: 10px;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L4,
+li.L5,
+li.L6,
+li.L7,
+li.L8,
+li.L9 {
+  /* */
+}
+
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+  /* */
+}
