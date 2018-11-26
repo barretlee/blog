@@ -109,7 +109,7 @@ deploy:
 # hey Admin
 # admin:
 #   name: barretlee
-#   password: u201012877
+#   password: 
 #   secret: barret lee's secret
 #   expire: 60*1
 #   # cors: http://localhost:3000
