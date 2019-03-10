@@ -44,9 +44,11 @@
 
     // 接口命名统一
     tmp.appid = tmp.app;
+    tmp.appId = tmp.app;
     tmp.img_url = tmp.img;
+    tmp.imgUrl = tmp.img;
 
-    delete tmp.app;
+    // delete tmp.app;
     delete tmp.img;
 
     // 分享到微博的接口不同

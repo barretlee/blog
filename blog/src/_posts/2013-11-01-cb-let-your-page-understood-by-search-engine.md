@@ -6,6 +6,7 @@ categories:
 tags:
   - tech
   - cnblogs
+  - 译文
 warning: true
 date: 2013-11-01 03:40:00
 ---

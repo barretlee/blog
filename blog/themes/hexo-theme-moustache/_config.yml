@@ -12,6 +12,7 @@ imgs:
 pages:
   about: /about/
   friends: /friends/
+  translation: /translation/
   demos: /demos/
   feed: /rss2.xml
   comments: /comments/

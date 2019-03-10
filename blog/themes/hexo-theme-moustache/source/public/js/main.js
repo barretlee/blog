@@ -386,8 +386,9 @@ var operation = {
       });
 
       var data = {
+        'debug': false,
         'app': 'wxddd17adddf433070',    // 选填，默认为空
-        // 'img': 'http://www.barretlee.com/blogimgs/avatar.png',
+        'img': 'http://www.barretlee.com/blogimgs/avatar.png',
         'link': window.location.href,
         'desc': $('meta[name="description"]').attr('content'),
         'title': $('.post-title').text()
@@ -528,55 +529,55 @@ var operation = {
     });
     $(".sharecanvas").on("click", function (evt) {
       var $this = $(this);
-      if ($this.attr("process") == 1) return;
-      $this.attr("process", 1);
+      // if ($this.attr("process") == 1) return;
+      // $this.attr("process", 1);
       evt.preventDefault();
 
-      function dataURItoBlob(dataURI) {
-        // convert base64 to raw binary data held in a string
-        var byteString, mimestring
+      // function dataURItoBlob(dataURI) {
+      //   // convert base64 to raw binary data held in a string
+      //   var byteString, mimestring
 
-        if (dataURI.split(',')[0].indexOf('base64') !== -1) {
-          byteString = atob(dataURI.split(',')[1])
-        } else {
-          byteString = decodeURI(dataURI.split(',')[1])
-        }
+      //   if (dataURI.split(',')[0].indexOf('base64') !== -1) {
+      //     byteString = atob(dataURI.split(',')[1])
+      //   } else {
+      //     byteString = decodeURI(dataURI.split(',')[1])
+      //   }
 
-        mimestring = dataURI.split(',')[0].split(':')[1].split(';')[0]
+      //   mimestring = dataURI.split(',')[0].split(':')[1].split(';')[0]
 
-        var content = new Array();
-        for (var i = 0; i < byteString.length; i++) {
-          content[i] = byteString.charCodeAt(i)
-        }
+      //   var content = new Array();
+      //   for (var i = 0; i < byteString.length; i++) {
+      //     content[i] = byteString.charCodeAt(i)
+      //   }
 
-        return new Blob([new Uint8Array(content)], {
-          type: mimestring
-        });
-      }
-      $this.text("截图中..");
-      $.getScript("/public/js/html2canvas.min.js", function () {
-        $(".wechart img").clone().attr("id", "_wechartImg").css({
-          display: "block",
-          "margin": "0 auto"
-        }).appendTo($('.post-content'));
-        $(".this-page-link").hide();
-        $(".article").addClass("screenshot");
-        $("html,body").width(520);
-        $(".post-content>p .icon.a-comments").hide();
-        var st = $(window).scrollTop();
-        $(window).scrollTop(0);
-        html2canvas($('.article').css("background", "#FFF")).then(function (canvas) {
-          canvas.id = "shareCanvas";
-          canvas.style.display = "none";
-          document.body.appendChild(canvas);
-          //var newImg = document.createElement("img");
-          var img = dataURItoBlob(shareCanvas.toDataURL('image/png'));
-          //var url = window.URL.createObjectURL();
+      //   return new Blob([new Uint8Array(content)], {
+      //     type: mimestring
+      //   });
+      // }
+      // $this.text("截图中..");
+      // $.getScript("/public/js/html2canvas.min.js", function () {
+      //   $(".wechart img").clone().attr("id", "_wechartImg").css({
+      //     display: "block",
+      //     "margin": "0 auto"
+      //   }).appendTo($('.post-content'));
+      //   $(".this-page-link").hide();
+      //   $(".article").addClass("screenshot");
+      //   $("html,body").width(520);
+      //   $(".post-content>p .icon.a-comments").hide();
+      //   var st = $(window).scrollTop();
+      //   $(window).scrollTop(0);
+      //   html2canvas($('.article').css("background", "#FFF")).then(function (canvas) {
+      //     canvas.id = "shareCanvas";
+      //     canvas.style.display = "none";
+      //     document.body.appendChild(canvas);
+      //     //var newImg = document.createElement("img");
+      //     var img = dataURItoBlob(shareCanvas.toDataURL('image/png'));
+      //     //var url = window.URL.createObjectURL();
 
-          var base = "//123.56.230.53:3300/";
-          var fd = new FormData();
-          fd.append("img", img);
-          $this.text("分享中..");
+      //     var base = "//123.56.230.53:3300/";
+      //     var fd = new FormData();
+      //     fd.append("img", img);
+      //     $this.text("分享中..");
 
           var local = location.href,
             title = $(".post-title").text() && ("文章《" + weiboName + " " + $(".post-title").text() + "》");
@@ -584,46 +585,47 @@ var operation = {
           title += $("meta[property='og:description']").attr("content").slice(0, 95);
           var shareUrl = "http://service.weibo.com/share/share.php?appkey=1812166904&title=" +
             title + "&url=" + local + "&searchPic=false&style=simple";
-          $.ajax({
-            type: "POST",
-            url: base + "img",
-            dataType: 'json',
-            data: fd,
-            crossDomain: true,
-            processData: false,
-            contentType: false,
-            success: function (data) {
-              if (data && data.path) {
-                shareUrl += "&pic=" + encodeURIComponent(base + "tmp/" + data.path);
-                operation._shareWin(shareUrl);
-                $("#shareCanvas").remove();
-                $this.text("分享成功");
-                setTimeout(function () {
-                  $this.removeAttr("process");
-                  $this.text("微博分享");
-                  $this.parent(".func-item").trigger("mouseleave");
-                }, 500);
-              }
-            },
-            error: function () {
-              $this.text("截图失败");
-              operation._shareWin(shareUrl);
-              setTimeout(function () {
-                $this.removeAttr("process");
-                $this.text("微博分享");
-                $this.parent(".func-item").trigger("mouseleave");
-              }, 500);
-            }
-          });
-        });
-        $(".post-content>p .icon.a-comments").show();
-        $("html,body").css("width", "");
-        $(window).scrollTop(st);
-        $('#_wechartImg').remove();
-        $(".article").css("background", "");
-        $(".this-page-link").show();
-        $(".article").removeClass("screenshot");
-      });
+          operation._shareWin(shareUrl);
+          // $.ajax({
+          //   type: "POST",
+          //   url: base + "img",
+          //   dataType: 'json',
+          //   data: fd,
+          //   crossDomain: true,
+          //   processData: false,
+          //   contentType: false,
+          //   success: function (data) {
+          //     if (data && data.path) {
+          //       shareUrl += "&pic=" + encodeURIComponent(base + "tmp/" + data.path);
+          //       operation._shareWin(shareUrl);
+          //       $("#shareCanvas").remove();
+          //       $this.text("分享成功");
+          //       setTimeout(function () {
+          //         $this.removeAttr("process");
+          //         $this.text("微博分享");
+          //         $this.parent(".func-item").trigger("mouseleave");
+          //       }, 500);
+          //     }
+          //   },
+          //   error: function () {
+          //     $this.text("截图失败");
+          //     operation._shareWin(shareUrl);
+          //     setTimeout(function () {
+          //       $this.removeAttr("process");
+          //       $this.text("微博分享");
+          //       $this.parent(".func-item").trigger("mouseleave");
+          //     }, 500);
+          //   }
+          // });
+        // });
+      //   $(".post-content>p .icon.a-comments").show();
+      //   $("html,body").css("width", "");
+      //   $(window).scrollTop(st);
+      //   $('#_wechartImg').remove();
+      //   $(".article").css("background", "");
+      //   $(".this-page-link").show();
+      //   $(".article").removeClass("screenshot");
+      // });
     });
     $(".hash-to-comments").on("click", function (evt) {
       evt.preventDefault();
@@ -695,44 +697,44 @@ var operation = {
         }
       }
     });
-    var commentTriggered = false;
-    $(window).on('scroll', function () {
-      if (commentTriggered) return;
-      commentTriggered = !commentTriggered;
-      $('.footer-nav a').eq(0).trigger('click');
-    });
+    // var commentTriggered = false;
+    // $(window).on('scroll', function () {
+    //   if (commentTriggered) return;
+    //   commentTriggered = !commentTriggered;
+    //   $('.footer-nav a').eq(0).trigger('click');
+    // });
   },
   isIE: function (num) {
     var name = navigator.appVersion.toUpperCase();
     return num ? name.match(/MSIE (\d)/) && name.match(/MSIE (\d)/)[1] == num : /MSIE (\d)/.test(name);
   },
   // 添加运行代码的 button
-  addRunCodeBtn: function () {
-    $(".addrunbtn").each(function () {
-      var $this = $(this);
-      $this.append("<span class='runCode'>运行代码</span>");
-    });
-    //runCode
-    $(".highlight").on("click", ".runCode", function (evt) {
-      evt.stopPropagation();
+  // addRunCodeBtn: function () {
+  //   $(".addrunbtn").each(function () {
+  //     var $this = $(this);
+  //     $this.append("<span class='runCode'>运行代码</span>");
+  //   });
+  //   //runCode
+  //   $(".highlight").on("click", ".runCode", function (evt) {
+  //     evt.stopPropagation();
 
-      var code = $(this).parents(".highlight").find("code").text();
+  //     var code = $(this).parents(".highlight").find("code").text();
 
-      code = $(this).parents(".highlight").hasClass('jscode') ? ("该 blob 流源自: <a href='" + window.location.href +
-        "'>小胡子哥的个人网站</a><br /><span style='color:red;font-size:12px;line-height:50px;'>" +
-        "有些数据可能在 console 中显示~</span><script>" + code + "</script>") : code;
+  //     code = $(this).parents(".highlight").hasClass('jscode') ? ("该 blob 流源自: <a href='" + window.location.href +
+  //       "'>小胡子哥的个人网站</a><br /><span style='color:red;font-size:12px;line-height:50px;'>" +
+  //       "有些数据可能在 console 中显示~</span><script>" + code + "</script>") : code;
 
-      if (!operation.isIE()) {
-        window.open(URL.createObjectURL(new Blob([code], {
-          type: "text/html; charset=UTF-8"
-        })));
-      } else {
-        var d = window.open("about:blank").document;
-        d.write(code);
-        d.close();
-      }
-    });
-  },
+  //     if (!operation.isIE()) {
+  //       window.open(URL.createObjectURL(new Blob([code], {
+  //         type: "text/html; charset=UTF-8"
+  //       })));
+  //     } else {
+  //       var d = window.open("about:blank").document;
+  //       d.write(code);
+  //       d.close();
+  //     }
+  //   });
+  // },
   // 底部tab切换
   footerNav: function () {
     $(".footer-nav a").on("click", function (evt) {
@@ -1082,33 +1084,33 @@ window.alert = function () {};
 
 $(window).on("load", function () {
 
-  if (!$('#nmlist').size()) {
-    // run music app
-    !isMobile.any() && $.getScript('/music/nmlist.js', function() {
-      operation.runMusic();
-    });
+  // if (!$('#nmlist').size()) {
+  //   // run music app
+  //   !isMobile.any() && $.getScript('/music/nmlist.js', function() {
+  //     operation.runMusic();
+  //   });
 
-    if (window.location.search.indexOf('music') > -1 && isMobile.any()) {
-      $(document).on('touchstart', '.aplayer .aplayer-pic', function (e) {
-        evt.preventDefault();
-        NM.togglePlay();
-      });
-      $.getScript('/music/nmlist.js', function() {
-        operation.runMusic();
-      });
-    }
-  }
+  //   if (window.location.search.indexOf('music') > -1 && isMobile.any()) {
+  //     $(document).on('touchstart', '.aplayer .aplayer-pic', function (e) {
+  //       evt.preventDefault();
+  //       NM.togglePlay();
+  //     });
+  //     $.getScript('/music/nmlist.js', function() {
+  //       operation.runMusic();
+  //     });
+  //   }
+  // }
 
 
-  window.disqus_shortname = disqusName = $("#disqus_thread").attr("data-disqus-name");
-  if (disqus_shortname) {
-    $.getScript('//' + disqus_shortname + '.disqus.com/embed.js', function () {
-      operation.welcome();
-      $.getScript('//' + disqus_shortname + '.disqus.com/count.js');
-    });
-  } else {
-    operation.welcome();
-  }
+  // window.disqus_shortname = disqusName = $("#disqus_thread").attr("data-disqus-name");
+  // if (disqus_shortname) {
+  //   $.getScript('//' + disqus_shortname + '.disqus.com/embed.js', function () {
+  //     operation.welcome();
+  //     $.getScript('//' + disqus_shortname + '.disqus.com/count.js');
+  //   });
+  // } else {
+  //   operation.welcome();
+  // }
 
   var $wb = $("#followMeOnWeibo");
   if ($wb.size() > 0 && !$wb.attr("loaded")) {

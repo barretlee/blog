@@ -2,6 +2,8 @@
 	<%- partial('_page/entry') %>
 <% } else if(page.ptype === 'about') { %>
 	<%- partial('_page/about') %>
+<% } else if(page.ptype === 'translation') { %>
+	<%- partial('_page/translation') %>
 <% } else if(page.ptype === 'message') { %>
 	<%- partial('_page/message') %>
 <% } else if(page.ptype === 'friends') { %>
@@ -9,11 +11,11 @@
 <% } else if(page.ptype === 'comments') { %>
 	<%- partial('_page/comments') %>
 <% } else if(page.ptype === 'demo') { %>
-  <%- partial('_page/demo') %>
+	<%- partial('_page/demo') %>
 <% } else if(page.ptype === 'recruitment') { %>
-  <%- partial('_page/recruitment') %>
+	<%- partial('_page/recruitment') %>
 <% } else if(page.ptype === 'recruitment2') { %>
-  <%- partial('_page/recruitment2') %>
+	<%- partial('_page/recruitment2') %>
 <% } else { %>
 	<%- partial('_page/normal') %>
 <% } %>

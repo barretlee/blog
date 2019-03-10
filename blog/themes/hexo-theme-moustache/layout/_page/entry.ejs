@@ -2,15 +2,7 @@
 
 	<h1 class="clearfix">
 		<a href="/" tabindex="0" aria-label="回到小胡子哥首页导航"><%- config.author %></a> <font aria-hidden="true">» 博客</font>
-		 <em  class="arrow-expend" aria-hidden="true" tabindex="0" aria-label="点击展开网页导航">▾
-			<ul role="group">
-				<li><a href="<%- url_for("/message/") %>">问答</a></li>
-				<li><a href="<%- url_for("/about/") %>">关于</a></li>
-				<li><a href="<%- url_for("/demo/") %>">实验室</a></li>
-				<li><a href="<%- url_for("/comments/") %>">最近评论</a></li>
-				<li><a href="<%- url_for("/friends/") %>">友情链接</a></li>
-			</ul>
-		</em>
+		<%- partial("../_partial/dropdown") %>
 		<%- partial("../_partial/post/rss.ejs") %>
 		<span class="entry-page-search local-search-google local-search">
         <input type="text" placeholder="站内搜索" id="local-search-input">
@@ -77,8 +69,18 @@
 		<div class="entry-recent-posts">
 			<h2><a href="<%- url_for('/blog/categories/前端杂烩/') %>" aria-hidden="true">博客归档 »</a>近期文章</h2>
 			<ul itemscope itemtype="http://schema.org/Article">
-			<% site.posts.sort('date', 'desc').limit(12).each(function(post){ %>
-				<li><span itemprop="timeCreated" aria-hidden="true"><%- moment(post.date).format("YYYY-MM-DD") %> » </span><a href="<%- url_for(post.path) %>" itemprop="url" itemprop="name"><%- post.title %>
+			<% site.posts.sort('date', 'desc').limit(12).each(function(post){ 
+				var _tags = {}; var tags = [];
+				for(var key in post.tags.data) {
+					var name = post.tags.data[key].name;
+					if(!_tags[name]) {
+						_tags[name] = 1;
+					}
+				}
+				tags = Object.keys(_tags);
+				var isTanslation = tags.indexOf('译文') > -1;
+				%>
+				<li><span itemprop="timeCreated" aria-hidden="true"><%- moment(post.date).format("YYYY-MM-DD") %> » </span><a href="<%- url_for(post.path) %>" itemprop="url" itemprop="name"><% if(isTanslation) { %>[译]<% } %><%- post.title %>
 					<% if(0 && post.mark) { %>
 						<em tabindex="0" aria-hidden="true" class="entry-item-tag"><%- post.mark %></em>
 					<% } %>

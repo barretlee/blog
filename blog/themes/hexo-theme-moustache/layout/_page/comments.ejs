@@ -3,17 +3,9 @@
 		<h2>
       <%- partial("../_partial/post/rss.ejs") %>
 			<a href="/" tabindex="0" aria-label="回到小胡子哥首页导航"><%- config.author %></a> <font aria-hidden="true">» 最新评论</font>
-       <em  class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾
-        <ul role="group" aria-labelledby="i1" aria-expanded="false">
-          <li><a href="<%- url_for("/entry/") %>">博客</a></li>
-          <li><a href="<%- url_for("/message/") %>">问答</a></li>
-          <li><a href="<%- url_for("/about/") %>">关于</a></li>
-          <li><a href="<%- url_for("/demo/") %>">实验室</a></li>
-          <li><a href="<%- url_for("/friends/") %>">友情链接</a></li>
-        </ul>
-      </em>
+			<%- partial("../_partial/dropdown") %>
 		</h2>
-    <h3>活跃用户 <small style="margin-left; 10px; display:none;" id="commentVisitorHook"><a href="javascript:void 0;">view</a></small></h3>
+    <h3>活跃用户 <small style="margin-left:10px; display:none;" id="commentVisitorHook"><a href="javascript:void 0;">view</a></small></h3>
     <div id="cyHotusers" role="cylabs" data-use="hotusers" style="margin:0;margin-left:20px;"></div>
     <script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cyt0XnPCt"></script>
     <h3>热门评论</h3>
