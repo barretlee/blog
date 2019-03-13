@@ -80,7 +80,7 @@
 				tags = Object.keys(_tags);
 				var isTanslation = tags.indexOf('译文') > -1;
 				%>
-				<li><span itemprop="timeCreated" aria-hidden="true"><%- moment(post.date).format("YYYY-MM-DD") %> » </span><a href="<%- url_for(post.path) %>" itemprop="url" itemprop="name"><% if(isTanslation) { %>[译]<% } %><%- post.title %>
+				<li><span itemprop="timeCreated" aria-hidden="true"><%- moment(post.date).format("YYYY-MM-DD") %> » </span><a href="<%- url_for(post.path) %>" itemprop="url" itemprop="name"><% if(isTanslation) { %>[译] <% } %><%- post.title %>
 					<% if(0 && post.mark) { %>
 						<em tabindex="0" aria-hidden="true" class="entry-item-tag"><%- post.mark %></em>
 					<% } %>
