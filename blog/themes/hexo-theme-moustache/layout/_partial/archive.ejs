@@ -19,15 +19,7 @@ tags = Object.keys(_tags);
       <h2>
         <a href="/" tabindex="0" aria-label="回到小胡子哥首页导航"><%- config.author %></a> <font aria-hidden="true">»</font>
         <a href="<%- url_for("entry/") %>">博客</a>
-         <em  class="arrow-expend" tabindex="0" aria-label="点击展开网页导航">▾
-          <ul>
-            <li><a href="<%- url_for("/message/") %>">问答</a></li>
-            <li><a href="<%- url_for("/about/") %>">关于</a></li>
-            <li><a href="<%- url_for("/demo/") %>">实验室</a></li>
-            <li><a href="<%- url_for("/comments/") %>">最近评论</a></li>
-            <li><a href="<%- url_for("/friends/") %>">友情链接</a></li>
-          </ul>
-        </em> <font aria-hidden="true">»</font>
+			  <%- partial("./dropdown") %>
         <% var archiveText = '';
           if(is_archive()){
             archiveText = "文章归档";

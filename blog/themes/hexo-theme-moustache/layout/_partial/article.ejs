@@ -37,16 +37,7 @@
     </div>
     <%- partial('post/warning') %>
     <%- partial('post/copyright') %>
-    <em class="arrow-expend icon" tabindex="0" aria-hidden="true">&#xe618;
-      <ul>
-        <li><a href="<%- url_for("/entry/") %>">博客</a></li>
-        <li><a href="<%- url_for("/message/") %>">问答</a></li>
-        <li><a href="<%- url_for("/about/") %>">关于</a></li>
-        <li><a href="<%- url_for("/demo/") %>">实验室</a></li>
-        <li><a href="<%- url_for("/comments/") %>">最近评论</a></li>
-        <li><a href="<%- url_for("/friends/") %>">友情链接</a></li>
-      </ul>
-    </em>
+    <%- partial("./dropdown") %>
   </div>
   <div class="post-relative"><%- partial('post/nav') %></div>
 </div>
