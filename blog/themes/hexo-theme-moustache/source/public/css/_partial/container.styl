@@ -28,6 +28,7 @@
   word-wrap: break-word;
 }
 .post-content  {
+  font: 300 1em/1.8 PingFang SC,Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,Helvetica,sans-serif;
   word-break: break-word;
   .line {
     margin-bottom: 0;
@@ -153,7 +154,8 @@ h1 {
   margin-top: 20px;
 }
 .post-content p {
-  word-break: break-all;
+  word-break: break-word;
+  white-space: normal;
 }
 
 //.post-content h3::before,.post-content h4::before {
@@ -176,9 +178,10 @@ h1 {
 }
 .post-content hr {
   margin-bottom: 30px;
+  margin-top: 30px;
   height: 4px;
   border: none;
-  background-image: -webkit-linear-gradient(left, #003973, #e5e5be);
+  background-image: -webkit-linear-gradient(left, #003973, #e5e5be, #003973);
   background-color: #CCC;
   left: -2px;
 }
@@ -214,20 +217,22 @@ blockquote {
   font-family: monospace;
   position: relative;
   margin-top: 42px;
+  overflow: auto;
+  overflow-y: hidden;
 }
-blockquote::after {
-  content: "quote";
-  position: absolute;
-  left: -22px;
-  top: -17px;
-  background-color: #7CA5E2;
-  padding: 0 6px;
-  border-radius: 4px;
-  transform: rotateZ(-20deg);
-  box-shadow: 1px 1px 3px #CCC;
-  color: #FFF;
-  font-size: 16px;
-}
+// blockquote::after {
+//   content: "quote";
+//   position: absolute;
+//   left: -22px;
+//   top: -17px;
+//   background-color: #7CA5E2;
+//   padding: 0 6px;
+//   border-radius: 4px;
+//   transform: rotateZ(-20deg);
+//   box-shadow: 1px 1px 3px #CCC;
+//   color: #FFF;
+//   font-size: 16px;
+// }
 blockquote p {
   font-size 16px;
 }

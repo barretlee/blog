@@ -15,24 +15,26 @@ br
   font-family: monospace;
   margin-top: 42px;
   font-size: 16px;
+  overflow: auto;
+  overflow-y: hidden;
   b
     color: #F40;
 .old-article-warning
   margin-top: 70px;
-.old-article-warning::after, .history-article::after {
-  content: "attention";
-  position: absolute;
-  left: -26px;
-  top: -17px;
-  background-color: #E2947C;
-  padding: 0 6px;
-  border-radius: 4px;
-  transform: rotateZ(-17deg);
-  box-shadow: 1px 1px 3px #ccc;
-  color: #fff;
-  font-size: 16px;
-  line-height: 28px;
-}
+// .old-article-warning::after, .history-article::after {
+//   content: "attention";
+//   position: absolute;
+//   left: -26px;
+//   top: -17px;
+//   background-color: #E2947C;
+//   padding: 0 6px;
+//   border-radius: 4px;
+//   transform: rotateZ(-17deg);
+//   box-shadow: 1px 1px 3px #ccc;
+//   color: #fff;
+//   font-size: 16px;
+//   line-height: 28px;
+// }
 .page-relative-fixed {
   display: none;
 }
@@ -85,6 +87,9 @@ br
   transform: rotate(-345deg);
   transition: all 0.3s;
   opacity: 1;
+}
+.message {
+  font: 300 1em/1.8 PingFang SC,Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,Helvetica,sans-serif;
 }
 .message .cate-wraper {
   font-size 16px;
