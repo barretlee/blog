@@ -348,7 +348,7 @@ pre::-webkit-color-swatch {
   padding: 20px;
 /*border: 10px solid #E0DFCC;*/
 /*border-radius: 10px;*/
-  border: 1px solid #eee;
+  border: 1px dashed #eee;
   overflow-x: auto;
 }
 .highlight code {

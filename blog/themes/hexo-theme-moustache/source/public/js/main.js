@@ -352,7 +352,7 @@ var operation = {
       $(".alipay, .wechatpay i").hide();
       $(".wechatpay b").css('display', 'block');
     }
-    if (!$ctt.length || !isWeiXin) return;
+    if (!$ctt.length || !isWeiXin || $('.wechat-info').size()) return;
     var urls = [];
     $(".post img").each(function () {
       urls.push($(this).attr('data-original') || $(this).attr('src'));
@@ -885,18 +885,11 @@ var decoration = {
   },
   // console 简介
   consoleCtt: function () {
-    if (window.console && window.console.log) {
-      // var url = "http://" + window.location.host;
+    if (window.console && window.console.log && !window.consoled) {
+      window.consoled = true;
+      // var url = "//" + window.location.host;
       // console.log("\n\n\n\n\n\n\n\n\n\n%c", "background:url('" + url + "/avatar150.png'); background-repeat:no-repeat; font-size:0; line-height:30px; padding-top:150px;padding-left:150px;");
-      // console.log("欢迎踩点小胡子哥的博客，在这里与你一起分享生活，分享技术。%c\n联系方式: http://barretlee.com/about/", "color:red");
-      $(window).on("load", function () {
-        setTimeout(function () {
-          if ($('html').attr('loaded') != 1) {
-            $('html').attr('loaded', 1);
-            $.getScript("/console.js");
-          }
-        }, 200);
-      });
+      console.log("\n欢迎踩点小胡子哥的博客，在这里与你一起分享生活，分享技术。%c\n\n联系方式: http://barretlee.com/about/", "color:red");
     }
   },
   // 鼠标移动添加效果

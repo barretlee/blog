@@ -21,9 +21,7 @@
       <% } else if (post.excerpt){ %><%-: post.excerpt | cdata %>
       <% } else {%><%-: post.content.substring(0, 140) | cdata %><% } %>
       </description>
-      <content:encoded><% if (post.description){ %><%-: post.description | cdata %>
-      <% } else if (post.excerpt){ %><%-: post.excerpt | cdata %>
-      <% } else {%><%-: post.content.substring(0, 140) | cdata %><% } %></content:encoded>
+      <content:encoded><%-: post.content | cdata %></content:encoded>
       <% if (post.comments){ %><comments><%- encodeURI(url + post.path) %>#comments</comments><% } %>
     </item>
     <% }) %>

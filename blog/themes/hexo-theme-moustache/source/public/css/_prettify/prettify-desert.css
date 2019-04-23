@@ -7,7 +7,7 @@ pre.highlight {
     padding: 20px;
     /*border: 10px solid #E0DFCC;*/
     /*border-radius: 10px;*/
-    border: 1px solid #EEE;
+    border: 1px dashed #EEE;
     overflow-x: auto;
 }
 pre .nocode { background-color: none; color: #000 }
