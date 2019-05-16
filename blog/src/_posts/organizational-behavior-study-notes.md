@@ -9,17 +9,6 @@ categories:
   - 剪贴板
 date: 2019-05-12 00:44:00
 ---
-<style>
-  .post-content hr {
-	border-top: 1px dashed #CCC !important;
-    height: 0 !important;
-    background: none !important;
-  }
-  .post-content blockquote p {
-    white-space: normal !important;
-  }
-</style>
-
 > 在得到上学习李育辉老师的[《组织行为学》](https://m.igetget.com/share/course/pay/detail/36/46)课程，每个章节都做了点笔记，单纯看笔记一点体感都没有，感兴趣的同学可以结合[课程中](https://m.igetget.com/share/course/pay/detail/36/46)生动的例子进行学习和理解。
 
 生物操心的事情：
@@ -35,6 +24,18 @@ date: 2019-05-12 00:44:00
     - 经验主义学派：计划、组织、指挥、协调、控制。强调抽象、简洁、普世。
     - 实证主义学派：做实验！追求复杂、多元、有条件限制的结论。
 - **基本观点：权变**。因时而变，因势而变。
+
+<style>
+  .post-content hr {
+	border-top: 1px dashed #CCC !important;
+    height: 0 !important;
+    background: none !important;
+  }
+  .post-content blockquote p {
+    white-space: normal !important;
+  }
+</style>
+
 
 - - - - - 
 
