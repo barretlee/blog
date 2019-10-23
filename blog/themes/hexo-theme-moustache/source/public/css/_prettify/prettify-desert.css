@@ -1,7 +1,7 @@
 /* desert scheme ported from vim to google prettify */
 pre.highlight { display: block; background-color: #333 }
 pre.highlight {
-    font-family: Consolas;
+    font-family: monospace, Consolas, "Courier New";
     font-size: 16px;
     line-height: 1.5;
     padding: 20px;

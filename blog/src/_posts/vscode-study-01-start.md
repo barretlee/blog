@@ -38,7 +38,7 @@ git clone --depth 1 https://github.com/microsoft/vscode.git
 在安装依赖之前，我们不妨稍微分析下 VSCode 的项目结构，
 
 ```bash
-➜  vscode (master✔) tree -L 1
+➜  vscode (master) tree -L 1
 .
 ├── CONTRIBUTING.md
 ├── LICENSE.txt
@@ -69,7 +69,7 @@ git clone --depth 1 https://github.com/microsoft/vscode.git
 好了，目录就看到这里，接着开始安装漫长的依赖安装：
 
 ```bash
-➜  vscode (master✔) yarn
+➜  vscode (master) yarn
 ```
 
 执行 yarn 后，VSCode 会干三件事情：
@@ -91,27 +91,31 @@ git clone --depth 1 https://github.com/microsoft/vscode.git
 **1. 把 Electron 安装下来：**
 
 ```bash
-➜  vscode (master✔) yarn electron
+➜  vscode (master) yarn electron
 ```
 
 如果下载太慢，建议在命令行开下代理：
 
 ```bash
-➜  vscode (master✔) proxychains4 yarn electron
+➜  vscode (master) proxychains4 yarn electron
 ```
 
-> 这里附加一个小插曲，安装到半途时更换了下代理，应该是 gulp-vinyl-zip 这个包处理 buffer 异常，导致下次下载断点续传 buffer 位置对不上，然后每次执行 yarn electron 就直接退出进程，应该是个 bug；解决办法是，在这个包的 `open()` 方法里打个 log，把 path 打印出来，然后把打印出来的资源删掉就行了。
+这里附加一个小插曲，
+
+> 安装到半途时更换了下代理，应该是 gulp-vinyl-zip 这个包处理 buffer 异常，导致下次下载断点续传 buffer 位置对不上，然后每次执行 yarn electron 就直接退出进程，应该是个 bug；解决办法是，在这个包的 `open()` 方法里打个 log，把 path 打印出来，然后把打印出来的资源删掉就行了。
 
 一小时后……
 
 我已经不能忍了，电视剧都看了一集了，还是没下载完，其实 `electron-v6.0.12-darwin-x64` 这个文件只有 66.2M。
 
-> 为了完成 electron 的安装，不得不附加第二个插曲，还是得翻源码解决问题：之前可以通过全局配置 ELECTRON_MIRROR 的地址来选择 Electron 下载源，而最新版 VSCode 的 Electron 是直接从 github 上下载的，从 gulp-atom-electron 这个包的源码里断点找到了 asset 和 assetPath，手动将 asset 下载下来后放到 assetPath，解决了问题。
+为了完成 electron 的安装，不得不附加第二个插曲，
+
+> 还是得翻源码解决问题：之前可以通过全局配置 ELECTRON_MIRROR 的地址来选择 Electron 下载源，而最新版 VSCode 的 Electron 是直接从 github 上下载的，从 gulp-atom-electron 这个包的源码里断点找到了 asset 和 assetPath，手动将 asset 下载下来后放到 assetPath，解决了问题。
 
 **2. 把内置的几个依赖插件安装下来：**
 
 ```bash
-➜  vscode (master✔) yarn download-builtin-extensions
+➜  vscode (master) yarn download-builtin-extensions
 ```
 
 历时差不多一个小时，终于把依赖下载完成了，这是我安装依赖花的时间最长的一次，家里的网络还是比不上厂里自带翻墙功能的网络，衰……
@@ -131,7 +135,7 @@ git clone --depth 1 https://github.com/microsoft/vscode.git
 
 ```bash
 # gulp watch 完成后执行
-➜  vscode (master✔) yarn web
+➜  vscode (master) yarn web
 ```
 
 会自动弹开一个地址：<http://localhost:8080/>，目前 Web 版的功能还不完备，比如插件部分就没有适配，应该还在研发状态，连 inside 版本都没进。这也算是我写这个教程的第一个意外惊喜吧，看来我得重新研究下 VSCode 的源码了。
@@ -139,7 +143,7 @@ git clone --depth 1 https://github.com/microsoft/vscode.git
 执行如下脚本，可以打开 VSCode 的客户端：
 
 ```bash
-➜  vscode (master✔) ./scripts/code.sh
+➜  vscode (master) ./scripts/code.sh
 ```
 
 然后你就可以看到这样的界面了：

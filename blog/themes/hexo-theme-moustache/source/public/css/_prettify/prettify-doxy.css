@@ -18,7 +18,7 @@ a {
   text-decoration: none;
 }
 pre.highlight, code.highlight {
-  font-family:'Droid Sans Mono','CPMono_v07 Bold','Droid Sans';
+  font-family: monospace, Consolas, "Courier New";
   font-weight: bold;
   font-size: 9pt;
   background-color: #0f0f0f;

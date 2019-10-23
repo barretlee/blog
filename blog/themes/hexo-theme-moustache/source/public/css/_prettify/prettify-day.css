@@ -125,7 +125,7 @@
 }
 /* Style */
 pre.highlight {
-  font-family: Consolas;
+  font-family: monospace, Consolas, "Courier New";
   font-size: 14px;
   line-height: 1.5;
   border: 1px dashed #CCC;
