@@ -229,6 +229,11 @@ blockquote {
   font-family: monospace;
   position: relative;
   margin-top: 42px;
+  transition: border 0.5s;
+}
+blockquote:hover {
+  border-style: solid;
+  transition: border 0.5s;
 }
 blockquote::before {
   content: "“";
@@ -238,6 +243,11 @@ blockquote::before {
   color: #b9d5ff;
   font-size: 80px;
   font-family: sans-serif;
+  transition: color 0.5s;
+}
+blockquote:hover::before {
+  color: #99c2ff;
+  transition: color 0.5s;
 }
 .shit-spider+blockquote:first-of-type {
   // overflow-y: hidden;
@@ -392,7 +402,7 @@ table td, table th {
   border-bottom: 1px dashed #CCC;
   padding: 30px 55px;
   background: #F8F8F8;
-  margin-top: 65px;
+  margin-top: 45px;
   position: relative;
   font-size: 14px;
   margin-left: -40px;

@@ -128,13 +128,19 @@
 /* Style */
 .highlight {
   font-family: monospace, Consolas, "Courier New";
-  background: #f8f8f8;
+  background: #fAfAfA;
   padding: 10px 4070px;
   overflow-x: auto;
-  border: 1px dashed #CCC;
+  border: 1px dashed #EEE;
   border-width: 1px 0;
   margin-left: -4080px;
   margin-right: -4080px;
+  transition: border 0.5s;
+}
+.highlight:hover {
+  transition: border 0.5s;
+  border-style: solid;
+  border-color: #e5e5e5;
 }
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {

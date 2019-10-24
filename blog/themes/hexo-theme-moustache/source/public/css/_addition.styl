@@ -18,7 +18,8 @@ br
   b
     color: #F40;
 .old-article-warning
-  margin-top: 70px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 // .old-article-warning::after, .history-article::after {
 //   content: "attention";
 //   position: absolute;
@@ -39,11 +40,19 @@ br
 .grey
   color: grey
 .body-bg-moon
+  .highlight
+    background: #222;
+    color: #999;
+    border-color: #333;
+    pre
+      background: #222;
   .highlight, pre, .post img, .history-article, .old-article-warning,.func-item>div
     opacity: 0.85 !important;
     filter: unquote("alpha(opacity=85)");
     border-radius: 6px;
     color: #5A5A5A;
+  img
+    filter: brightness(0.85);
   .highlight pre
     opacity: 1;
     border-radius 0;
