@@ -49,6 +49,7 @@ init:
 	cd write; cnpm i;
 	git remote add origin https://github.com/barretlee/blog.git;
 	git remote add coding https://git.coding.net/barretlee/myblog.git;
+	git remote add ecoding https://e.coding.net/barretlee/blog.git
 
 # 清理工作
 clear:
@@ -81,6 +82,7 @@ endif
 	open ${WEB};
 	git add --all; \
 	git commit -am "backup"; \
+	git push ecoding master; \
 	git push coding master; \
 	git push origin master;
 
@@ -102,6 +104,7 @@ ifneq (${P},)
 	git add --all; \
 	git commit -am "backup"; \
 	git push coding master; \
+	git push ecoding master; \
 	git push origin master;
 endif
 

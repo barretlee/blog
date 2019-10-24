@@ -79,6 +79,10 @@ deploy:
   repo: git@github.com:barretlee/blog.git
   branch: gh-pages
   message: build at local, send to gh-pages {{ now("YYYY-MM-DD HH:mm:ss") }}
+- type: git
+  repo: git@e.coding.net:barretlee/blog.git
+  branch: gh-pages
+  message: build at local, send to gh-pages {{ now("YYYY-MM-DD HH:mm:ss") }}
 #- type: git
   #repo: https://gitcafe.com/barretlee/blog.git
   #branch: gitcafe-pages
