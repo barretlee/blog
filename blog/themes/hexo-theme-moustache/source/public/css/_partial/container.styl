@@ -29,7 +29,6 @@
 }
 .post-content  {
   font: 300 1em/1.8 PingFang SC,Lantinghei SC,Microsoft Yahei,Hiragino Sans GB,Microsoft Sans Serif,WenQuanYi Micro Hei,Helvetica,sans-serif;
-  word-break: break-word;
   .line {
     margin-bottom: 0;
   }
@@ -71,7 +70,21 @@ h1 {
   padding: 90px 40px 60px;
   position: relative;
 }
-.post ul, .post ol {margin: 25px 0 25px 35px;list-style-type: square;}
+.post ul, .post ol {
+  margin: 25px 0 25px 35px;
+  list-style-type: square;
+  ul, ol {
+    margin: 10px 0 10px 20px;
+    li {
+      list-style-type: disc;
+      ul, ol {
+        li {
+          list-style-type: circle;
+        }
+      }
+    }
+  }
+}
 .post ul li,.post ol li{margin-bottom:5px;list-style-type:square;line-height:28px;font-size: 16px;}
 .post ol li{list-style-type:decimal;}
 .post h2 {
@@ -210,13 +223,21 @@ pre code {
   box-shadow: none;
 }
 blockquote {
-  padding: 20px 20px 20px 20px;
-  background: #FBFBFB;
-  border: 1px dashed #B9D5FF;
-  border-width: 1px 0;
+  padding: 25px 40px;
+  background: #fbfbfb;
+  border: 1px dashed #b9d5ff;
   font-family: monospace;
   position: relative;
   margin-top: 42px;
+}
+blockquote::before {
+  content: "“";
+  position: absolute;
+  left: 8px;
+  top: -46px;
+  color: #b9d5ff;
+  font-size: 80px;
+  font-family: sans-serif;
 }
 .shit-spider+blockquote:first-of-type {
   overflow-y: hidden;

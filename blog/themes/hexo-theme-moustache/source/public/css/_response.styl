@@ -186,9 +186,6 @@
   .highlight, code, pre {
     overflow: hidden;
   }
-  blockquote::after, blockquote::before {
-    display: none !important;
-  }
   .post-title-wrapper a {
     position: static;
     border-radius: 0;
@@ -199,6 +196,12 @@
   }
 }
 @media screen and (max-width: 640px) {
+  blockquote {
+    margin-top: 20px;
+  }
+  blockquote p {
+    font-size: 14px;
+  }
   .entry-recent-posts li span {
     display: none !important;
   }
@@ -366,7 +369,7 @@
     width: 480px;
   }
   .highlight pre .code, .highlight .code pre, figure span, figure {
-    font-size: 0.9rem;
+    font-size: 14px;
     line-height: 1.5;
     -webkit-text-size-adjust: none;
   }
