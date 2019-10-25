@@ -40,6 +40,35 @@ br
 .grey
   color: grey
 .body-bg-moon
+  .func-item > div
+    background: #333;
+    border-color: #666;
+    color: #999;
+  .bg-type-sun
+    background: #222;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-image: none;
+    box-shadow: none;
+  .bg-type-moon
+    background: #444;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-image: none;
+    box-shadow: none;
+  .func-item p.seperator
+    border-color: #666;
+  .left-arrow
+    border-right-color: #333;
+  .left-arrow-clone
+    border-right-color: #666;
+  .local-search-result-cls
+    ul
+      background: #333;
+      border-color: #666;
+      box-shadow: none;
+      li
+        border-color: #666;
   .highlight
     background: #222;
     color: #999;
@@ -47,10 +76,14 @@ br
     pre
       background: #222;
   .highlight, pre, .post img, .history-article, .old-article-warning,.func-item>div
-    opacity: 0.85 !important;
-    filter: unquote("alpha(opacity=85)");
+    // opacity: 0.85 !important;
+    // filter: unquote("alpha(opacity=85)");
     border-radius: 6px;
     color: #5A5A5A;
+  .post-title-wrapper
+    a
+      img
+        border-radius: 100%;
   img
     filter: brightness(0.85);
   .highlight pre

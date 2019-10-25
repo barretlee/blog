@@ -15,28 +15,27 @@
   padding-left: 40px;
   color: #FFF;
 }
-.single-page-footer {
-  .footer-wraper {
+.single-page-footer
+  .footer-wraper
     position: relative;
-  }
-  .website-info {
+  .website-info
     position: absolute;
     bottom: 0;
     right: 10px;
     left: 10px;
-  }
-}
 
-.zhidao_ai {
+.zhidao_ai
+  position: absolute;
+  top: 12px;
+  right: -5px;
   display: inline-block;
   vertical-align: middle;
-  margin-left: 10px;
   opacity: 0.5;
   transition: all 0.3s;
-  &:hover {
+  &:hover
     opacity: 1;
-  }
-}
+    transition: all 0.3s;
+    transform: rotateZ(360deg);
 .footer-content {
   padding: 0 40px 10px;
 }
@@ -103,12 +102,15 @@
 }
 .website-info {
   margin-top: 25px;
+  white-space: nowrap;
   padding-bottom:10px;
   color: #AAA;
   text-align: right;
   border-top: 1px solid #666;
   padding-top: 10px;
   font-size: 14px;
+  padding-right: 20px;
+  position: relative;
 }
 .website-info a {
   color: #888;

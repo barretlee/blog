@@ -74,14 +74,20 @@
 .entry-recent-posts ul {
   padding-left: 27px;
 }
-.entry-recent-posts li {
+.entry-recent-posts li
   margin-bottom: 5px;
   list-style: circle;
   line-height: 28px;
   font-size: 16px;
   // white-space: nowrap;
   text-overflow: ellipsis;
-}
+  a
+    white-space: nowrap;
+    max-width: 60%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
 .entry-recent-posts li span {
   color: #999;
   display: inline-block;
