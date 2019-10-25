@@ -10,7 +10,7 @@
 			<a href="<%- url_for('entry/') %>" aria-label="点击查看博客文章列表">博客</a> <font aria-hidden="true"> / </font>
 			<!-- <a href="https://github.com/barretlee/slides#slides" aria-label="小胡子哥的演讲" target="_blank">演讲</a> <font aria-hidden="true">/</font> -->
 			<!-- <a href="<%- url_for('message/') %>" aria-label="给小胡子哥留言">问答</a> <font aria-hidden="true"> / </font> -->
-			<a href="<%- url_for('translation/') %>" aria-label="点击查看译文列表">翻译</a> <font aria-hidden="true"> / </font>
+			<!-- <a href="<%- url_for('translation/') %>" aria-label="点击查看译文列表">翻译</a> <font aria-hidden="true"> / </font> -->
 			<!-- <a href="<%- url_for('/reading.html') %>" aria-hidden="true">推荐</a> <font aria-hidden="true">/</font>-->
 			<a href="<%- url_for('demo/') %>" aria-label="小胡子哥的实验室">实验</a> <font aria-hidden="true"> / </font>
 			<a href="<%- url_for('about/') %>" aria-label="查看小胡子哥的个人信息">关于</a>
@@ -19,15 +19,16 @@
 		</p>
 		<p><font aria-hidden="true">»</font>
 			<i class="icon" title="Github"><a href="<%- theme.social.github %>" target="_blank" aria-label="小胡子哥的 Github 地址">&#x2603;</a></i>
-			<!-- <i class="icon" title="Wechat"><a href="<%- url_for('/follow.jpg') %>" target="_blank" aria-label="小胡子哥的微信二维码地址">&#xe60d;</a></i> -->
 			<i class="icon" title="Sina Weibo"><a href="<%- theme.social.weibo %>" target="_blank" aria-label="小胡子哥的新浪微博地址">&#x535a;</a></i>
-			<i class="icon" title="Google Plus"><a href="<%- theme.social.google %>" target="_blank" aria-label="小胡子哥的 Google Plus">G+</a></i>
+			<i class="icon" title="Twitter"><a href="<%- theme.social.twitter %>" target="_blank" aria-label="小胡子哥的 Twitter">&#x9e1f;</a></i>
+			<!-- <i class="icon" title="Google Plus"><a href="<%- theme.social.google %>" target="_blank" aria-label="小胡子哥的 Google Plus">G+</a></i> -->
+			<i class="icon" title="Wechat"><a href="<%- url_for('/follow.jpg') %>" target="_blank" aria-label="小胡子哥的微信公众号">&#xe60d;</a></i>
 			<i class="icon" title="Rss"><a href="<%- theme.pages.feed %>" target="_blank" aria-label="小胡子哥的博客文章订阅地址">&#x25c8;</a></i>
 		</p>
 	</div>
 	<%- partial('_partial/search', {wrapStyle: '', inputStyle: ''}) %>
 </div>
 
-<p style="position: absolute;font-size: 12px;bottom: 2px;color: #CCC;left: 2px;opacity: 0.4;
--webkit-user-select:none;">Hosted by <a href="https://pages.coding.me" style="font-weight: bold" target="_blank" ref="external">Coding Pages</a></p>
+<!-- <p style="position: absolute;font-size: 12px;bottom: 2px;color: #CCC;left: 2px;opacity: 0.4;
+-webkit-user-select:none;">Hosted by <a href="https://pages.coding.me" style="font-weight: bold" target="_blank" ref="external">Coding Pages</a></p> -->
 
