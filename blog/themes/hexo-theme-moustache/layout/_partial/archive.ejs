@@ -31,7 +31,7 @@ tags = Object.keys(_tags);
           if(page.year){
             archiveText = "<a href='" + url_for("blog/archives/") + "'>" + archiveText + "</a>";
           }%>
-          <font aria-hidden="true">»</font><%- archiveText %>
+        <font aria-hidden="true" style="margin-left: 8px;">»</font> <%- archiveText %>
         <% if(page.year) { %><font aria-hidden="true">»</font> <%- page.year %><% } %>
       </h2>
     </div>
