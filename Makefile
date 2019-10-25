@@ -49,7 +49,7 @@ init:
 	cd write; cnpm i;
 	git remote add origin https://github.com/barretlee/blog.git;
 	git remote add coding https://git.coding.net/barretlee/myblog.git;
-	git remote add ecoding https://e.coding.net/barretlee/blog.git
+	git remote add ecoding git@e.coding.net:barretlee/blog.git
 
 # 清理工作
 clear:
