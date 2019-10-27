@@ -4,9 +4,10 @@
   </div>
   <script charset="utf-8" type="text/javascript" src="/public/js/gitalk.js"></script>
   <script type="text/javascript">
-  var postContent = document.querySelector('.post-content>p');
+  var postContent = document.querySelectorAll('.post-content>p');
   if (postContent) {
-    postContent = postContent.item(0).textContent;
+    postContent = postContent.item(0).textContent + postContent.item(1).textContent;
+    postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
   }
 
   var gitalk = new Gitalk({
