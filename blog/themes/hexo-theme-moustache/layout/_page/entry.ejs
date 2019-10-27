@@ -30,7 +30,7 @@
 				<li><a href='<%- url %>'><%- cate %></a></li>
 				<% }) %>
 				<% if(cates.length > 10) {%>
-				<li><a href="<%- url_for("/blog/categories/JavaScript/") %>">更多分类...</a></li>
+				<li><a href="<%- url_for("/blog/categories/JavaScript/") %>">更多分类 » </a></li>
 				<% } %>
 			</ul>
 		</div>
@@ -92,7 +92,7 @@
 								></b></span></li>
 			<% }) %>
 			<% if(site.posts.length > 125) {%>
-				<li><a href="<%- url_for("/blog/archives/") %>">更多文章...</a></li>
+				<li><a href="<%- url_for("/blog/archives/") %>">所有文章 » </a></li>
 			<% } %>
 			</ul>
 		</div>
