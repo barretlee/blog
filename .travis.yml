@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+- 9.3.0
+cache:
+  directories:
+  - node_modules
+branches:
+  only:
+  - master
+env:
+  global:
+    secure: lv52sysLa3WT89/CLcu7WVUdlrzF7ZjJQmh6EGXboQWXT8y27nOrYpkzX5ZbhhyGuZ+VDDeS9FNsrBFzxhP3FMuBKCDxVqs3FSXiz79jr7W0InMeyNPmZK5Pzw4+56nWD0JIovmcNM6hLo4xDplUa13UAejJvV6vrG7in/mk9nr9qoj6PUu+1BVfrXVlwbTPwmTO1f9AqnIS92tfOfYnKSKhPKYbF/ootFxThSidnkxylIL33YBNIJbx9TG74hBj4gOSwh5dHeEY8eJPVvVrD3xOgvjyIXYaiIxN5knQAmb24368+PgQzuI5DwbleIC6TwHVVWidNF5DzMbl9baie2SGrhkO3sLBlhnMdNbeVRSD9xQ5GewS62GVYX4LasTAuoI0Z+qNxHSlUOvj361LdOL8JXdNYvSDZF8ZhlGWQF0SBfMdUQX0pf6mLMj6r2Aq/cqoGRkocMIXk61A0ucM9RYBue9XF/+5tAGmAn0hCXh2ImB/M9+53JHkneDn9kML6QkDORJmb3Ayps+qOpeRU3sgPR9HXOlSTh+sftaXfITgsZ1qgcTwHG/rinm4C7Op95yzQ6wYrPaXJeHP3ibK5rBRdN7W5cGnIn2aLAFzKVPcwg1Wuhrp1n3rMsixn7qeP2oU7qEJ/CIc9ChcCr/C0phn9zmI4KsA1E69q1iDwUQ=
+before_install:
+- export TZ='Asia/Shanghai'
+- npm install -g hexo-cli
+- cd blog
+install:
+- npm install
+before_script:
+- git config --global user.name "barretlee"
+- git config --global user.email "barret.china@gmail.com"
+- sed -i'' "s~git@github.com:barretlee/blog.git~https://${GITHUB_TOKEN}:x-oauth-basic@github.com/barretlee/blog.git~"
+  _config.yml
+- sed -i'' "s~git@e.coding.net:barretlee/blog.git~https://barretlee:${CODING_TOKEN}@e.coding.net/barretlee/blog.git~"
+  _config.yml
+script:
+- hexo clean
+- hexo generate
+after_success:
+- hexo deploy
