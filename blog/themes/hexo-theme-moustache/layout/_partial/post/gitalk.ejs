@@ -20,7 +20,7 @@
     owner: 'barretlee',
     admin: ['barretlee'],
     id: "<%- page.slug || page.path || 'barretlee-blog' %>",
-    body: location.href + ' ' + postContent || header.meta[description],
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent || header.meta[description],
     distractionFreeMode: false
   });
   gitalk.render('gitalk');
