@@ -2,6 +2,10 @@ var weiboName = "@Barret李靖";
 var disqusName = "";
 var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
 
+if (window.location.hostname === 'barretlee.com') {
+  window.location.href = location.url.replace('barretlee.com', 'www.barretlee.com');
+}
+
 var params = {};
 ~ function () {
   var search = location.href.split('?')[1];
@@ -229,11 +233,11 @@ var operation = {
     this.bind();
     this.tips();
     this.insertWeibo();
-    $(window).on('load', function () {
-      setTimeout(function () {
-        $this.loadChangyanCount();
-      }, 3E3);
-    });
+    // $(window).on('load', function () {
+    //   setTimeout(function () {
+    //     $this.loadChangyanCount();
+    //   }, 3E3);
+    // });
     this.initSearch();
   },
   runMusic: function () {
@@ -527,106 +531,6 @@ var operation = {
     $(".to-comments").on("click", function (evt) {
       evt.preventDefault();
       $(".hash-to-comments").trigger("click");
-    });
-    $(".sharecanvas").on("click", function (evt) {
-      var $this = $(this);
-      // if ($this.attr("process") == 1) return;
-      // $this.attr("process", 1);
-      evt.preventDefault();
-
-      // function dataURItoBlob(dataURI) {
-      //   // convert base64 to raw binary data held in a string
-      //   var byteString, mimestring
-
-      //   if (dataURI.split(',')[0].indexOf('base64') !== -1) {
-      //     byteString = atob(dataURI.split(',')[1])
-      //   } else {
-      //     byteString = decodeURI(dataURI.split(',')[1])
-      //   }
-
-      //   mimestring = dataURI.split(',')[0].split(':')[1].split(';')[0]
-
-      //   var content = new Array();
-      //   for (var i = 0; i < byteString.length; i++) {
-      //     content[i] = byteString.charCodeAt(i)
-      //   }
-
-      //   return new Blob([new Uint8Array(content)], {
-      //     type: mimestring
-      //   });
-      // }
-      // $this.text("截图中..");
-      // $.getScript("/public/js/html2canvas.min.js", function () {
-      //   $(".wechart img").clone().attr("id", "_wechartImg").css({
-      //     display: "block",
-      //     "margin": "0 auto"
-      //   }).appendTo($('.post-content'));
-      //   $(".this-page-link").hide();
-      //   $(".article").addClass("screenshot");
-      //   $("html,body").width(520);
-      //   $(".post-content>p .icon.a-comments").hide();
-      //   var st = $(window).scrollTop();
-      //   $(window).scrollTop(0);
-      //   html2canvas($('.article').css("background", "#FFF")).then(function (canvas) {
-      //     canvas.id = "shareCanvas";
-      //     canvas.style.display = "none";
-      //     document.body.appendChild(canvas);
-      //     //var newImg = document.createElement("img");
-      //     var img = dataURItoBlob(shareCanvas.toDataURL('image/png'));
-      //     //var url = window.URL.createObjectURL();
-
-      //     var base = "//123.56.230.53:3300/";
-      //     var fd = new FormData();
-      //     fd.append("img", img);
-      //     $this.text("分享中..");
-
-          var local = location.href,
-            title = $(".post-title").text() && ("文章《" + weiboName + " " + $(".post-title").text() + "》");
-          if (!title) title += "好站分享 " + weiboName + " ";
-          title += $("meta[property='og:description']").attr("content").slice(0, 95);
-          var shareUrl = "http://service.weibo.com/share/share.php?appkey=1812166904&title=" +
-            title + "&url=" + local + "&searchPic=false&style=simple";
-          operation._shareWin(shareUrl);
-          // $.ajax({
-          //   type: "POST",
-          //   url: base + "img",
-          //   dataType: 'json',
-          //   data: fd,
-          //   crossDomain: true,
-          //   processData: false,
-          //   contentType: false,
-          //   success: function (data) {
-          //     if (data && data.path) {
-          //       shareUrl += "&pic=" + encodeURIComponent(base + "tmp/" + data.path);
-          //       operation._shareWin(shareUrl);
-          //       $("#shareCanvas").remove();
-          //       $this.text("分享成功");
-          //       setTimeout(function () {
-          //         $this.removeAttr("process");
-          //         $this.text("微博分享");
-          //         $this.parent(".func-item").trigger("mouseleave");
-          //       }, 500);
-          //     }
-          //   },
-          //   error: function () {
-          //     $this.text("截图失败");
-          //     operation._shareWin(shareUrl);
-          //     setTimeout(function () {
-          //       $this.removeAttr("process");
-          //       $this.text("微博分享");
-          //       $this.parent(".func-item").trigger("mouseleave");
-          //     }, 500);
-          //   }
-          // });
-        // });
-      //   $(".post-content>p .icon.a-comments").show();
-      //   $("html,body").css("width", "");
-      //   $(window).scrollTop(st);
-      //   $('#_wechartImg').remove();
-      //   $(".article").css("background", "");
-      //   $(".this-page-link").show();
-      //   $(".article").removeClass("screenshot");
-      // });
     });
     $(".hash-to-comments").on("click", function (evt) {
       evt.preventDefault();

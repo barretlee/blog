@@ -2,15 +2,15 @@
 	<a href="javascript: void(0);" class="ds-thread-count disqus-comment-count"
 	   data-thread-key="<%- page.slug || page.path %>"
 	   data-disqus-identifier="<%- page.slug || page.path %>" 
-		 tabindex="0" aria-hidden="true">评论内容</a>
-	<a href="javascript: void(0);" id="comments">相关文章</a>
+		 tabindex="0" aria-hidden="true" id="comments">评论内容</a>
+	<a href="javascript: void(0);">相关文章</a>
 	<a href="<%- url_for('/friends/') %>" tabindex="0" aria-hidden="true">友情链接</a>
 </div>
 <div class="nav-detail">
-	<div tabindex="0" aria-hidden="true">
-		<%- partial("changyan") %>
+	<div tabindex="0" style="display:block;">
+		<%- partial("gittalk") %>
 	</div>
-	<div style="display:block;">
+	<div>
 		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>打开评论</span></div>
 		<%- partial("relative") %>
 		<a href="<%- url_for('/entry/') %>" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a>
