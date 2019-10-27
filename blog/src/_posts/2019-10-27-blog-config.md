@@ -1,5 +1,5 @@
 ---
-title: 分享下我个人博客的配置和发布
+title: 本博客的配置和发布
 description: 小胡子哥的个人网站
 warning: false
 author: 小胡子哥
@@ -24,14 +24,21 @@ coding 支持绑定多个域名，也支持给所有绑定的域名自动配置�
 
 使用了不少 hexo 的插件，但是很多都不满足需求，不满足需求的插件都重新改写了。平时使用改写的 hexo-admin 在本地编辑内容。
 
+![blog config admin](/blogimgs/blog-config-admin.png)
+
+
 ### 3. 部署
 
 以前每次都是本地编辑文章，然后构建发布，发现错别字，又回到本地编辑、构建、发布，体验十分差，所以近两年都懒得写文章了，宁愿发长微博。
 
 本周末折腾了一番，接入了 travis-ci，发现还挺好用，只是配置的时候需要注意点 git 仓库权限问题，可以参考 <https://github.com/barretlee/blog/blob/master/.travis.yml> 解决问题，后续写文章应该会直接走 github 网页新建文件。
 
+![blog config travis](/blogimgs/blog-config-travis.png)
+
 ### 4. 评论
 
 从多说到畅言到 github issue，估计不会再继续折腾了，看了两个开源的 github issue 评论组件，gitment 和 gitalk ，这两个工具都有点像半成品，感觉还有很大的优化空间，由于 gitalk UI 稍微看得舒服点，将就着用了，效果如图四。历史评论就懒得迁移了。
+
+![blog config comment](/blogimgs/blog-config-comment.png)
 
 周末把博客 UI 的部分细节做了调整，估计后续三五年都不会再折腾博客设计了。
