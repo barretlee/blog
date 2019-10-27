@@ -1,9 +1,14 @@
-<% if(1 || theme.gitalk) { %>
-  <div id="gittalk" sid="<%- page.slug || page.path || 'barretlee-blog' %>">
+<% if(theme.gitalk) { %>
+  <div id="gitalk" sid="<%- page.slug || page.path || 'barretlee-blog' %>">
     
   </div>
-  <script charset="utf-8" type="text/javascript" src="/public/js/gittalk.js"></script>
+  <script charset="utf-8" type="text/javascript" src="/public/js/gitalk.js"></script>
   <script type="text/javascript">
+  var postContent = document.querySelector('.post-content>p');
+  if (postContent) {
+    postContent = postContent.item(0).textContent;
+  }
+
   var gitalk = new Gitalk({
     clientID: '50a1b3aa7854b01a1c85',
     clientSecret: '226ac154f80a6aea0985da874126b35795f22eed',
@@ -14,9 +19,10 @@
     owner: 'barretlee',
     admin: ['barretlee'],
     id: "<%- page.slug || page.path || 'barretlee-blog' %>",
+    body: location.href + ' ' + postContent || header.meta[description],
     distractionFreeMode: false
   });
-  gitalk.render('gittalk');
+  gitalk.render('gitalk');
 
   // show count
   var commentTimer = setInterval(() => {
