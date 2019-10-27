@@ -31,4 +31,4 @@ script:
 after_success:
 - hexo deploy
 - git remote add coding https://${CODING_USERNAME}:${CODING_TOKEN}@e.coding.net/barretlee/blog.git
-- git push coding master
+- git push coding master -f
