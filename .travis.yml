@@ -15,18 +15,20 @@ env:
 before_install:
 - export TZ='Asia/Shanghai'
 - npm install -g hexo-cli
+# - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+# - git submodule update --init --recursive
 - cd blog
 install:
 - npm install
 before_script:
 - git config --global user.name "barretlee"
 - git config --global user.email "barret.china@gmail.com"
-- sed -i'' "s~git@github.com:barretlee/blog.git~https://${GITHUB_TOKEN}:x-oauth-basic@github.com/barretlee/blog.git~"
-  _config.yml
-- sed -i'' "s~git@e.coding.net:barretlee/blog.git~https://barretlee:${CODING_TOKEN}@e.coding.net/barretlee/blog.git~"
-  _config.yml
+- sed -i'' "s~git@github.com:barretlee/blog.git~https://${GITHUB_TOKEN}:x-oauth-basic@github.com/barretlee/blog.git~" _config.yml
+- sed -i'' "s~git@e.coding.net:barretlee/blog.git~https://barretlee:${CODING_TOKEN}@e.coding.net/barretlee/blog.git~" _config.yml
 script:
 - hexo clean
 - hexo generate
 after_success:
 - hexo deploy
+- git remote add coding https://barretlee:${CODING_TOKEN}@e.coding.net/barretlee/blog.git
+- git push coding master

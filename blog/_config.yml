@@ -141,22 +141,22 @@ js_concator:
   enable: false
   bundle_path: '/js/bundle.js'
   front: false
-  silent: false
+  silent: true
 html_minifier:
   enable: true
   ignore_error: true
-  silent: false
+  silent: true
   exclude: 
     - '/ST/'
 css_minifier:
   enable: true
-  silent: false
+  silent: true
   exclude: 
     - '*.min.css'
 js_minifier:
   enable: true
   mangle: true
-  silent: false
+  silent: true
   output:
   compress:
   exclude: 
@@ -168,7 +168,7 @@ image_minifier:
   optimizationLevel: 2
   pngquant: false
   progressive: false
-  silent: false
+  silent: true
 
 # for img lazyload
 lazyload:
