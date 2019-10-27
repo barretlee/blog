@@ -5,7 +5,7 @@ git:
   submodules: false
 cache:
   directories:
-  - node_modules
+  - blog/node_modules
 branches:
   only:
   - master
@@ -30,5 +30,5 @@ script:
 - hexo generate
 after_success:
 - hexo deploy
-- git remote add coding https://barretlee:${CODING_TOKEN}@e.coding.net/barretlee/blog.git
+- git remote add coding https://barretlee:${CODING_TOKEN}@barretlee.coding.net/barretlee/blog.git
 - git push coding master
