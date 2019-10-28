@@ -1,3 +1,4 @@
+---
 title: 如何快速上手一款 IDE - VSC 配置指南和插件推荐
 description: >-
   VSCode 刚出来的时候并不是特别看好，因为 Sublime 和 Atom 的插件生态已经做起来了，成千上万个可供选择，VSC

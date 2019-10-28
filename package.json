@@ -3,10 +3,10 @@
   "description": "Blog System Designed by Barret Lee.",
   "version": "1.0.0",
   "scripts": {
-    "resolve-images": "node scripts/resolve-images.js",
+    "resolve-content": "node scripts/resolve-content.js",
     "resize-images": "node scripts/resize-images.js",
     "commitlint": "node ./node_modules/@commitlint/cli/lib/cli.js -E HUSKY_GIT_PARAMS",
-    "images-task": "npm run resolve-images;"
+    "images-task": "npm run resolve-content;"
   },
   "repository": {
     "type": "git",

@@ -1,3 +1,4 @@
+---
 title: 技术人的坚守
 description: 做业务久了以后，对技术人员而言，会出现什么样的问题，下面我来稍微聊一聊。
 warning: 'false'

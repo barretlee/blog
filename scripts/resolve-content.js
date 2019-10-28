@@ -6,7 +6,7 @@ var utils = require('./utils');
 var base = path.join(__dirname, "../blog/src/_posts/");
 var error = {};
 
-console.log(`清理图片路径：开始检查 /blogimgs 目录`);
+console.log(`清理内容结构：开始检查 /blog/src/_posts`);
 utils.travel(base, deal);
 console.log(`检查完成\n`);
 
@@ -15,6 +15,7 @@ fs.writeFileSync(path.join(__dirname, 'check.json'), JSON.stringify(error, null,
 function deal(file) {
   var DATE_REG = /(\d{4})-(\d{2})-(\d{2})/m;
   var IMG_REG = /\!\[([^\]]+?)\]\(([\s\S]+?)\)/g;
+  var START_REG = /^[\s\n]*---\s*\n/m;
   var content = fs.readFileSync(file).toString();
   var LOADING_IMG_URL = "//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png";
   var isStandardPath = true;
@@ -84,6 +85,10 @@ function deal(file) {
   if (content !== content2) {
     console.log('>>> rewrite', file);
     fs.writeFileSync(file, content2);
+  }
+  if (!START_REG.test(content.slice(0, 20))) {
+    console.log('>>> add ---', file);
+    fs.writeFileSync(file, `---\n${content}`);
   }
   if (!isStandardPath) {
     var fileName = path.basename(file);

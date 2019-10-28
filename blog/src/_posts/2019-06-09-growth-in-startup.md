@@ -1,3 +1,4 @@
+---
 title: 新人在中小公司遇到的成长困境
 description: 小胡子哥的个人网站
 warning: 'false'
