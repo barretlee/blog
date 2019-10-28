@@ -5,7 +5,7 @@ var exexSync = require('child_process').execSync;
 var base = path.join(__dirname, "../blog/src/_posts/");
 var error = {};
 
-console.log(`开始检查 /blogimgs 目录……`);
+console.log(`开始检查 /blogimgs 目录`);
 travel(base, deal);
 console.log(`检查完成\n`);
 
