@@ -95,7 +95,7 @@ search:
   path: search.xml
   field: post
 
-imgurl: /blogimg/
+imgurl: /blogimgs/
 
 # for hexo all minifier
 all_minifier: true
@@ -134,7 +134,7 @@ image_minifier:
 
 # for img lazyload
 lazyload:
-  enable: false 
+  enable: true
   onlypost: true
   loadingImg: //img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png
 
