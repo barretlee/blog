@@ -1,29 +1,24 @@
-.PHONY: r d b h n i c p run backup deploy help new mkfile init clear goroot pull
+.PHONY: r d b h n i c p run backup deploy help new init clear goroot pull
 
 ROOT = $(CURDIR)/
 DRAFTS = ${ROOT}blog/src/_drafts/
 POSTS = ${ROOT}blog/src/_posts/
 POSTS_IMG = ${ROOT}blog/src/blogimgs/
-BACKUPPOSTS = ${ROOT}blogsources/backup/posts/
-BACKUPDRAFTS = ${ROOT}blogsources/backup/drafts/
-BACKUPPOSTS_BAC = ${ROOT}databackup/posts/
-BACKUPDRAFTS_BAC = ${ROOT}databackup/drafts/
 
 BUILD = ${ROOT}blog/src/build/
 DEPLOY_GIT = ${ROOT}blog/src/.deploy*/
 
 LOCAL = http://0.0.0.0:4000/entry/
 WEB = http://www.barretlee.com/entry/
-WRITER = http://0.0.0.0:4001
 GOOGLE_DRIVER_BLOG = ~/GoogleDriver/blog/
 GOOGLE_DRIVER_BLOG_IMG = ~/GoogleDriver/blogImg/
 
 
 i: goroot init
-r: goroot mkfile run
-d: goroot mkfile deploy
-b: goroot mkfile backup
-n: goroot mkfile new
+r: goroot run
+d: goroot deploy
+b: goroot backup
+n: goroot new
 c: clear
 h: help
 p: pull
@@ -36,25 +31,16 @@ pull:
 goroot:
 	cd ${ROOT};
 
-# 新建两个备份文件夹
-mkfile:
-	@[ -d ${BACKUPPOSTS} ] || mkdir -p ${BACKUPPOSTS};
-	@[ -d ${BACKUPDRAFTS} ] || mkdir -p ${BACKUPDRAFTS};
-	@[ -d ${BACKUPPOSTS_BAC} ] || mkdir -p ${BACKUPPOSTS_BAC};
-	@[ -d ${BACKUPDRAFTS_BAC} ] || mkdir -p ${BACKUPDRAFTS_BAC};
-
-# 初始化,执行 cnpm install
+# 初始化,执行 npm install
 init:
-	cd blog; cnpm i;
-	cd write; cnpm i;
-	git remote add origin https://github.com/barretlee/blog.git;
-	git remote add coding https://git.coding.net/barretlee/myblog.git;
+	cd blog; npm install --registry=https://registry.npm.taobao.org
+	git remote add origin git@github.com:barretlee/blog.git;
 	git remote add ecoding git@e.coding.net:barretlee/blog.git
+	# git remote add coding https://git.coding.net/barretlee/myblog.git;
 
 # 清理工作
 clear:
 	rm -rf ${DRAFTS}*;
-	rm -rf ${BACKUPDRAFTS_BAC}*;
 
 # 打开 hexo 本地服务
 run:
@@ -83,19 +69,10 @@ endif
 	git add --all; \
 	git commit -am "backup"; \
 	git push ecoding master; \
-	git push coding master; \
 	git push origin master;
 
 # 备份内容
 backup:
-	# 备份 posts
-	- cp -f ${POSTS}* ${BACKUPPOSTS};
-	# 二次备份 posts
-	- cp -f ${POSTS}* ${BACKUPPOSTS_BAC};
-	# 备份 drafts
-	- cp -f ${DRAFTS}* ${BACKUPDRAFTS};
-	# 二次备份 drafts
-	- cp -f ${DRAFTS}* ${BACKUPDRAFTS_BAC};
 	# 备份到 google driver
 	- cp -f ${POSTS}* ${GOOGLE_DRIVER_BLOG};
 	- cp -rf ${POSTS_IMG} ${GOOGLE_DRIVER_BLOG_IMG};
@@ -103,7 +80,6 @@ ifneq (${P},)
 	# 参数中包含 push, 推到仓库中去备份
 	git add --all; \
 	git commit -am "backup"; \
-	git push coding master; \
 	git push ecoding master; \
 	git push origin master;
 endif
@@ -113,7 +89,6 @@ new:
 ifneq (${P},)
 	cd blog; \
 	rm src/_post/*-${N}.md; \
-	cp -f ${DRAFTS}* ${BACKUPDRAFTS_BAC}; \
 	rm src/_dratfs/{N}.md; \
 	hexo publish ${N};
 ifeq (${P}, run)
@@ -122,7 +97,6 @@ endif
 else
 ifneq (${N},)
 	touch ${DRAFTS}${N}.md; \
-	open ${WRITER}; \
 	node bin/startblog.js ${N};
 endif
 endif
