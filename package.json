@@ -16,8 +16,8 @@
   ],
   "author": "Barret Lee <barret.china@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
+  "dependency": {},
+  "devDependency": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "husky": "^3.0.9"
