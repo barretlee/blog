@@ -1,3 +1,4 @@
+---
 title: 提升结构化思考力
 description: 小胡子哥的个人网站
 warning: 'false'

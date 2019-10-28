@@ -1,3 +1,4 @@
+---
 title: 如何成为一名优秀的业务人员/工程师？
 description: 小胡子哥的个人网站
 warning: 'false'

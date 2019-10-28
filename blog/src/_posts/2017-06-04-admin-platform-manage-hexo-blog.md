@@ -1,3 +1,4 @@
+---
 title: 通过 admin 后台管理 hexo 博客
 description: >-
   为了能够方便管理博客，我自己写过一个简单的 Blog Writer，然后配合 MakeFile
