@@ -128,9 +128,9 @@ image_minifier:
   interlaced: false
   multipass: false
   optimizationLevel: 4
-  pngquant: true
+  pngquant: false
   progressive: false
-  silent: true
+  silent: false
 
 # for img lazyload
 lazyload:
