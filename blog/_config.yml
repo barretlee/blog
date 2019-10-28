@@ -71,10 +71,6 @@ theme: hexo-theme-moustache
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-# - type: git
-#   repository: git@git.coding.net:barretlee/myblog.git
-#   branch: coding-pages
-#   message: build at local, send to coding-pages {{ now("YYYY-MM-DD HH:mm:ss") }}
 - type: git
   repo: git@github.com:barretlee/blog.git
   branch: gh-pages
@@ -83,40 +79,6 @@ deploy:
   repo: git@e.coding.net:barretlee/blog.git
   branch: gh-pages
   message: build at local, send to gh-pages {{ now("YYYY-MM-DD HH:mm:ss") }}
-#- type: git
-  #repo: https://gitcafe.com/barretlee/blog.git
-  #branch: gitcafe-pages
-  #message: build at local, send to gitcafe-pages {{ now("YYYY-MM-DD HH:mm:ss") }}
-
-
-
-# - type: heroku
-#   repo:
-# - type: rsync
-#   host: <host>
-#   user: <user>
-#   root: <root>
-#   port: [port]
-#   delete: false
-#   verbose: true
-#   ignore_errors: false
-# - type: ftpsync
-#   host: <host>
-#   user: <user>
-#   pass: <password>
-#   remote: [remote]
-#   port: [port]
-#   ignore: [ignore]
-#   connections: [connections]
-#   verbose: [true|false]
-
-# hey Admin
-# admin:
-#   name: barretlee
-#   password: 
-#   secret: barret lee's secret
-#   expire: 60*1
-#   # cors: http://localhost:3000
 
 # hexo-admin authentification
 admin:
@@ -165,14 +127,14 @@ image_minifier:
   enable: true
   interlaced: false
   multipass: false
-  optimizationLevel: 2
-  pngquant: false
+  optimizationLevel: 4
+  pngquant: true
   progressive: false
   silent: true
 
 # for img lazyload
 lazyload:
-  enable: true 
+  enable: false 
   onlypost: true
   loadingImg: //img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png
 

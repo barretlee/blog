@@ -8,6 +8,7 @@ blogsources
 writer
 
 blog/node_modules
+scripts/check.json
 
 
 db.json

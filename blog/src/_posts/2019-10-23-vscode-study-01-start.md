@@ -11,7 +11,7 @@ date: 2019-10-23 19:38:00
 ---
 Visual Studio Code 是微软推出的一款轻量级编辑器，与它一起在市场争锋的相似软件还有 Atom 和 Sublime Text，面世第二年的它只占据 7% 左右的市场，后来在短短三年时间雄踞了半壁江山，不可谓不哇塞。
 
-![vscode-snapshot](/blogimgs/vscode-snapshot.png)
+![vscode-snapshot](/blogimgs/2019/10/23/vscode-snapshot.png)
 
 发育如此强势的软件，背后到底是如何设计的，未来一段时间，我将带着你一点一点拨开她的面纱，再撩开她的裙摆。
 
@@ -127,7 +127,7 @@ git clone --depth 1 https://github.com/microsoft/vscode.git
 
 构建完成以后，就可以执行命令打开 VSCode 的界面了，不过在打开之前，我意外地在 package.json 的 scripts 中发现，VSCode 竟然已经有 Web 版本了！！！
 
-![VSCode Web](/blogimgs/vscode-web.png)
+![VSCode Web](/blogimgs/2019/10/23/vscode-web.png)
 
 这比我之前的预期要早了很多，很早就听说他们内部团队在搞 Web 版本了，没想到这么快就要面世了。社区上有一个基于 VSCode 搞的 Web 版，叫 [Code-Server](https://github.com/cdr/code-server)，Star 量有好几万，估计官方的 Web 版出来以后，code-server 就要凉凉了。
 
@@ -149,7 +149,7 @@ git clone --depth 1 https://github.com/microsoft/vscode.git
 然后你就可以看到这样的界面了：
 
 
-![VSCode Client](/blogimgs/vscode-client.png)
+![VSCode Client](/blogimgs/2019/10/23/vscode-client.png)
 
 如果你是 windows 系统，执行的脚本应该是 `./script/code.bat`。
 

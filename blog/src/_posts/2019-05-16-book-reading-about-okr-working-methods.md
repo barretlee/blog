@@ -11,7 +11,7 @@ date: 2019-05-16 08:03:00
 ---
 花了两天功夫把 [《OKR 工作法》](https://www.amazon.cn/dp/B07577T3XS/ref=sr_1_1?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&keywords=okr%E5%B7%A5%E4%BD%9C%E6%B3%95&qid=1557965131&s=gateway&sr=8-1) 读了一遍，有一点收获，稍微记录下所思所想。
 
-![upload successful](/blogimgs/book-OKR.png)
+![upload successful](/blogimgs/2019/05/16/book-OKR.png)
 
 这本书内容并不多，前面几章通过一个创业故事让读者对 OKR 有一个整体的体感，后面两个章节，详细讲了 OKR 中 O 和 KR 具体的场景，应对的策略和背后的思考。
 
