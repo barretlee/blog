@@ -6,7 +6,7 @@
     "resolve-images": "node scripts/resolve-images.js",
     "resize-images": "node scripts/resize-images.js",
     "commitlint": "node ./node_modules/@commitlint/cli/lib/cli.js -E HUSKY_GIT_PARAMS",
-    "images-task": "npm run resolve-images; npm run resize-images"
+    "images-task": "npm run resolve-images;"
   },
   "repository": {
     "type": "git",
