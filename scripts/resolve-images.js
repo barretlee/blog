@@ -1,28 +1,16 @@
 var fs = require('fs');
 var path = require('path');
 var exexSync = require('child_process').execSync;
+var utils = require('./utils');
 
 var base = path.join(__dirname, "../blog/src/_posts/");
 var error = {};
 
-console.log(`开始检查 /blogimgs 目录`);
-travel(base, deal);
+console.log(`清理图片路径：开始检查 /blogimgs 目录`);
+utils.travel(base, deal);
 console.log(`检查完成\n`);
 
 fs.writeFileSync(path.join(__dirname, 'check.json'), JSON.stringify(error, null, 2));
-
-
-function travel(filePath, handler) {
-  fs.readdirSync(filePath).forEach(function (file) {
-    var file = path.join(filePath, file);
-    if (fs.statSync(file).isDirectory()) {
-      travel(file, handler);
-    } else {
-      handler(file);
-    }
-  });
-};
-
 
 function deal(file) {
   var DATE_REG = /(\d{4})-(\d{2})-(\d{2})/m;

@@ -18,7 +18,6 @@ before_install:
 - npm install -g hexo-cli
 # - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
 # - git submodule update --init --recursive
-- npm install
 - cd blog
 install:
 - npm install
