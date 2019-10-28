@@ -127,8 +127,8 @@ image_minifier:
   enable: true
   interlaced: false
   multipass: false
-  optimizationLevel: 4
-  pngquant: false
+  optimizationLevel: 2
+  pngquant: true
   progressive: false
   silent: false
 
