@@ -3,7 +3,7 @@
   "description": "Blog System Designed by Barret Lee.",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "resolve-images": "node scripts/resolve-images.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "npm run resolve-images",
       "commit-msg": "node ./node_modules/@commitlint/cli/lib/cli.js -E HUSKY_GIT_PARAMS"
     }
   },
