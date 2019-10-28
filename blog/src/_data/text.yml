@@ -46,7 +46,7 @@ st:
 
 # 工具列表
 tools:
-  JavaScript Parser: /tools/jsparser/
+  # JavaScript Parser: /tools/jsparser/
   RegExp-Learning in 30 Minutes: /tools/reg/
 
 # 实验室

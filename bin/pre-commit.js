@@ -3,20 +3,20 @@ var path = require('path');
 var exexSync = require('child_process').execSync;
 
 var base = path.join(__dirname, "./src/_posts/");
-var travel = function(filePath) {
+var travel = function(filePath, handler) {
   fs.readdirSync(filePath).forEach(function(file) {
     var file = path.join(filePath, file);
     if(fs.statSync(file).isDirectory()) {
-      travel(file);
+      travel(file, handler);
     } else {
-      deal(file);
+      handler(file);
     }
   });
 };
 
 
 var err = [];
-travel(base);
+travel(base, deal);
 console.log(err);
 
 

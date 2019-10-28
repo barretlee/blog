@@ -1,23 +1,17 @@
 .deploy_git
-build
-
-databackup/posts
-databackup/music
-blogsources
-themes/landscape
-preview/
-
 .idea
 node_modules
+
+build
+databackup
+blogsources
+writer
+
 blog/node_modules
 
-/demo
 
-/algorithm
 db.json
-
 *.log
 .sync
 
-./**/_config.yml
 nohup.out
