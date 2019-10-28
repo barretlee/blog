@@ -3,8 +3,7 @@
   "description": "Blog System Designed by Barret Lee.",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "commit": "node node_modules/@commitlint/prompt-cli/cli.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -28,7 +27,7 @@
   },
   "husky": {
     "hooks": {
-      "commitmsg": "node @commitlint/cli/lib/cli.js -E GIT_PARAMS"
+      "commit-msg": "node ./node_modules/@commitlint/cli/lib/cli.js -E HUSKY_GIT_PARAMS"
     }
   },
   "homepage": "https://github.com/barretlee/blog#readme"
