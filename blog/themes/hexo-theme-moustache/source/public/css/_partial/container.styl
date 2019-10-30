@@ -224,7 +224,7 @@ h1 {
 pre code {
   box-shadow: none;
 }
-blockquote {
+.post-content blockquote {
   padding: 25px 40px;
   background: #fbfbfb;
   border: 1px dashed #b9d5ff;
@@ -233,11 +233,11 @@ blockquote {
   margin-top: 42px;
   transition: border 0.5s;
 }
-blockquote:hover {
+.post-content blockquote:hover {
   border-style: solid;
   transition: border 0.5s;
 }
-blockquote::before {
+.post-content blockquote::before {
   content: "“";
   position: absolute;
   left: 8px;
@@ -247,7 +247,7 @@ blockquote::before {
   font-family: sans-serif;
   transition: color 0.5s;
 }
-blockquote:hover::before {
+.post-content blockquote:hover::before {
   color: #99c2ff;
   transition: color 0.5s;
 }
@@ -267,10 +267,10 @@ blockquote:hover::before {
 //   color: #FFF;
 //   font-size: 16px;
 // }
-blockquote p {
+.post-content blockquote p {
   font-size 16px;
 }
-blockquote p br {
+.post-content blockquote p br {
   display: block;
 }
 .post-content blockquote p {
