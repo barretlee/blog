@@ -1,6 +1,9 @@
 author: 小胡子哥 # Barret Lee
 author_en: Barret Lee
 
+source_edit: https://github.com/barretlee/blog/edit/master/blog/src/_posts/
+source_new: https://github.com/barretlee/blog/new/master/blog/src/_posts
+
 imgs:
   favicon: /favicon.ico
   avatar: /blogimgs/avatar.png

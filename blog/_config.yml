@@ -11,8 +11,6 @@ author: 小胡子哥 # Barret Lee
 language: zh-cn
 timezone: Asia/Shanghai
 
-imgCDN: 
-
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://www.barretlee.com
@@ -136,7 +134,7 @@ image_minifier:
 lazyload:
   enable: true
   onlypost: true
-  loadingImg: //img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png
+  imgCDN: 
 
 
 # webpack_config: 'themes/hexo-theme-moustache/webpack.config.js'
