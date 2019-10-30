@@ -1,6 +1,6 @@
 ### 小胡子个人网站
 
-[![小胡子哥](./blog/src/blogimgs/avatar150.png)](http://www.barretlee.com)
+<a href="http://www.barretlee.com" target="_blank"><img src="./blog/src/blogimgs/avatar150.png" width="150" /></a>
 
 博客地址: <http://www.barretlee.com>.
 
