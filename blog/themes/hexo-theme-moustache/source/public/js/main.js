@@ -1448,108 +1448,108 @@ $(function () {
   }
 })();
 
-;
-typeof history.pushState === 'function' && (function () {
-  // if(!$('html').hasAttr('loaded')) {
-  //     var href = window.location.href;
-  //     history.replaceState({
-  //         url: href
-  //     }, '', href);
-  // }
-  var href = window.location.href;
-  history.replaceState({
-    url: href
-  }, '', href);
-  var pageCache = window.pageCache = window.pageCache || {};
+// ;
+// typeof history.pushState === 'function' && (function () {
+//   // if(!$('html').hasAttr('loaded')) {
+//   //     var href = window.location.href;
+//   //     history.replaceState({
+//   //         url: href
+//   //     }, '', href);
+//   // }
+//   var href = window.location.href;
+//   history.replaceState({
+//     url: href
+//   }, '', href);
+//   var pageCache = window.pageCache = window.pageCache || {};
 
-  function pjax(url, tag) {
-    $('.post-content .music').size() && window._ap && window._ap.pause();
-    $('.wechat-info').remove();
-    if (!tag) {
-      history.pushState({
-        url: url
-      }, '', url);
-    }
-    if (pageCache[url]) {
-      return render(pageCache[url]);
-    }
-    // var loadingWords = ['伸个懒腰再来~', '打个呵欠再来~', '加载中...', '玩命加载中...', '同学，你很帅！', '这是 Pjax 效果；）', '不要问我这是啥!', '我在加载...', '客官稍等~', '欢迎继续踩点！', '我认识你！', '咱们是不是认识？', '这玩意儿有点意思！', '出 bug 了', '是否有帮到你？', '大家好，我是小胡子', '吃饭了么？'];
-    // var word = loadingWords[Math.floor(Math.random() * loadingWords.length)];
-    var loadLayer = '<div id="loadLayer" style="position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(255,255,255,0.8);text-align:center;line-height:400px;font-size:30px;z-index:82;display:none;">' + '玩命加载中...' + '</div>';
-    $(loadLayer).appendTo($('html')).fadeIn(300);
-    $.ajax({
-      url: url,
-      dataType: 'html',
-      timeout: 3000
-    }).then(function (data) {
-      try {
-        var title = data.match(/<title>([\s\S]*)<\/title>/mi)[1];
-        var description = data.match(/<meta name="description" content="([^\"]+?)"/mi)[1];
-        var body = data.match(/<body>([\s\S]*)<\/body>/mi)[1];
-      } catch (e) {
-        window.location.href = url;
-        return;
-      }
-      pageCache[url] = {
-        title: title,
-        description: description,
-        body: body
-      };
-      render(pageCache[url]);
-    }).fail(function () {
-      window.location.href = url;
-    });
-  }
+//   function pjax(url, tag) {
+//     $('.post-content .music').size() && window._ap && window._ap.pause();
+//     $('.wechat-info').remove();
+//     if (!tag) {
+//       history.pushState({
+//         url: url
+//       }, '', url);
+//     }
+//     if (pageCache[url]) {
+//       return render(pageCache[url]);
+//     }
+//     // var loadingWords = ['伸个懒腰再来~', '打个呵欠再来~', '加载中...', '玩命加载中...', '同学，你很帅！', '这是 Pjax 效果；）', '不要问我这是啥!', '我在加载...', '客官稍等~', '欢迎继续踩点！', '我认识你！', '咱们是不是认识？', '这玩意儿有点意思！', '出 bug 了', '是否有帮到你？', '大家好，我是小胡子', '吃饭了么？'];
+//     // var word = loadingWords[Math.floor(Math.random() * loadingWords.length)];
+//     var loadLayer = '<div id="loadLayer" style="position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(255,255,255,0.8);text-align:center;line-height:400px;font-size:30px;z-index:82;display:none;">' + '玩命加载中...' + '</div>';
+//     $(loadLayer).appendTo($('html')).fadeIn(300);
+//     $.ajax({
+//       url: url,
+//       dataType: 'html',
+//       timeout: 3000
+//     }).then(function (data) {
+//       try {
+//         var title = data.match(/<title>([\s\S]*)<\/title>/mi)[1];
+//         var description = data.match(/<meta name="description" content="([^\"]+?)"/mi)[1];
+//         var body = data.match(/<body>([\s\S]*)<\/body>/mi)[1];
+//       } catch (e) {
+//         window.location.href = url;
+//         return;
+//       }
+//       pageCache[url] = {
+//         title: title,
+//         description: description,
+//         body: body
+//       };
+//       render(pageCache[url]);
+//     }).fail(function () {
+//       window.location.href = url;
+//     });
+//   }
 
-  function render(data) {
-    var title = data.title;
-    var body = data.body;
-    var description = data.description;
-    $.getScript('/public/js/main.js');
-    $('script[src*="baidu"],script[src*="google"]').remove();
-    document.title = title || '小胡子哥的个人网站';
-    $('meta[name="description"]').attr('content', description);
-    $('body').html(body);
-    if (!window.location.hash) {
-      window.scrollTo(0, 0);
-    }
-    $('#loadLayer').remove();
-    $('.func-fb').find('span').text('关注').closest('a').next().remove();
-    if (/entry\/?$/.test(window.location.href) && $(".rightbar-frame iframe").size() == 0) {
-      operation.insertWeibo();
-    }
-    operation.reloadChangyan();
-    operation.wechat();
-    operation.runMusic();
-    $(window).trigger('load');
-    setTimeout(() => {
-      gitalk && gitalk.render('gitalk');
-      $(".footer-nav a").eq(0).trigger('click');
-    }, 5 * 1E3);
-  }
-  window.onpopstate = function (e) {
-    var currentState = e.state;
-    if (currentState) {
-      if (window.console && window.console.info) {
-        console.info('navigator back: ' + currentState.url);
-      }
-      pjax(currentState.url, 'GO');
-    }
-  };
-  $(function () {
-    $('a').on('click', function (evt) {
-      var href = $(this).prop('href');
-      var host = window.location.host;
-      var hasJump = $(this).prop('target') === '_blank';
-      if (href.indexOf(host) > -1 && href.indexOf('#') == -1 && !/^\/(ST|tools|pages)/i.test(location.pathname) && !$(this).parent('#indexLogo').size() && !/\.(jpg|jpeg|png|gif|js|css|woff|ttf)(\?.*)?$/.test(href) && !evt.metaKey && !evt.ctrlKey && !/rss2\.xml$/.test(href) && !hasJump) {
-        evt.preventDefault();
-        if (window.console && window.console.info) {
-          console.info('navigator: ' + href);
-        }
-        pjax(href);
-      }
-    });
-  });
+//   function render(data) {
+//     var title = data.title;
+//     var body = data.body;
+//     var description = data.description;
+//     $.getScript('/public/js/main.js');
+//     $('script[src*="baidu"],script[src*="google"]').remove();
+//     document.title = title || '小胡子哥的个人网站';
+//     $('meta[name="description"]').attr('content', description);
+//     $('body').html(body);
+//     if (!window.location.hash) {
+//       window.scrollTo(0, 0);
+//     }
+//     $('#loadLayer').remove();
+//     $('.func-fb').find('span').text('关注').closest('a').next().remove();
+//     if (/entry\/?$/.test(window.location.href) && $(".rightbar-frame iframe").size() == 0) {
+//       operation.insertWeibo();
+//     }
+//     operation.reloadChangyan();
+//     operation.wechat();
+//     operation.runMusic();
+//     $(window).trigger('load');
+//     setTimeout(() => {
+//       gitalk && gitalk.render('gitalk');
+//       $(".footer-nav a").eq(0).trigger('click');
+//     }, 5 * 1E3);
+//   }
+//   window.onpopstate = function (e) {
+//     var currentState = e.state;
+//     if (currentState) {
+//       if (window.console && window.console.info) {
+//         console.info('navigator back: ' + currentState.url);
+//       }
+//       pjax(currentState.url, 'GO');
+//     }
+//   };
+//   $(function () {
+//     $('a').on('click', function (evt) {
+//       var href = $(this).prop('href');
+//       var host = window.location.host;
+//       var hasJump = $(this).prop('target') === '_blank';
+//       if (href.indexOf(host) > -1 && href.indexOf('#') == -1 && !/^\/(ST|tools|pages)/i.test(location.pathname) && !$(this).parent('#indexLogo').size() && !/\.(jpg|jpeg|png|gif|js|css|woff|ttf)(\?.*)?$/.test(href) && !evt.metaKey && !evt.ctrlKey && !/rss2\.xml$/.test(href) && !hasJump) {
+//         evt.preventDefault();
+//         if (window.console && window.console.info) {
+//           console.info('navigator: ' + href);
+//         }
+//         pjax(href);
+//       }
+//     });
+//   });
 
   // if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
   //     roundScroll();
@@ -1566,7 +1566,7 @@ typeof history.pushState === 'function' && (function () {
   //       history.replaceState && history.replaceState({}, '', '#' + round[i % len]); i++;
   //     }, 120);
   // }
-})();
+// })();
 
 
 // 页面统计
