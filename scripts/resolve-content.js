@@ -12,6 +12,10 @@ console.log(`检查完成\n`);
 
 fs.writeFileSync(path.join(__dirname, 'check.json'), JSON.stringify(error, null, 2));
 
+var ymlPath = path.join(__dirname, '../blog/_config.yml');
+var ymlContent = fs.readFileSync(ymlPath).toString();
+fs.writeFileSync(ymlPath, ymlContent.replace(/image_minifier\:\n\s+enable:\s?false/, 'image_minifier:\n  enable: true'));
+
 function deal(file) {
   var DATE_REG = /(\d{4})-(\d{2})-(\d{2})/m;
   var IMG_REG = /\!\[([^\]]+?)\]\(([\s\S]+?)\)/g;

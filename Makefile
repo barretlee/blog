@@ -44,6 +44,7 @@ clear:
 
 # 打开 hexo 本地服务
 run:
+	sed -i '' '125s/true/false/' blog/_config.yml;
 ifneq (${F},)
 	cd blog; \
 	rm -rf ${DEPLOY_GIT}; \
