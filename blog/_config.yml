@@ -132,7 +132,7 @@ image_minifier:
 
 # for img lazyload
 lazyload:
-  enable: true
+  enable: false
   onlypost: true
   imgCDN: 
 
