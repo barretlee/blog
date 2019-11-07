@@ -3,7 +3,7 @@
 <div class="copyright" itemscope itemtype="http://schema.org/ProfilePage" tabindex="0" aria-hidden="true">
 	<!-- <a href="/about/#support" class="supportme">赏</a> -->
 	<ul>
-		<li>作者:  <a href="<%- url_for('about/') %>" itemprop="name"><%- theme.author %> (<%- theme.author_en %>)</a></li>
+		<li>作者:  <a href="<%- url_for('about/') %>" itemprop="name"><%- theme.author %></a></li>
 		<li>发表日期:  <%- moment(page.date).format('YYYY-MM-DD HH:mm:ss') %></li>
 		<li>文章分类: <%- partial('category', {post: page}) %></li>
 		<li>文章标签: <%- partial('tag', {post: page}) %></li>
