@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Barret李靖的个人网站
+title: 小胡子哥的个人网站
 title_en: Barret Lee's personal website
 subtitle: For Future, For Freedom.
 description: 想法，随笔，思考，感叹，瞬间，笔记...
@@ -86,7 +86,7 @@ admin:
   deployCommand: cd ..; make d; make b P=1;
 
 metadata:
-  description: Barret李靖的个人网站
+  description: 小胡子哥的个人网站
   warning: true
 
 search:
