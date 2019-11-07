@@ -181,7 +181,7 @@ Chromium 在启动的时候有一个可选参数 `--remote-debugging-port`, 加�
 
 ```js
 const wsUrl = "ws://127.0.0.1:9222/devtools/page/3CFC...";
-let ws = new WebSocket(url);
+let ws = new WebSocket(wsUrl);
 ws.onmessage = data => console.log(data);
 ws.onclose = () => console.log('closed');
 ws.onopen = () => console.log('opened');
