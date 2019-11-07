@@ -20,7 +20,7 @@ var params = {};
 
 if (params['share']) {
   $('html').addClass('shareMode');
-  $('<p style="color:#555;text-align:right; font-size:14px;" id="authorAppend">文 / 小胡子哥</p>').prependTo('.post-content');
+  $('<p style="color:#555;text-align:right; font-size:14px;" id="authorAppend">文 / Barret李靖</p>').prependTo('.post-content');
 } else {
   $('html').removeClass('shareMode');
   $('#authorAppend').remove();
