@@ -161,4 +161,4 @@ git clone --depth 1 https://github.com/microsoft/vscode.git
 
 本文主要通过傻瓜式地教学，给大家演示了下，如何将源码变成我们熟悉的 VSCode 客户端，相信同学们在动手的过程中还会遇到各种依赖安装问题，不要灰心，实在不行就 `rm -rf node_modules`，然后重试。
 
-下回再给大家讲述如何开发和调试 VSCode 的源码。
+下回再给大家讲述 [如何开发和调试 VSCode 的源码](https://www.barretlee.com/blog/2019/11/01/vscode-study-02-debugging/)。
