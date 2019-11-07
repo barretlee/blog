@@ -54,7 +54,7 @@
 			</p>
 			<span>
 				Posted by
-				<a href="<%- url_for('about/') %>"><%- theme.author_en %></a>
+				<a href="<%- url_for('about/') %>"><%- theme.author %></a>
 				at <a href="<%- url_for('/blog/categories/' + recentPost.category + "/") %>"><%- partial("../_partial/post/category", {post: recentPost}) %></a>
 				on <time><%- moment(recentPost.date).format("YYYY-MM-DD") %></time>
 				<a href="<%- url_for(recentPost.path) %>#comments">
