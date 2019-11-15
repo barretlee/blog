@@ -208,7 +208,7 @@ For help see https://nodejs.org/en/docs/inspector
 
 那这个 DAP 在调试的哪一层呢？我们可以看看这张图（[来源](https://microsoft.github.io/debug-adapter-protocol/overview)）：
 
-![DAP](/blogimgs/dap.png)
+![DAP](/blogimgs/2019/11/15/dap.png)
 
 在 IDE 上仅实现一次对 DAP 协议的通讯和 UI 适配，就可以调试所有的语言，你需要做的只有：
 
@@ -230,7 +230,7 @@ For help see https://nodejs.org/en/docs/inspector
 
 为了搞懂上面提到的几个协议，我动手写了一个 DEMO，实现了一个最简单的操作：展示当前 Debug 的堆栈信息，如下图所示：
 
-![Debug Demo](/blogimgs/debug-tracker.png)
+![Debug Demo](/blogimgs/2019/11/15/debug-tracker.png)
 
 > 仓库地址是：[barretlee/node-debug](https://github.com/barretlee/node-debug)
 
