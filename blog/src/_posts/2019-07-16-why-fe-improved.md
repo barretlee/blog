@@ -1,5 +1,5 @@
 ---
-title: 研发人员在整个市场已经趋于饱和，未来还会有更多的裁员和更加残酷的竞争？
+title: 前端领域的市场需求
 description: 小胡子哥的个人网站
 warning: 'false'
 author: 小胡子哥
