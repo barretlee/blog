@@ -33,7 +33,7 @@ date: 2016-05-20 12:01:20
 
 下图为该工具的一个结构图： 
 
-![Kindle Book Maker](/blogimgs/2016/05/20/TB1B_rJJVXXXXcvXXXXXXXXXXXX-809-584.png)<!--<source src="//img.alicdn.com/tfs/TB1B_rJJVXXXXcvXXXXXXXXXXXX-809-584.png">-->
+![Kindle Book Maker](http://www.barretlee.com/blogimgs/2016/05/20/TB1B_rJJVXXXXcvXXXXXXXXXXXX-809-584.png)<!--<source src="//img.alicdn.com/tfs/TB1B_rJJVXXXXcvXXXXXXXXXXXX-809-584.png">-->
 
 抓到数据后，工具会帮助分析过滤数据，尤其对 hexo 生成的文件做了特殊的处理，后续也会添加几个扩展功能（比如之间转换 markdown 文件），如果 html 中包含了远程内容——CSS、图片等——程序会全部抓取过来。
 

@@ -12,7 +12,7 @@ date: 2015-09-29 07:15:05
 
 Snippet 是一款代码片段收集工具，经过一天三夜的开发终于上线了。
 
-![Snippet应用](/blogimgs/2015/09/29/20150902_2774c376.jpg)
+![Snippet应用](http://www.barretlee.com/blogimgs/2015/09/29/20150902_2774c376.jpg)
 
 - 应用地址：[snippets.barretlee.com](http://snippets.barretlee.com)
 - 源码地址：[barretlee/snippets](//github.com/barretlee/snippets)
@@ -43,27 +43,27 @@ Snippet 是一款代码片段收集工具，经过一天三夜的开发终于上
 
 **1. 添加 snippet**
 
-![add snippet](/blogimgs/2015/09/29/20150902_469e5db8.jpg)
+![add snippet](http://www.barretlee.com/blogimgs/2015/09/29/20150902_469e5db8.jpg)
 
 进入页面之后，你可能看清楚了，左上角位置有个不是很明显的加号，点进去就会跑到 github 页面，由于是我的仓库，只有我能够直接编辑，其他人如果想添加代码段，需要 fork 过去之后，提交 PR，后续我会开发一个工具，方便其他人直接提交代码。
 
-![github add snippet](/blogimgs/2015/09/29/snippet.gif)
+![github add snippet](http://www.barretlee.com/blogimgs/2015/09/29/snippet.gif)
 
 新建文件夹十分方便，输入 `/foldName` 然后回车，github 就会自动建立一个文件夹，当然，如果文件夹存在，就会是进入文件夹。
 
 **2. 搜索 snippet**
 
-![search snippet](/blogimgs/2015/09/29/20150902_94f84521.jpg)
+![search snippet](http://www.barretlee.com/blogimgs/2015/09/29/20150902_94f84521.jpg)
 
 当我做完之后，发现找到一个自己收藏的 snippet 可真难，于是很自然的开发了一个搜索工具，搜索的范围是所有 snippet 的 title 名称，如果匹配到了就展示出来（当然，需要你点击 Enter 按钮）。
 
 **3. 编辑 snippet**
 
-![edit snippet](/blogimgs/2015/09/29/20150902_d775b963.jpg)
+![edit snippet](http://www.barretlee.com/blogimgs/2015/09/29/20150902_d775b963.jpg)
 
 这个快捷入口直达该 snippet 的编辑地址，可以线上编辑，commit 之后立即生效。
 
-![github editor](/blogimgs/2015/09/29/20150902_f7fa36e1.jpg)
+![github editor](http://www.barretlee.com/blogimgs/2015/09/29/20150902_f7fa36e1.jpg)
 
 这也是我为什么不使用 hexo 本地构建而使用 Jekyll 让 github 自动构建的目的（hexo 写插件用的语言是 nodejs，而 jekyll 是 ruby，所以各有利弊，本博客使用的就是 hexo 构建）。如果你喜欢这个 snippet ，可以点击编辑按钮左侧的小红心，哈哈~
 

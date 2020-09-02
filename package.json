@@ -34,5 +34,8 @@
       "commit-msg": "npm run commitlint"
     }
   },
-  "homepage": "https://github.com/barretlee/blog#readme"
+  "homepage": "https://github.com/barretlee/blog#readme",
+  "devDependencies": {
+    "yaml": "^1.10.0"
+  }
 }

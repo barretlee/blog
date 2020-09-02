@@ -40,7 +40,7 @@ Lazyload.prototype._detectElementIfInScreen = function() {
 
 这里主要用到了 `getBoundingClientRect` 这个函数，兼容性没话说，IE6 都兼容，他的作用是获取元素距离视窗上下左右的距离：
 
-![Chrome getBoundingClientRect](/blogimgs/2015/11/16/20151101_a1f44914.jpg)
+![Chrome getBoundingClientRect](http://www.barretlee.com/blogimgs/2015/11/16/20151101_a1f44914.jpg)
 
 配置了两个参数：
 

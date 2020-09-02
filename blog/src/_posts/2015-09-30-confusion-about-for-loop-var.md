@@ -65,7 +65,7 @@ var i;
 
 下面是 for 循环中包含 var 声明的执行流程：
 
-![ES5-12.6.3](/blogimgs/2015/09/30/20150903_d17189e4.jpg)
+![ES5-12.6.3](http://www.barretlee.com/blogimgs/2015/09/30/20150903_d17189e4.jpg)
 
 章节地址：<http://www.barretlee.com/ST/ES5.1/#sec-12.6.3>
 

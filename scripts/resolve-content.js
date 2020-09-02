@@ -2,6 +2,13 @@ var fs = require('fs');
 var path = require('path');
 var exexSync = require('child_process').execSync;
 var utils = require('./utils');
+var fs = require('fs');
+var path = require('path');
+var yaml = require('yaml');
+
+var configFilePath = path.join(__dirname, '../blog/_config.yml');
+var configYaml = fs.readFileSync(configFilePath).toString();
+var siteBase = yaml.parse(configYaml).url;
 
 var base = path.join(__dirname, "../blog/src/_posts/");
 var error = {};
@@ -38,7 +45,7 @@ function deal(file) {
     if ($2 === LOADING_IMG_URL) return $0;
     if ($2.indexOf('www.barretlee.com') > -1) {
       console.log('rename', $2);
-      var p = '/blogimgs/' + $2.split('/blogimgs/')[1];
+      var p = siteBase + '/blogimgs/' + $2.split('/blogimgs/')[1];
       return `![${$1}](${p})`;
     }
     if (!/\.(jpg|png|svg|gif|jpeg)$/.test($2)) {
@@ -84,7 +91,7 @@ function deal(file) {
       }
     }
     // TODO: replace $1;
-    return `![${$1}](/blogimgs/${imgDirPath}/${name})`;
+    return `![${$1}](${siteBase}/blogimgs/${imgDirPath}/${name})`;
   });
   if (content !== content2) {
     console.log('>>> rewrite', file);

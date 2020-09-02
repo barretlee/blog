@@ -23,7 +23,7 @@ date: 2016-04-01 20:11:00
 - <b>依赖系统过多</b>，数据的请求分为三块，其一是静态资源（如 js/css/image/iconfont 等）；其二是推到 CDN 的静态数据（如运营填写的数据、前端配置信息等）；其三是后端接口，不同的模块对应不同的业务，而且页面中还有不少的广告内容，粗略估计页面刚加载时首屏发出的接口请求就有 8 个，滚到最底下，得发出 20 多个请求。
 - <b>无法直接输出首屏数据</b>，首屏很多数据是通过异步请求获取的，由于系统限制，这些请求不可避免，而且请求个数较多，十分影响首屏时间。
 - <b>模块过多</b>，为了能够在后台隔离运营之间填写数据的权限，模块必须做细粒度的拆分，如下图所示：
-![多模块的拆分](/blogimgs/2016/04/01/TB1W6IyLVXXXXbQaXXXvLv21FXX-1846-1074.png_800x800.jpg)<!--<source src="http://gtms01.alicdn.com/tps/i1/TB1W6IyLVXXXXbQaXXXvLv21FXX-1846-1074.png_800x800.jpg">-->
+![多模块的拆分](http://www.barretlee.com/blogimgs/2016/04/01/TB1W6IyLVXXXXbQaXXXvLv21FXX-1846-1074.png_800x800.jpg)<!--<source src="http://gtms01.alicdn.com/tps/i1/TB1W6IyLVXXXXbQaXXXvLv21FXX-1846-1074.png_800x800.jpg">-->
 一个简单的模块必须拆分成多个行业小模块，页面中其他位置也是如此，而且这些被拆分出来的模块还不一定会展现出来，需要让算法告诉前端展示哪些模块。
 - <b>图片过多</b>，翻页往下滚动，很明显看到，页面整屏整屏的图片，有些图片是运营填写，有些图片由个性化接口提供，这些图片都没有固定的尺寸。
 
@@ -49,7 +49,7 @@ Load 时间可以用来衡量首屏加载中，客户端接受的信息总量，
 
 流畅度是对 FPS 的视觉反馈，FPS 值越高，视觉呈现越流畅。为了保障页面的加载速度，很多内容不会在页面打开的时候全部加载到客户端。这里提到的流畅度是等待过程中的视觉缓冲，如下方是 Google Plus 页面的一个效果图：
 
-![Google Plus Item](/blogimgs/2016/04/01/TB1CbQPLVXXXXauXFXXIrP49pXX-446-537.gif)<!--<source src="http://gtms04.alicdn.com/tps/i4/TB1CbQPLVXXXXauXFXXIrP49pXX-446-537.gif">-->
+![Google Plus Item](http://www.barretlee.com/blogimgs/2016/04/01/TB1CbQPLVXXXXauXFXXIrP49pXX-446-537.gif)<!--<source src="http://gtms04.alicdn.com/tps/i4/TB1CbQPLVXXXXauXFXXIrP49pXX-446-537.gif">-->
 
 墙内访问 google 的速度不是很快，上面元素中的的很多内容都是通过异步方式加载，而从上图可以看出 Google 并没有让用户产生等待的焦虑感。
 
@@ -166,15 +166,15 @@ window.requestNextAnimationFrame(function() {
 
 阿里 CDN 是支持对图片尺寸做压缩处理的，如下图为 200x200 尺寸的图片：
 
-![200x200](/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif)<!--<source src="//img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif">-->
+![200x200](http://www.barretlee.com/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif)<!--<source src="//img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif">-->
 
 加上 `_100x100.jpg` 的参数后，会变成小尺寸：
 
-![100x100](/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg)<!--<source src="//img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg">-->
+![100x100](http://www.barretlee.com/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg)<!--<source src="//img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg">-->
 
 我们知道 webp 格式的图片比对应的 jpg 要小三分之一，如上图加上 `_.webp` 参数后:
 
-![100x100 webp](/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg_.webp.jpg)<!--<source src="//img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg_.webp">-->
+![100x100 webp](http://www.barretlee.com/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg_.webp.jpg)<!--<source src="//img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg_.webp">-->
 （不支持 webp 格式的浏览器展示不出来这张图片）
 
 视觉效果并没有什么折扣，但是图片体积缩小了三分之一，图片越大，节省的越明显。显然，淘宝首页的所有图片都做了如上的限制，针对坑位大小对图片做压缩处理，只是这里需要注意的是，运营填写的图片可能已经是压缩过的，如：
@@ -277,7 +277,7 @@ offline.setItem('cache-moduleName', JSON.stringify(data), 1000 * 60 * 60 * 24);
 
 性能优化的切入角度不仅仅是上几个方面，对照 Chrome 的 Timeline 柱状图和折线图，我们可以找到几个优化的点：
 
-![淘宝首页 Chrome Timeline](/blogimgs/2016/04/01/TB1qwc6LVXXXXcnXXXX5W.tKFXX-1818-1096.png)<!--<source src="http://gtms02.alicdn.com/tps/i2/TB1qwc6LVXXXXcnXXXX5W.tKFXX-1818-1096.png">-->
+![淘宝首页 Chrome Timeline](http://www.barretlee.com/blogimgs/2016/04/01/TB1qwc6LVXXXXcnXXXX5W.tKFXX-1818-1096.png)<!--<source src="http://gtms02.alicdn.com/tps/i2/TB1qwc6LVXXXXcnXXXX5W.tKFXX-1818-1096.png">-->
 
 - 在 1.0s 左右存在一次 painting 阻塞，可能因为一次性展示的模块面积过大
 - 从 FPS 的柱状图可以看出，在 1.5s-2.0s 之间，存在几次 Render 和 JavaScript 丢帧

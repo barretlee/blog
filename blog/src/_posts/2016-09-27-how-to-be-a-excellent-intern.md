@@ -13,7 +13,7 @@ description: 最近看到有几个同事准备着转正，想借此机会聊一�
 
 <!--more-->
 
-![intern](/blogimgs/2016/09/27/6c0378f8gw1f87ht68ivnj20p00dwjv5.jpg)<!--<source src="http://ww2.sinaimg.cn/large/6c0378f8gw1f87ht68ivnj20p00dwjv5.jpg">-->
+![intern](http://www.barretlee.com/blogimgs/2016/09/27/6c0378f8gw1f87ht68ivnj20p00dwjv5.jpg)<!--<source src="http://ww2.sinaimg.cn/large/6c0378f8gw1f87ht68ivnj20p00dwjv5.jpg">-->
 
 ### 公司为什么需要实习生
 

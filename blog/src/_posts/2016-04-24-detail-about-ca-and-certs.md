@@ -62,15 +62,15 @@ OV 和 EV 证书相当昂贵，使用方可以为这些颁发出来的证书买�
 
 前文 [HTTPS证书生成原理和部署细节](http://www.barretlee.com/blog/2015/10/05/how-to-build-a-https-server/) 提到如果本地生成公/私钥对和对应未签证的证书，如果使用的证书没有签证，或者未在浏览器受信的 CA 签证，你会看到下图的问题：
 
-![net:ERR_CERT_AUTHORITY_INVALID](/blogimgs/2016/04/24/6c0378f8gw1f36o0231kaj20fh0dd0ti.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f36o0231kaj20fh0dd0ti.jpg">-->
+![net:ERR_CERT_AUTHORITY_INVALID](http://www.barretlee.com/blogimgs/2016/04/24/6c0378f8gw1f36o0231kaj20fh0dd0ti.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f36o0231kaj20fh0dd0ti.jpg">-->
 
 上图出现的错误是 `net:ERR_CERT_AUTHORITY_INVALID`，我们生成证书和公/私钥对的流程都是正确的，但是浏览器不认这张证书，并且提示证书授权不通过；如果通过其他与 Common Name 不同的域名去访问，如我注册的时候使用的 `localhost`，但是访问的时候用的 `127.0.0.1`，还会报出这样的错误：
 
-![net:ERR_CERT_COMMON_NAME_INVALID](/blogimgs/2016/04/24/6c0378f8gw1f36o3s81yfj20lk0dw75v.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f36o3s81yfj20lk0dw75v.jpg">-->
+![net:ERR_CERT_COMMON_NAME_INVALID](http://www.barretlee.com/blogimgs/2016/04/24/6c0378f8gw1f36o3s81yfj20lk0dw75v.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f36o3s81yfj20lk0dw75v.jpg">-->
 
 错误码为 `net:ERR_CERT_COMMON_NAME_INVALID`，意思是 Common Name 不匹配，具体校验流程可以在浏览器的 DevTools 中看到：
 
-![DevTools](/blogimgs/2016/04/24/6c0378f8gw1f36o5lmwxdj20og0cmdhb.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f36o5lmwxdj20og0cmdhb.jpg">-->
+![DevTools](http://www.barretlee.com/blogimgs/2016/04/24/6c0378f8gw1f36o5lmwxdj20og0cmdhb.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f36o5lmwxdj20og0cmdhb.jpg">-->
 
 从上面几张图，可以大致了解 CA 和证书会做哪些事情，证书由域名、公司信息、序列号和签名信息组成，当我们通过 HTTPS 访问页面时，浏览器会主动验证证书信息是否匹配，也会验证证书是否有效。
 
@@ -405,11 +405,11 @@ https.createServer(options, function(req, res) {
 
 可以看到这样的效果：
 
-![小绿锁出来了](/blogimgs/2016/04/24/6c0378f8gw1f373ltah7zj20oc09aaan.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f373ltah7zj20oc09aaan.jpg">-->
+![小绿锁出来了](http://www.barretlee.com/blogimgs/2016/04/24/6c0378f8gw1f373ltah7zj20oc09aaan.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f373ltah7zj20oc09aaan.jpg">-->
 
 查看证书的详细信息：
 
-![证书的详细信息](/blogimgs/2016/04/24/6c0378f8gw1f373mf9bpfj20qw0u6n3d.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f373mf9bpfj20qw0u6n3d.jpg">-->
+![证书的详细信息](http://www.barretlee.com/blogimgs/2016/04/24/6c0378f8gw1f373mf9bpfj20qw0u6n3d.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f373mf9bpfj20qw0u6n3d.jpg">-->
 
 回到最初的问题：
 
@@ -429,7 +429,7 @@ SNI 就是用来解决这个问题的，官方解释是
 
 - 使用 VIP 服务器，每个域名对应一个 VIP，然后 VIP 与统一接入服务对接，通过 ip 来分发证书，不过运维成本很高，可能也需要大量的 VIP 服务器
 - 采用多泛域名，将多个泛域名证书打包进一个证书，可以看看 [淘宝](//www.taobao.com) 页面的证书
-![taobao cert](/blogimgs/2016/04/24/6c0378f8gw1f3740ay3glj210g15kqcf.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f3740ay3glj210g15kqcf.jpg">-->
+![taobao cert](http://www.barretlee.com/blogimgs/2016/04/24/6c0378f8gw1f3740ay3glj210g15kqcf.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f3740ay3glj210g15kqcf.jpg">-->
 它的缺点是每次添加域名都需要更新证书。
 
 ### 几个细节知识点
