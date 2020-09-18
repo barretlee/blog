@@ -225,6 +225,7 @@ var isMobile = {
 var operation = {
   init: function () {
     var $this = this;
+    this.forceShowLazyloadImages();
     this.wechat();
     this.fontChange();
     this.toTop();
@@ -239,6 +240,19 @@ var operation = {
     //   }, 3E3);
     // });
     this.initSearch();
+  },
+  forceShowLazyloadImages: function() {
+    if (this._forceShowImageTimer) clearTimeout(this._forceShowImageTimer);
+    this._forceShowImageTimer = setTimeout(() => {
+      document.querySelectorAll('.post-content img[data-original]').forEach(function(item) {
+        const src = item.getAttribute('src');
+        if (src && src.indexOf('//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png') > -1) {
+          const original = item.getAttribute('data-original');
+          console.log('Load Image: %s', original);
+          item.setAttribute('src', original);
+        }
+      });
+    }, 10E3);
   },
   runMusic: function () {
     var $box = $('.post-content .music');
