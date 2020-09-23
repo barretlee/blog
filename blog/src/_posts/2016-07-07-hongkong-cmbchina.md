@@ -15,7 +15,7 @@ date: 2016-07-07 19:44:39
 
 ![香港招行一卡通](http://www.barretlee.com/blogimgs/2016/07/07/TB1oXtxKVXXXXXDXVXXXXXXXXXX-581-431.png)<!--<source src="//img.alicdn.com/tfs/TB1oXtxKVXXXXXDXVXXXXXXXXXX-581-431.png">-->
 
-这张卡有什么用，[这篇豆瓣帖子](//www.douban.com/group/topic/36627938/) 可以解决你的疑惑。简单来说，你要把国内的钱放到香港或者国外花，你需要有类似的卡；你要把国外的钱转到国内，你依然需要类似的卡。它的作用就是抹除货币通行差异。没学过经济学和相关知识，以上是我的浅薄理解。
+这张卡有什么用，[这篇豆瓣帖子](//www.douban.com/group/topic/36627938/) 可以解决你的疑惑。
 
 <!--more-->
 
