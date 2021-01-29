@@ -666,11 +666,11 @@ var operation = {
 
       $(".nav-detail>div").hide().eq(index).fadeIn();
     });
-    setTimeout(() => {
-      if (!$(".footer-nav a").eq(0).attr('id') !== 'comments') {
-        $(".footer-nav a").eq(0).trigger("click");
-      }
-    }, 6 * 1E3);
+//     setTimeout(() => {
+//       if (!$(".footer-nav a").eq(0).attr('id') !== 'comments') {
+//         $(".footer-nav a").eq(0).trigger("click");
+//       }
+//     }, 6 * 1E3);
     $(".relative-to-comment").on("click", function () {
       $(".footer-nav a").eq(0).trigger("click");
     });
