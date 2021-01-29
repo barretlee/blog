@@ -32,7 +32,6 @@ a = {"x":3};
 console.log(b.x);
 a.x == 4;
 console.log(b.x);
-
 ```
 
 <p>　　算是比较基础，但是b.x的结果是多少，你就别弄错了。</p>
