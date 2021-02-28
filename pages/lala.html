@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>这是一个测试页面 | 小胡子哥的个人网站</title><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0"><meta name="author" content="https://plus.google.com/112634278852964994392?hl=zh-cn"><meta name="email" content="barret.china@gmail.com"><meta name="description" content="代码演示：var barret = function() &amp;#123;  console.log(&#39;barret&#39;);&amp;#125;;barret();接口说明：name, 这是名字age, 这是年龄@__@document.write(1)@__@http://barretlee.com"><meta property="og:type" content="article"><meta property="og:title" content="这是一个测试页面 | 小胡子哥的个人网站"><meta property="og:url" content="http://www.barretlee.com/pages/lala.html"><meta property="og:site_name" content="这是一个测试页面"><meta property="og:description" content="代码演示：var barret = function() &amp;#123;  console.log(&#39;barret&#39;);&amp;#125;;barret();接口说明：name, 这是名字age, 这是年龄@__@document.write(1)@__@http://barretlee.com"><meta name="generator" content="https://hexo.io"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><link href="http://www.barretlee.com/blogimgs/app-icon.png" rel="apple-touch-icon-precomposed"><link rel="shoticon" href="http://www.barretlee.com/favicon.ico" type="image/x-icon"><link rel="alternate" type="application/rss+xml" href="http://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站"><link rel="start" href="http://www.barretlee.com/entry/" title="Blog Entry"><link rel="stylesheet" href="/public/css/style.css?v=20191101"></head></html><body><div class="rainbow"></div><div class="normal-page-header"><div class="normal-page-header-wrapper"><a class="normal-page-logo" href="/entry/" target="_blank"><img src="/blogimgs/avatar150.png" alt="小胡子哥"> <b>小胡子哥的个人网站</b></a><ul class="nomal-page-nav"><li><a href="/entry/">博客</a></li><li><a href="/about/">关于</a></li></ul></div></div><div class="normal-page-content post-content"><div class="normal-page-info"><h4><a href="http://barretlee.com" class="normal-page-origin" target="_blank">原文地址</a> 这是一个测试页面</h4><div class="post-info"><span>作者: <a href="/about/">Barret李靖</a></span> <span><time itemprop="timeCreated" aria-hidden="true">2017-06-03 20:39:07</time> <span class="aria-readonly">本文发布时间为2017年06月03日20时39分07秒</span> </span><span class="aria-readonly">下面是正文内容</span> <span tabindex="0" aria-hidden="true">评论数: <a href="#comments" class="ds-thread-count hash-to-comments disqus-comment-count" data-thread-key="pages/lala.html" data-disqus-identifier="pages/lala.html" id="changyan_count_unit"></a></span> <span tabindex="0" aria-hidden="true" id="busuanzi_container_site_pv">热度: <span id="busuanzi_value_page_pv"></span></span></div></div><hr class="normal-page-seperator"><div class="normal-page-ctt-wrapper"><div class="normal-page-body"><div class="normal-page-body-wrapper"><p><strong>代码演示：</strong></p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> barret = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'barret'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">barret();</span><br></pre></td></tr></table></figure><p><strong>接口说明：</strong></p><ul><li><code>name</code>, 这是名字</li><li><code>age</code>, 这是年龄</li></ul><p></p></div></div><hr class="normal-page-seperator hide"><div class="normal-page-result"><div class="normal-page-result-wrapper"><script>document.write(1)</script></div></div></div><hr class="normal-page-seperator normal-page-seperator-left"></div><div class="normal-page-footer"><div id="gitalk" sid="pages/lala.html"></div><script charset="utf-8" type="text/javascript" src="/public/js/gitalk.js"></script><script type="text/javascript">var postContent = document.querySelectorAll('.post-content>p');
+  if (postContent && postContent.length) {
+    postContent = postContent.item(0).textContent + postContent.item(1).textContent;
+    postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
+  }
+
+  var gitalk = new Gitalk({
+    clientID: '50a1b3aa7854b01a1c85',
+    clientSecret: '226ac154f80a6aea0985da874126b35795f22eed',
+    language: "zh-CN",
+    perPage: 100,
+    createIssueManually: false,
+    repo: 'blog',
+    owner: 'barretlee',
+    admin: ['barretlee'],
+    id: "pages/lala.html",
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent || header.meta[description],
+    distractionFreeMode: false
+  });
+
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      gitalk.render('gitalk');
+    }, 2E3);
+  });
+
+  // show count
+  var commentTimer = setInterval(() => {
+    var count = document.querySelector('.gt-link-counts');
+    var showCount = document.querySelector('.hash-to-comments');
+    if (count && showCount) {
+      showCount.textContent = count.textContent;
+      clearInterval(commentTimer);
+    }
+  }, 500);
+  setTimeout(() => {
+    clearInterval(commentTimer);
+  }, 60 * 1E3);</script><div class="website-info" aria-hidden="true"><a class="page_editor" href="/admin/#/" target="_blank">🙈</a> <span>&copy;2013-2021 <small><a href="http://www.miitbeian.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span> 本站由 <a href="/">Barret李靖</a> 纯手工打造 | <a href="/about#contact">联系方式</a> | 总热度：<em id="busuanzi_value_site_pv"></em> <a href="https://union.zhaodao.ai/#random" title="随机跳转到一个有意思的网站" target="_blank" class="zhidao_ai"><img src="https://union.zhaodao.ai/icon.black.svg" width="20" height="20"></a></div><span class="local-search local-search-google local-search-plugin" style="position:absolute;right:20px;top:30px;top:10px"><input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="opacity:1"> <i class="icon" aria-hidden="true" title="点击进入 Google 搜索">&#x2708;</i><div id="local-search-result" class="local-search-result-cls"></div></span></div></body><script src="/public/js/jquery.js"></script><script src="/public/js/socket.io.js"></script><script>window.onerror=function(o){return window.console&&window.console.log&&window.console.log(o),$("#loadLayer").remove(),!0}</script><script src="/public/js/aplayer.js"></script><script src="/public/js/main.js?v=20191101"></script>

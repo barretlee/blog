@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><title>message | 小胡子哥的个人网站</title><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0"><meta name="author" content="https://plus.google.com/112634278852964994392?hl=zh-cn"><meta name="email" content="barret.china@gmail.com"><meta name="description" content="message page: /message/index.html"><meta property="og:type" content="article"><meta property="og:title" content="message | 小胡子哥的个人网站"><meta property="og:url" content="http://www.barretlee.com/message/index.html"><meta property="og:site_name" content="message"><meta property="og:description" content="message page: /message/index.html"><meta name="generator" content="https://hexo.io"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><link href="http://www.barretlee.com/blogimgs/app-icon.png" rel="apple-touch-icon-precomposed"><link rel="shoticon" href="http://www.barretlee.com/favicon.ico" type="image/x-icon"><link rel="alternate" type="application/rss+xml" href="http://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站"><link rel="start" href="http://www.barretlee.com/entry/" title="Blog Entry"><link rel="stylesheet" href="/public/css/style.css?v=20191101"></head></html><body><div class="rainbow"></div><div class="container message"><div class="cate-wraper post"><h2><a href="/rss2.xml" class="web-feed" title="RSS订阅" target="_blank" aria-hidden="true"><i class="func-rss icon">&#x25c8;</i></a> <a href="/" tabindex="0" aria-label="回到小胡子哥首页导航">Barret李靖</a> <font aria-hidden="true">» 留言</font> <em class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾<ul role="group" aria-labelledby="i1" aria-expanded="false"><li><a href="/entry/">博客</a></li><li><a href="/translation/">翻译</a></li><li><a href="/message/">留言</a></li><li><a href="/demo/">实验室</a></li><li><a href="/friends/">友情链接</a></li></ul></em></h2><p></p><p>Hi，大家好，我是李靖，网名小胡子哥（Barret Lee），</p><p>如果你有什么问题，可以在这里提出来，欢迎交流~</p><p>P.S: 淘宝技术部招人，如果你感兴趣，可以把简历发到 barret.china(at)gmail.com .</p><p>:-）</p><p></p><div style="margin:40px 0"><div class="secretCircle hide"><a href="https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=4512888248&secret=pqswxhb8fni6t9imw1j9ewb77hv5ks70&extra=afbdcd6a4cee551edc3b9a2cff7cedb2410e735bd4119ff43bd8975088283608" target="_blank"><img src="/circle.jpg" alt="前端进阶小圈子"></a><p>嗯，我新建了一个「前端进阶」的小圈子。</p><p>最近找我提问的人数飙涨的厉害，精力有限没能都回复。建了一个圈子，这个圈子里可以提问，关于前端成长和进阶的话题，我会抽空回答，也会邀请一些前端朋友进来交流，问答会沉淀在圈子里。<b>付费圈子，时限一年。</b></p><p><a href="https://wx.xiaomiquan.com/mweb/views/joingroup/join_group.html?group_id=4512888248&secret=pqswxhb8fni6t9imw1j9ewb77hv5ks70&extra=afbdcd6a4cee551edc3b9a2cff7cedb2410e735bd4119ff43bd8975088283608" target="_blank">在这里</a>，你可以：</p><ul><li>✅ 提出你在前端学习中的疑问，</li><li>✅ 谈谈你学习的方法和经验，</li><li>✅ 了解前端，深入前端</li></ul><p>在这里，更加注重方法论的交流。</p><strong>付费圈子，时限一年</strong></div></div><div id="gitalk" sid="message/index.html"></div><script charset="utf-8" type="text/javascript" src="/public/js/gitalk.js"></script><script type="text/javascript">var postContent = document.querySelectorAll('.post-content>p');
+  if (postContent && postContent.length) {
+    postContent = postContent.item(0).textContent + postContent.item(1).textContent;
+    postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
+  }
+
+  var gitalk = new Gitalk({
+    clientID: '50a1b3aa7854b01a1c85',
+    clientSecret: '226ac154f80a6aea0985da874126b35795f22eed',
+    language: "zh-CN",
+    perPage: 100,
+    createIssueManually: false,
+    repo: 'blog',
+    owner: 'barretlee',
+    admin: ['barretlee'],
+    id: "message/index.html",
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent || header.meta[description],
+    distractionFreeMode: false
+  });
+
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      gitalk.render('gitalk');
+    }, 2E3);
+  });
+
+  // show count
+  var commentTimer = setInterval(() => {
+    var count = document.querySelector('.gt-link-counts');
+    var showCount = document.querySelector('.hash-to-comments');
+    if (count && showCount) {
+      showCount.textContent = count.textContent;
+      clearInterval(commentTimer);
+    }
+  }, 500);
+  setTimeout(() => {
+    clearInterval(commentTimer);
+  }, 60 * 1E3);</script><div class="website-info" aria-hidden="true"><a class="page_editor" href="/admin/#/" target="_blank">🙈</a> <span>&copy;2013-2021 <small><a href="http://www.miitbeian.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span> 本站由 <a href="/">Barret李靖</a> 纯手工打造 | <a href="/about#contact">联系方式</a> | 总热度：<em id="busuanzi_value_site_pv"></em> <a href="https://union.zhaodao.ai/#random" title="随机跳转到一个有意思的网站" target="_blank" class="zhidao_ai"><img src="https://union.zhaodao.ai/icon.black.svg" width="20" height="20"></a></div></div></div><div class="sidebar" tabindex="0" aria-hidden="true"><div class="func-btns func-btns-up"><span class="func-item"><i class="func-nav icon">&#xe618;<span>目录</span></i><div><i class="left-arrow"></i><i class="left-arrow-clone"></i> <a href="javascript:void(0);" onclick="return!1">显示目录</a></div></span><span class="func-item"><i class="func-font icon">&#xe604;<span>夜间</span></i><div class="font-choose-box"><i class="left-arrow"></i><i class="left-arrow-clone"></i><div class="font-choose bg-choose"><a href="javascript:void(0)" onclick="return!1" class="bg-type bg-type-sun font-type-song"><i class="icon">&#xe61a;</i></a> <a href="javascript:void(0)" onclick="return!1" class="bg-type bg-type-moon font-type-hei"><i class="icon">&#xe619;</i></a></div></div></span><span class="func-item"><a href="http://weibo.com/173248656" target="_blank"><i class="func-fb icon">博<span>分享</span></i></a><div><i class="left-arrow"></i><i class="left-arrow-clone"></i><p class="seperator sharecanvas"><a href="javascript: void(0);">微博分享</a></p><p><a href="http://weibo.com/173248656" target="_blank">微博关注</a></p></div></span><span class="func-item"><i class="func-about icon">&#x263b;<span>关于</span></i><div><i class="left-arrow"></i><i class="left-arrow-clone"></i><p><a href="/about/" class="func-about-link" target="_blank">关于作者</a></p><div id="followMeOnWeibo"></div></div></span></div><div class="func-btns"><span class="func-item"><a href="http://demo.barretlee.com" target="_blank"><i class="func-rss icon">&#xe603;<span>实验</span></i></a><div><i class="left-arrow"></i><i class="left-arrow-clone"></i><p class="seperator"><a href="http://demo.barretlee.com" target="_blank">Demo平台</a></p><p class="seperator"><a href="http://md.barretlee.com" target="_blank">WX格式</a></p><p><a href="http://snippets.barretlee.com" target="_blank">Snippet应用</a></p></div></span><span class="func-item"><a href="/friends/" target="_blank"><i class="func-rss icon">&#xe601;<span>链接</span></i></a><div><i class="left-arrow"></i><i class="left-arrow-clone"></i> <a href="/friends/" target="_blank">友情链接</a></div></span><span class="func-item"><a href="/rss2.xml" target="_blank"><i class="func-rss icon">&#x25c8;<span>订阅</span></i></a><div><i class="left-arrow"></i><i class="left-arrow-clone"></i><a href="/rss2.xml" target="_blank">订阅我吧！</a></div></span></div></div></body><script src="/public/js/jquery.js"></script><script src="/public/js/socket.io.js"></script><script>window.onerror=function(o){return window.console&&window.console.log&&window.console.log(o),$("#loadLayer").remove(),!0}</script><script src="/public/js/aplayer.js"></script><script src="/public/js/main.js?v=20191101"></script>
