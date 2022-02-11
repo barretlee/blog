@@ -33,7 +33,7 @@ goroot:
 
 # 初始化,执行 npm install
 init:
-	cd blog; npm install --registry=https://registry.npm.taobao.org
+	cd blog; npm install --registry=https://registry.npmmirror.com
 	git remote add origin git@github.com:barretlee/blog.git;
 	git remote add ecoding git@e.coding.net:barretlee/blog.git
 	# git remote add coding https://git.coding.net/barretlee/myblog.git;
