@@ -42,9 +42,9 @@ jobs:
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
 
-      - name: Test connection
-        run: |
-          ssh -vvvT git@github.com
+      # - name: Test connection
+      #   run: |
+      #     ssh -vvvT git@github.com
           
       - name: Install dependencies
         run: |
