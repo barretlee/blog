@@ -44,7 +44,7 @@ jobs:
 
       - name: Test connection
         run: |
-          ssh -T git@github.com
+          ssh -vvvT git@github.com
           
       - name: Install dependencies
         run: |
