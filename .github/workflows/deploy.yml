@@ -37,12 +37,17 @@ jobs:
           sudo timedatectl set-timezone "Asia/Shanghai"
           mkdir -p ~/.ssh/
           echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
+          chmod 777 ~/.ssh/id_ed25519
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
-          ssh -T git@github.com
 
+      - name: Add ssh-key
+        run: |
+          ssh-agent bash
+          ssh-add ~/.ssh/*
+          ssh -T git@github.com
+          
       - name: Install dependencies
         run: |
           npm install
