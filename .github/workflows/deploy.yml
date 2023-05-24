@@ -38,14 +38,18 @@ jobs:
           mkdir -p ~/.ssh/
           echo "$HEXO_DEPLOY_PRI" > ~/.ssh/github_deploy
           chmod 600 ~/.ssh/github_deploy
-          ssh-add ~/.ssh/github_deploy
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
-          ssh -T git@github.com
+
+      - name: Start ssh-agent
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.HEXO_DEPLOY_PRI }}
 
       - name: Install dependencies
         run: |
+          ssh -T git@github.com
           npm install
         working-directory: blog
 
