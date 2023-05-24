@@ -45,7 +45,7 @@ jobs:
       - name: Test connection
         run: |
           echo start
-          echo $HEXO_DEPLOY_PRI
+          cat ~/.ssh/id_ed25519
           echo end
           ssh -vvvT git@github.com
           
