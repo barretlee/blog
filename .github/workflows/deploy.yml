@@ -44,9 +44,6 @@ jobs:
 
       - name: Test connection
         run: |
-          echo start
-          cat ~/.ssh/id_ed25519
-          echo end
           ssh -vvvT git@github.com
           
       - name: Install dependencies
