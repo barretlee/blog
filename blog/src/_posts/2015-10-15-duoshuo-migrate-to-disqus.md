@@ -1,6 +1,6 @@
 ---
 title: 三步，将多说评论迁移到 disqus
-description: '关于多说，我不想多说什么，看看这两篇文章 http://www.barretlee.com/blog/2015/09/15/hei-duoshuo-what-is-wrong/ //imququ.com/post/back-to-disqus.html'
+description: '关于多说，我不想多说什么，看看这两篇文章 https://www.barretlee.com/blog/2015/09/15/hei-duoshuo-what-is-wrong/ //imququ.com/post/back-to-disqus.html'
 warning: true
 categories:
   - 工具
@@ -13,7 +13,7 @@ date: 2015-10-15 15:59:57
 
 关于多说，我不想多说什么，看看这两篇文章：
 
-- [嘿，多说，你咋了？要不咱换成 DISQUS 吧~](http://www.barretlee.com/blog/2015/09/15/hei-duoshuo-what-is-wrong/)
+- [嘿，多说，你咋了？要不咱换成 DISQUS 吧~](https://www.barretlee.com/blog/2015/09/15/hei-duoshuo-what-is-wrong/)
 - [Disqus，我又回来了！](//imququ.com/post/back-to-disqus.html)
 
 <!--more-->

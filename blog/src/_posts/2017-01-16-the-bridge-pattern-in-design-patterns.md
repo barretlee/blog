@@ -13,7 +13,7 @@ description: 桥接模式（Bridge Pattern），也有很多地方称之为桥�
 
 桥接模式（Bridge Pattern），也有很多地方称之为桥连模式，不管怎么叫，记得有个桥（bridge）就行了，重点要理解这个「桥」是如何连接的，什么场景下需要使用桥接模式。
 
-![by James Besser @https://unsplash.com/search/bridge?photo=fCCnUAGJrUQ](http://www.barretlee.com/blogimgs/2017/01/16/6c0378f8gw1fbsrsfhduuj20p00dw776.jpg)<!--<source src="http://ww3.sinaimg.cn/large/6c0378f8gw1fbsrsfhduuj20p00dw776.jpg">-->
+![by James Besser @https://unsplash.com/search/bridge?photo=fCCnUAGJrUQ](https://www.barretlee.com/blogimgs/2017/01/16/6c0378f8gw1fbsrsfhduuj20p00dw776.jpg)<!--<source src="http://ww3.sinaimg.cn/large/6c0378f8gw1fbsrsfhduuj20p00dw776.jpg">-->
 
 <!--more-->
 

@@ -16,7 +16,7 @@ date: 2017-04-01 12:00:02
 
 HSTS 的作用是为了在用户通过 HTTP 访问网站时不需要服务器做 301/302 跳转，直接一个 307 本地强制使用 HTTPS 访问网站，这可以防止用户在第一次发出请求时被劫持，也减少了一次请求。
 
-![secure](http://www.barretlee.com/blogimgs/2017/04/01/TB1xL5RQpXXXXXIXpXXXXXXXXXX-900-500.jpg)<!--<source src="https://img.alicdn.com/tfs/TB1xL5RQpXXXXXIXpXXXXXXXXXX-900-500.jpg">-->
+![secure](https://www.barretlee.com/blogimgs/2017/04/01/TB1xL5RQpXXXXXIXpXXXXXXXXXX-900-500.jpg)<!--<source src="https://img.alicdn.com/tfs/TB1xL5RQpXXXXXIXpXXXXXXXXXX-900-500.jpg">-->
 
 <!--more-->
 
@@ -40,7 +40,7 @@ HSTS 的设置时间一般都不短，而内置到 Chrome 中的 HSTS Preload Li
 - Delete domain，将手动或者 Nginx 设置了 HSTS 的域名从浏览器删除，也就是上面问题的处理方案，但这里是删不掉内置到 HSTS Preload List 的域名的
 - Query domain，我就是从这里查到 BAT/GTF 这 6 个网站是否加入到 Preload 的
 
-![删除](http://www.barretlee.com/blogimgs/2017/04/01/TB1VHKtQpXXXXajaXXXXXXXXXXX-532-102.png)<!--<source src="https://img.alicdn.com/tfs/TB1VHKtQpXXXXajaXXXXXXXXXXX-532-102.png">-->
+![删除](https://www.barretlee.com/blogimgs/2017/04/01/TB1VHKtQpXXXXajaXXXXXXXXXXX-532-102.png)<!--<source src="https://img.alicdn.com/tfs/TB1VHKtQpXXXXajaXXXXXXXXXXX-532-102.png">-->
 
 ---
 

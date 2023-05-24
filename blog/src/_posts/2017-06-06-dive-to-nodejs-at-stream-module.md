@@ -60,7 +60,7 @@ readable.on('data', (chunk) => {
 这个模式的流程图如下：
 
 
-![Flowing](http://www.barretlee.com/blogimgs/2017/06/06/node-stream-readable-flowing.png)
+![Flowing](https://www.barretlee.com/blogimgs/2017/06/06/node-stream-readable-flowing.png)
 
 资源的数据流并不是直接流向消费者，而是先 push 到缓存池，缓存池有一个水位标记 `highWatermark`，超过这个标记阈值，push 的时候会返回 `false`，什么场景下会出现这种情况呢？
 
@@ -122,7 +122,7 @@ myReadable.on('readable', () => {});
 
 监听 `readable` 的回调函数第一个参数不会传递内容，需要我们通过 `myReadable.read()` 主动读取，为啥呢，可以看看下面这张图：
 
-![node-stream-non-flowing](http://www.barretlee.com/blogimgs/2017/06/06/node-stream-non-flowing.png)
+![node-stream-non-flowing](https://www.barretlee.com/blogimgs/2017/06/06/node-stream-non-flowing.png)
 
 资源池会不断地往缓存池输送数据，直到 highWaterMark 阈值，消费者监听了 readable 事件并不会消费数据，需要主动调用 `.read([size])` 函数才会从缓存池取出，并且可以带上 size 参数，用多少就取多少：
 
@@ -159,7 +159,7 @@ myReadable.on('readable', (chunk) => {
 
 原理与 Readable Stream 是比较相似的，数据流过来的时候，会直接写入到资源池，当写入速度比较缓慢或者写入暂停时，数据流会进入队列池缓存起来，如下图所示：
 
-![node-stream-writable](http://www.barretlee.com/blogimgs/2017/06/06/node-stream-writable.png)
+![node-stream-writable](https://www.barretlee.com/blogimgs/2017/06/06/node-stream-writable.png)
 
 当生产者写入速度过快，把队列池装满了之后，就会出现「背压」，这个时候是需要告诉生产者暂停生产的，当队列释放之后，Writable Stream 会给生产者发送一个 `drain` 消息，让它恢复生产。下面是一个写入一百万条数据的 Demo：
 
@@ -254,7 +254,7 @@ Readable.prototype.pipe = function(writable, options) {
 
 Duplex，双工的意思，它的输入和输出可以没有任何关系，
 
-![Node-Stream-Duplex](http://www.barretlee.com/blogimgs/2017/06/06/node-stream-duplex.png)
+![Node-Stream-Duplex](https://www.barretlee.com/blogimgs/2017/06/06/node-stream-duplex.png)
 
 Duplex Stream 实现特别简单，不到一百行代码，它继承了 Readable Stream，并拥有 Writable Stream 的方法（[源码地址](https://github.com/nodejs/node/blob/master/lib/_stream_duplex.js#L31-L42)）：
 
@@ -309,7 +309,7 @@ read 0
 
 Transform Stream 集成了 Duplex Stream，它同样具备 Readable 和 Writable 的能力，只不过它的输入和输出是存在相互关联的，中间做了一次转换处理。常见的处理有 Gzip 压缩、解压等。
 
-![node-stream-transform](http://www.barretlee.com/blogimgs/2017/06/06/node-stream-transform.png)
+![node-stream-transform](https://www.barretlee.com/blogimgs/2017/06/06/node-stream-transform.png)
 
 Transform 的处理就是通过 `_transform` 函数将 Duplex 的 Readable 连接到 Writable，由于 Readable 的生产效率与 Writable 的消费效率是一样的，所以这里 Transform 内部不存在「背压」问题，背压问题的源头是外部的生产者和消费者速度差造成的。
 

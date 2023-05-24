@@ -14,11 +14,11 @@ date: 2015-09-09 10:35:05
 
 逛京东的时候开着 chrome 控制台，无意间看到了下面这串似曾相识的代码，
 
-![京东网页部分源码](http://www.barretlee.com/blogimgs/2015/09/09/20150903_c32208d1.jpg)
+![京东网页部分源码](https://www.barretlee.com/blogimgs/2015/09/09/20150903_c32208d1.jpg)
 
 再看了下 localstorage，
 
-![京东网页 localstorage](http://www.barretlee.com/blogimgs/2015/09/09/20150903_2d854b82.jpg)
+![京东网页 localstorage](https://www.barretlee.com/blogimgs/2015/09/09/20150903_2d854b82.jpg)
 
 看到这些内容，其实京东首页的前端架构雏形就出来了。
 
@@ -26,7 +26,7 @@ date: 2015-09-09 10:35:05
 
 JD 使用 seajs 作为模块加载器，使用 jd-jquery 为基本库，看到它的 jq 版本是 1.6.4，
 
-![jd-jQuery](http://www.barretlee.com/blogimgs/2015/09/09/201593104.jpg)
+![jd-jQuery](https://www.barretlee.com/blogimgs/2015/09/09/201593104.jpg)
 
 对比了下"正版" [jquery-1.6.4](http://code.jquery.com/jquery-1.6.4.min.js) 的源码，很显然，JD 使用的是自己造的轮子，这说明京东的前端生态应该是十分完善的，有轮子就会有很多组件、插件，这对一个公司批量造网页很有裨益。
 
@@ -48,11 +48,11 @@ JD 使用 seajs 作为模块加载器，使用 jd-jquery 为基本库，看到�
 
 京东在按需加载和数据缓存上的工作做的十分到位。
 
-![JD-page-loader](http://www.barretlee.com/blogimgs/2015/09/09/201593105.jpg)
+![JD-page-loader](https://www.barretlee.com/blogimgs/2015/09/09/201593105.jpg)
 
 每个具有 lazyload 异步标识的模块，都包含两个属性，一个是渲染该模块需要的内容（数据+JS），一个是这个内容过期的时间，只要内容不变就不会过期，所以这里使用的是文件 hash 来标注。
 
-![JD-data-via-localstorage](http://www.barretlee.com/blogimgs/2015/09/09/20150903_9f0924a6.jpg)
+![JD-data-via-localstorage](https://www.barretlee.com/blogimgs/2015/09/09/20150903_9f0924a6.jpg)
 
 把需要请求的路径写在 dom 上，用户滚动时，一旦该模块进入了视窗，则请求 dom 上对应的 `data-path` 地址，拿到渲染这个模块所需要的脚本和数据，不过这中间还有一层本地缓存 localstorage，如果在本地缓存中匹配到了对应的 hash string 内容，则直接渲染，否则请求到数据之后更新本地缓存。dom 上的 `data-time` 会在页面加载时候，后端计算文件 hash，hash 不变则输出内容也不变。
 

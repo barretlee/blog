@@ -242,5 +242,5 @@ console.log(reg.test(str2)); //true
 <p>关于正则的学习，重点是要多练习多实践，并且多尝试用不同的方案去解决一个正则问题，一个很典型的例子，去除字符串首尾的空白，尝试用5-10种不同的正则去测试，并思考哪些方式的效率最高，为什么？通过这一连串的思考可以带动学习的兴趣，提高学习效率~</p>
 
 
-<p>相关文章：<a href="http://www.barretlee.com/blog/2013/10/07/cb-javascript-regexp/">玩转正则之Highlight代码高亮</a></p>
+<p>相关文章：<a href="https://www.barretlee.com/blog/2013/10/07/cb-javascript-regexp/">玩转正则之Highlight代码高亮</a></p>
 

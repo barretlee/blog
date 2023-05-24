@@ -9,7 +9,7 @@ tags:
 date: 2017-04-03 10:13:31
 ---
 
-<!-- ![脉脉吐槽](http://www.barretlee.com/blogimgs/2017/04/03/6c0378f8gy1fe9a3wsyrvj20ku0fmwfw.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fe9a3wsyrvj20ku0fmwfw.jpg">-->
+<!-- ![脉脉吐槽](https://www.barretlee.com/blogimgs/2017/04/03/6c0378f8gy1fe9a3wsyrvj20ku0fmwfw.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fe9a3wsyrvj20ku0fmwfw.jpg">-->
 
 看到有人关注和吐槽，我就过来说几句吧，当然我也知道，不管我下面说什么，都会有人顶和踩。 -->
 
@@ -23,7 +23,7 @@ date: 2017-04-03 10:13:31
 
 我很认同楼主所说开源共享，所以在圈子内我就跟圈友说了，一些有价值的内容我会分享到圈外，同时很多技术专题的分享，我会以开源的形式去开展，比如 [performance-column](https://github.com/barretlee/performance-column)，是一个性能相关的专题分享，让圈友在社区环境下沉淀知识，额外获得了圈外六百多人的长期围观。
 
-我开放了自己的微信和邮箱，所以经常收到初学朋友的提问，这些提问很多都十分相似，所以我让他们统一在我的[博客下留言](http://www.barretlee.com/message/)。而小密圈更适合沉淀问答，后来我转移了阵地。
+我开放了自己的微信和邮箱，所以经常收到初学朋友的提问，这些提问很多都十分相似，所以我让他们统一在我的[博客下留言](https://www.barretlee.com/message/)。而小密圈更适合沉淀问答，后来我转移了阵地。
 
 关于小密圈我就说这么多，有人说，你特么不收费照样可以分享呀！我也不在这里辩论要不要收费。我每天都会投入固定的时间回答问题、分享技术动态、准备技术专题，我期望新人能够在我创造的环境下有一点点提升，有人觉得很值，有人不屑一顾。在圈外，我也一直保持着分享的习惯，这点从未间断。
 

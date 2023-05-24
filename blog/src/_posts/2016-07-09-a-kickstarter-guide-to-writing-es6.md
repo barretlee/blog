@@ -13,7 +13,7 @@ description: ECMAScript 6 目前基本成为业界标准，它的普及速度比
 
 ECMAScript 6 目前基本成为业界标准，它的普及速度比 ES5 要快很多，主要原因是现代浏览器对 ES6 的支持相当迅速，尤其是 Chrome 和 Firefox 浏览器，已经支持 ES6 中绝大多数的特性。
 
-![//unsplash.com/photos/iCtJF-A5hvs by Jeff Hopper](http://www.barretlee.com/blogimgs/2016/07/09/6c0378f8gw1f5npzp64c0j20p00dw77u.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f5npzp64c0j20p00dw77u.jpg">-->
+![//unsplash.com/photos/iCtJF-A5hvs by Jeff Hopper](https://www.barretlee.com/blogimgs/2016/07/09/6c0378f8gw1f5npzp64c0j20p00dw77u.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f5npzp64c0j20p00dw77u.jpg">-->
 
 本文译自 Github 上的[一篇文章](//github.com/metagrover/ES6-for-humans)，目的是对还不太熟悉 ES6 语法的同学做一个简单的扫盲。
 

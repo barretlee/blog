@@ -71,7 +71,7 @@ date: 2016-06-02 12:00:00
 
 上面的代码会产生一份 PHP 的模板和 info 字段对应的表单坑位，这个过程简称「挖坑」。
 
-![挖坑](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g54zdicej20do09cdfy.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g54zdicej20do09cdfy.jpg">-->
+![挖坑](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g54zdicej20do09cdfy.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g54zdicej20do09cdfy.jpg">-->
 
 运营填写这些坑位就会产生这份 PHP 模板对应的数据，最后渲染出来就是一个完整的 HTML 片段（实时性渲染）。
 
@@ -91,7 +91,7 @@ date: 2016-06-02 12:00:00
 
 上面介绍了数据的来源和子模块的结构，那么整个页面又是如何构成的呢？模块的搭建分为两种，一种是可视化搭建，运营或者前端可以将开发好的模块（或者模块库中选取的模块）拖拽到容器内，形成一个页面，
 
-![模块搭建](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g51ddlmzj21ao0x4dij.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g51ddlmzj21ao0x4dij.jpg">-->
+![模块搭建](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g51ddlmzj21ao0x4dij.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g51ddlmzj21ao0x4dij.jpg">-->
 
 当然，上图也只是一个模型，作为一个系统需要考虑的问题还有很多很多，如页面的布局、多终端适配、模块的临时隐藏、位置调整、皮肤选择、模块的复制等等。
 
@@ -113,7 +113,7 @@ date: 2016-06-02 12:00:00
 
 首页面对一大堆接口和平台，对接几十个业务方，接口是个很大的问题，由于后台系统的差异，基本没有办法统一数据源的格式，一旦运营哪天心血来潮要换一个他自己觉得用的更爽的或者数据更好的系统，前后端估计又得沟通和对接几次。所以出现了下面这张图：
 
-![动态数据源](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g5mwl5jzj218w0psdia.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g5mwl5jzj218w0psdia.jpg">-->
+![动态数据源](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g5mwl5jzj218w0psdia.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g5mwl5jzj218w0psdia.jpg">-->
 
 平台具备数据源接入的能力，也就是说我们挖的坑不仅仅可以让运营填数据，还可以从各种数据源中直接导入数据，当然，这里需要进行一次数据字段的映射转换。后端提供的接口是这样的：
 
@@ -153,7 +153,7 @@ info/url -> data/item_url
 
 淘宝首页日均请求的这个量级，不可能是十几二十台台服务器抗得住的，支撑它必须有一个服务集群。
 
-![集群](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g6rdqpd0j212o0s076f.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g6rdqpd0j212o0s076f.jpg">-->
+![集群](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g6rdqpd0j212o0s076f.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g6rdqpd0j212o0s076f.jpg">-->
 
 每一个 CDN 节点上都具备 PHP 渲染的能力，当页面发布时，我们把该页面所有的模块和数据同步到全部 CDN 节点上，基本模式大概就是如此了。看起来还挺不错，但是经过一段时间的运维，很多安全、性能问题都慢慢浮现出来了：
 
@@ -167,7 +167,7 @@ info/url -> data/item_url
 
 当然，还有很多其他问题，如运维成本增高、安全风险增高、PHP 资深人才储备不足等等。所以 PHP 渲染容器的命运，就是，被干掉。
 
-![回源](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g7eogvy9j21840tatb1.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g7eogvy9j21840tatb1.jpg">-->
+![回源](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g7eogvy9j21840tatb1.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g7eogvy9j21840tatb1.jpg">-->
 
 上图改变了下玩法，服务集群为 Cache CDN，它只有静态文件处理能力，没有 PHP/Node 的渲染能力，所以处理效率高，性能也好，抗压能力相当强，并且扛不住的时候还可以花钱买服务，拓展 Cache 集群。
 
@@ -205,7 +205,7 @@ info/url -> data/item_url
 
 而新版搭建平台的页面渲染模式与 PHP 的模式不太一样。
 
-![Node渲染模型](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g8566uz3j21kw0yt79h.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g8566uz3j21kw0yt79h.jpg">-->
+![Node渲染模型](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4g8566uz3j21kw0yt79h.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4g8566uz3j21kw0yt79h.jpg">-->
 
 一个模块的 CSS/JS 和模板放在一起，CSS/JS 与页面其他模块的静态资源是相互独立的，目的就是希望单个模块也能够完整的跑起来，更加利于模块的复用。
 
@@ -231,7 +231,7 @@ info/url -> data/item_url
 
 **页面的渲染逻辑**
 
-![页面的渲染逻辑](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4gse45ss8j20fn0jr0v3.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4gse45ss8j20fn0jr0v3.jpg">-->
+![页面的渲染逻辑](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4gse45ss8j20fn0jr0v3.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4gse45ss8j20fn0jr0v3.jpg">-->
 
 首页框架的加载逻辑，大致上图所示：
 
@@ -246,8 +246,8 @@ info/url -> data/item_url
 
 之前写过性能优化相关的文章，复制就没必要了，直接贴地址：
 
-- [《一起来看看淘宝首页的个性化》](http://www.barretlee.com/blog/2016/03/31/personality-in-taobao-home-page/)
-- [《淘宝首页性能优化实践》](http://www.barretlee.com/blog/2016/04/01/optimization-in-taobao-homepage/)
+- [《一起来看看淘宝首页的个性化》](https://www.barretlee.com/blog/2016/03/31/personality-in-taobao-home-page/)
+- [《淘宝首页性能优化实践》](https://www.barretlee.com/blog/2016/04/01/optimization-in-taobao-homepage/)
 
 代码的性能优化是一个精细活，如果你要在一个庞大的未经优化的页面上做性能优化，可能会面临一次重构代码。
 
@@ -268,19 +268,19 @@ info/url -> data/item_url
 
 异步接口请求，主要涉及到的是后台系统，对接系统较多，各个系统的稳定性和抗压能力各不相同，这方面的保障有多种方案，下面是最常见的：
 
-![请求缓存](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4go51ui9zj20kh0h7n0b.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4go51ui9zj20kh0h7n0b.jpg">-->
+![请求缓存](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4go51ui9zj20kh0h7n0b.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4go51ui9zj20kh0h7n0b.jpg">-->
 
-每次数据请求都缓存到本地，并且为每个接口都提供一个硬兜底。还有一种方案是「重试」，请求一次不成功那就请求第二次。这方面的讨论具体可以看看之前写的这篇文章：[《大流量的下兜底容灾方案》](http://www.barretlee.com/blog/2015/09/16/backup-solution-at-big-traffic/)。
+每次数据请求都缓存到本地，并且为每个接口都提供一个硬兜底。还有一种方案是「重试」，请求一次不成功那就请求第二次。这方面的讨论具体可以看看之前写的这篇文章：[《大流量的下兜底容灾方案》](https://www.barretlee.com/blog/2015/09/16/backup-solution-at-big-traffic/)。
 
 对于同步渲染，它只需要页面模板和同步数据，两者中任一种存在错误，源站都会报错，此时回源返回的内容就是一个 error 页面，状态码为 `5xx`。这个错误不一定是开发者造成的，有可能是系统链路出现同步异常或者断路问题。针对这种问题，我给淘宝首页做了一个镜像页：
 
-![镜像](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4gonwmraoj21ce0rq0vr.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4gonwmraoj21ce0rq0vr.jpg">-->
+![镜像](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4gonwmraoj21ce0rq0vr.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4gonwmraoj21ce0rq0vr.jpg">-->
 
 一旦源站任何异常，Nginx 都会转到与 Cache CDN 同机房的首页镜像上去，这个镜像内容就是淘宝首页的 HTML 备份源码。
 
 #### 2. 监控预警机制
 
-可以先看看之前写的这篇文章：[《前端代码异常日志收集与监控》](http://www.barretlee.com/blog/2015/08/20/cb-fe-monitor/)，介绍了一些监控方法。
+可以先看看之前写的这篇文章：[《前端代码异常日志收集与监控》](https://www.barretlee.com/blog/2015/08/20/cb-fe-monitor/)，介绍了一些监控方法。
 
 监控也有两个层面：
 
@@ -294,7 +294,7 @@ info/url -> data/item_url
 - 模块 5s 内没有渲染完成统计埋点
 - 模块内链接和图片黑白名单匹配埋点
 
-![监控](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4gtw0jjxxj20w50akace.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4gtw0jjxxj20w50akace.jpg">-->
+![监控](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4gtw0jjxxj20w50akace.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4gtw0jjxxj20w50akace.jpg">-->
 
 其中部分监控还会自动处理明确的错误，比如 https 页面下出现了 http 的图片，会立即自动处理掉这些问题。
 
@@ -319,7 +319,7 @@ info/url -> data/item_url
 
 页面模块众多，为了能够追踪页面上每一个小点的变化，我在请求、渲染的每一个环节都做了详细的统计，如下图所示：
 
-![Console](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4gt6p2lsfj20la0gmjwg.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4gt6p2lsfj20la0gmjwg.jpg">-->
+![Console](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4gt6p2lsfj20la0gmjwg.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4gt6p2lsfj20la0gmjwg.jpg">-->
 
 一旦接口请求失败，或者接口走了容灾逻辑，或者模块渲染超过 5s，控制台都会有黄色警报，当然此时，也已经向服务器发送了警报统计。
 
@@ -327,7 +327,7 @@ info/url -> data/item_url
 
 接口 Hub 是对数据请求的管理工具，如下图所示：
 
-![HubCache](http://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4gt7e0p74j20j70cvtbv.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4gt7e0p74j20j70cvtbv.jpg">-->
+![HubCache](https://www.barretlee.com/blogimgs/2016/06/02/6c0378f8gw1f4gt7e0p74j20j70cvtbv.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f4gt7e0p74j20j70cvtbv.jpg">-->
 
 页面很多模块的渲染都需要一个以上的数据源，一旦运营反馈页面渲染数据异常，可以直接通过 Hub 找到数据，加速 Bug 定位效率。同时 Hub 也可以用来切换环境，将一个接口的请求切换到日常或者预发环境的接口之中，它是调试的利器。
 

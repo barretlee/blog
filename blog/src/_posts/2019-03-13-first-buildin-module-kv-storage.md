@@ -124,7 +124,7 @@ _这里需要注意的是，KV Storage 目前只有 Chrome 74+ 版本才支持�
 
 你可以通过打开 Devtool->sources 查看是否存在 `kv-storage` 来验证 build-in 模块是否被成功加载了：
 
-![upload successful](http://www.barretlee.com/blogimgs/2019/03/13/kv-storage-build-in-module.png)
+![upload successful](https://www.barretlee.com/blogimgs/2019/03/13/kv-storage-build-in-module.png)
 
 
 ### 给我们反馈

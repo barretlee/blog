@@ -1,8 +1,8 @@
 ### 小胡子个人网站
 
-<a href="http://www.barretlee.com" target="_blank"><img src="./blog/src/blogimgs/avatar150.png" width="150" /></a>
+<a href="https://www.barretlee.com" target="_blank"><img src="./blog/src/blogimgs/avatar150.png" width="150" /></a>
 
-博客地址: <http://www.barretlee.com>.
+博客地址: <https://www.barretlee.com>.
 
 Master 分支为博客系统的构建代码, gh-pages 分支为部署代码.
 

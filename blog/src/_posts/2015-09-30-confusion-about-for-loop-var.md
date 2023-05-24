@@ -65,9 +65,9 @@ var i;
 
 下面是 for 循环中包含 var 声明的执行流程：
 
-![ES5-12.6.3](http://www.barretlee.com/blogimgs/2015/09/30/20150903_d17189e4.jpg)
+![ES5-12.6.3](https://www.barretlee.com/blogimgs/2015/09/30/20150903_d17189e4.jpg)
 
-章节地址：<http://www.barretlee.com/ST/ES5.1/#sec-12.6.3>
+章节地址：<https://www.barretlee.com/ST/ES5.1/#sec-12.6.3>
 
 并没有说的太明白，我知道很多人肯定趋向第二种解释，感觉不是很对。
 
@@ -77,7 +77,7 @@ var i;
 
 咨询了下 Franky 教主，沟通之后，心里也有了结果。
 
-ES5 和 ES6 不太一样，ES5 的 for 语句只有静态语义，而 ES6 的 for statement 存在两种语义，代码格式不同语义不同，分为静态语义和动态语义，上述 ES6 中的 let 关键词是因为 block 块具备动态语义，具体可以看这里：<http://www.barretlee.com/ST/ES6/#sec-for-statement>。
+ES5 和 ES6 不太一样，ES5 的 for 语句只有静态语义，而 ES6 的 for statement 存在两种语义，代码格式不同语义不同，分为静态语义和动态语义，上述 ES6 中的 let 关键词是因为 block 块具备动态语义，具体可以看这里：<https://www.barretlee.com/ST/ES6/#sec-for-statement>。
 
 而 ES5 中 `var VariableDeclarationListNoIn` 是先声明，然后赋值。上图 ES5 文档中没有做出特殊说明，可以看出 var 变量并不会多次声明。
 

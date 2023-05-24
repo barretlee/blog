@@ -9,7 +9,7 @@ BUILD = ${ROOT}blog/src/build/
 DEPLOY_GIT = ${ROOT}blog/src/.deploy*/
 
 LOCAL = http://0.0.0.0:4000/entry/
-WEB = http://www.barretlee.com/entry/
+WEB = https://www.barretlee.com/entry/
 GOOGLE_DRIVER_BLOG = ~/GoogleDriver/blog/
 GOOGLE_DRIVER_BLOG_IMG = ~/GoogleDriver/blogImg/
 

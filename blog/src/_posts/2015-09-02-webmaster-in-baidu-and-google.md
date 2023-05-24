@@ -55,18 +55,18 @@ Web 发展极快，由于客户端厂商纷纭加之开发者没把重点放在 
 
 在一个需要表达的块上加上 `itemscope` 属性和一个 `itemtype` 属性，itemtype 是有固定值的，具体可以参阅 [schema.org](http://schema.org/) 的说明。然后在块内添加详细的说明，使用 `itemprop` 标注。整个操作十分简单，略微麻烦的是需要对照 schema 的官方网站填写规定的 `itemprop` 字段。
 
-结构化数据，通常也可以称之为元数据，这些数据附着在网页文本信息内，厘清了页面上每个部件的功能、属性和意义。当机器进入网页的时候，能够像人一样，一眼瞄出要表达的内容。关于 schema ，以前翻译过一篇文章 [SEO：让搜索引擎对你的网站更有亲和力](http://www.barretlee.com/blog/2013/11/01/cb-let-your-page-understood-by-search-engine/)。
+结构化数据，通常也可以称之为元数据，这些数据附着在网页文本信息内，厘清了页面上每个部件的功能、属性和意义。当机器进入网页的时候，能够像人一样，一眼瞄出要表达的内容。关于 schema ，以前翻译过一篇文章 [SEO：让搜索引擎对你的网站更有亲和力](https://www.barretlee.com/blog/2013/11/01/cb-let-your-page-understood-by-search-engine/)。
 
 ### SEO和站长工具的之间秘密
 
 除非搜索引擎能够猜到你要搜索的具体的 URL 地址，一般地，它都会从自己的数据索引库中扒拉数据。对于权重高、更新频率高、原创内容多的网站，搜索引擎会十分勤快的爬最新内容。那么，如何让搜索引擎知道网站上有多少网页便成了一件重要的事情。
 
-我们经常会听到一个叫做"网站地图"的东西。有些网站会在自己的站点中添加一个页面，这个页面包括了整站的重要入口，那么这个页面就是该页面的网站地图。这些地图是给人看的，如果只想给爬虫引擎看，可以将所有的链接按照一定的格式放到 `sitemap.xml` 文件中，然后把这个文件放到网站的根目录下，如 <http://www.barretlee.com/sitemap.xml>。
+我们经常会听到一个叫做"网站地图"的东西。有些网站会在自己的站点中添加一个页面，这个页面包括了整站的重要入口，那么这个页面就是该页面的网站地图。这些地图是给人看的，如果只想给爬虫引擎看，可以将所有的链接按照一定的格式放到 `sitemap.xml` 文件中，然后把这个文件放到网站的根目录下，如 <https://www.barretlee.com/sitemap.xml>。
 
-而最重要的还是 `robots.txt` 这个文件，它是所有引擎约定俗成的一个文件，比如我的网站中用到的 <http://www.barretlee.com/robots.txt> ，其内容为：
+而最重要的还是 `robots.txt` 这个文件，它是所有引擎约定俗成的一个文件，比如我的网站中用到的 <https://www.barretlee.com/robots.txt> ，其内容为：
 
 ```txt
-Sitemap: http://www.barretlee.com/sitemap.xml
+Sitemap: https://www.barretlee.com/sitemap.xml
 User-agent: *
 Allow: /
 ```

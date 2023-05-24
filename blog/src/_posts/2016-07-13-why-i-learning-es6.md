@@ -12,11 +12,11 @@ date: 2016-07-13 00:15:49
 ---
 
 
-前几天翻译了一篇 [ECMAScript 6 的入门文章](http://www.barretlee.com/blog/2016/07/09/a-kickstarter-guide-to-writing-es6/)，看到几则评论说 JavaScript 越来越像 Java 了，我暗暗地笑了笑。也有同学很疑惑是否有必要学习 ES6，使用 TypeScript 的同学也有类似的疑惑。
+前几天翻译了一篇 [ECMAScript 6 的入门文章](https://www.barretlee.com/blog/2016/07/09/a-kickstarter-guide-to-writing-es6/)，看到几则评论说 JavaScript 越来越像 Java 了，我暗暗地笑了笑。也有同学很疑惑是否有必要学习 ES6，使用 TypeScript 的同学也有类似的疑惑。
 
 <!--more-->
 
-![//unsplash.com/@dtopkin1 by Dayne Topkin](http://www.barretlee.com/blogimgs/2016/07/13/6c0378f8gw1f5rkudyzzoj20p00dwt9x.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f5rkudyzzoj20p00dwt9x.jpg">-->
+![//unsplash.com/@dtopkin1 by Dayne Topkin](https://www.barretlee.com/blogimgs/2016/07/13/6c0378f8gw1f5rkudyzzoj20p00dwt9x.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f5rkudyzzoj20p00dwt9x.jpg">-->
 
 记得之前 [winter](http://weibo.com/u/1196343093) 在微博上说，不要对知识存在偏见性，人家吵架说什么什么东西不要学，千万千万别信，但是他们吵架时提到的知识点，记得赶紧收进口袋装好。那么，ES6 这个话题呢？你是否对这个话题存在偏见性？
 

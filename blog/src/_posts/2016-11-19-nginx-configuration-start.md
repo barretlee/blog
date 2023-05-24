@@ -16,7 +16,7 @@ date: 2016-11-19 23:51:46
 
 本文将给大家介绍 Nginx 配置的基本知识，不想细看的同学可以直接跳到最后一个例子。
 
-![Nginx](http://www.barretlee.com/blogimgs/2016/11/19/6c0378f8gw1f9yyq7qehrj20p00dwt94.jpg)<!--<source src="http://ww4.sinaimg.cn/large/6c0378f8gw1f9yyq7qehrj20p00dwt94.jpg">-->
+![Nginx](https://www.barretlee.com/blogimgs/2016/11/19/6c0378f8gw1f9yyq7qehrj20p00dwt94.jpg)<!--<source src="http://ww4.sinaimg.cn/large/6c0378f8gw1f9yyq7qehrj20p00dwt94.jpg">-->
 
 <!--more-->
 

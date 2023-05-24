@@ -15,7 +15,7 @@ description: 对 Shadowsocks 早有耳闻，当时我还在用 HTTP 代理、VPN
 
 <!--more-->
 
-![Shadowsocks](http://www.barretlee.com/blogimgs/2016/08/03/6c0378f8gw1f6gx28ymtqj20p00dwdg3.jpg)<!--<source src="http://ww2.sinaimg.cn/large/6c0378f8gw1f6gx28ymtqj20p00dwdg3.jpg">-->
+![Shadowsocks](https://www.barretlee.com/blogimgs/2016/08/03/6c0378f8gw1f6gx28ymtqj20p00dwdg3.jpg)<!--<source src="http://ww2.sinaimg.cn/large/6c0378f8gw1f6gx28ymtqj20p00dwdg3.jpg">-->
 
 ### 一道隐形的墙
 
@@ -87,11 +87,11 @@ Mac 客户端的下载地址：
 
 配置位置：
 
-![配置1](http://www.barretlee.com/blogimgs/2016/08/03/6c0378f8gw1f6gwkqh7y0j20ok0g2jwd.jpg)<!--<source src="http://ww3.sinaimg.cn/large/6c0378f8gw1f6gwkqh7y0j20ok0g2jwd.jpg">-->
+![配置1](https://www.barretlee.com/blogimgs/2016/08/03/6c0378f8gw1f6gwkqh7y0j20ok0g2jwd.jpg)<!--<source src="http://ww3.sinaimg.cn/large/6c0378f8gw1f6gwkqh7y0j20ok0g2jwd.jpg">-->
 
 配置方式：
 
-![配置2](http://www.barretlee.com/blogimgs/2016/08/03/6c0378f8gw1f6gwjoe3k9j20so0i275z.jpg)<!--<source src="http://ww2.sinaimg.cn/large/6c0378f8gw1f6gwjoe3k9j20so0i275z.jpg">-->
+![配置2](https://www.barretlee.com/blogimgs/2016/08/03/6c0378f8gw1f6gwjoe3k9j20so0i275z.jpg)<!--<source src="http://ww2.sinaimg.cn/large/6c0378f8gw1f6gwjoe3k9j20so0i275z.jpg">-->
 
 相关说明：[Shadowsocks for OSX 帮助](https://github.com/shadowsocks/shadowsocks-iOS/wiki/Shadowsocks-for-OSX-%E5%B8%AE%E5%8A%A9)
 

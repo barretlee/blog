@@ -321,7 +321,7 @@ var operation = {
       var data = {
         'debug': false,
         'app': 'wxddd17adddf433070',    // 选填，默认为空
-        'img': 'http://www.barretlee.com/blogimgs/avatar.png',
+        'img': 'https://www.barretlee.com/blogimgs/avatar.png',
         'link': window.location.href,
         'desc': $('meta[name="description"]').attr('content'),
         'title': $('.post-title').text()

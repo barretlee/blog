@@ -27,6 +27,6 @@ date: 2014-04-28 00:00:00
 3. 第三步匹配失败，回溯到第二步，那第二步会继续减少吞掉的字符，于是字符数缩减到零。
 
 可能这么说还是不太清晰，先看看这个对比：
-![qq20140428195101](http://www.barretlee.com/blogimgs/2014/04/28/7e6c1076-cecb-11e3-823e-640e1b53ca00.jpg)<!--<source src="//cloud.githubusercontent.com/assets/2698003/2816541/7e6c1076-cecb-11e3-823e-640e1b53ca00.jpg">-->
+![qq20140428195101](https://www.barretlee.com/blogimgs/2014/04/28/7e6c1076-cecb-11e3-823e-640e1b53ca00.jpg)<!--<source src="//cloud.githubusercontent.com/assets/2698003/2816541/7e6c1076-cecb-11e3-823e-640e1b53ca00.jpg">-->
 
 关于返回结果不是 null 而是 ""，你可以理解为匹配到了零个 a。

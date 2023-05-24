@@ -11,7 +11,7 @@ categories:
 date: 2019-06-21 12:02:00
 ---
 
-![upload successful](http://www.barretlee.com/blogimgs/2019/06/21/flutter.png)
+![upload successful](https://www.barretlee.com/blogimgs/2019/06/21/flutter.png)
 
 Flutter 和 RN/Weex 的差异，核心在于渲染的基础由自己实现，简单来说，
 
