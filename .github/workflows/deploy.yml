@@ -41,7 +41,6 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
-          echo $HEXO_DEPLOY_PRI
 
       - name: Install dependencies
         run: |
