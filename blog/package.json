@@ -6,7 +6,9 @@
     "version": "7.0.0-rc1"
   },
   "scripts": {
-    "deploy": "hexo deploy"
+    "deploy": "hexo deploy",
+    "generate": "hexo generate",
+    "server": "hexo server"
   },
   "dependencies": {
     "hexo": "^7.0.0-rc1",
