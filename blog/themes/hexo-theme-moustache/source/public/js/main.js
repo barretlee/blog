@@ -234,11 +234,6 @@ var operation = {
     this.bind();
     this.tips();
     this.insertWeibo();
-    // $(window).on('load', function () {
-    //   setTimeout(function () {
-    //     $this.loadChangyanCount();
-    //   }, 3E3);
-    // });
     this.initSearch();
   },
   forceShowLazyloadImages: function() {
@@ -279,97 +274,16 @@ var operation = {
       });
     }
   },
-  loadChangyanCount: function () {
-    if ($('#changyan_count_unit').size()) {
-      $.getScript('https://assets.changyan.sohu.com/upload/plugins/plugins.count.js');
-    }
-    if ($('.cy_cmt_count').size()) {
-      var spanArr = document.getElementsByClassName('cy_cmt_count');
-      spanArr = [].slice.call(spanArr, 0);
-      var len = spanArr.length;
-      var delta = 40;
-      var loopLen = Math.ceil(len / delta);
-      for (var i = 0; i < loopLen; i++) {
-        fetchData(spanArr.slice(i * delta, (i + 1) * delta));
-      }
-      var cnt = 0;
-      window.setCmtSum = function (json) {
-        var spanArr = document.getElementsByClassName('cy_cmt_count');
-        spanArr = [].slice.call(spanArr, cnt * delta, (cnt + 1) * delta);
-        cnt++;
-        for (var i = 0; i < spanArr.length; i++) {
-          if (spanArr[i].className.indexOf('cy_cmt_count') > -1) {
-            try {
-              var strArr = spanArr[i].id.split("::");
-              var sum = json.result[strArr[1]].sum;
-              if (sum) {
-                spanArr[i].innerHTML = json.result[strArr[1]].sum + '条评论';
-              } else {
-                spanArr[i].innerHTML = '暂无评论';
-              }
-            } catch (e) {}
-          }
-          if (spanArr[i].className.indexOf('cy_cmt_participate') > -1) {
-            try {
-              var strArr = spanArr[i].id.split("::");
-              spanArr[i].innerHTML = json.result[strArr[1]].parts
-            } catch (e) {}
-          }
-          if (spanArr[i].className.indexOf('cy_cmt_like') > -1) {
-            try {
-              var strArr = spanArr[i].id.split("::");
-              spanArr[i].innerHTML = json.result[strArr[1]].likes
-            } catch (e) {}
-          }
-          if (spanArr[i].className.indexOf('cy_cmt_share') > -1) {
-            try {
-              var strArr = spanArr[i].id.split("::");
-              spanArr[i].innerHTML = json.result[strArr[1]].shares
-            } catch (e) {}
-          }
-        }
-      }
-      function fetchData (spanArr) {
-        var newSourceId = '';
-        var newTopicId = '';
-        var newUrl = '';
-        for (var i = 0; i < spanArr.length; i++) {
-          if (/cy_cmt_[count|participate|like|share]/.test(spanArr[i].className)) {
-            try {
-              var strArr = spanArr[i].id.split("::");
-              switch (strArr[0]) {
-                case 'topicId':
-                  newTopicId += ',' + strArr[1];
-                  break;
-                case 'sourceId':
-                  newSourceId += ',' + strArr[1];
-                  break;
-                case 'url':
-                  newUrl += ',' + encodeURIComponent(strArr[1]);
-                  break;
-                default:
-              }
-            } catch (e) {}
-          }
-        }
-        var clientId = 'cyt0XnPCt';
-        var head = document.getElementsByTagName('head')[0];
-        var scriptDom = document.createElement('script');
-        scriptDom.src = "https://changyan.sohu.com/api/2/topic/count?client_id=" + clientId + "&topic_id=" + newTopicId.substring(1) + "&topic_source_id=" + newSourceId.substring(1) + "&topic_url=" + newUrl.substring(1) + "&callback=setCmtSum";
-        head.appendChild(scriptDom)
-      }
-    }
-  },
   wechat: function () {
     var isWeiXin = /MicroMessenger/i.test(navigator.userAgent);
     var $ctt = $(".article .post-content");
     // $('.wechat-info').remove();
-    var wechatStr = '<div class="wechat-info"><b>温馨提示：</b>您现在处在 <span class="wechat-net">WiFi</span>' +
-      ' 网络下。若文章表述存在问题，可点击右下角留言框，或者直接给小胡子哥 <span class="wechat-email">邮件 ← 点击</span>。</div>';
-    if (isWeiXin) {
-      $(".alipay, .wechatpay i").hide();
-      $(".wechatpay b").css('display', 'block');
-    }
+    // var wechatStr = '<div class="wechat-info"><b>温馨提示：</b>您现在处在 <span class="wechat-net">WiFi</span>' +
+    //   ' 网络下。若文章表述存在问题，可点击右下角留言框，或者直接给小胡子哥 <span class="wechat-email">邮件 ← 点击</span>。</div>';
+    // if (isWeiXin) {
+    //   $(".alipay, .wechatpay i").hide();
+    //   $(".wechatpay b").css('display', 'block');
+    // }
     if (!$ctt.length || !isWeiXin || $('.wechat-info').size() || window._showWeChatBox) return;
     window._showWeChatBox = true;
     var urls = [];
@@ -377,7 +291,7 @@ var operation = {
       urls.push($(this).attr('data-original') || $(this).attr('src'));
     });
     $.getScript("/public/js/wechat.js", function () {
-      $ctt.prepend(wechatStr);
+      // $ctt.prepend(wechatStr);
       wechat('network', function (res) {
         var network = res.err_msg.split(':')[1];
         network = network == 'wifi' ? 'wifi' : network == 'wwan' ? '3g' : '4g';
@@ -417,48 +331,6 @@ var operation = {
       wechat('friend', data, callback);           // 朋友
       wechat('timeline', data, callback);         // 朋友圈
       wechat('weibo', data, callback);            // 微博
-    });
-  },
-  welcome: function () {
-    var self = this;
-    var visitor = $.cookie("visitor");
-
-    function getNamefailed() {
-      var userinfo = {};
-      try {
-        userinfo = JSON.parse($.cookie("visitor_history"));
-      } catch (e) {}
-      if (userinfo.id && userinfo.name && userinfo.avatar) {
-        var htmlStr = makeHtml(userinfo.name, userinfo.avatar);
-        self.alertMsg(htmlStr);
-      }
-    }
-
-    function makeHtml(name, avatar) {
-      return "<img class='alert-avatar' src='" + avatar + "'>" + name + ", 欢迎回来~";
-    }
-
-    if (visitor) {
-      try {
-        var userinfo = JSON.parse($.cookie("visitor"));
-      } catch (e) {}
-      if (userinfo.id && userinfo.name && userinfo.avatar) {
-        return;
-      }
-    }
-
-    $.removeCookie("visitor");
-  },
-  reloadChangyan: function () {
-    delete window.changyan;
-    delete window.cyan;
-    $.getScript('https://changyan.sohu.com/upload/changyan.js', function () {
-      try {
-        window.changyan.api.config({
-          appid: 'cyt0XnPCt',
-          conf: 'prod_5fde9cb8b23a2209a1ad60ab2dd5fe82'
-        });
-      } catch (e) {}
     });
   },
   insertWeibo: function () {
@@ -616,12 +488,6 @@ var operation = {
         }
       }
     });
-    // var commentTriggered = false;
-    // $(window).on('scroll', function () {
-    //   if (commentTriggered) return;
-    //   commentTriggered = !commentTriggered;
-    //   $('.footer-nav a').eq(0).trigger('click');
-    // });
   },
   isIE: function (num) {
     var name = navigator.appVersion.toUpperCase();
@@ -666,11 +532,6 @@ var operation = {
 
       $(".nav-detail>div").hide().eq(index).fadeIn();
     });
-//     setTimeout(() => {
-//       if (!$(".footer-nav a").eq(0).attr('id') !== 'comments') {
-//         $(".footer-nav a").eq(0).trigger("click");
-//       }
-//     }, 6 * 1E3);
     $(".relative-to-comment").on("click", function () {
       $(".footer-nav a").eq(0).trigger("click");
     });
@@ -696,11 +557,6 @@ var operation = {
         local + "&title=" + title;
       operation._shareWin(url);
     });
-    // $("#share-qzone").off().on("click", function(){
-    //     var url = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+
-    //     local + "&title=" + title;
-    //     operation._shareWin(url);
-    // });
     $("#share-twitter").off().on("click", function () {
       var url = "http://twitter.com/share?url=" + local + "&text=" + title + "&related=barret_china"
       operation._shareWin(url);
@@ -947,7 +803,7 @@ var decoration = {
   navTurner: function () {
     if ($("#menuIndex a").size() < 3) {
       $(".func-nav").parent().find("a")
-        .text("首页瞧瞧~").parents(".func-item").off().on("click", function () {
+        .text("回到首页").parents(".func-item").off().on("click", function () {
           window.location.href = "/";
         });
       $(".func-nav span").text("首页");
@@ -1181,186 +1037,6 @@ $(function () {
   });
 });
 
-// $(function() {
-//     var fixerrRunning = false;
-//     var fixerrTimer = null;
-//     $(".fixerr").on("c:fire", function() {
-//         var $this = $(this);
-//         if (fixerrRunning) return;
-
-//         if ($this.attr("data-switch") == "on") {
-//             $this.attr("data-switch", "off");
-
-//             $this.text("关闭中...");
-//             setTimeout(function() {
-//                 fixerrRunning = false;
-//                 $(".a-comments").remove();
-//                 clearTimeout(fixerrTimer);
-//                 $this.text("已关闭");
-//             }, 400);
-//             return;
-//         }
-//         $this.attr("data-switch", "on");
-//         fixErr();
-//         $this.text("开启中...");
-//         setTimeout(function() {
-//             fixerrRunning = false;
-//             $this.text("已开启");
-//         }, 400);
-//         fixerrTimer = setInterval(function() {
-//             decoration.refreshComments();
-//         }, 2000);
-//     }).trigger("c:fire");
-//     /**/
-//     function fixErr() { /**/
-//         $("<div class='comments-layer' id='commentsLayer'>" +
-//             "<p class='comments-btns'>" +
-//             "<span class='comments-type-err on'>我要纠错</span>" +
-//             "<span class='comments-type-q'>我有话说</span>" +
-//             "<i class='icon close'>&#xe624;</i>" +
-//             "</p>" +
-//             "<div><textarea></textarea></div>" +
-//             "<p class='comments-btns comment-btns-right'>" +
-//             "<b class='comments-info'></b>" +
-//             "<span class='comments-btns-cancel'>取消</span>" +
-//             "<span class='comments-btns-submit'>提交</span>" +
-//             "</p>" +
-//             "</div>").hide().appendTo($("body"));
-//         var $layer = $("#commentsLayer");
-//         $(".post-content>p").append("<i class='icon a-comments' title='我有疑问' aria-hidden='true'>&#xe607;<b>我要说话</b></i>");
-//         $(".a-comments").on("click", function() {
-//             var cancelEffect = $(window).width() <= 640;
-//             var $p = $(this).parent("p");
-//             var pw = $p.width();
-//             var ph = $p.height();
-//             $(".comments_on").removeClass("comments_on");
-//             $p.addClass("comments_on");
-//             if ($p.find("#commentsLayer").size()) {
-//                 $layer.animate({
-//                     left: pw + 20
-//                 }, cancelEffect ? 0 : "fast", function() {
-//                     $layer.hide().appendTo($("body"));
-//                 }).find("textarea").val("");
-//                 $("#commentsLayer ul").remove();
-//                 return;
-//             }
-//             $layer.appendTo($p).show().css({
-//                 top: cancelEffect ? 0 : ph,
-//                 left: pw + 20,
-//                 opacity: 0
-//             }).animate({
-//                 left: -1,
-//                 opacity: 1
-//             }, cancelEffect ? 0 : "fast");
-//             // if($layer && $layer[0].scrollIntoView) {
-//             //     $layer[0].scrollIntoView();
-//             // }
-
-//             var index = 0;
-//             $(".post-content>p").each(function(i) {
-//                 if ($(this).hasClass("comments_on")) {
-//                     index = i;
-//                 }
-//             });
-//             var ret = [];
-//             $(".ds-comment-body p").each(function() {
-//                 var text = $(this).text();
-//                 if (new RegExp("\\/_p" + index + "_t(\\d)").test(text)) {
-//                     ret.push({
-//                         type: RegExp.$1 == 1 ? " 对小胡子哥说：" : " 的纠错：",
-//                         text: text.split(" /_p")[0],
-//                         author: $(this).prev().text(),
-//                         avatar: $(this).parent().prev().find("img").attr("src")
-//                     });
-//                 }
-//             });
-//             if (ret.length) {
-//                 var str = "<ul>";
-//                 $.each(ret, function(i, item) {
-//                     if (item.author == "小胡子哥" && item.avatar.indexOf("1812166904") > -1 && i !== 0) {
-//                         var isMe = true;
-//                     }
-//                     str += '<li' + (isMe ? " style='margin-left:30px'" : "") + '><img src="' +
-//                         item.avatar + '" />' + item.author + item.type +
-//                         '<div>' + item.text + '</div></li>';
-//                 });
-//                 str += '</ul>';
-//                 $("#commentsLayer").append(str);
-//             }
-
-//         });
-//         $(".comments-type-err, .comments-type-q").on("click", function() {
-//             $(this).parent().find("span").removeClass("on");
-//             $(this).addClass("on");
-//         });
-//         $(".comments-btns-submit, .comments-btns-cancel, .comments-btns .close").on("click", function() {
-//             var index = "_p0";
-//             if ($(this).hasClass("comments-btns-submit")) {
-//                 $(".post-content>p").each(function(i) {
-//                     if ($(this).hasClass("comments_on")) {
-//                         index = "_p" + i;
-//                     }
-//                 });
-//                 var $cmt = $(".comments_on .a-comments");
-//                 if ($cmt.attr("data-num")) {
-//                     $cmt.attr("data-num", +$cmt.attr("data-num") + 1);
-//                 } else {
-//                     $cmt.attr("data-num", 1).addClass("a-comments_on");
-//                 }
-
-//                 var type = "_t" + ($(".comments-type-err").hasClass("on") ? 0 : 1);
-//                 var val = $layer.find("textarea").val();
-//                 if (!$.trim(val)) {
-//                     $(".comments-info").text("内容不能为空，亲~").hide().fadeIn("fast");
-//                     return;
-//                 }
-//                 val += " /" + index + type;
-//                 $("textarea[name='message']").val(val);
-//                 $(".ds-post-button").trigger('click');
-//                 var $target = $("#ds-wrapper");
-//                 if ($target.size()) {
-//                     var $clone = $target.clone(true).addClass("ds-wrapper-clone");
-//                     $clone.css("opacity", 1).appendTo($("body"));
-//                     $clone.find("button[type='submit']").off().on("click", function() {
-//                         var author = $("#ds-dialog-name").val();
-//                         var $form = $(".ds-replybox form");
-//                         $form.find("input[name='author_name']").remove();
-//                         $form.append("<input type='hidden' name='author_name' value='" + author + "'>");
-//                         $.post("//barretlee.duoshuo.com/api/posts/create.json", $form.serialize(), function() {
-//                             $clone.remove();
-//                             $(".comments-info").text("提交成功").hide().fadeIn("fast");
-//                             setTimeout(function() {
-//                                 postSuccess();
-//                             }, 600);
-//                         });
-//                     });
-//                     $clone.find(".ds-dialog-close").off().on("click", function() {
-//                         $clone.remove();
-//                     });
-//                 } else {
-//                     $(".comments-info").text("提交成功").hide().fadeIn("fast");
-//                     setTimeout(function() {
-//                         postSuccess();
-//                     }, 600);
-//                 }
-//                 return;
-
-//             }
-//             postSuccess();
-//         });
-
-//         function postSuccess() {
-//             $layer.fadeOut("fast", function() {
-//                 $layer.appendTo($("body"));
-//             }).find("textarea").val("");
-//             $("#commentsLayer ul").remove();
-//             $(".comments-info").text("");
-//             decoration.refreshComments();
-//         }
-//         /**/
-//     } /**/
-// });
-
 
 // just for fun.
 ;
@@ -1461,126 +1137,6 @@ $(function () {
     });
   }
 })();
-
-// ;
-// typeof history.pushState === 'function' && (function () {
-//   // if(!$('html').hasAttr('loaded')) {
-//   //     var href = window.location.href;
-//   //     history.replaceState({
-//   //         url: href
-//   //     }, '', href);
-//   // }
-//   var href = window.location.href;
-//   history.replaceState({
-//     url: href
-//   }, '', href);
-//   var pageCache = window.pageCache = window.pageCache || {};
-
-//   function pjax(url, tag) {
-//     $('.post-content .music').size() && window._ap && window._ap.pause();
-//     $('.wechat-info').remove();
-//     if (!tag) {
-//       history.pushState({
-//         url: url
-//       }, '', url);
-//     }
-//     if (pageCache[url]) {
-//       return render(pageCache[url]);
-//     }
-//     // var loadingWords = ['伸个懒腰再来~', '打个呵欠再来~', '加载中...', '玩命加载中...', '同学，你很帅！', '这是 Pjax 效果；）', '不要问我这是啥!', '我在加载...', '客官稍等~', '欢迎继续踩点！', '我认识你！', '咱们是不是认识？', '这玩意儿有点意思！', '出 bug 了', '是否有帮到你？', '大家好，我是小胡子', '吃饭了么？'];
-//     // var word = loadingWords[Math.floor(Math.random() * loadingWords.length)];
-//     var loadLayer = '<div id="loadLayer" style="position:fixed;left:0;right:0;top:0;bottom:0;background:rgba(255,255,255,0.8);text-align:center;line-height:400px;font-size:30px;z-index:82;display:none;">' + '玩命加载中...' + '</div>';
-//     $(loadLayer).appendTo($('html')).fadeIn(300);
-//     $.ajax({
-//       url: url,
-//       dataType: 'html',
-//       timeout: 3000
-//     }).then(function (data) {
-//       try {
-//         var title = data.match(/<title>([\s\S]*)<\/title>/mi)[1];
-//         var description = data.match(/<meta name="description" content="([^\"]+?)"/mi)[1];
-//         var body = data.match(/<body>([\s\S]*)<\/body>/mi)[1];
-//       } catch (e) {
-//         window.location.href = url;
-//         return;
-//       }
-//       pageCache[url] = {
-//         title: title,
-//         description: description,
-//         body: body
-//       };
-//       render(pageCache[url]);
-//     }).fail(function () {
-//       window.location.href = url;
-//     });
-//   }
-
-//   function render(data) {
-//     var title = data.title;
-//     var body = data.body;
-//     var description = data.description;
-//     $.getScript('/public/js/main.js');
-//     $('script[src*="baidu"],script[src*="google"]').remove();
-//     document.title = title || '小胡子哥的个人网站';
-//     $('meta[name="description"]').attr('content', description);
-//     $('body').html(body);
-//     if (!window.location.hash) {
-//       window.scrollTo(0, 0);
-//     }
-//     $('#loadLayer').remove();
-//     $('.func-fb').find('span').text('关注').closest('a').next().remove();
-//     if (/entry\/?$/.test(window.location.href) && $(".rightbar-frame iframe").size() == 0) {
-//       operation.insertWeibo();
-//     }
-//     operation.reloadChangyan();
-//     operation.wechat();
-//     operation.runMusic();
-//     $(window).trigger('load');
-//     setTimeout(() => {
-//       gitalk && gitalk.render('gitalk');
-//       $(".footer-nav a").eq(0).trigger('click');
-//     }, 5 * 1E3);
-//   }
-//   window.onpopstate = function (e) {
-//     var currentState = e.state;
-//     if (currentState) {
-//       if (window.console && window.console.info) {
-//         console.info('navigator back: ' + currentState.url);
-//       }
-//       pjax(currentState.url, 'GO');
-//     }
-//   };
-//   $(function () {
-//     $('a').on('click', function (evt) {
-//       var href = $(this).prop('href');
-//       var host = window.location.host;
-//       var hasJump = $(this).prop('target') === '_blank';
-//       if (href.indexOf(host) > -1 && href.indexOf('#') == -1 && !/^\/(ST|tools|pages)/i.test(location.pathname) && !$(this).parent('#indexLogo').size() && !/\.(jpg|jpeg|png|gif|js|css|woff|ttf)(\?.*)?$/.test(href) && !evt.metaKey && !evt.ctrlKey && !/rss2\.xml$/.test(href) && !hasJump) {
-//         evt.preventDefault();
-//         if (window.console && window.console.info) {
-//           console.info('navigator: ' + href);
-//         }
-//         pjax(href);
-//       }
-//     });
-//   });
-
-  // if(window.location.href.indexOf('/entry/') > -1 && !isMobile.any()) {
-  //     roundScroll();
-  // } else {
-  //     // if($.inArray(window.location.hash.slice(1), ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'])) {
-  //     //     window.location.hash = "";
-  //     // }
-  //     window.rTimer && clearInterval(window.rTimer);
-  // }
-  // function roundScroll() {
-  //     var round = ['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'], i = 0, len = round.length;
-  //     window.rTimer && clearInterval(window.rTimer);
-  //     window.rTimer = setInterval(function(){
-  //       history.replaceState && history.replaceState({}, '', '#' + round[i % len]); i++;
-  //     }, 120);
-  // }
-// })();
 
 
 // 页面统计

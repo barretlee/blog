@@ -72,11 +72,7 @@ deploy:
 - type: git
   repo: git@github.com:barretlee/blog.git
   branch: gh-pages
-  message: build at local, send to gh-pages {{ now("YYYY-MM-DD HH:mm:ss") }}
-- type: git
-  repo: git@e.coding.net:barretlee/blog.git
-  branch: gh-pages
-  message: build at local, send to gh-pages {{ now("YYYY-MM-DD HH:mm:ss") }}
+  message: build at local, send to gh-pages {{ now("MM-DD HH:mm:ss") }}
 
 # hexo-admin authentification
 admin:
@@ -135,24 +131,3 @@ lazyload:
   enable: false
   onlypost: true
   imgCDN: 
-
-
-# webpack_config: 'themes/hexo-theme-moustache/webpack.config.js'
-
-
-# offline config passed to sw-precache. 
-# service_worker:
-#   maximumFileSizeToCacheInBytes: 5242880
-#   staticFileGlobs:
-#     - public/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2}
-#   stripPrefix: public
-#   verbose: true
-#   runtimeCaching:
-#     - urlPattern: /*
-#       handler: cacheFirst
-#       options:
-#         origin: changyan.sohu.com
-#     - urlPattern: /*
-#       handler: cacheFirst
-#       options:
-#         origin: changyan.itc.cn

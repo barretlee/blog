@@ -226,7 +226,7 @@ readable.pipe(writable);
 Readable.prototype.pipe = function(writable, options) {
   this.on('data', (chunk) => {
     let ok = writable.write(chunk);
-	// 背压，暂停
+    // 背压，暂停
     !ok && this.pause();
   });
   writable.on('drain', () => {
