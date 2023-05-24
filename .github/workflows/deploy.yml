@@ -44,6 +44,9 @@ jobs:
 
       - name: Test connection
         run: |
+          echo start
+          echo $HEXO_DEPLOY_PRI
+          echo end
           ssh -vvvT git@github.com
           
       - name: Install dependencies
