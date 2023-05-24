@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-node@v3.4.1
         with:
           node-version: ${{ matrix.node_version }}
-          cache: 'npm'
+          # cache: 'npm'
 
       - name: Configuration environment
         env:
@@ -42,6 +42,7 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
+          ssh -T git@github.com
 
       - name: Install dependencies
         run: |
