@@ -28,6 +28,7 @@ jobs:
         uses: actions/setup-node@v3.4.1
         with:
           node-version: ${{ matrix.node_version }}
+          # 生成 package-lock.json 文件失败，cache 配置无效
           # cache: 'npm'
 
       - name: Configuration environment
@@ -53,6 +54,7 @@ jobs:
 
       - name: Deploy hexo
         run: |
-          node -e "const fs = require('fs'); let content = fs.readFileSync('_config.yml').toString().replace(/image_minifier[\s\S]+?enable: false/gmi, 'image_minifier:\n  enable: true'); fs.writeFileSync('_config.yml', content);"
-          npm run deploy > /dev/null
+          npm run deploy
         working-directory: blog
+        # 插件问题，execSync 操作导致输出到 stdout 的内容太多，溢出报错
+        # node -e "const fs = require('fs'); let content = fs.readFileSync('_config.yml').toString().replace(/image_minifier[\s\S]+?enable: false/gmi, 'image_minifier:\n  enable: true'); fs.writeFileSync('_config.yml', content);"
