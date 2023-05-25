@@ -1,7 +1,6 @@
 ---
 title: 破局 - 纯粹的执行者
 description: 小胡子哥的个人网站
-warning: 'false'
 author: 小胡子哥
 tags:
   - 执行者

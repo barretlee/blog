@@ -1,7 +1,6 @@
 ---
 title: 先处理情绪，再解决事情
 description: 小胡子哥的个人网站
-warning: true
 author: Barret李靖
 date: 2020-09-27 13:02:56
 ---

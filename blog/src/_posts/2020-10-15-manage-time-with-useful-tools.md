@@ -1,7 +1,6 @@
 ---
 title: 善用工具更好地管理自己的时间
 description: 小胡子哥的个人网站
-warning: true
 author: Barret李靖
 date: 2020-10-15 13:04:17
 ---

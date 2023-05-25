@@ -1,7 +1,6 @@
 ---
 title: 给自己找个导师
 description: 小胡子哥的个人网站
-warning: 'false'
 author: Barret李靖
 tags: []
 categories:

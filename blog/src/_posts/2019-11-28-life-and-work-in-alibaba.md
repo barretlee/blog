@@ -1,7 +1,6 @@
 ---
 title: Coding 五年，我在阿里“啃”了块硬骨头
 description: 在阿里的日子过得太快，转瞬间已在指尖和键盘的 Coding 声中溜走了五年，这五年，我从青涩的小伙转身成为一个女娃娃的爹，也从略带内向的毕业生进化成了既能码又能撕的“胡子大叔”。
-warning: false
 author: Barret李靖
 tags:
   - alibaba

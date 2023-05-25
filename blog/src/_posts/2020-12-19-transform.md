@@ -1,7 +1,6 @@
 ---
 title: 转变
 description: 小胡子哥的个人网站
-warning: true
 author: Barret李靖
 date: 2020-12-19 13:09:00
 ---

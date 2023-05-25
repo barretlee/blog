@@ -1,7 +1,6 @@
 ---
 title: 工作上的几个道理
 description: 小胡子哥的个人网站
-warning: true
 author: Barret李靖
 date: 2020-08-24 13:01:33
 ---

@@ -1,7 +1,6 @@
 ---
 title: 技术同学在业务中的成长
 description: 小胡子哥的个人网站
-warning: true
 author: Barret李靖
 tags: []
 categories: []

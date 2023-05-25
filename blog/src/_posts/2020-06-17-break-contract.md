@@ -1,7 +1,6 @@
 ---
 title: 心理契约的打破过程
 description: 小胡子哥的个人网站
-warning: 'false'
 author: Barret李靖
 tags: []
 categories:

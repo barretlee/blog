@@ -1,7 +1,6 @@
 ---
 title: 游记 · 内蒙古银肯响沙湾
 description: 小胡子哥的个人网站
-warning: 'false'
 author: 小胡子哥
 tags:
   - 沙漠

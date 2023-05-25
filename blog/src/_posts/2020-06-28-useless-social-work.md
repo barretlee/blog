@@ -1,7 +1,6 @@
 ---
 title: 今天你无效社交了么？
 description: 小胡子哥的个人网站
-warning: 'false'
 author: Barret李靖
 tags: []
 categories:

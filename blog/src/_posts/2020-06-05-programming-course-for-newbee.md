@@ -1,7 +1,6 @@
 ---
 title: 一篇写给从未编程过的人的入门教程
 description: 小胡子哥的个人网站
-warning: 'false'
 author: Barret李靖
 tags: []
 categories:

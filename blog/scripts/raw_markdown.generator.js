@@ -1,11 +1,11 @@
+const moment = require('moment');
 hexo.extend.generator.register('raw_markdown', function(locals){
-  // console.log(locals.posts.data[locals.posts.data.length - 1]);process.exit();
   var list = {posts: [], pages: []};
   var ret = [];
   var posts = locals.posts.data.filter(function(post) {
     return post.published;
   }).map(function(post) {
-    var path = 'raw/posts/' + post.slug + '.md';
+    var path = 'raw/posts/' + moment(post.date).format('YYYY-MM-DD-') + post.slug + '.md';
     list.posts.push(path);
     return {
       path: path,

@@ -13,7 +13,7 @@
 			  if(!(name in cates)) return;
 				if(post.permalink === p.permalink) return;
 				if(++count >= limit) return;
-				var excerpt = p.excerpt.replace(/<[^>]+?>|\n/gm, '') || p.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 50) + "...";
+				var excerpt = p.excerpt.replace(/<[^>]+?>|\n/gm, '') || p.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 120) + "...";
 				var m = p.content.match(/<img src="[^"]+?" data-original="([^"]+?)"/);
 				if (!m) {
 					m = p.content.match(/<img src="([^"]+?)"/);

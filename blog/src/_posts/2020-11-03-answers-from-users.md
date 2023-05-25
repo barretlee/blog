@@ -1,7 +1,6 @@
 ---
 title: 从用户嘴里找答案
 description: 小胡子哥的个人网站
-warning: true
 author: Barret李靖
 date: 2020-11-03 13:06:46
 ---

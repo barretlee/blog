@@ -1,7 +1,6 @@
 ---
 title: 用未来的视角来看今天
 description: 小胡子哥的个人网站
-warning: 'false'
 author: Barret李靖
 tags: []
 categories:

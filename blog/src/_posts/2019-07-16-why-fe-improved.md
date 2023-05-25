@@ -1,7 +1,6 @@
 ---
 title: 前端领域的市场需求
 description: 小胡子哥的个人网站
-warning: 'false'
 author: 小胡子哥
 tags:
   - 前端杂烩

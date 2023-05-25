@@ -1,7 +1,6 @@
 ---
 title: Google 的 Code Review 实践经验
 description: Google 的 Code Review 目标是不断提高 codebase 的质量，同时要求审阅者在代码的高质量和业务的推进之间做好权衡，两边的极端都不要走，并给出了一些实战经验，下面我总结了下：
-warning: false
 author: 小胡子哥
 tags:
   - Code Review

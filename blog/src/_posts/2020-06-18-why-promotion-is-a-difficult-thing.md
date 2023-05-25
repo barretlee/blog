@@ -1,7 +1,6 @@
 ---
 title: 为什么无法突破到下一个层级？
 description: 小胡子哥的个人网站
-warning: 'false'
 author: Barret李靖
 tags: []
 categories:

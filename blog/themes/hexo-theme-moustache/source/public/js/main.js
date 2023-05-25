@@ -1,7 +1,4 @@
 var weiboName = "@Barret李靖";
-var disqusName = "";
-var fromBaidu = /^http(s)?:\/\/(\w+?\.)?baidu.com/.test(document.referrer);
-
 if (window.location.hostname === 'barretlee.com') {
   window.location.href = location.url.replace('barretlee.com', 'www.barretlee.com');
 }
@@ -30,9 +27,6 @@ $(function () {
   var text = '';
   var m = navigator.appVersion.match(/MSIE (\d+)/i);
   m = m && m[1];
-  if (fromBaidu) {
-    // text = "您还在使用百度搜索，珍爱生命，请远离百度！<a href='javascript:void(0);' class='close'>关闭</a>";
-  }
   if (m && m < 10) {
     text = "更好的阅读体验，请使用最新版的 Chrome 浏览器。<a href='javascript:void(0);' class='close'>关闭</a>";
   }
@@ -40,15 +34,6 @@ $(function () {
     $(".rainbow").addClass('notice').html(text).hide().fadeIn();
   }
 });
-
-// if (window.location.protocol == 'https:') {
-//   $("img").each(function () {
-//     var src = $(this).attr('src');
-//     if (/ww1.sinaimg.cn/.test(src)) {
-//       $(this).attr('src', src.replace('ww1.', 'www.'));
-//     }
-//   });
-// }
 
 function notify(notice) {
   if (!("Notification" in window)) {
@@ -334,16 +319,14 @@ var operation = {
     });
   },
   insertWeibo: function () {
-    var htmlStr = '<iframe width="330" height="350" class="share_self"  frameborder="0" scrolling="no" src="//widget.weibo.com/weiboshow/index.php?language=&width=330&height=350&fansRow=1&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1812166904&verifier=73dc4ca5&dpc=1"></iframe>';
+    var htmlStr = '<iframe width="330" height="350" class="share_self"  frameborder="0" scrolling="no" src="https://widget.weibo.com/weiboshow/index.php?language=&width=330&height=350&fansRow=1&ptype=1&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1812166904&verifier=73dc4ca5&dpc=1"></iframe>';
     if (/\/entry\//.test(window.location.href) && !isMobile.any() && ($(window).width() > 992) && !$(".rightbar-frame iframe").size()) {
-      // $(window).on("load", function() {
       var $ifr = $(".rightbar-frame");
       if (!$ifr.find('iframe').size()) {
         $(window).on('load', function () {
           $ifr.css("background", "none").append(htmlStr);
         });
       }
-      // });
     }
     if (isMobile.any()) {
       $(".rightbar-frame").remove()
@@ -396,7 +379,6 @@ var operation = {
       evt.preventDefault();
       $(".notice").removeClass("notice");
     });
-    !$(".post").size() && $(".sharecanvas").hide();
 
     var hash = window.location.hash;
     if (hash && $(hash).size()) {
@@ -404,10 +386,8 @@ var operation = {
         scrollTop: $(hash).offset().top
       });
     }
-    if (/#comments/.test(window.location.href)) {
-      var $target = $(".footer-nav a").eq(0);
-      !$target.attr("id") && $target.trigger("click");
-    }
+    var $target = $(".footer-nav a").eq(0);
+    !$target.attr("id") && $target.trigger("click");
     $(window).on("load", function () {
       var hash = window.location.hash;
       if (hash && hash === "#comments") {
@@ -430,12 +410,6 @@ var operation = {
     });
     if ($(".local-search-google").size()) {
       var $input = $(".local-search-google input");
-      // $input.on("change", function (evt) {
-      //   var val = $.trim($input.val());
-      //   if (val && (evt.which == 13 || evt.type == 'change')) {
-      //     window.open('//www.google.com.hk/search?q=site:www.barretlee.com ' + val);
-      //   }
-      // });
       $(".local-search-google i").on("click", function () {
         var val = $.trim($input.val());
         if (val) {
@@ -493,33 +467,6 @@ var operation = {
     var name = navigator.appVersion.toUpperCase();
     return num ? name.match(/MSIE (\d)/) && name.match(/MSIE (\d)/)[1] == num : /MSIE (\d)/.test(name);
   },
-  // 添加运行代码的 button
-  // addRunCodeBtn: function () {
-  //   $(".addrunbtn").each(function () {
-  //     var $this = $(this);
-  //     $this.append("<span class='runCode'>运行代码</span>");
-  //   });
-  //   //runCode
-  //   $(".highlight").on("click", ".runCode", function (evt) {
-  //     evt.stopPropagation();
-
-  //     var code = $(this).parents(".highlight").find("code").text();
-
-  //     code = $(this).parents(".highlight").hasClass('jscode') ? ("该 blob 流源自: <a href='" + window.location.href +
-  //       "'>小胡子哥的个人网站</a><br /><span style='color:red;font-size:12px;line-height:50px;'>" +
-  //       "有些数据可能在 console 中显示~</span><script>" + code + "</script>") : code;
-
-  //     if (!operation.isIE()) {
-  //       window.open(URL.createObjectURL(new Blob([code], {
-  //         type: "text/html; charset=UTF-8"
-  //       })));
-  //     } else {
-  //       var d = window.open("about:blank").document;
-  //       d.write(code);
-  //       d.close();
-  //     }
-  //   });
-  // },
   // 底部tab切换
   footerNav: function () {
     $(".footer-nav a").on("click", function (evt) {
@@ -868,47 +815,7 @@ $(window).on("load", function () {
       $("#followMeOnWeibo").html('<wb:follow-button uid="1812166904" type="red_1" width="67" height="24" style="vertical-align:middle;display:inline-block" ></wb:follow-button>');
     });
   }
-
-  setTimeout(function () {
-    var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?14788c3dc5c09194b1bad2d5ded36949";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-
-    // 百度收录，自动推送
-    (function () {
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-      } else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-67248043-1', 'auto');
-    ga('send', 'pageview');
-  }, 2000);
 });
-
-
 
 $(function () {
   var $layer = $("<div/>").css({
@@ -961,9 +868,6 @@ $(function () {
       if (isMobile.any()) {
         return;
       }
-      // if($(this).parent("a").size()) {
-      //   return;
-      // }
       evt.preventDefault();
       evt.stopPropagation();
       var $b = $("body");
@@ -973,10 +877,6 @@ $(function () {
       $c.appendTo($b);
       justifyImg($c);
     }).each(function () {
-      // if($(this).parent("a").size()) {
-      //   $(this).css('cursor', 'inherit');
-      //   return;
-      // }
     });
 
   var timer = null;
@@ -1137,42 +1037,3 @@ $(function () {
     });
   }
 })();
-
-
-// 页面统计
-$(function () {
-  var bszTag = {
-    bszs: ["site_pv", "page_pv", "site_uv"],
-    texts: function (a) {
-      this.bszs.map(function (b) {
-        var c = document.getElementById("busuanzi_value_" + b);
-        c && (c.innerHTML = a[b])
-      })
-    },
-    hides: function () {
-      this.bszs.map(function (a) {
-        var b = document.getElementById("busuanzi_container_" + a);
-        b && (b.style.display = "none")
-      })
-    },
-    shows: function () {
-      this.bszs.map(function (a) {
-        var b = document.getElementById("busuanzi_container_" + a);
-        b && (b.style.display = "inline")
-      })
-    }
-  };
-
-  $(window).on('load', function () {
-    setTimeout(function() {
-      $.ajax({
-        url: "//busuanzi.ibruce.info/busuanzi",
-        dataType: 'jsonp',
-        jsonp: 'jsonpCallback',
-        success: function (a) {
-          bszTag.texts(a), bszTag.shows()
-        }
-      });
-    }, 2000);
-  });
-});

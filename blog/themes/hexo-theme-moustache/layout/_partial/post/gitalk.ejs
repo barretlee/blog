@@ -1,7 +1,5 @@
 <% if(theme.gitalk) { %>
-  <div id="gitalk" sid="<%- page.slug || page.path || 'barretlee-blog' %>">
-    
-  </div>
+  <div id="gitalk" sid="<%- page.slug || page.path || 'barretlee-blog' %>"></div>
   <script charset="utf-8" type="text/javascript" src="/public/js/gitalk.js"></script>
   <script type="text/javascript">
   var postContent = document.querySelectorAll('.post-content>p');
@@ -24,11 +22,7 @@
     distractionFreeMode: false
   });
 
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      gitalk.render('gitalk');
-    }, 2E3);
-  });
+  gitalk.render('gitalk');
 
   // show count
   var commentTimer = setInterval(() => {

@@ -1,7 +1,6 @@
 ---
 title: 解密 VS Code 断点调试的原理
 description: 小胡子哥的个人网站
-warning: 'false'
 author: Barret李靖
 tags:
   - VSCode
