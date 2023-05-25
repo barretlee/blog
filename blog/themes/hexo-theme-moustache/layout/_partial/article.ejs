@@ -17,8 +17,12 @@
           <time itemprop="timeCreated" aria-hidden="true"><%- moment(page.date).format('YYYY-MM-DD HH:mm:ss') %></time>
           <span class="aria-readonly">本文发布时间为<%- moment(page.date).format('YYYY年MM月DD日HH时mm分ss秒') %></span>
         </span>
+        <% if (page.categories && page.categories.data.length) {%>
         <span>分类: <%- partial('post/category', {post: page}) %></span>
+        <% } %>
+        <% if (page.tags && page.tags.data.length) {%>
         <span tabindex="0" aria-hidden="true">标签: <%- partial('post/tag', {post: page}) %></span>
+        <% } %>
         <span class="aria-readonly">下面是正文内容</span>
         <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
                       class="ds-thread-count hash-to-comments disqus-comment-count"

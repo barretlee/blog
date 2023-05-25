@@ -13,9 +13,21 @@
     "url": "git+https://github.com/barretlee/blog.git"
   },
   "author": "Barret Lee <barret.china@gmail.com>",
-  "license": "Apache License 2.0",
+  "license": "Apache-2.0",
   "devDependency": {
     "yaml": "^1.10.0"
   },
-  "homepage": "https://github.com/barretlee/blog#readme"
+  "homepage": "https://github.com/barretlee/blog#readme",
+  "bugs": {
+    "url": "https://github.com/barretlee/blog/issues"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "_yaml@1.10.2@yaml": "^1.10.2",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {}
 }
