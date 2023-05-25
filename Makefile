@@ -35,8 +35,6 @@ goroot:
 init:
 	cd blog; npm install --registry=https://registry.npmmirror.com
 	git remote add origin git@github.com:barretlee/blog.git;
-	git remote add ecoding git@e.coding.net:barretlee/blog.git
-	# git remote add coding https://git.coding.net/barretlee/myblog.git;
 
 # 清理工作
 clear:
@@ -44,7 +42,7 @@ clear:
 
 # 打开 hexo 本地服务
 run:
-	sed -i '' '125s/true/false/' blog/_config.yml;
+	sed -i '' '123s/true/false/' blog/_config.yml;
 ifneq (${F},)
 	cd blog; \
 	rm -rf ${DEPLOY_GIT}; \

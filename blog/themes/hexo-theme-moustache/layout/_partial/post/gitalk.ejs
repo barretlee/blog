@@ -4,7 +4,7 @@
   <script type="text/javascript">
   var postContent = document.querySelectorAll('.post-content>p');
   if (postContent && postContent.length) {
-    postContent = postContent.item(0).textContent + postContent.item(1).textContent;
+    postContent = postContent.item(0).textContent + (postContent.item(1) && postContent.item(1).textContent || '');
     postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
   }
 
@@ -18,7 +18,7 @@
     owner: 'barretlee',
     admin: ['barretlee'],
     id: "<%- page.slug || page.path || 'barretlee-blog' %>",
-    body: '原文地址：' + location.href + '\n\n文摘：' + postContent || header.meta[description],
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent,
     distractionFreeMode: false
   });
 
