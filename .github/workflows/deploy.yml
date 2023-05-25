@@ -53,6 +53,6 @@ jobs:
 
       - name: Deploy hexo
         run: |
-          sed -i '' '123s/false/true/' _config.yml;
+          node -e "const fs = require('fs'); let content = fs.readFileSync('_config.yml').toString().replace(/image_minifier[\s\S]+?enable: false/gmi, 'image_minifier:\n  enable: true'); fs.writeFileSync('_config.yml', content);"
           npm run deploy
         working-directory: blog
