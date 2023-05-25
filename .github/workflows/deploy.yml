@@ -53,6 +53,6 @@ jobs:
 
       - name: Deploy hexo
         run: |
-          sed -i '' '123s/false/true/' blog/_config.yml;
+          sed -i '' '123s/false/true/' _config.yml;
           npm run deploy
         working-directory: blog
