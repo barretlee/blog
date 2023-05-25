@@ -12,30 +12,10 @@
     "type": "git",
     "url": "git+https://github.com/barretlee/blog.git"
   },
-  "keywords": [
-    "blog",
-    "barretlee",
-    "hexo"
-  ],
   "author": "Barret Lee <barret.china@gmail.com>",
-  "license": "MIT",
-  "dependency": {},
+  "license": "Apache License 2.0",
   "devDependency": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "husky": "^3.0.9"
-  },
-  "bugs": {
-    "url": "https://github.com/barretlee/blog/issues"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run images-task",
-      "commit-msg": "npm run commitlint"
-    }
-  },
-  "homepage": "https://github.com/barretlee/blog#readme",
-  "devDependencies": {
     "yaml": "^1.10.0"
-  }
+  },
+  "homepage": "https://github.com/barretlee/blog#readme"
 }
