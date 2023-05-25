@@ -1,4 +1,4 @@
-### 小胡子个人网站
+### 小胡子哥的个人网站
 
 <a href="https://www.barretlee.com" target="_blank"><img src="./blog/src/blogimgs/avatar150.png" width="150" /></a>
 
