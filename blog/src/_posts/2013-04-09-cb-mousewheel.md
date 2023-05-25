@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-04-09 08:36:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/09/mousewheel.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/09/mousewheel.html" target="_blank">博客园</a>.</div>
 
 <p><span>最近正在做评论模块的</span><a href="http://blog.163.com/jinlu_hz/blog/static/11383015220112251147684/" target="_blank">image LazyLoad</a><span>（图片资源延迟加载/按需加载），其中涉及到一些mouse scroll操作。老外的</span><a href="http://adomas.org/javascript-mouse-wheel/" rel="nofollow" target="_blank">Mouse wheel programming in JavaScript</a><span>一文，对我很有价值。</span><span>&mdash;&mdash;以下为翻译&mdash;&mdash;</span><span>本文有些信息可能已经过时，但是大部分知识点仍旧有用。</span><span>Web应用日新月异，也越来越接近于桌面应用。功能上越来越强，比如drag<drop（拖拽），autocompletition（自动完成/自动补全）等等。在AJAX的配合下，这些应用都易于实现。</span><span>本文要说的并不是AJAX技术，而是关于相对简单的用户输入手段&mdash;&mdash;鼠标滚轮。目前已经很难找到不带滚轮的鼠标了，大多数用户会使用滚轮用来滚动浏览器、缩放页面/照片之类的操作。Web应用在这个领域却鲜有建树。本文将提供一些基于鼠标滚轮的javascript事件和相关的处理手段。</span></p>
 <h3>Annotated code 带注释的代码</h3>

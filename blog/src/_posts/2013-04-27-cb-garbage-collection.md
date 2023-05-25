@@ -8,9 +8,10 @@ tags:
   - 垃圾回收
 warning: true
 date: 2013-04-27 03:14:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/27/garbage-collection.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/27/garbage-collection.html" target="_blank">博客园</a>.</div>
 
 <p><strong>一、垃圾回收的必要性</strong></p>
 <p>　　下面这段话引自《JavaScript权威指南（第四版）》</p>

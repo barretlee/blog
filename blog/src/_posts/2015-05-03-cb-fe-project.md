@@ -6,9 +6,10 @@ tags:
   - tech
   - cnblogs
 date: 2015-05-03 12:56:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2015/05/03/fe-project.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2015/05/03/fe-project.html" target="_blank">博客园</a>.</div>
 
 
 回忆一下我们在工程开发中对目录结构的定义，一般分为两种，单页面多模块，多页面多模块。在单页面多模块的工程结构里，我们会考虑模块的复用性，比如：如何将公共的东西（样式、函数等）提取出来方便其他模块复用。在多页面多模块的场景中，也是一样，不过除了把全局共用的样式和方法提取到公共目录外，我们还会将多个地方都会用到的模块作为通用模块处理。

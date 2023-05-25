@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-08-11 12:17:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/08/11/responsive-web-desigin.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/08/11/responsive-web-desigin.html" target="_blank">博客园</a>.</div>
 
 <p>&nbsp;博客园的资源很丰富，也很精彩。不过这些精彩的东西放到一些移动终端上阅览就不堪入目了，<span>体验相当不好</span>。</p>
 <p>&nbsp;&nbsp;<img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/08/11/11111006-2d09cc55663d4efaab0b4e7c9f734775.png" data-source="http://images.cnitblog.com/blog/387325/201308/11111006-2d09cc55663d4efaab0b4e7c9f734775.png" alt="" width="386" height="686"></p>

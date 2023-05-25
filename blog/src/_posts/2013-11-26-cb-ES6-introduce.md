@@ -9,9 +9,10 @@ tags:
   - ES6
 warning: true
 date: 2013-11-26 10:31:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/11/26/ES6-introduce.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/11/26/ES6-introduce.html" target="_blank">博客园</a>.</div>
 
 <p>ECMAScript 6 是JavaScript的下一个标准，正处在快速开发之中，大部分已经完成了，预计将在2014年正式发布。Mozilla将在这个标准的基础上，推出JavaScript 2.0。</p>
 <p>ECMAScript 6 的目标，是使得JavaScript可以用来编写复杂的应用程序、函数库和代码的自动生成器（code generator）。</p>

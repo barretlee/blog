@@ -7,9 +7,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-05-26 10:40:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/05/26/css-font-family.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/05/26/css-font-family.html" target="_blank">博客园</a>.</div>
 
 <p>说到css中的font-family，相信很多朋友经常用，但不知道当你遇到引用中文字体的时候你会怎么写？最近特别关注了下，发现最常用的基本有三种类型：</p>
 <ol>

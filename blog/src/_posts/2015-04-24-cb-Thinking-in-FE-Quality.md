@@ -7,9 +7,10 @@ tags:
   - cnblogs
 mark: hot
 date: 2015-04-24 12:24:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2015/04/24/Thinking-in-FE-Quality.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2015/04/24/Thinking-in-FE-Quality.html" target="_blank">博客园</a>.</div>
 
 <p>我们时时在踩坑，有时也忍不住埋怨前人给我们留下了无数的坑，可回头想想，自己是不是也在挖坑等别人踩...</p>
 <p>上次听 赵海平 的讲座，他提到 Facebook 没有测试人员，以前和现在都没有，以后也不打算有。还提到上线之后就开发者坐在系统前等着，只要有bug，系统能够在五分钟之内检测到，并提供快捷方式修复。我惊叹的是他们能够在五分钟之内监控到所有的问题，实时回馈并及时修复。</p>

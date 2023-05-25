@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-09-26 09:30:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/09/26/mianshi-alibaba.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/09/26/mianshi-alibaba.html" target="_blank">博客园</a>.</div>
 
 <p>　　<strong>&lt;!-- [废话开始]</strong></p>
 <p>　　<span>百度实习三个月，明天就要离职了，感觉还挺开心的，同事们都很照顾我，Boss也比较欣赏我，我很满足了。掐指一算，这大四其实也没几个月了，同事们都在感叹大学的那些事儿，也告诫我要好好享受大学最后的时光，我会好好把握！</span></p>

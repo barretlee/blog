@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2014-02-17 09:18:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/02/17/problem-javascript-event.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/02/17/problem-javascript-event.html" target="_blank">博客园</a>.</div>
 
 <p>群里童鞋问到关于事件传播的一个问题：\事件捕获的时候，阻止冒泡，事件到达目标之后，还会冒泡吗？"。</p>
 <p>初学 JS 的童鞋经常会有诸多疑问，我在很多 QQ 群也混了好几年了，耳濡目染也也收获了不少，以后会总结下问题的结论，顺便说说相关知识的扩展~</p>

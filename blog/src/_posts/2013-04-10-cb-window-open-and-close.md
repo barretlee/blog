@@ -7,9 +7,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-04-10 04:06:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/10/window-open-and-close.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/10/window-open-and-close.html" target="_blank">博客园</a>.</div>
 
 <p><strong>关键词</strong><span>：window.open() window.close() showModalDialog() 兼容性 测试等。</span></p>
 <p>　　　　本文默认你对以上函数参数有基本了解。</p>

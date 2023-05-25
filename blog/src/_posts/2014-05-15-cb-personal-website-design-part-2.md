@@ -6,9 +6,10 @@ tags:
   - tech
   - cnblogs
 date: 2014-05-15 01:32:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/05/15/personal-website-design-part-2.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/05/15/personal-website-design-part-2.html" target="_blank">博客园</a>.</div>
 
 <p>网站地址：<a href="http://barretlee.com">http://barretlee.com</a></p>
 <p>昨天对网站的架构做了一个简要的分析，有些人不太理解，有了 NodeJS 还要 php 干啥？我推荐了几篇文章给这位童鞋看了：</p>

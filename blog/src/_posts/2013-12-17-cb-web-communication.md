@@ -9,9 +9,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-12-17 10:01:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/12/17/web-communication.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/12/17/web-communication.html" target="_blank">博客园</a>.</div>
 
 <p>web通信，一个特别大的topic，涉及面也是很广的。因最近学习了 javascript 中一些 web 通信知识，在这里总结下。文中应该会有理解错误或者表述不清晰的地方，还望斧正！</p>
 <h3>一、前言</h3>

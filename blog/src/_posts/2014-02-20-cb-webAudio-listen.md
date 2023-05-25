@@ -10,9 +10,10 @@ tags:
   - webaudio
 warning: true
 date: 2014-02-20 12:47:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/02/20/webAudio-listen.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/02/20/webAudio-listen.html" target="_blank">博客园</a>.</div>
 
 <p>本系列文章主要是介绍 Web Audio API 的相关知识，由于该技术还处在 web 草案阶段（很多标准被提出来，至于取舍需要等待稳定版文档来确定，草案阶段的文档很多都会被再次编辑甚至重写、全部删除等，不适合作为正式参考），很多 API 都是未确定的，目前支持 Web Audio API 的浏览器是较新版的 Google Chrome 和 FireFox，其他浏览器暂时还没有兼容。</p>
 <p>现在的网络硬件环境还没有达到普遍语音通信的条件，但是 web语音通信 一定会成为后期 web 研究的一个重要话题，凭着一点个人兴趣，拿出来研究研究~</p>

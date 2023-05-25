@@ -78,7 +78,7 @@ tags = Object.keys(_tags);
         ret[year].push(post);
       }
     });
-    Object.keys(ret).sort(function(a,b){return a < b}).forEach(function(year){
+    Object.keys(ret).reverse().forEach(function(year){
       var data = ret[year];
       if(!data.length) return;
     %>

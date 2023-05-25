@@ -8,9 +8,10 @@ tags:
   - cnblogs
   - ES6
 date: 2014-05-02 09:42:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/05/02/ecmascript6-overview.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/05/02/ecmascript6-overview.html" target="_blank">博客园</a>.</div>
 
 <p>预计在2014年底，ECMAScript 6将会正式发布，他的草案在13年3月份被冻结，后续提出新特性将会移至ECMASript 7中。目前还没有哪款浏览器实现了ES6的全部内容，兼容性最强的一款要数FireFox了。具体情况可以在<a href="http://kangax.github.io/es5-compat-table/es6/" target="_blank">这里</a>查看。</p>
 <p>关于 ECMAScript 6 草案，我在博客里头复制了一份，可以点击<a href="http://barretlee.com/ST/ES6/" target="_blank">这里</a>。</p>

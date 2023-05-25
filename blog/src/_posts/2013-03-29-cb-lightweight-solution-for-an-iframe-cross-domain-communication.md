@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-03-29 11:10:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/03/29/lightweight-solution-for-an-iframe-cross-domain-communication.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/03/29/lightweight-solution-for-an-iframe-cross-domain-communication.html" target="_blank">博客园</a>.</div>
 
 <p><a href="http://www.alloyteam.com/wp-content/uploads/2012/08/two_messenger.png" rel="prettyPhoto[1]"><img class="aligncenter lh_lazyimg slideshow_imgs" title="图2" src="http://www.alloyteam.com/wp-content/uploads/2012/08/two_messenger.png" alt="2个信使的情况" width="390" height="322"></a></p>
 <p><strong>一、背景</strong></p>

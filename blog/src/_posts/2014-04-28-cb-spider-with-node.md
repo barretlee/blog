@@ -10,9 +10,10 @@ tags:
   - NodeJS
   - 爬虫
 date: 2014-04-28 01:41:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/04/28/spider-with-node.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/04/28/spider-with-node.html" target="_blank">博客园</a>.</div>
 
 <p>这两天看了好几篇不错的文章，有的时候想把好的文章 down 下来放到 kindle 上看，便写了个爬虫脚本，因为最近都在搞 node，所以就很自然的选择 node 来爬咯～</p>
 <p>本文地址：<a href="http://www.cnblogs.com/hustskyking/p/spider-with-node.html">http://www.cnblogs.com/hustskyking/p/spider-with-node.html</a>，转载请注明源地址。</p>

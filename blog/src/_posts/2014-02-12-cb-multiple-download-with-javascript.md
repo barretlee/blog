@@ -11,9 +11,10 @@ tags:
 warning: true
 mark: hot
 date: 2014-02-12 09:50:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/02/12/multiple-download-with-javascript.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/02/12/multiple-download-with-javascript.html" target="_blank">博客园</a>.</div>
 
 <p>对于文件的下载，可以说是一个十分常见的话题，前端的很多项目中都会有这样的需求，比如 highChart 统计图的导出，在线图片编辑中的图片保存，在线代码编辑的代码导出等等。而很多时候，我们只给了一个链接，用户需要右键点击链接，然后选择\另存为"，这个过程虽说不麻烦，但还是需要两步操作，倘若用户想保存页面中的多个链接文件，就得重复操作很多次，最常见的就是英语听力网站上的音频下载，手都要点麻！</p>
 <p>本文的目的是介绍如何利用 javascript 进行多文件的下载，也就是当用户点击某个链接或者按钮的时候，同时下载多个文件。这里的\同时"用的不是很准确，在现代浏览器中可以实现多文件的并行下载，而在一些老版本浏览器，如IE8-，此类的浏览器就只能进行单个文件的下载，但是我们可以让多个文件依次保存下来，算是串行下载吧~</p>

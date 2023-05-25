@@ -38,7 +38,7 @@ __精度__
 
 JS 采用 IEEE-754 浮点数表示法，这是一种二进制表示法，由于精度原因 JS 不能表示所有的实数。它能展示的浮点数个数是有限的，比如它不能准确地表示三分之一的数值字面量。这也导致了它在浮点数的计算上存在误差，如 `0.3-0.2 != 0.2-0.1`，因为在计算的过程中，存在数据的溢出，丢失了精度。
 
-![](//ww1.sinaimg.cn/mw1024/6c0378f8jw1f2l0dtvbzuj20ek07ogm7.jpg)
+![image](/blogimgs/2016/04/18/6c0378f8jw1f2l0dtvbzuj20ek07ogm7.jpg)
 
 __null/undefined__
 
@@ -58,37 +58,37 @@ __Object 扩展__
 
 Object 的 freeze 方法过于严格；__defineGetter__/__lookupGetter__ 和对应的 Setter 是很好用的属性。
 
-![](//ww1.sinaimg.cn/mw1024/6c0378f8gw1f2rzy2ncrpj20eo09b3zr.jpg)
+![image](/blogimgs/2016/04/18/6c0378f8gw1f2rzy2ncrpj20eo09b3zr.jpg)
 
 __toLocalString__
 
 如图，你可能还不知道 JavaScript 的 toLocaleString 还可以这么玩。
 
-![](//ww1.sinaimg.cn/mw1024/6c0378f8gw1f2s12nir33j20bz05n750.jpg)
+![image](/blogimgs/2016/04/18/6c0378f8gw1f2s12nir33j20bz05n750.jpg)
 
 __this语义__
 
 this 上下文只存在两种语义，一种是被当作方法调用，this 指向调用它的对象；一种是作为函数调用，指向 Global 对象（严格模式下为 undefined）。它没有作用域的限制，如下图所示，a 由于是作为函数被调用，所以它指向的是 window，故而返回 false。
 
-![](//ww1.sinaimg.cn/mw1024/6c0378f8gw1f2t6g4sc28j208m054aa5.jpg)
+![image](/blogimgs/2016/04/18/6c0378f8gw1f2t6g4sc28j208m054aa5.jpg)
 
 __类型__
 
 JavaScript 可以被调用执行的均为 Function 类型，但是也存在可调用的 Object，如低版本 IE 中的一些宿主对象：document.getElementById、alert 等，在很多浏览器中 typeof RegExp 同样是 Object。这绝对是一个不标准的实现，在浏览器摒弃/修正这些错误类型之前应该尽量少依赖它们。
 
-![](//ww1.sinaimg.cn/mw1024/6c0378f8gw1f2uaewdsbmj20hq03zgm5.jpg)
+![image](/blogimgs/2016/04/18/6c0378f8gw1f2uaewdsbmj20hq03zgm5.jpg)
 
 __IE8 getter/setter__
 
 Object.defineProperty 虽然是 ES5 的东西，早在 IE8 就已经支持了，但支持得并不完善，比如 writable、enumerable、configurable 这些配置项设置就无效，IE8 下主要支持 getter/setter。
 
-![](//ww1.sinaimg.cn/mw1024/6c0378f8gw1f2ubot1qvxj20ie0dh41g.jpg)
+![image](/blogimgs/2016/04/18/6c0378f8gw1f2ubot1qvxj20ie0dh41g.jpg)
 
 __JSON.stringify__
 
 JSON.stringify 接受三个参数，很多人都知道第三个参数可以设置空白字符来美化输出，但是你可能不知道第二个参数的作用，它为 {Array|Function} 类型，如果为 Array 则用于过滤 key，如果为 Function 则可以对 value 做处理，如图所示。
 
-![](//ww1.sinaimg.cn/mw1024/6c0378f8gw1f2ud4j7vg2j20ec0dmjso.jpg)
+![image](/blogimgs/2016/04/18/6c0378f8gw1f2ud4j7vg2j20ec0dmjso.jpg)
 
 __Symbol__
 
@@ -104,13 +104,13 @@ __Set/WeakSet__
 
 Set/WeakSet 这种数据结构，不能说没用，但确实也没啥大用，前者就是个不允许出现重复成员的数组，顺便还带了点 ES6 的特性，后者虽说可以一定程度上防止内存泄漏，但是也容易出错，比如某个引用已经被垃圾回收了，再去使用它可能就返回 null。它们都是 ES6 的配套产物。而 Map/WeakMap 倒是两个非常不错的设计，常规的 Object 结构都为 String-Val 键值对，而它扩展为 AllType-Val，任意类型都可以作为它的 Key，无论是服务端编程还是客户端编程，这个属性都带来了极大的便利性。
 
-![](//ww1.sinaimg.cn/mw1024/6c0378f8gw1f2w362q57jj207203jaa1.jpg)
+![image](/blogimgs/2016/04/18/6c0378f8gw1f2w362q57jj207203jaa1.jpg)
 
 __正则__
 
 理解正则零宽的含义：正则中所谓的零宽断言，类似于锚点字符，它们匹配指定的位置而不会匹配内容，如 ^ 匹配开头，$ 匹配结尾，\b 匹配单词边界；(?=p) 匹配「接下来的字符与 p 匹配」的位置，(?!p) 匹配「接下来的字符不与 p 匹配」的位置。\b 字符匹配单词边界，实际上就是匹配 \w 与 \W 之间的位置（\w 匹配 [a-zA-Z0-9]）。很少会有人用到 \B，它匹配的是非单词边界位置，简单理解就是 \w & \w 之间位置或者 \W & \W 之间位置。
 
-![](//ww1.sinaimg.cn/mw1024/6c0378f8gw1f305w4ur27j208v02wmx9.jpg)
+![image](/blogimgs/2016/04/18/6c0378f8gw1f305w4ur27j208v02wmx9.jpg)
 
 __持续学习和分享...__
 

@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-03-30 01:03:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/03/30/javascript-applicationcache.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/03/30/javascript-applicationcache.html" target="_blank">博客园</a>.</div>
 
 <p>　　前两篇文章分别介绍了<a title="javascript cookie" href="http://www.cnblogs.com/hustskyking/archive/2013/03/27/javascript-cookie.html" target="_blank">Cookie应用</a>和<a title="userdata and localstorage" href="http://www.cnblogs.com/hustskyking/archive/2013/03/28/javascript-userdata-and-localstorage.html" target="_blank">另一种本地储存方式</a>，无论是cookie、userData还是localStorage都是一段保存在客户端磁盘的一段文本，他们可以被主动删除，但是本文要讲的\应用程序缓存"是HTML5中新增的一个技术，他允许web应用将应用程序自身本地保存到用户的浏览器中，他是不会随着用户清楚浏览器缓存而被清除的。</p>
 <blockquote>不像localStorage和sessionS只是保存web应用程序相关的数据，他是将应用程序本身保存起来&mdash;&mdash;应用程序所需运行的所有文件（HTML、CSS、JavaScript、图片等）。&mdash;&mdash;《Javascript权威指南（第六版）》Page-594</blockquote>

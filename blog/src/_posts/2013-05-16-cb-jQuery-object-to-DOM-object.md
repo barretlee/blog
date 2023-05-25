@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-05-16 01:02:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/05/16/jQuery-object-to-DOM-object.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/05/16/jQuery-object-to-DOM-object.html" target="_blank">博客园</a>.</div>
 
 <p>刚开始学习jQuery时可能一时会分不清楚哪些是jQuery对象、哪些是DOM对象。至于DOM对象不多解释，我们接触的太多了，下面重点介绍一下jQuery，以及两者相互间的转换。</p>
 <h3><strong>什么是jQuery对象？</strong></h3>

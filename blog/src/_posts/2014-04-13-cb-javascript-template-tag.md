@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2014-04-13 02:21:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/04/13/javascript-template-tag.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/04/13/javascript-template-tag.html" target="_blank">博客园</a>.</div>
 
 <p>前端模板中，我们通常使用 script/textarea 来存放模板代码，然后使用 innerHTML/value 属性来获取模板内容进行解析和拼装。</p>
 

@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-06-27 07:37:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/06/27/answers.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/06/27/answers.html" target="_blank">博客园</a>.</div>
 
 <h3><strong>问题：</strong></h3>
 <p>链接地址：<a title="试题" href="http://www.cnblogs.com/yexiaochai/p/3158443.html" target="_blank">http://www.cnblogs.com/yexiaochai/p/3158443.html</a></p>

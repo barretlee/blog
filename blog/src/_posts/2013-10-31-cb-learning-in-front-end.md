@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-10-31 05:00:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/10/31/learning-in-front-end.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/10/31/learning-in-front-end.html" target="_blank">博客园</a>.</div>
 
 <p><span>　　上次</span><a title="如何培育新人" href="http://barretlee.github.com/freshmen-in-our-team/" target="_blank">如何培育新人</a><span>一文中也提到了自己学习前端的一些事儿，这两天几个新人问我当初是如何逐步学习前端的，因为以前也没做过什么记录，时间虽不长，记忆却开始模糊了，趁着还有些感觉，把这些往事都写下来。</span></p>
 <p>　　之前看<a title="聂微东" href="http://www.cnblogs.com/Darren_code/" target="_blank">聂微东</a>大哥的文章，有一篇说到了他学习前端的经历(<a href="http://www.cnblogs.com/Darren_code/archive/2011/06/29/javascript-learn.html" target="_blank">说说我的web前端之路,分享些前端的好书</a>)，主要是推荐几本前端学习的书籍，童鞋们可以去瞅一瞅。我想分享的并不是这些书籍，而是学习前端技术的一些经历，当然，也包括一些书籍。</p>

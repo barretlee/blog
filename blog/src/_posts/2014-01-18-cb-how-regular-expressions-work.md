@@ -9,9 +9,10 @@ tags:
   - 正则
 warning: true
 date: 2014-01-18 12:32:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/01/18/how-regular-expressions-work.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/01/18/how-regular-expressions-work.html" target="_blank">博客园</a>.</div>
 
 <p>关于正则表达式，网上可以搜到一大片文章，我之前也搜集了一些资料，并做了排版整理，可以看这篇文章<a href="http://www.cnblogs.com/hustskyking/archive/2013/06/04/RegExp.html" target="_blank">http://www.cnblogs.com/hustskyking/archive/2013/06/04/RegExp.html</a>，作为基础入门讲解，这篇文章说的十分到位。</p>
 <p>记得最开始学习正则，是使用 php 做一个爬虫程序。为了获取指定的信息，必须用一定的方式把有规律的数据匹配出来，而正则是首选。下面是当时写的爬虫程序的一个代码片段：</p>

@@ -9,9 +9,10 @@ tags:
   - XMLHttpRequest
 warning: true
 date: 2013-04-13 01:46:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/13/readyState_3_interactive.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/13/readyState_3_interactive.html" target="_blank">博客园</a>.</div>
 
 <p><strong>关键词：</strong>倒计时 XMLHttpRequest readyState Date AJAX</p>
 

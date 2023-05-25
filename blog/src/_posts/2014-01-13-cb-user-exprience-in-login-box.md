@@ -10,9 +10,10 @@ tags:
 mark: hot
 warning: true
 date: 2014-01-13 03:30:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/01/13/user-exprience-in-login-box.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/01/13/user-exprience-in-login-box.html" target="_blank">博客园</a>.</div>
 
 <p>我们会骂 12306 的网站界面挫，效果差，速度慢，回头看看自己写的代码，是不是也一样的狗血！在前端，很多看似简单的东西，内藏无数玄机。本文将以一个小小的登录框为入口，谈一谈如何完善自己的程序。</p>
 <p>在很多人眼里，前端就是 DIV+CSS+JQuery，甚至还有些人停留在 table 布局的迷雾当中（这些人应该跟 IE6 一样，随着历史渐渐被尘封）。但，前端绝不是你所看到的那样。举个例子，登录页面几乎是每一个系统不可或缺的模块，很多娴熟的人可以在一刻钟之内写好一个登录页面，两个 input，一个提交 button，万事 OK。</p>

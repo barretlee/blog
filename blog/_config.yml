@@ -11,6 +11,8 @@ author: Barret李靖
 language: zh-cn
 timezone: Asia/Shanghai
 
+showFrom: false
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://www.barretlee.com

@@ -8,9 +8,10 @@ tags:
   - tech
   - cnblogs
 date: 2014-11-01 11:32:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/11/01/communication-in-d2.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/11/01/communication-in-d2.html" target="_blank">博客园</a>.</div>
 
 <p>很多参与了 <a href="http://d2forum.alibaba-inc.com/">D2</a> 的人还不知道 D2 是个什么东西，印象中就是很多很多前端工程师汇聚在一起，交流技术。D2 是 D2前端技术论坛的简称，英文名 Designer < Developer Frontend Technology Forum。下面的介绍比较官方：</p>
 <blockquote>

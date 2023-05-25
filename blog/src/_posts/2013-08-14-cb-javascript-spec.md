@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-08-14 11:55:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/08/14/javascript-spec.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/08/14/javascript-spec.html" target="_blank">博客园</a>.</div>
 
 <p>　　上次浅谈了下<a href="http://www.cnblogs.com/hustskyking/p/css-spec.html" target="_blank">关于CSS的编码规范</a>，大部分童鞋持赞同意见，仍存在一些童鞋不太理解这些规范的意义。</p>
 <p>　　如果是个人或者小作坊开发，其实这些所谓的编码规范也没啥意思，因为大家写好的代码直接就给扔到网上去了，很少有打包、压缩、校检等过程，别人来修改你代码的情况也比较少。但是，对于一定规模的团队来说，这些东西还是挺有必要的！<strong><span>一个是保持代码的整洁美观，同时良好的代码编写格式和注释方式可以让后来者很快地了解你代码的大概思路，提高开发效率。</span></strong></p>

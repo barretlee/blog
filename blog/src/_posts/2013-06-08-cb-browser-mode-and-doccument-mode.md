@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-06-08 12:10:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/06/08/browser-mode-and-doccument-mode.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/06/08/browser-mode-and-doccument-mode.html" target="_blank">博客园</a>.</div>
 
 <h4>什么是浏览器模式和文本模式？</h4>
 <p>经常使用IE开发者工具的同学，肯定见过浏览器模式和文本模式，对于这两个名词，综合相关文档解释如下：</p>

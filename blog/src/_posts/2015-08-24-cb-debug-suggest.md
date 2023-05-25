@@ -7,9 +7,10 @@ tags:
   - cnblogs
 date: 2015-08-24 10:29:00
 mark: hot
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2015/08/24/debug-suggest.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2015/08/24/debug-suggest.html" target="_blank">博客园</a>.</div>
 
 <p>本文的要点不在移动端调试上，移动端调试无非就是调试页面和调试工具之间存在分离，消除这种分离并创建连结就能解决移动端的调试问题。重点阐述的是所见即所得的调试模式下会遇到的阻碍。</p>
 <p>当我们打开网页，发现一个模块没有正确地渲染或者空白时，如果控制台有报错，会直接根据报错定位到源码位置开始 debug；如果控制台没有报错，则会根据模块名或者模块特征的一个值，通过全局搜索找到这个模块的位置，然后在调试工具中断点，单步调试，找到问题所在，此时我们可能会这样做：</p>

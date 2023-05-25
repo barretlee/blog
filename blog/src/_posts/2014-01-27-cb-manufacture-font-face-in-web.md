@@ -9,9 +9,10 @@ tags:
   - font-face
 warning: true
 date: 2014-01-27 01:50:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/01/27/manufacture-font-face-in-web.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/01/27/manufacture-font-face-in-web.html" target="_blank">博客园</a>.</div>
 
 <p>@font-face 不能说他是什么新东西了，在 CSS2.0 规范中就有了这玩意儿，IE4.0 开始就已经出现，只是当时用的不是特别广泛，后来在 CSS2.1 草案中又被删掉。随着 web 的急速发展，@font-face 价值越来越凸显，然后再次被纳入 CSS3 草案中。@font-face 是个什么东西，本文不做过多说明，不太清楚的童鞋可以看这里 <a href="http://www.w3schools.com/css/css3_fonts.asp" target="_blank">http://www.w3schools.com/css/css3_fonts.asp</a>。需要强调的是他的书写格式：</p>
 

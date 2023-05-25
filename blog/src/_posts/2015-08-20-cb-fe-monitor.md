@@ -9,9 +9,10 @@ tags:
   - cnblogs
 mark: hot
 date: 2015-08-20 12:20:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2015/08/20/fe-monitor.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2015/08/20/fe-monitor.html" target="_blank">博客园</a>.</div>
 
 <p>在复杂的网络环境和浏览器环境下，自测、QA测试以及 Code Review 都是不够的，如果对页面稳定性和准确性要求较高，就必须有一套完善的代码异常监控体系，本文从前端代码异常监控的方法和问题着手，尽量全面地阐述错误日志收集各个阶段中可能遇到的阻碍和处理方案。</p>
 <h3 id="_2"><a class="headeranchor-link" name="user-content-_2" href="#_2"></a>收集日志的方法</h3>

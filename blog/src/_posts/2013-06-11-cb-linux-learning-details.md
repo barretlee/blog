@@ -9,9 +9,10 @@ tags:
   - VIM
 warning: true
 date: 2013-06-11 08:25:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/06/11/linux-learning-details.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/06/11/linux-learning-details.html" target="_blank">博客园</a>.</div>
 
 <p><strong>目录</strong></p>
 <p><a href="#skyking-1">第一讲</a></p>

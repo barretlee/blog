@@ -15,7 +15,7 @@ date: 2016-08-02 01:02:30
 
 <!--more-->
 
-![Linode](https://www.barretlee.com/blogimgs/2016/08/02/6c0378f8gw1f6eqkrtkhdj20p00dwwev.jpg)<!--<source src="http://ww2.sinaimg.cn/large/6c0378f8gw1f6eqkrtkhdj20p00dwwev.jpg">-->
+![Linode](/blogimgs/2016/08/02/6c0378f8gw1f6eqkrtkhdj20p00dwwev.jpg)<!--<source src="http://ww2.sinaimg.cn/large/6c0378f8gw1f6eqkrtkhdj20p00dwwev.jpg">-->
 
 不得已打算入一台国外服务器，配置 shadowsocks 以后翻墙也能稳定很多。挑了半天哪个更靠谱，最后选择 linode，注册时要求使用 visa 或者 MasterCard，并扣费 20 刀（支付宝，要争气呀！）。之前招行申请的一张 MasterCard 貌似因为没激活过期了😂，手里还有一张从来没用过的中行长城国际卓隽 visa 卡，便顺利成章地用了。
 

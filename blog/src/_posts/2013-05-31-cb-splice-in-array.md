@@ -8,9 +8,10 @@ tags:
   - splice
 warning: true
 date: 2013-05-31 11:55:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/05/31/splice-in-array.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/05/31/splice-in-array.html" target="_blank">博客园</a>.</div>
 
 <p>在之前的<a title="Javascript综合应用小案例（续）" href="http://www.cnblogs.com/hustskyking/archive/2013/05/05/getKeywords-2.html" target="_blank">文章</a>中也介绍过类似的东西，主要操作的方式是利用splice这个便利函数。</p>
 <p>我们要删除，Arr数组中的元素b，具体做法是：</p>

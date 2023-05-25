@@ -10,9 +10,10 @@ tags:
   - webaudio
 warning: true
 date: 2014-02-26 12:56:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/02/26/webAudio-volume.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/02/26/webAudio-volume.html" target="_blank">博客园</a>.</div>
 
 <p>改变音频的音量是音频处理中最基础的部分，我们可以利用 GainNode 来构建 Mixers 的结构块。GainNode 的接口是很简单的：</p>
 

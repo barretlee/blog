@@ -6,9 +6,10 @@ tags:
   - tech
   - cnblogs
 date: 2014-08-20 11:07:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/08/20/javascript-semantization.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/08/20/javascript-semantization.html" target="_blank">博客园</a>.</div>
 
 <p class="p1">语义化这个词在 HTML 中用的比较多，即根据内容的结构化选择合适的标签。其作用不容小觑：</p>
 <ul class="ul1">

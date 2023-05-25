@@ -10,9 +10,10 @@ tags:
   - hosts
 mark: hot
 date: 2015-05-11 10:47:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2015/05/11/hosts-modify.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2015/05/11/hosts-modify.html" target="_blank">博客园</a>.</div>
 
 <p><strong>Update:</strong></p>
 <ul>

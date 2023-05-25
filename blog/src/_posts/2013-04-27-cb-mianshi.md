@@ -8,9 +8,10 @@ tags:
   - 腾讯面试
 warning: true
 date: 2013-04-27 11:59:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/27/mianshi.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/27/mianshi.html" target="_blank">博客园</a>.</div>
 
 <p><strong></strong>笔试就不说了，说多了都是泪，选择题基本不会，幸好填空题和附加题都拿下了，貌似最后78分。</p>
 

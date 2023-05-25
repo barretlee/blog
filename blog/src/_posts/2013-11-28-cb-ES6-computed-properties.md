@@ -9,9 +9,10 @@ tags:
   - ES6
 warning: true
 date: 2013-11-28 09:46:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/11/28/ES6-computed-properties.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/11/28/ES6-computed-properties.html" target="_blank">博客园</a>.</div>
 
 <p>ECMAScript 6中多了两个定义变量的关键词，一个是<a href="http://wiki.ecmascript.org/doku.php?id=harmony:let" target="_blank">let</a>，另一个是<a href="http://wiki.ecmascript.org/doku.php?id=harmony:const" target="_blank">const</a>，后者顾名思义就是常量定义，前者的作用域范围是块级的。</p>
 <p>一般写过js的童鞋都知道，同其他语言一样，JS中的变量作用域是函数域而不是块级分割的，但是涉及到变量提升（hosting），闭包等问题的时候，很多有经验的程序员依然会头疼。</p>

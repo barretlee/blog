@@ -6,9 +6,10 @@ tags:
   - tech
   - cnblogs
 date: 2014-05-13 11:13:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/05/13/personal-website-design-part-1.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/05/13/personal-website-design-part-1.html" target="_blank">博客园</a>.</div>
 
 <p>网站地址：<a href="http://barretlee.com">http://barretlee.com</a></p>
 <p>从大二开始，坚持每月3到8篇的技术分享，到现在差不多两年了。一直在分享之中跟着大家一起进步，从最开始的<a href="http://qianduan-notes.diandian.com/" target="_blank">点点网</a>，到<a href="//github.com/barretlee/" target="_blank">github</a>，再到现在的博客园。分享是一件有趣的事情，能够收到很多的反馈，渐渐地，已经把写博当成一种习惯。</p>

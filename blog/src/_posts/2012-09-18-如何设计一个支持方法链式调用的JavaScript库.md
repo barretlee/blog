@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2012-09-18 09:37:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2012/09/18/3049801.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2012/09/18/3049801.html" target="_blank">博客园</a>.</div>
 
 <p><strong>本文从ITeye导入</strong></p>
 

@@ -9,9 +9,10 @@ tags:
   - 正则
 warning: true
 date: 2013-10-07 05:16:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/10/07/javascript-regexp.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/10/07/javascript-regexp.html" target="_blank">博客园</a>.</div>
 
 <p>　　程序员在编写代码的时候少不了和字符串以及\查询"打交道，两者的交集中有一个叫做正则表达式的的东西，这家伙用好了可以提高编程效率，用不好的话...你可以先去好好学一学。</p>
 <p>　　关于正则的使用，举个简单的例子：</p>

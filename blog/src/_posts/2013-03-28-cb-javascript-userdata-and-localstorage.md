@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-03-28 11:25:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/03/28/javascript-userdata-and-localstorage.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/03/28/javascript-userdata-and-localstorage.html" target="_blank">博客园</a>.</div>
 
 <p>　　<a title="JavaScript本地储存（1）：cookie在前端" href="http://www.cnblogs.com/hustskyking/archive/2013/03/27/2984328.html" target="_blank">上文</a>对cookie的知识进行了归纳，同时也提到了cookie的大小是有限制的。</p>
 <blockquote>

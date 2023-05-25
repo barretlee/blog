@@ -9,9 +9,10 @@ tags:
   - 译文
 warning: true
 date: 2013-11-01 03:40:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/11/01/let-your-page-understood-by-search-engine.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/11/01/let-your-page-understood-by-search-engine.html" target="_blank">博客园</a>.</div>
 
 <p><span>人可以通过查看网站信息了解网站的内容，但是搜索引擎只对标签感兴趣，对内容的识别能力是很低的，如何让蜘蛛通过标签认识你的文章内容呢~</span></p>
 <blockquote>

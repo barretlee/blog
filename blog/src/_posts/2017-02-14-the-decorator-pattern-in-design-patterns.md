@@ -18,7 +18,7 @@ Decorator Pattern，中文名为装饰者模式，这个模式思想很简单，
 - `Decorator`, 抽象装饰类
 - `ConcreteDecorator`, 具体装饰类
 
-![https://unsplash.com/search/decoration?photo=WjqEDAsn_nI](https://www.barretlee.com/blogimgs/2017/02/14/6c0378f8gy1fcppr5hep8j20p00dwjui.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fcppr5hep8j20p00dwjui">-->
+![https://unsplash.com/search/decoration?photo=WjqEDAsn_nI](/blogimgs/2017/02/14/6c0378f8gy1fcppr5hep8j20p00dwjui.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fcppr5hep8j20p00dwjui">-->
 
 <!--more-->
 

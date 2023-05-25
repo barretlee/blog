@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-05-04 02:38:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/05/04/getkeywords.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/05/04/getkeywords.html" target="_blank">博客园</a>.</div>
 
 <p>按需求弄了一个 <strong>取词</strong> 以及 <strong>标红</strong> 的小应用。</p>
 <p><a href="http://qianduannotes.sinaapp.com/getKeyword/" target="_blank"><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/05/04/o_%e8%a7%86%e5%9b%be.png" data-source="http://images.cnblogs.com/cnblogs_com/hustskyking/477032/o_%e8%a7%86%e5%9b%be.png" alt="" width="716" height="388"></a></p>

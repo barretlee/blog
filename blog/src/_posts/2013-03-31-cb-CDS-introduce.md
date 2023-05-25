@@ -9,9 +9,10 @@ tags:
   - 跨域
 warning: true
 date: 2013-03-31 07:05:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/03/31/CDS-introduce.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/03/31/CDS-introduce.html" target="_blank">博客园</a>.</div>
 
 <p>　　无数次看到：<span><span>Origin null is not allowed by Access-Control-Allow-Origin</span>&nbsp;, 网络没有让你绝望，但是或许会让你蛋疼，因为你找了半天没看到一个比较实用的解决方案，亦或者水平不够，别人写的东西累赘没看懂，抑或是。。。</span></p>
 <p>　　网上看到了一篇文章&mdash;&mdash;<a title="cds" href="http://www.cnblogs.com/hustskyking/articles/ten-methods-cross-domain.html" target="_blank">跨域资源共享的10中方式</a>，已经放在自己的家里了O(&cap;_&cap;)O~</p>

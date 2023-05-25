@@ -8,9 +8,10 @@ tags:
   - PHP
 warning: true
 date: 2013-05-27 12:45:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/05/27/php-optimization.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/05/27/php-optimization.html" target="_blank">博客园</a>.</div>
 
 <pre><span>0、用单引号代替双引号来包含字符串，这样做会更快一些。因为PHP会在双引号包围的字符串中搜寻变量，单引号则不会，注意：只有echo能这么做，它是一种可以把多个字符串当作参数的\函数"（译注：PHP手册中说echo是语言结构，不是真正的函数，故把函数加上了双引号）。
 1、如果能将类的方法定义成static，就尽量定义成static，它的速度会提升将近4倍。

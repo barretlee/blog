@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2012-09-17 09:32:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2012/09/17/3049803.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2012/09/17/3049803.html" target="_blank">博客园</a>.</div>
 
 
 <p>如果你偏爱过程式编程，你可以这样：</p>

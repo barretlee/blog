@@ -9,9 +9,10 @@ tags:
   - tree
 warning: true
 date: 2013-04-22 11:17:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/22/make-a-tree.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/22/make-a-tree.html" target="_blank">博客园</a>.</div>
 
 <p>在使用frameset布局的时候，经常会用到目录树，我们可以把一棵树写死，但是更多的情况是，这棵树需要随时被改动，所以我们期望的是他能够被动态的构建。</p>
 <p>MVC，算是了解一点，那本文就把这棵树根据M-V-C给拆开分解吧。</p>

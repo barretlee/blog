@@ -12,7 +12,7 @@ date: 2017-04-21 12:23:28
 ---
 VSCode 刚出来的时候并不是特别看好，因为 Sublime 和 Atom 的插件生态已经做起来了，成千上万个可供选择，VSC 从零开始，除了自身提供的几个内置插件外几乎没有多余的选择，没想到短短一年多的时间，发展如此快，下图是我在其他平台也比较常用的几个插件，我安装了挺多，大概二三十个。
 
-![VSC](https://www.barretlee.com/blogimgs/2017/04/21/006tKfTcgy1feu3asuhi8j31400p0jxr.jpg)<!--<source src="//ww3.sinaimg.cn/large/006tKfTcgy1feu3asuhi8j31400p0jxr.jpg">-->
+![VSC](/blogimgs/2017/04/21/006tKfTcgy1feu3asuhi8j31400p0jxr.jpg)<!--<source src="//ww3.sinaimg.cn/large/006tKfTcgy1feu3asuhi8j31400p0jxr.jpg">-->
 
 <!--more-->
 
@@ -42,11 +42,11 @@ Sublime Text，Visual Studio Code，Atom，WebStorm 等编辑器，前三者的�
 
 拿到 VSC 的第一件事请就是增加了两个快捷键，让我可以快速打开 IDE 配置界面和快捷键配置界面，快捷键的配置可以在这里找到：
 
-![VSC 快捷键](https://www.barretlee.com/blogimgs/2017/04/21/006tKfTcgy1feu3zq0epwj30dg07bdgr.jpg)<!--<source src="//ww2.sinaimg.cn/large/006tKfTcgy1feu3zq0epwj30dg07bdgr.jpg">-->
+![VSC 快捷键](/blogimgs/2017/04/21/006tKfTcgy1feu3zq0epwj30dg07bdgr.jpg)<!--<source src="//ww2.sinaimg.cn/large/006tKfTcgy1feu3zq0epwj30dg07bdgr.jpg">-->
 
 进入之后，搜索 `setting` 和 `keyboard` 就可以进行设置了，打开 IDE 配置的快捷键我调整为 `Command + ,`，打开快捷键配置界面的快捷键我调整为 `Command + Shift + ,`，这个配置给我带来了很大的便利，配合关键字搜索，我几乎可以在十几秒内完成任何一个功能的快捷键配置和界面的修改。比如我需要在编码界面上增加一个尺子，提醒自己代码一行不要写太长，按下了 `Command + ,`，然后搜索 `ruler`，得到了这个：
 
-![VSC - Ruler](https://www.barretlee.com/blogimgs/2017/04/21/006tKfTcgy1feu45ds8j5j31400p0q8r.jpg)<!--<source src="//ww3.sinaimg.cn/large/006tKfTcgy1feu45ds8j5j31400p0q8r.jpg">-->
+![VSC - Ruler](/blogimgs/2017/04/21/006tKfTcgy1feu45ds8j5j31400p0q8r.jpg)<!--<source src="//ww3.sinaimg.cn/large/006tKfTcgy1feu45ds8j5j31400p0q8r.jpg">-->
 
 左边是系统默认配置，可不更改，右侧是用户个性化配置，可以覆盖默认配置，我增加了一行：
 
@@ -56,11 +56,11 @@ Sublime Text，Visual Studio Code，Atom，WebStorm 等编辑器，前三者的�
 
 于是我的界面上多了两条标尺线：
 
-![标尺线](https://www.barretlee.com/blogimgs/2017/04/21/006tKfTcgy1feu46u3rfzj31400p0dmy.jpg)<!--<source src="//ww2.sinaimg.cn/large/006tKfTcgy1feu46u3rfzj31400p0dmy.jpg">-->
+![标尺线](/blogimgs/2017/04/21/006tKfTcgy1feu46u3rfzj31400p0dmy.jpg)<!--<source src="//ww2.sinaimg.cn/large/006tKfTcgy1feu46u3rfzj31400p0dmy.jpg">-->
 
 我用了大概一个小时，将自己最常用的快捷键配置好了，比如我最喜欢的多行编辑，换成了自己熟悉的快捷键（Gif图片）：
 
-![多行编辑配置](https://www.barretlee.com/blogimgs/2017/04/21/006tKfTcgy1feu6aa5k7lg30jv08hti7.gif)<!--<source src="//ww3.sinaimg.cn/large/006tKfTcgy1feu6aa5k7lg30jv08hti7.gif">-->
+![多行编辑配置](/blogimgs/2017/04/21/006tKfTcgy1feu6aa5k7lg30jv08hti7.gif)<!--<source src="//ww3.sinaimg.cn/large/006tKfTcgy1feu6aa5k7lg30jv08hti7.gif">-->
 
 不管自己用了多久的 Atom 或者 ST，当这些基础配置完成之后，会觉得转投另一个 IDE 并非什么痛苦的事情。
 

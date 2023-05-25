@@ -9,9 +9,10 @@ tags:
 mark: hot
 warning: true
 date: 2014-03-03 01:56:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/03/03/javascript-array.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/03/03/javascript-array.html" target="_blank">博客园</a>.</div>
 
 <p>相信每一个 javascript 学习者，都会去了解 JS 的各种基本数据类型，数组就是数据的组合，这是一个很基本也十分简单的概念，他的内容没多少，学好它也不是件难事情。但是本文着重要介绍的并不是我们往常看到的 Array，而是 ArrayBuffer。</p>
 <p>我写的很多东西都是因为要完成某些特定的功能而刻意总结的，可以算是备忘，本文也是如此！前段时间一直在研究 Web Audio API 以及语音通信相关的知识，内容侧重于音频流在 AudioContext 各个节点之间的流动情况，而现在要摸清楚音频到流底是个什么样的数据格式，所以对 ArrayBuffer 的研究就显得格外重要了。</p>

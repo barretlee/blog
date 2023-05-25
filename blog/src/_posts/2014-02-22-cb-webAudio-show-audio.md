@@ -10,9 +10,10 @@ tags:
   - webaudio
 warning: true
 date: 2014-02-22 08:45:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/02/22/webAudio-show-audio.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/02/22/webAudio-show-audio.html" target="_blank">博客园</a>.</div>
 
 <p><a href="http://www.cnblogs.com/hustskyking/p/webAudio-listen.html" target="_blank">上文</a>介绍了 Web Audio API 的相关知识，以及如何在你的 web 程序中引入 音频流，内容都是介绍性的，所以没有写太多 DEMO。本文重点讲解如何利用 Web Audio API 中的中间节点拿到音频信号的信息，并将信息转化成信号图绘制到 canvas 中。</p>
 <p>从上文中我们了解到，AudioContext 是音频播放和处理的一个环境，大概的流程是这个样子：</p>

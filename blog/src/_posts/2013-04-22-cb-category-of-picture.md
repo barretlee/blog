@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-04-22 06:18:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/22/category-of-picture.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/22/category-of-picture.html" target="_blank">博客园</a>.</div>
 
 <p><span>　　从某种程度上说，判断一个网页设计师是否优秀，可以从其在WEB开发（或网页设计）中是否合理的采用各种图片格式得出结论。事实上，或许所有人都知道图片存在GIF,JPG和PNG等格式，但并非所有人都知道它们之间的具体区别和使用技巧。</span><span>　　接下来，将给大家介绍：WEB开发中几种最受欢迎图片格式的前世今生以及如何正确的使用它们。</span></p>
 <h3>JPEG</h3>

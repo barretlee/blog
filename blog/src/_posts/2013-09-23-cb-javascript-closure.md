@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-09-23 09:17:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/09/23/javascript-closure.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/09/23/javascript-closure.html" target="_blank">博客园</a>.</div>
 
 <p>　　对于JavaScript初学者来说，闭包是一个很神秘的东西，不管看多少遍，依旧搞不清楚闭包是什么，更不明白其内部是什么样的处理机制（更可恶的是每次面试都会被问到）。</p>
 <p>　　说的含糊一点，闭包就是代码块和该代码块上下文（context）相互作用的产物。看一个例子：</p>

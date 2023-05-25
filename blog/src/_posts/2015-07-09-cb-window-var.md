@@ -7,9 +7,10 @@ tags:
   - tech
   - cnblogs
 date: 2015-07-09 11:40:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2015/07/09/window-var.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2015/07/09/window-var.html" target="_blank">博客园</a>.</div>
 
 <p>今天在查看页面控制台的时候，无意中看到了一个暴露到全局的变量 i，全局变量是不会被压缩工具压缩成简写的字母，这个被频繁使用的变量名暴露到全局也是个相当大的隐患，可能一个不小心就覆盖了第二次暴露到全局的同名变量。</p>
 <p>刚开始我就怀疑是自己出现了这样愚蠢的错误：</p>

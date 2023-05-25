@@ -10,9 +10,10 @@ tags:
   - webaudio
 warning: true
 date: 2014-02-28 01:57:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/02/28/webAudio-filter.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/02/28/webAudio-filter.html" target="_blank">博客园</a>.</div>
 
 <p>本系列文章主要是介绍 Web Audio API 的相关知识，以及 web语音通信 中会遇到的一些问题，阐述可能存在错误，还请多多斧正！</p>
 <p>通过设备获取音频流会不可避免的渗入一些杂音，这些杂音可能来自你周边的环境，也有可能来自录音设备本身，一些低频的声音还好，人耳难以分辨出来，但是那些高频的白噪声对音质的影响是特别大的，如我们听收音机没有调到正确的频率上，会听到吱吱兹兹的刺耳的杂音。这些杂音不仅增大了音频流信号本身的体积，而且我们的耳朵也不喜欢，所以在传输之前必须对音频做相应的滤波处理。</p>

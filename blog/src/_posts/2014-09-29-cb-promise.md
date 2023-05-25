@@ -10,9 +10,10 @@ tags:
   - Promise
 mark: hot
 date: 2014-09-29 08:39:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/09/29/promise.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/09/29/promise.html" target="_blank">博客园</a>.</div>
 
 <p id="_1">读完这篇文章，预计会消耗你 40 分钟的时间。<a class="headeranchor-link" name="user-content-_1" href="#_1"></a></p>
 <p>Ajax 出现的时候，刮来了一阵异步之风，现在 Nodejs 火爆，又一阵异步狂风刮了过来。需求是越来越苛刻，用户对性能的要求也是越来越高，随之而来的是页面异步操作指数般增长，如果不能恰当的控制代码逻辑，我们就会陷入无穷的回调地狱中。</p>

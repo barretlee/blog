@@ -8,9 +8,10 @@ tags:
   - options
 warning: true
 date: 2013-04-11 01:59:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/11/options_add_and_remove.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/11/options_add_and_remove.html" target="_blank">博客园</a>.</div>
 
 <p><strong>关键词：</strong>select option options selectedIndex remove add</p>
 <p>关于select的→<a href="http://www.w3.org/2003/01/dom2-javadoc/org/w3c/dom/html2/HTMLSelectElement.html" target="_blank">API</a>，自己去看，不多说了。</p>

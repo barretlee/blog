@@ -6,9 +6,10 @@ tags:
   - tech
   - cnblogs
 date: 2014-03-14 07:52:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/03/14/open-source.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/03/14/open-source.html" target="_blank">博客园</a>.</div>
 
 <p><strong>注意：对于协议有个大概的了解就行了，本文叙述不是很标准，如果要做具体了解，请戳文中给出的链接。</strong></p>
 <p>关于开源协议网上有很多说明，不过写的都十分晦涩，让人木有读下去的欲望，下面给大家简单的科普一下。</p>

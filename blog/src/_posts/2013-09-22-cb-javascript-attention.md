@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-09-22 03:40:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/09/22/javascript-attention.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/09/22/javascript-attention.html" target="_blank">博客园</a>.</div>
 
 <p>　　JavaScript是一门弱语言，她使用起来不像C/C++那样有十分繁琐的内存管理、类型定义等，所以学习JavaScript的门槛相对来说也比较低。门槛低并不意味着这门语言很简单，我们在使用的时候会遇到各种千奇百怪的问题，有些是因为浏览器的兼容性引起的，有些是因为JS语法本身所引起的，还有些是因为ECMAScript标准的改变而引起的，总之，这样的问题很多，下面列举</p>
 <h3>几个比较容易忽略的点</h3>

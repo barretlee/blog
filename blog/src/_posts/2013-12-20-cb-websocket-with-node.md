@@ -10,9 +10,10 @@ tags:
   - websocket
 warning: true
 date: 2013-12-20 01:42:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/12/20/websocket-with-node.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/12/20/websocket-with-node.html" target="_blank">博客园</a>.</div>
 
 <p>在上一篇提高到了 <a href="http://www.cnblogs.com/hustskyking/p/web-communication.html" target="_blank">web 通信的各种方式</a>，包括 轮询、长连接 以及各种 HTML5 中提到的手段。本文将详细描述 WebSocket协议 在 web通讯 中的实现。</p>
 <h3>一、WebSocket 协议</h3>

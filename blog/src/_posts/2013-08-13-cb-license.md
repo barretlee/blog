@@ -7,9 +7,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-08-13 10:17:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/08/13/license.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/08/13/license.html" target="_blank">博客园</a>.</div>
 
 <p>当Adobe、Microsoft、Sun等一系列巨头开始表现出对"开源"的青睐时，"开源"的时代即将到来！</p>
 <p>最初来自：sinoprise.com/read.php?tid-662-page-e-fpage-1.html（遗憾的是这个链接已经打不开了），我基本未改动，只是进行了一些排版和整理。参考文献：<a href="http://www.fsf.org/licensing/licenses/">http://www.fsf.org/licensing/licenses/</a></p>

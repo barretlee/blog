@@ -9,9 +9,10 @@ tags:
   - 异步
 warning: true
 date: 2014-01-05 11:01:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/01/05/javascript-asynchronous-programming.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/01/05/javascript-asynchronous-programming.html" target="_blank">博客园</a>.</div>
 
 <p>众所周知，JavaScript 的执行环境是单线程的，所谓的单线程就是一次只能完成一个任务，其任务的调度方式就是排队，这就和火车站洗手间门口的等待一样，前面的那个人没有搞定，你就只能站在后面排队等着。在事件队列中加一个延时，这样的问题便可以得到缓解。</p>
 

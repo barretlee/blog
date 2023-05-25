@@ -6,9 +6,10 @@ tags:
   - tech
   - cnblogs
 date: 2014-08-01 12:04:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/08/01/thinking-between-learning-and-interview.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/08/01/thinking-between-learning-and-interview.html" target="_blank">博客园</a>.</div>
 
 <p>上个月（六月份）博客闲置了一月，在学校处理毕业相关事宜。本月仅做了一点建站笔记，几乎没怎么来园子逛。</p>
 <p>许久没写博，突然回到这个熟悉的后台，感觉十分亲切。我喜欢分享自己的喜悦，沉醉于跟大家一起讨论的技术氛围之中，这两年的沉淀也是在大家的切磋和争吵声中偶尔聆听的。大四一年时间里，我分别在百度和阿里两家公司实习了三个月，目前已经正式就职于淘宝UED，忆实习的两段经历，感慨颇多呀~</p>

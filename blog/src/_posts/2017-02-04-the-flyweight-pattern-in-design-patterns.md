@@ -12,7 +12,7 @@ date: 2017-02-04 18:31:44
 
 如何理解享元模式，“享”是共享的意思，“元”指的是元件，也就是小颗粒的东西，享元顾名思义便是共享小部件，很多系统或者程序包含大量对象，但是这些对象绝大多数都是差不多的，除了一些极个别的属性外。
 
-![https://unsplash.com/search/share?photo=qgHGDbbSNm8 by Elaine Casap](https://www.barretlee.com/blogimgs/2017/02/04/6c0378f8ly1fcemcdy783j20p00dwaeb.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8ly1fcemcdy783j20p00dwaeb">-->
+![https://unsplash.com/search/share?photo=qgHGDbbSNm8 by Elaine Casap](/blogimgs/2017/02/04/6c0378f8ly1fcemcdy783j20p00dwaeb.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8ly1fcemcdy783j20p00dwaeb">-->
 
 <!--more-->
 

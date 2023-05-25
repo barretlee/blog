@@ -6,9 +6,10 @@ tags:
   - tech
   - cnblogs
 date: 2014-03-12 03:02:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/03/12/work-in-life.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/03/12/work-in-life.html" target="_blank">博客园</a>.</div>
 
 <p>已经一点多了[昨晚写的]，其实我现在挺累的，想去睡个觉，不过有些东西还是需要记录一下。</p>
 <p>人已经不在学校了，也不想谈太多学校里面的事情，社会和学校之间似乎有一层屏障，把很多东西都分隔开了。我挺喜欢学校，很自由，可以不慌不忙的支配时间。只是有些许内疚，大学没去好好支配时间。</p>

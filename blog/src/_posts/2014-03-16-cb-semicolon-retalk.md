@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2014-03-16 03:51:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/03/16/semicolon-retalk.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/03/16/semicolon-retalk.html" target="_blank">博客园</a>.</div>
 
 <p>关于这个问题，网上已经有很多人讨论过了，我先说说自己对这个问题的回答：加！（但非必须）</p>
 <p>有些人写代码，懒得加分号，除非是迫不得已才勉强放一个分号上去。如果你可以保证你写的代码不出现任何 bug，那当然是没有问题，但是很多 JSer 新人，对一些隐含的问题并不是特别清楚，很容易在不知不觉中写出一堆 bug，我们先来了解下 JS 词法语法解析的时候，哪些情况下会自动插入分号。</p>

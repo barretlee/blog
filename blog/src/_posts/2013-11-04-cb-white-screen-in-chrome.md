@@ -7,9 +7,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-11-04 01:26:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/11/04/white-screen-in-chrome.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/11/04/white-screen-in-chrome.html" target="_blank">博客园</a>.</div>
 
 <p>刚截图十几次，终于捕捉到了这个白屏现象，hiahia~~</p>
 <p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/11/04/04131830-4cf27759a6e8428786bc2edd4fc9a479.jpg" data-source="http://images.cnitblog.com/blog/387325/201311/04131830-4cf27759a6e8428786bc2edd4fc9a479.jpg" alt="" width="855" height="445"></p>

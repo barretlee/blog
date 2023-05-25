@@ -8,9 +8,10 @@ tags:
   - cnblogs
 mark: hot
 date: 2015-08-17 09:54:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2015/08/17/iconfont-opt.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2015/08/17/iconfont-opt.html" target="_blank">博客园</a>.</div>
 
 <p>很多国外的网站，访问的时候可以看到，页面先是大面积白一下，然后恢复正常。原因是网页上用到了 webfont，这些页面很多情况都是直接引用 google 的 webfont 地址，中华大局域网下，由于网络原因，页面虽已经全部加载，引用的 webfont 资源却还未下载成功，这就导致了使用了 webfont 的内容呈现空白状态，没有被渲染出来。</p>
 <p>如，访问该网站：<a href="http://zurb.com/playground/foundation-icon-fonts-3">http://zurb.com/playground/foundation-icon-fonts-3</a></p>

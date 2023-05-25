@@ -11,9 +11,10 @@ tags:
   - websocket
 warning: true
 date: 2013-12-25 11:24:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/12/25/websocket-with-php.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/12/25/websocket-with-php.html" target="_blank">博客园</a>.</div>
 
 <p>下面我画了一个图演示 client 和 server 之间建立 websocket 连接时握手部分，这个部分在 node 中可以十分轻松的完成，因为 node 提供的 net 模块已经对 socket 套接字做了封装处理，开发者使用的时候只需要考虑数据的交互而不用处理连接的建立。而 php 没有，从 socket 的连接、建立、绑定、监听等，这些都需要我们自己去操作，所以有必要拿出来再说一说。</p>
 

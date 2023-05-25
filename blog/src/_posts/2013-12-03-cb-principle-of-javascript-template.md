@@ -10,9 +10,10 @@ tags:
 warning: true
 mark: hot
 date: 2013-12-03 04:35:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/12/03/principle-of-javascript-template.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/12/03/principle-of-javascript-template.html" target="_blank">博客园</a>.</div>
 
 <h3>一、前言</h3>
 <p>什么是模板引擎，说的简单点，就是一个字符串中有几个变量待定。比如：</p>

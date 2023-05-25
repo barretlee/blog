@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-07-26 10:25:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/07/26/marquee-in-javascript.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/07/26/marquee-in-javascript.html" target="_blank">博客园</a>.</div>
 
 <p>关于marquee，就不多说了，可以<a title="marquee演示" href="http://qianduannotes.sinaapp.com/marquee/show.html" target="_blank">戳这里</a>。</p>
 <p>毕竟他是一个很古老的元素，现在的标准里头也不推荐使用这个标签了。但平时一些项目中会经常碰到这样的效果，每次都是重新写一遍，麻烦！</p>

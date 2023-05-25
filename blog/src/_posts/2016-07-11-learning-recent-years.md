@@ -12,7 +12,7 @@ date: 2016-07-11 02:29:35
 
 前些时候把微信 id 开放了出去，有很多朋友加我微信，其中大部分都是前端学习者。一些同学在学习的时候遇到了困难，或者说瓶颈吧，询问我处理办法，有的希望我讲述下学习经验。考虑到有些话题偏大，我没有详细回复，事实上我也不知道从何说起，今天思量了一番，记录下来。
 
-![//unsplash.com/photos/7oL1PR6AV8o by Amanda Perez](https://www.barretlee.com/blogimgs/2016/07/11/6c0378f8gw1f5pdm84ep5j20go0p0n0b.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f5pdm84ep5j20go0p0n0b.jpg">-->
+![//unsplash.com/photos/7oL1PR6AV8o by Amanda Perez](/blogimgs/2016/07/11/6c0378f8gw1f5pdm84ep5j20go0p0n0b.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f5pdm84ep5j20go0p0n0b.jpg">-->
 
 <!--more-->
 

@@ -7,9 +7,10 @@ tags:
   - tech
   - cnblogs
 date: 2014-10-30 09:54:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/10/30/life-in-alibaba.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/10/30/life-in-alibaba.html" target="_blank">博客园</a>.</div>
 
 <h2 id="_1"><a class="headeranchor-link" name="user-content-_1" href="#_1"></a></h2>
 <p>Alibaba 试用期是三个月，转眼三个月过去了，也到了转正述职的时间。回想这三个月做过的事情，很多很杂，但还是有重点。</p>

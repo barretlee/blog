@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-04-11 05:15:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/11/set_and_get_cursor_position.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/11/set_and_get_cursor_position.html" target="_blank">博客园</a>.</div>
 
 <p>QQ群里经常有人问怎么设置textarea中光标的位置，所见即所得中如果选中文本。如果你也不会，请往下看：</p>
 <p><strong>关键词</strong>：javascript 光标 位置 鼠标取词 createRange getSelection</p>

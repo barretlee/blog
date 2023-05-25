@@ -13,7 +13,7 @@ tags:
 
 "0.1 + 0.2 = ?"，这道题如果给小学生，他会立马告诉你答案是 0.3，但是交给一些程序去计算，结果就不是那么简单了。
 
-![math](https://www.barretlee.com/blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg)<!--<source src="http://ww4.sinaimg.cn/large/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg">-->
+![math](/blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg)<!--<source src="http://ww4.sinaimg.cn/large/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg">-->
 
 <!-- more -->
 

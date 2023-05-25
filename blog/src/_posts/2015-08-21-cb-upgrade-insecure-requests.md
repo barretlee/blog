@@ -9,9 +9,10 @@ tags:
   - cnblogs
   - CSP
 date: 2015-08-21 11:08:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2015/08/21/upgrade-insecure-requests.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2015/08/21/upgrade-insecure-requests.html" target="_blank">博客园</a>.</div>
 
 <p>HTTPS 是 HTTP over Secure Socket Layer，以安全为目标的 HTTP 通道，所以在 HTTPS 承载的页面上不允许出现 http 请求，一旦出现就是提示或报错：</p>
 <blockquote>

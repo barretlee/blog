@@ -7,9 +7,10 @@ tags:
   - tech
   - cnblogs
 date: 2014-08-03 01:06:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/08/03/interface-in-development.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/08/03/interface-in-development.html" target="_blank">博客园</a>.</div>
 
 <p>前后端分工协作是一个老生常谈的大话题，很多公司都在尝试用工程化的方式去提升前后端之间交流的效率，降低沟通成本，并且也开发了大量的工具。但是几乎没有一种方式是令双方都很满意的。事实上，也不可能让所有人都满意。根本原因还是前后端之间的交集不够大，交流的核心往往只限于接口及接口往外扩散的一部分。这也是为什么很多公司在招聘的时候希望前端人员熟练掌握一门后台语言，后端同学了解前端的相关知识。</p>
 <h3>一、开发流程</h3>

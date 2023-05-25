@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-05-24 01:30:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/05/24/canvas-clock.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/05/24/canvas-clock.html" target="_blank">博客园</a>.</div>
 
 <p><strong>关键词：</strong>HTML5， canvas， 时钟， 入门</p>
 <p><strong>学习内容：</strong>通过制作canvas时钟了解canvas主要方法的使用</p>

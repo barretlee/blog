@@ -9,9 +9,10 @@ tags:
   - http
 warning: true
 date: 2013-05-05 08:40:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/05/05/get-and-post.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/05/05/get-and-post.html" target="_blank">博客园</a>.</div>
 
 <p>　Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的<span>查，改，增，删</span>4个操作。到这里，大家应该有个大概的了解了，GET一般用于<span>获取/查询</span>资源信息，而POST一般用于<span>更新</span>资源信息。</p>
 <p>　　<span><strong>1</strong>.根据HTTP规范，GET用于信息获取，而且应该是安全的和幂等的。</span></p>

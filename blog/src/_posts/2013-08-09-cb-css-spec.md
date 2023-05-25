@@ -7,9 +7,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-08-09 02:57:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/08/09/css-spec.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/08/09/css-spec.html" target="_blank">博客园</a>.</div>
 
 <p>　　"字是门面书是屋"，我们不会去手写代码，但是敲出来的代码要好看、有条理，这还必须得有一点约束~</p>
 <p>　　团队开发中，每个人的编码风格都不尽相同，有时候可能存在很大的差异，为了便于压缩组件对代码进行压缩以及书写样式的规范统一和美观，很有必要大家一起来研究一套基本规范（模板）！</p>

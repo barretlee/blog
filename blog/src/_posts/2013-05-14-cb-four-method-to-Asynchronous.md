@@ -9,9 +9,10 @@ tags:
   - 异步编程
 warning: true
 date: 2013-05-14 02:52:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/05/14/four-method-to-Asynchronous.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/05/14/four-method-to-Asynchronous.html" target="_blank">博客园</a>.</div>
 
 <p><span>你可能知道，Javascript语言的执行环境是<span>"单线程"</span>（single thread）。</span></p>
 <blockquote>

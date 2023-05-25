@@ -10,9 +10,10 @@ tags:
   - PJAX
 warning: true
 date: 2013-12-06 10:14:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/12/06/history-api-in-html5.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/12/06/history-api-in-html5.html" target="_blank">博客园</a>.</div>
 
 <h3>一、前言</h3>
 <p>web发展经历了一个漫长的周期，最开始很多人认为Javascript这们语言是前端开发的累赘，是个鸡肋，那个时候人们还享受着从一个a链接蹦到另一个页面的web神奇魔术。后来随着JavaScript的不断更新换代，他的功能不仅仅是为网页添加一点特效了，语言本身的加强以及对DOM操作能力的提升让他在前端大放光彩。尤其是ajax的出现，让JavaScript以及整个web的发展翻开了崭新的一页。</p>

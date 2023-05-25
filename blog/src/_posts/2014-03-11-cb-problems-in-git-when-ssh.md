@@ -9,9 +9,10 @@ tags:
   - git
 warning: true
 date: 2014-03-11 11:09:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/03/11/problems-in-git-when-ssh.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/03/11/problems-in-git-when-ssh.html" target="_blank">博客园</a>.</div>
 
 <p>主要是 windows 用户会遇到很多纠结的问题，linux/unix 用户属于这方面的高端用户，应该有能力处理此类问题，而且网络上也有很多解决方案，本文的授众是 windows 用户。由于今天配置了一下午，虽说配置过程基本搞清楚，懒得重新配置一遍，所以文中皆以文字形式叙述，没有截图。</p>
 <p>本文地址：<a href="http://www.cnblogs.com/hustskyking/p/problems-in-git-when-ssh.html">http://www.cnblogs.com/hustskyking/p/problems-in-git-when-ssh.html</a>，转载请注明源地址。</p>

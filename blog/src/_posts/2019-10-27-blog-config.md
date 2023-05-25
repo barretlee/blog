@@ -23,7 +23,7 @@ coding 支持绑定多个域名，也支持给所有绑定的域名自动配置�
 
 使用了不少 hexo 的插件，但是很多都不满足需求，不满足需求的插件都重新改写了。平时使用改写的 hexo-admin 在本地编辑内容。
 
-![blog config admin](https://www.barretlee.com/blogimgs/2019/10/27/blog-config-admin.png)
+![blog config admin](/blogimgs/2019/10/27/blog-config-admin.png)
 
 
 ### 3. 部署
@@ -32,12 +32,12 @@ coding 支持绑定多个域名，也支持给所有绑定的域名自动配置�
 
 本周末折腾了一番，接入了 travis-ci，发现还挺好用，只是配置的时候需要注意点 git 仓库权限问题，可以参考 <https://github.com/barretlee/blog/blob/master/.travis.yml> 解决问题，后续写文章应该会直接走 github 网页新建文件。
 
-![blog config travis](https://www.barretlee.com/blogimgs/2019/10/27/blog-config-travis.png)
+![blog config travis](/blogimgs/2019/10/27/blog-config-travis.png)
 
 ### 4. 评论
 
 从多说到畅言到 github issue，估计不会再继续折腾了，看了两个开源的 github issue 评论组件，gitment 和 gitalk ，这两个工具都有点像半成品，感觉还有很大的优化空间，由于 gitalk UI 稍微看得舒服点，将就着用了，效果如图四。历史评论就懒得迁移了。
 
-![blog config comment](https://www.barretlee.com/blogimgs/2019/10/27/blog-config-comment.png)
+![blog config comment](/blogimgs/2019/10/27/blog-config-comment.png)
 
 周末把博客 UI 的部分细节做了调整，估计后续三五年都不会再折腾博客设计了。

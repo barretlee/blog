@@ -6,9 +6,10 @@ tags:
   - tech
   - cnblogs
 date: 2014-07-04 06:06:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/07/04/personal-website-design-part-3.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/07/04/personal-website-design-part-3.html" target="_blank">博客园</a>.</div>
 
 <p>网站地址：<a href="http://barretlee.com">http://barretlee.com</a></p>
 <p>在五月份，写过两篇博客，提到了要给自己做个网站，当时人在实习，没太多的时间，只是把大概的思路捋了一番，顺道也买了个云主机（配置比较低，内存才500M）。接着返校处理毕业事宜，于是六月也随着同学之间挥泪告别的声音渐渐远去。七月，家里呆着，中旬回公司。想必这也是我近几年最长的一次假期了=。 =</p>

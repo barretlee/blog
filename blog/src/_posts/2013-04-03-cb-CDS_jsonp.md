@@ -9,9 +9,10 @@ tags:
   - 跨域
 warning: true
 date: 2013-04-03 10:02:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/03/CDS_jsonp.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/03/CDS_jsonp.html" target="_blank">博客园</a>.</div>
 
 <p>　　祭祖归来，继续细说跨域~</p>
 <p>　　话说<a title="什么是跨域" href="http://www.cnblogs.com/hustskyking/archive/2013/03/31/CDS-introduce.html" target="_blank">上次</a>我们讲到了啥玩意儿是跨域，至于怎么跨域还没开始动笔。今天就说说JSONP跨域。</p>

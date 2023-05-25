@@ -10,9 +10,10 @@ tags:
   - NodeJS
 warning: true
 date: 2014-04-22 02:11:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/04/22/nodejs-net-module.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/04/22/nodejs-net-module.html" target="_blank">博客园</a>.</div>
 
 <p>互联网的运作，最根本的驱动就是信息的交互，NodeJS 在数据交互这一块做的很带感，异步编程让人很惬意，关于 NodeJS 的数据通信，最基础的两个模块是 NET 和 HTTP，前者是基于 TCP 的封装，后者本质还是 TCP 层，只不过做了比较多的数据封装，我们视之为更高层。</p>
 <p>本文先述说 NodeJS 的 NET 模块工作机制，下次再谈一谈 HTTP 模块。</p>

@@ -8,9 +8,10 @@ tags:
   - cnblogs
   - 学会提问
 date: 2013-04-22 04:24:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/22/how-to-ask-quertion.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/22/how-to-ask-quertion.html" target="_blank">博客园</a>.</div>
 
 
 

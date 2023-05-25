@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2014-03-17 03:02:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/03/17/two-yeas.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/03/17/two-yeas.html" target="_blank">博客园</a>.</div>
 
 <p>接触前端快三年了，记得是在大二的时候开始进博客园写博，三年的成长有两年得益于与各位前辈的交流和讨论。首先感谢博客园给我们提供了很好的交流平台，也祝博客园的建设越来越好！同时也感谢技术上擦过火花的小伙伴们，希望以后的日子里可以更多更深入的交流！</p>
 <h3>一点学习经验</h3>

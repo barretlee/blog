@@ -10,9 +10,10 @@ tags:
 warning: true
 mark: hot
 date: 2013-12-29 08:18:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/12/29/how-to-achieve-loading-module.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/12/29/how-to-achieve-loading-module.html" target="_blank">博客园</a>.</div>
 
 <p>相信很多人都用过 seajs、 requirejs 等这些模块加载器，他们都是十分便捷的工程管理工具，简化了代码的结构，更重要的是消除了各种文件依赖和命名冲突问题，并利用 AMD / CMD 规范统一了格式。如果你不太明白模块化的作用，建议看看玉伯写的<a href="//github.com/seajs/seajs/issues/547" target="_blank">一篇文章</a>。</p>
 <p>为什么他们会想到使用模块化加载呢，我觉得主要是两点。</p>

@@ -7,9 +7,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-06-06 11:19:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/06/06/linux-learning.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/06/06/linux-learning.html" target="_blank">博客园</a>.</div>
 
 <p>自从上次不小心把硬盘全部格式化之后，电脑里的几个系统，以及诸多配置都咔嚓了，没办法，又得从头来过。这个总结和记录了Linux学习过程中遇到的问题，以及电脑的配置等等，为下一次手贱做好准备。。。</p>
 <p>P.S: 本次系统更换为 <span>unbuntu 13.04</span></p>

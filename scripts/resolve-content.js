@@ -2,13 +2,10 @@ var fs = require('fs');
 var path = require('path');
 var exexSync = require('child_process').execSync;
 var utils = require('./utils');
-var fs = require('fs');
-var path = require('path');
-var yaml = require('yaml');
 
-var configFilePath = path.join(__dirname, '../blog/_config.yml');
-var configYaml = fs.readFileSync(configFilePath).toString();
-var siteBase = yaml.parse(configYaml).url;
+// var configFilePath = path.join(__dirname, '../blog/_config.yml');
+// var configYaml = fs.readFileSync(configFilePath).toString();
+// var siteBase = yaml.parse(configYaml).url;
 
 var base = path.join(__dirname, "../blog/src/_posts/");
 var error = {};
@@ -19,13 +16,13 @@ console.log(`检查完成\n`);
 
 fs.writeFileSync(path.join(__dirname, 'check.json'), JSON.stringify(error, null, 2));
 
-var ymlPath = path.join(__dirname, '../blog/_config.yml');
-var ymlContent = fs.readFileSync(ymlPath).toString();
-fs.writeFileSync(ymlPath, ymlContent.replace(/image_minifier\:\n\s+enable:\s?false/, 'image_minifier:\n  enable: true'));
+// var ymlPath = path.join(__dirname, '../blog/_config.yml');
+// var ymlContent = fs.readFileSync(ymlPath).toString();
+// fs.writeFileSync(ymlPath, ymlContent.replace(/image_minifier\:\n\s+enable:\s?false/, 'image_minifier:\n  enable: true'));
 
 function deal(file) {
   var DATE_REG = /(\d{4})-(\d{2})-(\d{2})/m;
-  var IMG_REG = /\!\[([^\]]+?)\]\(([\s\S]+?)\)/g;
+  var IMG_REG = /\!\[([^\]]+?)?\]\(([\s\S]+?)\)/g;
   var START_REG = /^[\s\n]*---\s*\n/m;
   var content = fs.readFileSync(file).toString();
   var LOADING_IMG_URL = "//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png";
@@ -42,11 +39,12 @@ function deal(file) {
   }
   // 图片处理，将 blogimg 中的非日期路径图片迁移到日期文件夹
   var content2 = content.replace(IMG_REG, function ($0, $1, $2) {
+    $2 = $2.split(' ')[0];
     if ($2 === LOADING_IMG_URL) return $0;
     if ($2.indexOf('www.barretlee.com') > -1) {
-      console.log('rename', $2);
-      var p = siteBase + '/blogimgs/' + $2.split('/blogimgs/')[1];
-      return `![${$1}](${p})`;
+      // console.log('rename', $2);
+      var p = '/blogimgs/' + $2.split('/blogimgs/')[1];
+      return `![${$1 || 'image'}](${p})`;
     }
     if (!/\.(jpg|png|svg|gif|jpeg)$/.test($2)) {
       console.log(`unknown image type: ${$2}.`);
@@ -79,7 +77,7 @@ function deal(file) {
       } else if (/^(https?\:)\/\//.test($2)) {
         try {
           console.log('download', $2);
-          exexSync(`wget -O ${img} ${url}`);
+          exexSync(`wget -O ${img} ${$2}`);
         } catch (e) {
           error[file] = error[file] || {};
           error[file][$2] = `download image ${$2} failed.`;
@@ -91,7 +89,7 @@ function deal(file) {
       }
     }
     // TODO: replace $1;
-    return `![${$1}](${siteBase}/blogimgs/${imgDirPath}/${name})`;
+    return `![${$1 || 'image'}](/blogimgs/${imgDirPath}/${name})`;
   });
   if (content !== content2) {
     console.log('>>> rewrite', file);

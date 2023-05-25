@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-06-03 11:55:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/06/03/3D-Tank-War.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/06/03/3D-Tank-War.html" target="_blank">博客园</a>.</div>
 
 <p><span>昨天参加了hack day的一个比赛，赛制大致是：24小时，自由组队2~4人，任意发挥。运气比较好，拿了第三名和最佳创意奖。</span></p>
 <p><span>建议先看看这个demo，bug是有的，chrome下玩玩，测试测试就行，O(&cap;_&cap;)O~</span></p>

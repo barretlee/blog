@@ -9,9 +9,10 @@ tags:
   - JavaScript闭包
 warning: true
 date: 2013-04-24 08:41:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/24/javascript-closure-usages.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/24/javascript-closure-usages.html" target="_blank">博客园</a>.</div>
 
 <p>我们来看看闭包的用途。事实上，通过使用闭包，我们可以做很多事情。比如模拟面向对象的代码风格；更优雅，更简洁的表达出代码；在某些方面提升代码的执行效率。</p>
 <p><strong>1. 匿名自执行函数</strong></p>

@@ -9,9 +9,10 @@ tags:
   - cnblogs
   - 移动端调试
 date: 2014-08-29 12:15:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/08/29/remote-debug-in-mobile-development.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/08/29/remote-debug-in-mobile-development.html" target="_blank">博客园</a>.</div>
 
 <p>我们在移动端进行前端开发时，会遇到一个让人头痛但不得不面对的问题&mdash;&mdash;调试。</p>
 <p>在 PC 机器上，我们有功能强大的 Chrome DevTools、Firebug，即便是老版本的 IE ，我们也可以安装微软提供的插件，对网页样式和请求信息轻松进行调试。但在手机、平板上，很多人就无招可施了，一个劲的 alert 查看调试信息。如果你已经厌倦了可爱又可恨的 alert 弹窗，请继续往下阅读。</p>

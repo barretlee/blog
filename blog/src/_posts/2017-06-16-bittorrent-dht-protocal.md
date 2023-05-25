@@ -12,7 +12,7 @@ date: 2017-06-16 16:24:00
 ---
 BitTorrent DHT 协议原理还是比较好理解的，内容不多，本文把基本的介绍、规则和路由表维护规则做了简述，方便理解。官方文档：<http://www.bittorrent.org/beps/bep_0005.html>
 
-![bitTorrent](https://www.barretlee.com/blogimgs/2017/06/16/6c0378f8gy1fgn4e4xjodj20rs0flaap.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fgn4e4xjodj20rs0flaap.jpg">-->
+![bitTorrent](/blogimgs/2017/06/16/6c0378f8gy1fgn4e4xjodj20rs0flaap.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fgn4e4xjodj20rs0flaap.jpg">-->
 
 <!--more-->
 

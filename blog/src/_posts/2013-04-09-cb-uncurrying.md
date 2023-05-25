@@ -9,9 +9,10 @@ tags:
   - 柯里化
 warning: true
 date: 2013-04-09 09:41:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/04/09/uncurrying.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/04/09/uncurrying.html" target="_blank">博客园</a>.</div>
 
 <h3>相关阅读</h3>
 <p>　　1.<a href="http://www.cnblogs.com/jkisjk/archive/2013/01/07/2848687.html" target="_blank">JKisJK&nbsp;</a></p>

@@ -54,7 +54,7 @@ __2. 推到 DNSPod__
 
 接着在你的 DNSPod 上添加一个二级域名，比如我就随便搞了一个 `proxy.barretlee.com`，将它 A记录到任意地址，如 8.8.8.8。
 
-![DNSPod proxy.barretlee.com](https://www.barretlee.com/blogimgs/2015/11/07/20151106_9132f343.jpg)
+![DNSPod proxy.barretlee.com](/blogimgs/2015/11/07/20151106_9132f343.jpg)
 
 这一步完成之后，你就可以通过 DNSPod 提供的接口修改 A 记录了。具体用到了三个接口：
 
@@ -108,7 +108,7 @@ ping proxy.barretlee.com
 
 以上就能够通过 proxy.barretlee.com 获取到家里机器的 IP 地址了。需要注意的是，你们家电信宽带服务可能并不是通过路由拨号上网的，当你访问 proxy.barretlee.com 或者拿到的 IP 时，你会看到如下登录提示：
 
-![login](https://www.barretlee.com/blogimgs/2015/11/07/20151106_b70393af.jpg)
+![login](/blogimgs/2015/11/07/20151106_b70393af.jpg)
 
 这个时候你就致电 10000，选择人工服务器，让电信帮你设置为通过路由器登录吧~（生效时间估计得二十多分钟，需要重启猫、路由等设备）
 
@@ -122,7 +122,7 @@ __1. 将局域网内的某个固定 IP 绑定你的电脑__
 
 路由器也是使用 DHCP 随机分配一个 IP 给你的电脑，为了让路由器能够找到你的电脑，可以将电脑的 MAC 地址和 IP 地址对应起来：
 
-![bind mac and ip](https://www.barretlee.com/blogimgs/2015/11/07/20151106_c3a4f190.jpg)
+![bind mac and ip](/blogimgs/2015/11/07/20151106_c3a4f190.jpg)
 
 路由器一般都会有 "IP与MAC绑定这一项"，找到之后，绑定二者，如图中，我的本机 IP 目前为 192.168.0.110。
 
@@ -130,13 +130,13 @@ __2. 将本机 IP 作为对外设备__
 
 DMZ 主机也是路由器自带的，通过DMZ主机功能，广域网中的设备可直接访问局域网中的DMZ主机
 
-![DMZ](https://www.barretlee.com/blogimgs/2015/11/07/20151106_5f3aa844.jpg)
+![DMZ](/blogimgs/2015/11/07/20151106_5f3aa844.jpg)
 
 如果要让局域网中 IP 地址为 192.168.1.110 的主机能够被广域网中的设备直接访问，则可以开启 DMZ 主机功能，在“DMZ主机IP地址”处填入 192.168.1.110 保存即可。
 
 这个操作相当于将路由的 IP 直接赋予给你的电脑。如果你觉得风险过大，可以通过路由提供的虚拟服务器转发端口，比如外网过来的 10002 端口转发到内网的 80 端口，也就是：
 
-![虚拟服务器](https://www.barretlee.com/blogimgs/2015/11/07/20151106_1e414c34.jpg)
+![虚拟服务器](/blogimgs/2015/11/07/20151106_1e414c34.jpg)
 
 这样，通过 `proxy.barretlee.com:10002` 就能访问到 192.168.1.110 机器提供的 web 服务了。
 
@@ -146,7 +146,7 @@ __1. 防火墙__
 
 不管是 windows 还是 mac，先查看下你的防火墙，比如你开启了 apache 服务器，就去防火墙看看，这个服务是否允许外部访问，如果不允许，就得设置过来，或者干脆直接关闭防火墙。mac 的防火墙设置在这里：
 
-![mac 防火墙](https://www.barretlee.com/blogimgs/2015/11/07/20151106_57305bb6.jpg)
+![mac 防火墙](/blogimgs/2015/11/07/20151106_57305bb6.jpg)
 
 __2. 开启服务__
 

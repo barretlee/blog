@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-11-26 02:58:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/11/26/authentication-in-web.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/11/26/authentication-in-web.html" target="_blank">博客园</a>.</div>
 
 <p>很多人都会问这样一个问题，我们在登录的时候，密码会不会泄露？随便进一个网站，登录时抓包分析，可以看到自己的密码都是明文传输的，在如此复杂的web环境下，我们没有百分的把握保证信息在传输过程中不被截获，那不使用明文如何告诉服务器自己的身份呢？</p>
 <p>在一些高度通信安全的网络中，数据传输会使用HTTPS作为传输协议，但是通常情况下我们没必要使用HTTPS传输，虽说安全，但传输数据都需要加密解密，很费时。我们可以使用一些加密方式（如md5）对密码进行加密，如果仅仅只对密码加密那肯定是没有任何作用，所以可以在密码中加入一些其他的字符，合并之后使这个密码成为一个临时密码~</p>

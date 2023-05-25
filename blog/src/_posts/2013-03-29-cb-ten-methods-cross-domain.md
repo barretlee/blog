@@ -8,9 +8,10 @@ tags:
   - cnblogs
 warning: true
 date: 2013-03-29 11:04:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2013/03/29/ten-methods-cross-domain.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2013/03/29/ten-methods-cross-domain.html" target="_blank">博客园</a>.</div>
 
 <p>在客户端编程语言中，如<span class="wp_keywordlink_affiliate"><a title="javascript" href="http://www.woiweb.net/category/javascript" rel="nofollow" target="_blank">javascript</a></span>和ActionScript，<a href="http://www.woiweb.net/same-origin-policy.html">同源策略</a>是一个很重要的安全理念，它在保证数据的安全性方面有着重要的意义。<a href="http://www.woiweb.net/same-origin-policy.html">同 源策略</a>规定<a href="http://www.woiweb.net/tag/%E8%B7%A8%E5%9F%9F">跨域</a>之间的脚本是隔离的，一个域的脚本不能访问和操作另外一个域的绝大部分属性和方法。那么什么叫相同域，什么叫不同的域呢？<span id="more-1400"></span></p>
 <h3>同源策略</h3>

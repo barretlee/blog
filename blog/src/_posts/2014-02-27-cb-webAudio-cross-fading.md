@@ -10,9 +10,10 @@ tags:
   - webaudio
 warning: true
 date: 2014-02-27 01:17:00
+fromUrl: http://www.cnblogs.com/hustskyking/archive/2014/02/27/webAudio-cross-fading.html
+from: 博客园
 ---
 
-<div class="history-article">本文为归档内容,原始地址在 <a href="http://www.cnblogs.com/hustskyking/archive/2014/02/27/webAudio-cross-fading.html" target="_blank">博客园</a>.</div>
 
 <p>本系列文章主要是介绍 Web Audio API 的相关知识，以及 web语音通信 中会遇到的一些问题，阐述可能存在错误，还请多多斧正！</p>
 <p>很多粤语剧都提供了两个声道，一个左声道为粤语，一个右声道有国语。观看者可以自由切换声道，那么切换声道的原理是什么呢？在播放器中，只需要把不同的声道切换到声轨就行了，因为有左右两个声道，所以播放器至少是包含两个声轨的。如果我们想听粤语，只需要将右声道声轨的声音设置为 0，或者临时删掉右声道声轨。本文主要是利用 GainNode 节点控制音量的属性实现两个音轨之间的相互切换，Cross-fading 的意思可以在后面的 DEMO 中用耳朵体会出来~</p>
