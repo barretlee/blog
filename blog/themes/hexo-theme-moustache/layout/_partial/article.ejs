@@ -30,10 +30,6 @@
                       data-disqus-identifier="<%- page.slug || page.path %>"></a></span>
       </div>
       <div class="post-content" itemprop="articleBody">
-        <div class="shit-spider" title="防爬虫不注明出处" tabindex="0" aria-hidden="true">
-          <p>原文地址：<a href="<%- config.url %><%- url_for(page.path) %>"><%- config.url %><%- url_for(page.path) %></a>，<a href="<%- config.url %><%- url_for(page.path) %>#comments">参与评论</a></p>
-          <img src="/blogimgs/avatar.png" width="150">
-        </div>
         <% if (page.from && page.fromUrl && site.showFrom) {%>
           <div class="history-article">本文为归档内容，原始地址在<a href="<%- page.fromUrl %>" target="_blank"><%- page.from %></a>。</div>
         <% } %>
