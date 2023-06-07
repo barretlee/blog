@@ -45,8 +45,8 @@ CA，Catificate Authority，它的作用就是提供证书（即服务器证书�
     <th>举例</th>
     <td>www.barretlee.com</td>
     <td class="align-left">www.barretlee.com<br>www.xiaohuzige.com<br>www.barret.cc</td>
-    <td>\*.barretlee.com</td>
-    <td class="align-left">\*.barretlee.com<br>\*.xiaohuzige.com<br>\*.barret.cc</td>
+    <td>*.barretlee.com</td>
+    <td class="align-left">*.barretlee.com<br>*.xiaohuzige.com<br>*.barret.cc</td>
   </tr>
 </table>
 
