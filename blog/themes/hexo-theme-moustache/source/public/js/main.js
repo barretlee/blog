@@ -219,7 +219,7 @@ var operation = {
     this.bind();
     this.tips();
     this.insertWeibo();
-    this.initSearch();
+    // this.initSearch();
   },
   forceShowLazyloadImages: function() {
     if (this._forceShowImageTimer) clearTimeout(this._forceShowImageTimer);
