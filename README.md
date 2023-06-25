@@ -32,4 +32,4 @@ To make a target, do make [target], short for make [t]
 
 ### 博客说明
 
-博客在 `gh-pages` 分支上，`master` 分支博客静态资源的生成程序。博客基于 [hexo](https://hexo.io) 构建。
+博客在 `gh-pages` 分支上，`master` 分支博客静态资源的生成程序。博客基于 [hexo](https://hexo.io) 构建，在 Github Action 自动化部署。
