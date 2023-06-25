@@ -113,32 +113,32 @@ p { font-family: Gentium, serif; }
 ```
 
 <p>从网页资源列表中可以查看到该网页使用了多种字体：</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2014/01/27/270144014223595.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270144014223595.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/01/27/270144014223595.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270144014223595.jpg" alt=""></p>
 <p>也可以去看看我写的一个 <a href="http://qianduannotes.duapp.com/demo/testFont/index.html" target="_blank">DEMO</a></p>
 <h4>1. 编码与webIcon</h4>
 <p>编码和字体没有关系，但编码和字符是一一对应的，比如 "\u674e" 对应的是 \李"，"\u9756" 对应的是\靖"。而字体在这里有个什么对应关系呢？不同的字体中显示同一个 unicode 编码，看到的效果是不一样的，我们可以让正楷的 "李" 对应 "\u674e"，也可以用行楷对应，当然我们也可以用一张图片来对应。Web Icon 也就是用图片来对应一些 unicode 码。</p>
 <p>但是这里存在一个问题，我们用一张图片来对应 \李" 字，倘若想输入一个正常的\李"字，该怎么去对应呢？ Unicode 包含 0-0x10FFFF 共 1114112 个码位，而汉字占用的码位并不多，只有几千个，在制作 webIcon 时可以选择避开常用的字符集。当然， Unicode 编码也给我们提供了码位的专用区（Pricate Use Area），区间是 E000-F8FF，所以我们可以在这个字符集中放肆 DIY 属于我们自己的字体。</p>
 <h4>2. fontCreator 介绍与字体制作</h4>
 <p>Web Icon 的制作，网上有很多在线工具，不过这些在线工具都是从已有的图片中选择对应关系，约束性比较大，fontCreator 是一款比较优秀的字体制作工具，它能够很智能的将我们导入的图片转换成黑白色的位图，我们可以编辑和修改各个位图区域，按照自己的意愿 DIY。</p>
-<p>打开 fontCreator，新建一个字体：&nbsp;<img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2014/01/27/270144130009357.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270144130009357.jpg" alt="" width="924" height="548"></p>
+<p>打开 fontCreator，新建一个字体：&nbsp;<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/01/27/270144130009357.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270144130009357.jpg" alt="" width="924" height="548"></p>
 <p>为了方便演示，我只保留了 A-Z 的字符，其他的全部删除了。</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2014/01/27/270144347032127.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270144347032127.jpg" alt="" width="222" height="435"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/01/27/270144347032127.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270144347032127.jpg" alt="" width="222" height="435"></p>
 <p>选中 A ，右击选择导入图片：</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2014/01/27/270144495005073.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270144495005073.jpg" alt="" width="479" height="403"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/01/27/270144495005073.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270144495005073.jpg" alt="" width="479" height="403"></p>
 <p>选择 generate，生成字符内容，然后双击 A，进行细节的编辑（放大，平移）：</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2014/01/27/270145012668077.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270145012668077.jpg" alt="" width="495" height="384"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/01/27/270145012668077.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270145012668077.jpg" alt="" width="495" height="384"></p>
 <p>依次处理其他几个字母。Ctrl+S 保存为 barret.ttf。P.S：由于导入表情调整大小位置过于繁琐，我只做了 A-I 这几个码位对应的符号，测试的时候使用字母 A-I 测试即可~</p>
 <h4>3. 本地测试</h4>
 <p>为了方便本地测试，我们先安装这个字体：</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2014/01/27/270145140786598.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270145140786598.jpg" alt=""></p>
-<p>打开记事本，选择字体为 barret，字号调大一点，输入 BCDEF 等字符，看看效果：&nbsp;<img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2014/01/27/270145230473292.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270145230473292.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/01/27/270145140786598.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270145140786598.jpg" alt=""></p>
+<p>打开记事本，选择字体为 barret，字号调大一点，输入 BCDEF 等字符，看看效果：&nbsp;<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/01/27/270145230473292.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270145230473292.jpg" alt=""></p>
 <p>是不是惊呆了，呵呵~</p>
 <p>字体文件下载：<a href="http://files.cnblogs.com/hustskyking/barret.rar" target="_blank">barret.ttf</a></p>
 <h4>4. 网页测试</h4>
 <p>网页测试之前，需要先转化下格式，至于原因在前言部分我已经说了。我们拿到的是 ttf 的字体格式，为了兼容所有的浏览器，必须修改进行格式转换。</p>
-<p>进入<a href="http://www.fontsquirrel.com/tools/webfont-generator" target="_blank">http://www.fontsquirrel.com/tools/webfont-generator</a>，选择字体，点击 Agreement，然后点击下载字体：&nbsp;<img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2014/01/27/270145334695039.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270145334695039.jpg" alt="" width="619" height="251"></p>
+<p>进入<a href="http://www.fontsquirrel.com/tools/webfont-generator" target="_blank">http://www.fontsquirrel.com/tools/webfont-generator</a>，选择字体，点击 Agreement，然后点击下载字体：&nbsp;<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/01/27/270145334695039.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270145334695039.jpg" alt="" width="619" height="251"></p>
 <p>转换的拿到的是下面四个文件：</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2014/01/27/270145469692715.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270145469692715.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/01/27/270145469692715.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/270145469692715.jpg" alt=""></p>
 <p>用下面一段代码测试下结果：</p>
 
 ```

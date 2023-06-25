@@ -1,4 +1,10 @@
-<% if(theme.gitalk) { %>
+<% if(theme.gitalk) { 
+  var ptags = [];
+  var post = post || { tags: { data: [] } };
+  for(key in post.tags.data) {
+    ptags.push(post.tags.data[key].name);
+  }  
+%>
   <div id="gitalk" sid="<%- page.slug || page.path || 'barretlee-blog' %>"></div>
   <script charset="utf-8" type="text/javascript" src="/public/js/gitalk.js"></script>
   <script type="text/javascript">
@@ -15,6 +21,9 @@
     perPage: 100,
     createIssueManually: false,
     repo: 'blog',
+    labels: [
+      <% ptags.forEach(function(tag) { %> "<%- tag %>",  <% }) %>
+    ],
     owner: 'barretlee',
     admin: ['barretlee'],
     id: "<%- page.slug || page.path || 'barretlee-blog' %>",

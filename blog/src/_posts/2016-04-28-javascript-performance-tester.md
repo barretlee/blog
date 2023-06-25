@@ -28,7 +28,7 @@ console.timeEnd('Name');
 
 本文自然就是自己撸一个简单易用的测试工具，效果如下图：
 
-![JavaScript 代码执行效率对比工具](/blogimgs/2016/04/28/TB1d238JpXXXXcoXFXXXXXXXXXX-446-570.gif)<!--<source src="//img.alicdn.com/tps/TB1d238JpXXXXcoXFXXXXXXXXXX-446-570.gif">-->
+![JavaScript 代码执行效率对比工具](/blogimgs/2016/04/28/TB1d238JpXXXXcoXFXXXXXXXXXX-446-570.gif)<!--<source src="https://img.alicdn.com/tps/TB1d238JpXXXXcoXFXXXXXXXXXX-446-570.gif">-->
 
 
 ### 设计分析

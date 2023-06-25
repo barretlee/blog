@@ -27,7 +27,7 @@ from: 博客园
 <h4>2.什么是PJAX</h4>
 <p>history API中有几个新特性，分别是history.pushState和history.replaceState，我们把pushState+AJAX进行封装，合起来简单点叫，就是PJAX~ 虽说实现技术上没什么新东西，但是概念上还是有所不同的。</p>
 <p>PJAX的基本思路是，用户点击一个链接，通过ajax更新页面变化的部分，然后使用HTML5的pushState修改浏览器的URL地址，这样有效地避免了整个页面的重新加载。如果浏览器不支持history的两个新API或者JS被禁用了，那这个链接就只能跳转并重新刷新整个页面了。和传统的ajax设计稍微不同，ajax通常是从后台获取JSON数据，然后由前端解析渲染，而PJAX请求的是一个在服务器上生成好的HTML碎片，如下图所示：</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/12/06/06100721-6cff436c5fc84037807d4cce03658f9b.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/06100721-6cff436c5fc84037807d4cce03658f9b.jpg" alt="" width="602" height="451"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/06/06100721-6cff436c5fc84037807d4cce03658f9b.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/06100721-6cff436c5fc84037807d4cce03658f9b.jpg" alt="" width="602" height="451"></p>
 <p>客户端向服务器发送一个普通的请求（1），其实也就是点击了一个链接，服务器会相应这个请求（2），返回一个html文档。客户端向服务器发送一个有PJAX标志的请求（3），此时服务器只返回一个html碎片（4）。但是这两次请求都让客户端的URL变化了，希望上面的说明可以让你明白了PAJX和AJAX的区别了。</p>
 <h4>3.PJAX的实现</h4>
 <p>先看一个小DEMO吧，这个DEMO也写了我半个多小时，看之前先说明一下，打开你的<strong>现代浏览器</strong>（chrome，Firefox，opera，IE9+等），进入gallery页面，查看图片的时候注意观察浏览器的title和url变化，点击前进后退按钮也注意查看其变化。我已经在浏览历史管理中push了三条历史记录。</p>

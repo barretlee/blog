@@ -39,7 +39,7 @@
 		<% var recentPost = site.posts.sort('date', 'desc').data[1];
 		var rTitle = recentPost.title;
 		var excerpt = recentPost.excerpt.replace(/<[^>]+?>|\n/gm, '') || recentPost.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 100) + "...";
-		var m = recentPost.content.match(/<img src="[^"]+?" data-original="([^"]+?)"/);
+		var m = recentPost.content.match(/<img src="[^"]+?"[\s\S]+?data-original="([^"]+?)"/);
 		if (!m) {
 			m = recentPost.content.match(/<img src="([^"]+?)"/);
 		}

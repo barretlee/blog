@@ -18,7 +18,7 @@ from: 博客园
 <li>想去BAT，怎么去学习呀？</li>
 <li>百度、阿里面试（电面居多）都问些什么问题？</li>
 </ol>
-<p>在我进入两家公司之前，这两个问题也一直困扰着我，当时我心里只有一个念头，<strong>\拼命学吧，到时候比旁边的人优秀一丁点就OK了。"</strong> 事实证明，这个念头也是有效的<img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2014/08/01/C:\Users\HUSTSK~1\AppData\Local\Temp\SGPicFaceTpBq\4404\00C0D942.png" data-source="file:///C:\Users\HUSTSK~1\AppData\Local\Temp\SGPicFaceTpBq\4404\00C0D942.png" alt="">&nbsp;: )</p>
+<p>在我进入两家公司之前，这两个问题也一直困扰着我，当时我心里只有一个念头，<strong>\拼命学吧，到时候比旁边的人优秀一丁点就OK了。"</strong> 事实证明，这个念头也是有效的<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/08/01/C:\Users\HUSTSK~1\AppData\Local\Temp\SGPicFaceTpBq\4404\00C0D942.png" data-source="file:///C:\Users\HUSTSK~1\AppData\Local\Temp\SGPicFaceTpBq\4404\00C0D942.png" alt="">&nbsp;: )</p>
 <p>这个想法可以扎根在每个人的心里，不过能坚持学习，每天都逼着自己进步的人，少之又少。我当时学的挺辛苦的，各种技术书籍，啃了两百多本，光前端的就有一百多本（<a title="部分书单" href="http://book.douban.com/people/hustskyking/collect">部分书单</a>），像比较经典的书籍会一遍两遍甚至十遍的去读，如《JavaScript权威指南》、《JavaScript设计模式》等，也不知道当时哪来这股子热劲^_^。学校图书馆资源丰富，加上我比较关注书店IT空间的新书，所以大三一年的阅读量是十分惊人的。</p>
 <p>技术学习，并不一定要一个十分明确的方向，就拿前端来说，要成为前端大拿，至少要对设计模式、HTTP协议、后端脚本以及前沿的技术了然于胸，多学一些，前期虽看不到效果，等你沉淀多了，眼界开了，自然就不一样了。前端核心无非就是HTML+CSS+JavaScript，他们的边界很宽。<strong>内涵小的东西，外延往往很宽，前端也是如此。</strong></p>
 <p>现在的面试感觉实的东西并不多，短短半个多小时的闲聊很难了解一个人的真实底蕴（除非你确实很烂），技术性问题就跟公式一样，背一背就知道答案了。公司招人往往喜欢那些口齿伶俐、思路清晰、斩钉截铁的人，我们90后的反应普遍都是比较快的，但是在反应的这一瞬间里，脑子里转了多个弯，分析了多少种情况，面试官都会从问答过程中摸索结果，<strong>所以保持乐观，保持清晰的头脑，保持谦逊的态度，很重要。</strong></p>

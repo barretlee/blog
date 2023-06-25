@@ -254,8 +254,10 @@ var operation = {
   },
   initSearch: function() {
     if ($('.local-search').size() && !isMobile.any()) {
-      $.getScript('/public/js/search.js', function() {
-        searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+      $(window).on('load', function() {
+        $.getScript('/public/js/search.js', function() {
+          searchFunc("/search.xml", 'local-search-input', 'local-search-result');
+        });
       });
     }
   },
@@ -273,7 +275,9 @@ var operation = {
     window._showWeChatBox = true;
     var urls = [];
     $(".post img").each(function () {
-      urls.push($(this).attr('data-original') || $(this).attr('src'));
+      var src = $(this).attr('data-original') || $(this).attr('src');
+      if (src && /^\//.test(src)) src = window.location.origin + src;
+      urls.push();
     });
     $.getScript("/public/js/wechat.js", function () {
       // $ctt.prepend(wechatStr);
@@ -297,8 +301,10 @@ var operation = {
         wechat('email', data, function () {});
       });
       $(".post img").on('click', function () {
+        var src = $(this).attr('data-original') || $(this).attr('src');
+        if (src && /^\//.test(src)) src = window.location.origin + src;
         wechat('imagePreview', {
-          current: $(this).attr('data-original') || $(this).attr('src'),
+          current: src,
           urls: urls
         });
       });
@@ -306,7 +312,7 @@ var operation = {
       var data = {
         'debug': false,
         'app': 'wxddd17adddf433070',    // 选填，默认为空
-        'img': 'https://www.barretlee.com/blogimgs/avatar.png',
+        'img': urls && urls[0] && 'https://www.barretlee.com/blogimgs/avatar.png',
         'link': window.location.href,
         'desc': $('meta[name="description"]').attr('content'),
         'title': $('.post-title').text()

@@ -166,15 +166,15 @@ window.requestNextAnimationFrame(function() {
 
 阿里 CDN 是支持对图片尺寸做压缩处理的，如下图为 200x200 尺寸的图片：
 
-![200x200](/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif)<!--<source src="//img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif">-->
+![200x200](/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif)<!--<source src="https://img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif">-->
 
 加上 `_100x100.jpg` 的参数后，会变成小尺寸：
 
-![100x100](/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg)<!--<source src="//img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg">-->
+![100x100](/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg)<!--<source src="https://img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg">-->
 
 我们知道 webp 格式的图片比对应的 jpg 要小三分之一，如上图加上 `_.webp` 参数后:
 
-![100x100 webp](/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg_.webp.jpg)<!--<source src="//img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg_.webp">-->
+![100x100 webp](/blogimgs/2016/04/01/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg_.webp.jpg)<!--<source src="https://img.alicdn.com/tps/TB1JZa9LVXXXXb3XFXXXXXXXXXX-200-200.gif_100x100.jpg_.webp">-->
 （不支持 webp 格式的浏览器展示不出来这张图片）
 
 视觉效果并没有什么折扣，但是图片体积缩小了三分之一，图片越大，节省的越明显。显然，淘宝首页的所有图片都做了如上的限制，针对坑位大小对图片做压缩处理，只是这里需要注意的是，运营填写的图片可能已经是压缩过的，如：

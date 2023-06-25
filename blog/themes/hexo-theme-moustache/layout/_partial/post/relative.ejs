@@ -14,7 +14,7 @@
 				if(post.permalink === p.permalink) return;
 				if(++count >= limit) return;
 				var excerpt = p.excerpt.replace(/<[^>]+?>|\n/gm, '') || p.content.replace(/<[^>]+?>|\n/gm, '').slice(0, 120) + "...";
-				var m = p.content.match(/<img src="[^"]+?" data-original="([^"]+?)"/);
+				var m = p.content.match(/<img src="[^"]+?"[\s\S]+?data-original="([^"]+?)"/);
 				if (!m) {
 					m = p.content.match(/<img src="([^"]+?)"/);
 				}
@@ -25,7 +25,7 @@
 				<a href="<%- url_for(p.path) %>"><%- p.title %></a>
 				<span class="aria-readonly">发表时间为<%- moment(p.date).format("YYYY年MM月DD日")%></span>
 				<div class="relative-box">
-          <% if(img) {%><a href="<%- url_for(p.path) %>" class="relative-img-wrapper"><img src="<%- img %>" style="width:100%" data-original="<%- img %>"/></a><% } %>
+          <% if(img) {%><a href="<%- url_for(p.path) %>" class="relative-img-wrapper"><img src="<%- img %>" style="width:100%" loading="lazy" data-original="<%- img %>"/></a><% } %>
           <span class="aria-readonly">文章概要 </span><%- excerpt %>
         </div>
 			</li>

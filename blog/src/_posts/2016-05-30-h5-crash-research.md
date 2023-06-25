@@ -22,7 +22,7 @@ date: 2016-05-30 00:30:12
 
 下图是 H5 Crash 的大致流程图：
 
-![H5 Crash 流程图](/blogimgs/2016/05/30/TB1FCOOKXXXXXccXXXXXXXXXXXX-676-667.png)<!--<source src="//img.alicdn.com/tfs/TB1FCOOKXXXXXccXXXXXXXXXXXX-676-667.png">-->
+![H5 Crash 流程图](/blogimgs/2016/05/30/TB1FCOOKXXXXXccXXXXXXXXXXXX-676-667.png)<!--<source src="https://img.alicdn.com/tfs/TB1FCOOKXXXXXccXXXXXXXXXXXX-676-667.png">-->
 
 由于前端没办法捕捉到页面 Crash 的状态和堆栈，但是 H5 页面上发生的错误会传递到 Java 和更底层的 Native 直到容器异常退出，在退出的那一刻，容器会将堆栈写入到日志中，当下次打开容器时（也可能是定时上报）就会上报这些堆栈信息。
 

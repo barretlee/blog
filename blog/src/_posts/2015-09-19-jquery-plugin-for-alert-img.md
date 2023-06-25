@@ -20,5 +20,5 @@ DEMO：<http://demo-platform.github.io/pop-img/>
 
 本页测试（点击下方图片）：
 
-<img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2015/09/19/avatar.png" data-source="https://www.barretlee.com/avatar.png" alt="barretlee" width="100" />
+<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/09/19/avatar.png" data-source="https://www.barretlee.com/avatar.png" alt="barretlee" width="100" />
 

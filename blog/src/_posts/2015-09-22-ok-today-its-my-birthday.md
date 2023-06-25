@@ -25,7 +25,7 @@ date: 2015-09-22 09:32:02
 
 去年10月份，我认识了我的女朋友，从表白到今天已经 277 天。
 
-<img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2015/09/22/20150902_7e82534e.jpg" data-source="//www.barretlee.com/blogimgs/2015/09/20150902_7e82534e.jpg" alt="小胡子和大额"  width="500" />
+<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/09/22/20150902_7e82534e.jpg" data-source="//www.barretlee.com/blogimgs/2015/09/20150902_7e82534e.jpg" alt="小胡子和大额"  width="500" />
 
 我们都在阿里巴巴，爱情可能就是一场邂逅。去年十月份的 D2 上，我们认识了彼此，虽然牵手的过程有点坎坷，但现在想来也只是一瞬间的事情。相伴相随才是今后最重要的话题。
 

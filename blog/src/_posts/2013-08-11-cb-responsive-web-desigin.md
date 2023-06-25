@@ -14,7 +14,7 @@ from: 博客园
 
 
 <p>&nbsp;博客园的资源很丰富，也很精彩。不过这些精彩的东西放到一些移动终端上阅览就不堪入目了，<span>体验相当不好</span>。</p>
-<p>&nbsp;&nbsp;<img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/08/11/11111006-2d09cc55663d4efaab0b4e7c9f734775.png" data-source="http://images.cnitblog.com/blog/387325/201308/11111006-2d09cc55663d4efaab0b4e7c9f734775.png" alt="" width="386" height="686"></p>
+<p>&nbsp;&nbsp;<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/08/11/11111006-2d09cc55663d4efaab0b4e7c9f734775.png" data-source="http://images.cnitblog.com/blog/387325/201308/11111006-2d09cc55663d4efaab0b4e7c9f734775.png" alt="" width="386" height="686"></p>
 <p>&nbsp;你可以忍受每一次打开博客，还得放大屏幕阅读么？整个屏幕都挤满了很小很小的文字，反正我是受够了。</p>
 <p>&nbsp;所以，我们需要改变！！！ 先看看什么是响应式布局，你所看的这篇文章就是采用响应时布局~ <span>（<strong>现代浏览器才能看到效果</strong>）</span></p>
 
@@ -22,22 +22,22 @@ from: 博客园
 <h3>什么是响应式布局</h3>
 <p>我的理解就是，<span>为了让用户享受更好的体验效果，给用户展现最有价值的信息，让同一个页面在不同终端上有不一样的展现效果</span>。比如你正在阅读的这篇博客，当你缩小（放大）浏览器窗口时<em>（先滚动顶部，因为顶部做了比较多的修改，效果比较明显）</em>，你会看到这些神奇的效果。</p>
 <p><span><strong>正常情况下</strong></span>，顶部是这样的：</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/08/11/11111800-ae1213c1cbe34476b2d4401a788ac48d.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11111800-ae1213c1cbe34476b2d4401a788ac48d.jpg" alt="" width="691" height="362"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/08/11/11111800-ae1213c1cbe34476b2d4401a788ac48d.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11111800-ae1213c1cbe34476b2d4401a788ac48d.jpg" alt="" width="691" height="362"></p>
 <p><span><strong>稍微缩小一点</strong></span>，是这样的：</p>
 <ul>
 <li>变化一：about那个块不见了</li>
 <li>变化二：浮动的推荐<反对框偏移了</li>
 </ul>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/08/11/11111900-eee34c4fac6342f585c1d91681d52e4a.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11111900-eee34c4fac6342f585c1d91681d52e4a.jpg" alt="" width="690" height="449"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/08/11/11111900-eee34c4fac6342f585c1d91681d52e4a.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11111900-eee34c4fac6342f585c1d91681d52e4a.jpg" alt="" width="690" height="449"></p>
 <p><span><strong>再缩小一点</strong></span>：</p>
 <ul>
 <li>变化一：背景图片不见了</li>
 <li>变化二：右侧sidebar块跑到文章下面去了</li>
 </ul>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/08/11/11112040-da39f5f2f3d04f6bb07917930be7f098.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11112040-da39f5f2f3d04f6bb07917930be7f098.jpg" alt="" width="591" height="525"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/08/11/11112040-da39f5f2f3d04f6bb07917930be7f098.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11112040-da39f5f2f3d04f6bb07917930be7f098.jpg" alt="" width="591" height="525"></p>
 <p><span><strong>还可以再小一点</strong></span>，</p>
 <p>　　这个变化就相当大了，很多东西都不见了，元素的位置也改变了</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/08/11/11112203-fd25eec77a92454292437db2ca0a40a8.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11112203-fd25eec77a92454292437db2ca0a40a8.jpg" alt="" width="436" height="564"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/08/11/11112203-fd25eec77a92454292437db2ca0a40a8.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11112203-fd25eec77a92454292437db2ca0a40a8.jpg" alt="" width="436" height="564"></p>
 <p>　　那么，什么是响应式布局，你有了一定的理解么~</p>
 
 
@@ -47,7 +47,7 @@ from: 博客园
 <p>　　根据移动终端的尺寸（分辨率），我大概做了这么些分类：</p>
 <p>　　←480px &nbsp; 481px~700px &nbsp; 701px~960px &nbsp; 961px→</p>
 <p>　　首先搞清楚你的用户群所使用的终端类型和比例，这是2012年第二季度的统计数据</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/08/11/11112952-d5d987f9fc6247a7afc34ac7d46b87ff.gif" data-source="http://images.cnitblog.com/blog/387325/201308/11112952-d5d987f9fc6247a7afc34ac7d46b87ff.gif" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/08/11/11112952-d5d987f9fc6247a7afc34ac7d46b87ff.gif" data-source="http://images.cnitblog.com/blog/387325/201308/11112952-d5d987f9fc6247a7afc34ac7d46b87ff.gif" alt=""></p>
 <p><span>　　iPhone、Nokia、HTC、Samsung和Moto 五个品牌的移动终端位居前五位，占比分别为22.13%、13.98 和11.69%、10.87% 和7.47%，其次为Huawei、Sony 和ZTE 等。</span></p>
 <p><span>　　感兴趣的话，可以去搜搜这些终端的分辨率是多少，然后针对这些数据做一个分类~我不多说了。</span></p>
 
@@ -55,8 +55,8 @@ from: 博客园
 <p><strong><span>2. 不同的需求</span></strong></p>
 <p><strong><span>　　</span></strong><span>一个比较小的屏幕能够容纳多少数据，展现多少信息，这一点必须把握住，比如当设备宽度是480像素的时候，我们没必要展现太多的信息，因为你展现出来用户也不会看，这些<span>冗余信息只会影响用户对信息主次的判断，甚至他们会觉得这些冗余信息太多，而跳过你的内容</span>。</span></p>
 <p><span>　　我的设计是这样的：</span></p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/08/11/11113624-b63e08b4fa52468abde3a2c0ea331d00.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11113624-b63e08b4fa52468abde3a2c0ea331d00.jpg" alt="" width="406" height="524"></p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/08/11/11113648-0fc153eca1cc433e89023b9ed037a4ac.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11113648-0fc153eca1cc433e89023b9ed037a4ac.jpg" alt="" width="405" height="575"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/08/11/11113624-b63e08b4fa52468abde3a2c0ea331d00.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11113624-b63e08b4fa52468abde3a2c0ea331d00.jpg" alt="" width="406" height="524"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/08/11/11113648-0fc153eca1cc433e89023b9ed037a4ac.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11113648-0fc153eca1cc433e89023b9ed037a4ac.jpg" alt="" width="405" height="575"></p>
 <p>&nbsp;我的页面只包括这些内容，像随笔分类、随笔档案，友情链接，推荐链接等，<span>这些信息又多又占空间，应该去除!</span></p>
 <p>&nbsp;再比如：刚开始的时候，那个推荐<反对的块及贴在文章的右侧，当窗口缩小之后，我把他放到了右下角，再小些，为了展示更多的内容，直接把他给隐藏了~</p>
 
@@ -100,7 +100,7 @@ from: 博客园
 <h3>关于测试工具</h3>
 <p>　　1. 这个网站，你可以试试，戳<a href="http://dfcb.github.io/Responsivator/" target="_blank">测试工具</a></p>
 <p>　　2. chrome下有一个插件，叫做Moblile/Tablet Divice Testing，下载地址：<a href="//chrome.google.com/webstore/detail/mobiletablet-device-testi/elmekokodcohlommfikpmojheggnbelo" target="_blank">戳我</a></p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/08/11/11115330-20656f7059b8442b8d4443946c499ad5.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11115330-20656f7059b8442b8d4443946c499ad5.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/08/11/11115330-20656f7059b8442b8d4443946c499ad5.jpg" data-source="http://images.cnitblog.com/blog/387325/201308/11115330-20656f7059b8442b8d4443946c499ad5.jpg" alt=""></p>
 
 
 <h3>本文响应式布局代码</h3>
@@ -276,4 +276,4 @@ meida query
 
 <p>P.S：本文图片都是直接截屏，没有做优化处理，整个页面体积过于庞大，看来图片的优化和lazyload很有必要啊！！！下次弄一个简洁版的lazyload用用~~</p>
 <p>&nbsp;最后。。。来一张萌图，哈哈哈~</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/08/11/11124011-2bb20347825f45139a41031f0fde7b22.gif" data-source="http://images.cnitblog.com/blog/387325/201308/11124011-2bb20347825f45139a41031f0fde7b22.gif" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/08/11/11124011-2bb20347825f45139a41031f0fde7b22.gif" data-source="http://images.cnitblog.com/blog/387325/201308/11124011-2bb20347825f45139a41031f0fde7b22.gif" alt=""></p>

@@ -19,7 +19,7 @@ from: 博客园
 
 <h3>Problem [问题描述]</h3>
 <p>先看看这个：（搜狗团购网站）</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/04/13/13132807-90d20866286944e282a80251a51c1893.png" data-source="http://images.cnitblog.com/blog/387325/201304/13132807-90d20866286944e282a80251a51c1893.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/04/13/13132807-90d20866286944e282a80251a51c1893.png" data-source="http://images.cnitblog.com/blog/387325/201304/13132807-90d20866286944e282a80251a51c1893.png" alt=""></p>
 <p>还剩多久多久，这个东西你是怎么做的。</p>
 
 
@@ -39,7 +39,7 @@ from: 博客园
 
 <p><strong>屌丝看完变高富帅^_^</strong></p>
 <p>　 &nbsp;先给你看一张图：（向服务器请求的某个任意文件）</p>
-<p><img src="//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" data-original="/blogimgs/2013/04/13/13133549-bdff65e110bc4489bcb7a88fcf7ec6dd.png" data-source="http://images.cnitblog.com/blog/387325/201304/13133549-bdff65e110bc4489bcb7a88fcf7ec6dd.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/04/13/13133549-bdff65e110bc4489bcb7a88fcf7ec6dd.png" data-source="http://images.cnitblog.com/blog/387325/201304/13133549-bdff65e110bc4489bcb7a88fcf7ec6dd.png" alt=""></p>
 <p>好像有的同学瞬间就懂了。</p>
 
 
