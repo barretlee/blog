@@ -67,7 +67,7 @@
 			</span>
 		</div>
 		<div class="entry-recent-posts">
-			<h2><a href="<%- url_for('/blog/categories/前端杂烩/') %>" aria-hidden="true">博客归档 »</a>近期文章</h2>
+			<h2><a href="<%- url_for('/blog/archives/') %>" aria-hidden="true">博客归档 »</a>近期文章</h2>
 			<ul itemscope itemtype="http://schema.org/Article">
 			<% site.posts.sort('date', 'desc').limit(12).each(function(post){ 
 				var _tags = {}; var tags = [];
