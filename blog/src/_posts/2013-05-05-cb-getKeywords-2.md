@@ -14,7 +14,7 @@ from: 博客园
 
 
 <p><a class="titlelink" href="http://www.cnblogs.com/hustskyking/archive/2013/05/04/getkeywords.html">上一篇文章</a>，弄了一个 <strong>取词&nbsp;</strong>和 <strong>标红</strong> 功能的小应用，但是存在一些bug，今天修修补补，顺便也把ajax部分补上了~</p>
-<p><a href="http://qianduannotes.sinaapp.com/getKeyword/" target="_blank"><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/05/05/04235938-51987cdb332f4539bbfbeeb88d093e1c.png" data-source="http://images.cnitblog.com/blog/387325/201305/04235938-51987cdb332f4539bbfbeeb88d093e1c.png" alt="" width="850" height="408"></a></p>
+<p><a href="http://qianduannotes.sinaapp.com/getKeyword/" target="_blank"><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/05/05/04235938-51987cdb332f4539bbfbeeb88d093e1c.png" data-source="http://images.cnitblog.com/blog/387325/201305/04235938-51987cdb332f4539bbfbeeb88d093e1c.png" alt="" width="850" height="408"></a></p>
 
 
 <p>Demo地址：<span>：</span><a title="取词&&标红 demo" href="http://qianduannotes.sinaapp.com/getKeyword/" target="_blank">http://qianduannotes.sinaapp.com/getKeyword/</a></p>

@@ -13,7 +13,7 @@ date: 2017-03-21 22:18:26
 
 > 因公司业务调整，非常遗憾的向大家宣布多说项目即将关闭。 我们将于2017年6月1日正式关停服务，在此之前您可以通过后台的数据导出功能导出自己站点的评论数据。 对此给您造成的不便，我们深表歉意，感谢您的一路相伴。[详细信息 >](http://dev.duoshuo.com/threads/58d10f50e9a8cb4433fd5c5d)
 
-![多说](/blogimgs/2017/03/21/6c0378f8gy1fduu7gthbfj21me0oeq6v.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fduu7gthbfj21me0oeq6v.jpg">-->
+![多说](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2017/03/21/6c0378f8gy1fduu7gthbfj21me0oeq6v.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fduu7gthbfj21me0oeq6v.jpg">-->
 
 <!--more-->
 

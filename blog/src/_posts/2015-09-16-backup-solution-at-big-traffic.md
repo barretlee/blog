@@ -102,7 +102,7 @@ Ajax({
 
 我们很容易得到如下的操作流程：
 
-![异步容错实践](/blogimgs/2015/09/16/20150903_1de15c2d.jpg)
+![异步容错实践](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/09/16/20150903_1de15c2d.jpg)
 
 而这里存在的问题是：
 
@@ -117,11 +117,11 @@ Ajax({
 
 所以对整个流程做了一些改进：
 
-![异步容错改进](/blogimgs/2015/09/16/20150903_224d72cc.jpg)
+![异步容错改进](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/09/16/20150903_224d72cc.jpg)
 
 数据经过统一平台输出，在输出之前，我们将数据推一份到 CDN 作为备份，产生另一个接口，一旦原始接口请求失败，则直接请求备份的接口，这个在规则对应和即时更新上可以做到很赞！那么基本的流程就是这样：
 
-![异步容错改进流程](/blogimgs/2015/09/16/20150903_8fdbadcc.jpg)
+![异步容错改进流程](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/09/16/20150903_8fdbadcc.jpg)
 
 不过为了确保无误，我的建议是，页面上每个接口必须对应一个运营手填的数据，这个作为最后的硬兜底，而这个硬兜底也会被缓存到本地，整个流程就形成一个闭环。那么，剩下的工作就只有监控和警报了。
 

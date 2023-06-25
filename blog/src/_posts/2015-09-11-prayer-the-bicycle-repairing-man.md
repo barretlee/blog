@@ -27,7 +27,7 @@ date: 2015-09-11 15:26:23
 
 ...本来想写一篇长文祭奠...
 
-![合影](/blogimgs/2015/09/11/20150911_heying.jpg)
+![合影](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/09/11/20150911_heying.jpg)
 
 一切尽在不言中。
 

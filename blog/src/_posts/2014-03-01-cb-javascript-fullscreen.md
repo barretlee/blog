@@ -16,7 +16,7 @@ from: 博客园
 <p><span>@update 文章下方有更新，提到了更多全屏的知识以及错误的矫正。</span></p>
 <p><span>页面全屏是一个体验非常棒的功能，他可以让你的视觉焦点聚集在你想关注的元素块上。很多浏览器都支持全屏，按下 F11，哦了！ 页面全屏了~&nbsp;但是本文要说的并不是这种全屏。当页面中有个小 DEMO 或者小游戏要展示的时候，用户期望，这个 DEMO 或者游戏可以在全屏下展示，本文就教你如何来展示。</span></p>
 <p>如果你是非 IE 浏览器进入的该页面，你可能已经看到了页面上发生了一点小变化，多个东西：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/03/01/010309260367360.png" data-source="http://images.cnitblog.com/i/387325/201403/010309260367360.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/03/01/010309260367360.png" data-source="http://images.cnitblog.com/i/387325/201403/010309260367360.png" alt=""></p>
 <p>没错，多了个\进入全屏"的按钮，这就是本文要介绍的内容！</p>
 <p>本文地址：<a href="http://www.cnblogs.com/hustskyking/p/javascript-fullscreen.html">http://www.cnblogs.com/hustskyking/p/javascript-fullscreen.html</a>，转载请注明源地址。</p>
 <h3>一、全屏策略</h3>
@@ -80,7 +80,7 @@ function cancelFullScreen() {
 
 <h4>3. 浏览器兼容性</h4>
 <p><span>IE 用户就甭看了，刚测试，IE11 不兼容</span>（需要加前缀 ms）。对于浏览器的兼容情况，请戳<a href="//developer.mozilla.org/en/DOM/Using_full-screen_mode#AutoCompatibilityTable" target="_blank">这里</a>。目前 Firefox 兼容，不过有点离谱。他会弹出一个让你全屏的提示，此时确实是全屏的，但当你点击提示中的\允许"时，屏幕又退出了全屏，真是让人匪夷所思。我测试的版本（27.0.1）有这个问题，当然，这是浏览器本身的问题，不用纠结。</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/03/01/010319363967428.png" data-source="http://images.cnitblog.com/i/387325/201403/010319363967428.png" alt="" width="553" height="195"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/03/01/010319363967428.png" data-source="http://images.cnitblog.com/i/387325/201403/010319363967428.png" alt="" width="553" height="195"></p>
 <p>Chrome 对于新特性的支持永远是站在前排，不得不佩服 google 开发工程师的牛掰！</p>
 <h3>二、3 个 bug</h3>
 <h4>1. window 失去焦点</h4>
@@ -110,7 +110,7 @@ $(document).on('webkitfullscreenchange mozfullscreenchange msfullscreenchange fu
 
 <h4>2. 一个貌似可以重现的 bug</h4>
 <p>所谓的可以重现就是，把代码逻辑抽离出来，写个 demo 还能看到 bug。反正我试过好几次，这个 bug 都出现了，懒得写一个 DEMO 重现他。他出现的位置是：我的滚动条是自己设置的样式，当全屏之后，滚动条本应该在页面的最右侧，但是我测试的时候他偶尔会离最右侧有十几个像素，我也不知道为什么。但是当我打开 DevTools 的时候，这十几个像素又奇妙的被缝合了~</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/03/01/010322023845093.png" data-source="http://images.cnitblog.com/i/387325/201403/010322023845093.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/03/01/010322023845093.png" data-source="http://images.cnitblog.com/i/387325/201403/010322023845093.png" alt=""></p>
 <p>后来一想，管你呢，这肯定是 google 的工程师没有留意到的位置！既然开打 DevTools 可以修复，那就说明触发 window.resize 也能解决这个问题，好吧，那就这样试试吧：</p>
 
 ```

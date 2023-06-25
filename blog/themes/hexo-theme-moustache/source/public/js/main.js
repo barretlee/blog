@@ -988,7 +988,7 @@ $(function () {
 
     var $img = $("<img>")
       .addClass("larry size-" + sizeName)
-      .attr("src", "/blogimgs/avatar150.png")
+      .attr("src", "https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png")
       .attr({
         "tabindex": "0",
         "aria-hidden": "true"

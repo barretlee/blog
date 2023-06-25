@@ -43,9 +43,9 @@ from: 博客园
 <p>6. 服务器未发现请求中包含 Etag，返回资源S，并带上一个 Etag</p>
 <h3>二、代码实现</h3>
 <p>第一次请求数据：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/05/11/111923172133405.jpg" data-source="http://images.cnitblog.com/i/387325/201405/111923172133405.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/05/11/111923172133405.jpg" data-source="http://images.cnitblog.com/i/387325/201405/111923172133405.jpg" alt=""></p>
 <p>浏览器在接受到服务器发过来的 Etag 后，会保存下来，下次请求的时候会将它放在请求头中，其 key 值为 If-None-Match。</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/05/11/111923246041196.jpg" data-source="http://images.cnitblog.com/i/387325/201405/111923246041196.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/05/11/111923246041196.jpg" data-source="http://images.cnitblog.com/i/387325/201405/111923246041196.jpg" alt=""></p>
 <p>服务器拿到 If-None-Match 之后，对比之前的 Etag，如果没变，则返回 304 Not Modified.</p>
 <h4>1. php 中的 Etag</h4>
 

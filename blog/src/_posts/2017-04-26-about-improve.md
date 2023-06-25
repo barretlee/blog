@@ -11,7 +11,7 @@ date: 2017-04-26 12:08:11
 ---
 
 
-![https://unsplash.com/collections/631209/home-improvement-store?photo=znw9Xs5I9ro](/blogimgs/2017/04/26/006tKfTcgy1fezyf4npsuj30p00dw40s.jpg)<!--<source src="http://ww2.sinaimg.cn/large/006tKfTcgy1fezyf4npsuj30p00dw40s.jpg">-->
+![https://unsplash.com/collections/631209/home-improvement-store?photo=znw9Xs5I9ro](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2017/04/26/006tKfTcgy1fezyf4npsuj30p00dw40s.jpg)<!--<source src="http://ww2.sinaimg.cn/large/006tKfTcgy1fezyf4npsuj30p00dw40s.jpg">-->
 
 整理了一条圈子里头一位朋友的提问，这个问题比较普遍，我好好思考了下。问题如下：
 

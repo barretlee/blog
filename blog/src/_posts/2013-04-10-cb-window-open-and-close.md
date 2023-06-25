@@ -17,7 +17,7 @@ from: 博客园
 <h3>window.open</h3>
 <p>　　window.open如果没有加第三个参数，则浏览器一般都会在新的标签页打开（除非你设置了新建窗口打开）</p>
 <p>　　而有的时候，我们需要他弹出来。就想这个一样：</p>
-<p>　　<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/04/10/10152902-23e3b118ba574a799ec021740f524b44.png" data-source="http://images.cnitblog.com/blog/387325/201304/10152902-23e3b118ba574a799ec021740f524b44.png" alt="" width="369" height="416"></p>
+<p>　　<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/04/10/10152902-23e3b118ba574a799ec021740f524b44.png" data-source="http://images.cnitblog.com/blog/387325/201304/10152902-23e3b118ba574a799ec021740f524b44.png" alt="" width="369" height="416"></p>
 <p>　　上述方式是：</p>
 
 ```
@@ -26,7 +26,7 @@ window.open(/*URL*/"",/*Name*/"",/*args*/"width=300,height=400");
 ```
 
 <p>　　但是搜狗是不会挺你的话的，他不会新建一个你设定的窗口打开，而是在一个新的标签页打开。</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/04/10/10153253-8b065b78f11e4696a8e1bac972f17892.png" data-source="http://images.cnitblog.com/blog/387325/201304/10153253-8b065b78f11e4696a8e1bac972f17892.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/04/10/10153253-8b065b78f11e4696a8e1bac972f17892.png" data-source="http://images.cnitblog.com/blog/387325/201304/10153253-8b065b78f11e4696a8e1bac972f17892.png" alt=""></p>
 <p>　　这个，你就认了吧！如果不服气，你可以用下面的函数来解决。</p>
 
 
@@ -42,7 +42,7 @@ window.showModalDialog("","","dialogHeight=200,dialogWidth=300");
 <p>　　不过搜狗又有点变态了，</p>
 <p>　　1.&nbsp;如果你的第一个参数不写，即为空时，弹不出来。</p>
 <p>　　2. 如果第一个参数的URL地址和window.location不是同一个域内（<a title="同域 跨域" href="http://www.cnblogs.com/hustskyking/archive/2013/03/31/CDS-introduce.html" target="_blank">什么是同域</a>），则会这样：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/04/10/10154058-49b2fbb3642249068a966f24e85ec794.png" data-source="http://images.cnitblog.com/blog/387325/201304/10154058-49b2fbb3642249068a966f24e85ec794.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/04/10/10154058-49b2fbb3642249068a966f24e85ec794.png" data-source="http://images.cnitblog.com/blog/387325/201304/10154058-49b2fbb3642249068a966f24e85ec794.png" alt=""></p>
 <p>　　会弹出一个存在安全隐患的提示，这个也是个烦人的东西，修改IE的安全项应该可以解决问题。这里不多说。</p>
 
 
@@ -55,7 +55,7 @@ window.close()
 ```
 
 <p>　　如果单单是这一句话，IE（搜狗等）会弹出这么一个提示：</p>
-<p>　　<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/04/10/10154422-fc71b242e25a4b8c8c750d3abf6094fb.png" data-source="http://images.cnitblog.com/blog/387325/201304/10154422-fc71b242e25a4b8c8c750d3abf6094fb.png" alt=""></p>
+<p>　　<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/04/10/10154422-fc71b242e25a4b8c8c750d3abf6094fb.png" data-source="http://images.cnitblog.com/blog/387325/201304/10154422-fc71b242e25a4b8c8c750d3abf6094fb.png" alt=""></p>
 <p>　　FF和chrome无反应。如果加点东西：</p>
 
 ```

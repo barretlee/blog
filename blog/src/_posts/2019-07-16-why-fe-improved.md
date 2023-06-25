@@ -13,7 +13,7 @@ date: 2019-07-16 14:15:00
 其实回首想一想也能感受到，曾经的前端还被定义为 JS 工程师/重构工程师，现如今市面上的 JD 几乎已经看不到这两个词的影子了。
 
 
-![残酷的未来](/blogimgs/2019/07/16/why_fe_improved.png)
+![残酷的未来](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2019/07/16/why_fe_improved.png)
 
 仔细想一想，核心的原因是什么？是哪些因素把资源角色的前端推到了主导业务的角色。我觉得有这么几点：
 

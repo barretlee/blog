@@ -1,6 +1,6 @@
 ### 小胡子哥的个人网站
 
-<a href="https://www.barretlee.com" target="_blank"><img src="./blog/src/blogimgs/avatar150.png" width="150" /></a>
+<a href="https://www.barretlee.com" target="_blank"><img src="https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png" width="150" /></a>
 
 博客地址: <https://www.barretlee.com>.
 

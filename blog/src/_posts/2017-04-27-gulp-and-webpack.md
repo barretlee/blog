@@ -14,7 +14,7 @@ date: 2017-04-27 12:50:00
 
 Gulp 和 webpack 之间的关系是十分暧昧的，却也经常被人误解，以为它俩是竞争关系，其实不然。
 
-![gulp & webpack](/blogimgs/2017/04/27/6c0378f8gy1ff18pl2w55j21400m8tag.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1ff18pl2w55j21400m8tag.jpg">-->
+![gulp & webpack](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2017/04/27/6c0378f8gy1ff18pl2w55j21400m8tag.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1ff18pl2w55j21400m8tag.jpg">-->
 
 <!--more-->
 

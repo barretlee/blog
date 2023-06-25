@@ -47,7 +47,7 @@ from: 博客园
 <h4>1. 正文的设计与实现</h4>
 <p>正文的设计参考了简书，但是简书是一个以文字为中心的网站，图片都很少出现。而对于一个博客来说，有几个元素十分重要：代码、引用块、图片、表格、list列表等等。所以这些元素的展示要自己来设计。</p>
 <p>细节上的东西，只要进入网站就能看到，所以在这里就不赘述太多。代码的高亮使用的是 prettify 的 light 主题，对它做了微调。</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/07/04/041833036684651.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041833036684651.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/07/04/041833036684651.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041833036684651.jpg" alt=""></p>
 <p>代码块滚动条的样式也修改了下：</p>
 
 ```
@@ -63,11 +63,11 @@ pre::-webkit-color-swatch {border:none;}
 ```
 
 <p>效果是这样的：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/07/04/041833144027230.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041833144027230.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/07/04/041833144027230.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041833144027230.jpg" alt=""></p>
 <p>整个设计都是扁平化，没有圆角，看起来感觉还算舒服，下面是引用块的样式呈现：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/07/04/041833217461008.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041833217461008.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/07/04/041833217461008.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041833217461008.jpg" alt=""></p>
 <p>由于一些代码是可以直接运行的，所以也给可运行代码加上了一个运行的 button：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/07/04/041833297309613.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041833297309613.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/07/04/041833297309613.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041833297309613.jpg" alt=""></p>
 <p>在IE下，是使用一个 about:blank 的空白页打开代码文件，如果浏览器支持 blob 流，将会使用 blob 流打开：</p>
 
 ```
@@ -85,23 +85,23 @@ if (!operation.isIE()) {
 
 <h4>2. 侧边栏的设计与实现</h4>
 <p><strong>1) 侧边栏-未展开</strong></p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/07/04/041800594809334.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041800594809334.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/07/04/041800594809334.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041800594809334.jpg" alt=""></p>
 <p>从上图可以看到，侧边栏都是一些功能按钮，从上往下依次是：显示隐藏文章目录，页面主题和字体设置，关于作者，反馈信息，RSS订阅。</p>
 <p><span>为啥要搞个侧边栏，还放那么多的功能按钮？就拿司徒正美的博客来说，我在群里吐槽了他博客风格好几次（被骂回来了...理由是每个人审美观不一样），你可以去瞅瞅他的页面，代码字体实在是太小了，每次看他的博客都会把字号和行高调大一点，后来直接写个脚本放在收藏夹，进入他的网页一键处理。</span></p>
 <p>这个例子说明，每个人的口味不一样。一个网站，倘若冷暖色调，字体大小等可以自定义的话就更棒了，我没做那么复杂，就是给文章加了个黑色主题。</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/07/04/041801196217820.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041801196217820.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/07/04/041801196217820.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041801196217820.jpg" alt=""></p>
 <p>通过这个按钮可以进行相应的设置。然后是侧边栏下面的几个按钮：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/07/04/041801255273825.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041801255273825.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/07/04/041801255273825.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041801255273825.jpg" alt=""></p>
 <p>\跟我对话"点击之后会在右下角往上蹦出一个浮层：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/07/04/041801309658987.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041801309658987.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/07/04/041801309658987.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041801309658987.jpg" alt=""></p>
 <p>这个浮层是可拖动的。</p>
 <p><strong>2) 侧边栏-展开</strong></p>
 <p>做了个未展开的侧边栏其实也差不多了，后来发现我的页面中好像并没有\文章归档"，\最新文章"，\最近评论"等这些对一个博客来说很常见的元素，于是乎，抄袭了下豆瓣FM的设计，弄了下面的东西：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/07/04/041801372622578.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041801372622578.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/07/04/041801372622578.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041801372622578.jpg" alt=""></p>
 <p>这块效果还挺难做的，主要是滚动不好处理。左侧是一个 fixed 定位，容器的高度是死的，也就是 <code>$(window).height()</code> 的高度，blabla.. 细节我不说了，如果你感兴趣可以去思考下如何实现类似豆瓣FM左侧的功能块。我后来是监听鼠标滚动设置负margi-top值来模拟页面滚动。并且这个监听是在整个 document 而不是仅仅是 左侧的 box 上。</p>
 <p>整体效果实现并不复杂，麻烦的是一些细节处理。</p>
 <h4>2. 底部的设计与实现</h4>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/07/04/041801445126326.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041801445126326.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/07/04/041801445126326.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041801445126326.jpg" alt=""></p>
 <p>底部的设计我最纠结的是内容，到底放点什么东西。跟文章相关度最高的，一是相关文章，二是评论，所以也就只把这两样放上了。</p>
 <h3>三、后台设计和数据库</h3>
 <p>开始想过后台用 wordpress 或者其他的框架系统来构建，但是这些东西提供的接口比较冗余，而且功能复杂，没有全盘研究过他们的源码，最后决定自己写一套后端框架以及前后端接口，工作量立马就上去了... 我也是想趁此机会回顾下 php 和 mysql 的知识，太久不用都生疏了。</p>
@@ -182,7 +182,7 @@ $otherData = $page->getPostOtherData();
 ```
 
 <p>后台数据的渲染都是：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/07/04/041859003714166.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041859003714166.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/07/04/041859003714166.jpg" data-source="http://images.cnitblog.com/i/387325/201407/041859003714166.jpg" alt=""></p>
 <p>如果改成前端异步获取，那前端又得写一套模板渲染数据，这里感觉流程上存在冗余，后期肯定会改进。</p>
 <h4>3. 内容的解析</h4>
 <p>文章内容的编写还是使用Markdown，尽管他在某些地方不能满足我的需求。内容的解析使用的是 michelf 的 php-markdown 开源框架：</p>

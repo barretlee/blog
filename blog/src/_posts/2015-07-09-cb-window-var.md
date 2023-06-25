@@ -65,7 +65,7 @@ Object.defineProperty(window, "i", {
 ```
 
 <p>在全局定义变量 i 的时刻，打一个断点，然后 F10 往前走一步，果然，在控制台右侧的 Call Stack 中找到了端倪！</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/07/09/091139059868960.png" data-source="http://images0.cnblogs.com/blog2015/387325/201507/091139059868960.png" alt="" width="728" height="297"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/07/09/091139059868960.png" data-source="http://images0.cnblogs.com/blog2015/387325/201507/091139059868960.png" alt="" width="728" height="297"></p>
 <p>这个变量是从第三方组件中（offline组件，使用相当频繁的一个组件）暴露出来的，估计出错的方式同我上面的描述差不多，拆分函数的时候忘记重新定义变量 i。</p>
 <p>当然还有更快的方式：</p>
 

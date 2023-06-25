@@ -19,7 +19,7 @@ date: 2016-10-21 03:22:50
 
 我简单枚举了一下，主要是这几个方面：
 
-![成长](/blogimgs/2016/10/21/65e4f1e6gw1f8zamgkq8pj20pa0e9gmd.jpg)<!--<source src="http://ww4.sinaimg.cn/large/65e4f1e6gw1f8zamgkq8pj20pa0e9gmd.jpg">-->
+![成长](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2016/10/21/65e4f1e6gw1f8zamgkq8pj20pa0e9gmd.jpg)<!--<source src="http://ww4.sinaimg.cn/large/65e4f1e6gw1f8zamgkq8pj20pa0e9gmd.jpg">-->
 
 涉足一个未知的领域，走进去，那就是成长；能够坚持不懈的完成一件事情，优化一个项目，那也是成长；能够沉淀方案，推广自己的想法，让更多的人收益，那也是成长；能够带领多个人去完成一个项目，那更是很不错的成长。
 
@@ -33,7 +33,7 @@ date: 2016-10-21 03:22:50
 
 技术能力又可以分为编程能力、架构能力和工程能力，我们不讨论那么复杂，一言以蔽之，就是解决问题的能力。我就以之前做过的淘宝首页为例吧，
 
-![淘宝首页](/blogimgs/2016/10/21/65e4f1e6gw1f8zb1946y3j20p80e5mzf.jpg)<!--<source src="http://ww2.sinaimg.cn/large/65e4f1e6gw1f8zb1946y3j20p80e5mzf.jpg">-->
+![淘宝首页](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2016/10/21/65e4f1e6gw1f8zb1946y3j20p80e5mzf.jpg)<!--<source src="http://ww2.sinaimg.cn/large/65e4f1e6gw1f8zb1946y3j20p80e5mzf.jpg">-->
 
 接手淘宝首页之后，我分析了业务中存在的问题，针对罗列出来的问题，逐个击破：
 
@@ -47,7 +47,7 @@ date: 2016-10-21 03:22:50
 
 以上更多的是使用技术手段来解决问题，而业务能力的提升，需要我们走进业务：
 
-![行业业务](/blogimgs/2016/10/21/65e4f1e6gw1f8zb97yvttj20pa0e6dgg.jpg)<!--<source src="http://ww4.sinaimg.cn/large/65e4f1e6gw1f8zb97yvttj20pa0e6dgg.jpg">-->
+![行业业务](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2016/10/21/65e4f1e6gw1f8zb97yvttj20pa0e6dgg.jpg)<!--<source src="http://ww4.sinaimg.cn/large/65e4f1e6gw1f8zb97yvttj20pa0e6dgg.jpg">-->
 
 首先，必须明确产品和运营的目标是什么，最直接的方式就是询问他们近一个阶段的 KPI，了解产品面向的用户群体，迭代上线的节奏，每期迭代的具体目标，包括整个产品的思路，以及运营方式等等。
 
@@ -69,7 +69,7 @@ date: 2016-10-21 03:22:50
 
 当然，如果你想拿到成绩，还是需要回归到业务，反哺团队。
 
-![Owner 一件事情](/blogimgs/2016/10/21/65e4f1e6gw1f8zbqzzdqaj20p50e63za.jpg)<!--<source src="http://ww1.sinaimg.cn/large/65e4f1e6gw1f8zbqzzdqaj20p50e63za.jpg">-->
+![Owner 一件事情](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2016/10/21/65e4f1e6gw1f8zbqzzdqaj20p50e63za.jpg)<!--<source src="http://ww1.sinaimg.cn/large/65e4f1e6gw1f8zbqzzdqaj20p50e63za.jpg">-->
 
 如果你有想法，并且准备 Owner 起一件事情，你可以这么做：
 

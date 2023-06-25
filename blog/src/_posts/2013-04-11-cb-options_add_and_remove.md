@@ -55,7 +55,7 @@ from: 博客园
 
 <p><em>注：optgroup的属性用的是label，别搞错了。</em></p>
 <p>上面三个一次效果图为</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/04/11/11133800-b58b53b315564d8489ebd6795a915864.png" data-source="http://images.cnitblog.com/blog/387325/201304/11133800-b58b53b315564d8489ebd6795a915864.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/04/11/11133800-b58b53b315564d8489ebd6795a915864.png" data-source="http://images.cnitblog.com/blog/387325/201304/11133800-b58b53b315564d8489ebd6795a915864.png" alt=""></p>
 <p>样式可以改，这个不多说。</p>
 
 

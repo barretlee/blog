@@ -14,7 +14,7 @@ from: 博客园
 
 
 <p>按需求弄了一个 <strong>取词</strong> 以及 <strong>标红</strong> 的小应用。</p>
-<p><a href="http://qianduannotes.sinaapp.com/getKeyword/" target="_blank"><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/05/04/o_%e8%a7%86%e5%9b%be.png" data-source="http://images.cnblogs.com/cnblogs_com/hustskyking/477032/o_%e8%a7%86%e5%9b%be.png" alt="" width="716" height="388"></a></p>
+<p><a href="http://qianduannotes.sinaapp.com/getKeyword/" target="_blank"><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/05/04/o_%e8%a7%86%e5%9b%be.png" data-source="http://images.cnblogs.com/cnblogs_com/hustskyking/477032/o_%e8%a7%86%e5%9b%be.png" alt="" width="716" height="388"></a></p>
 <p>先上demo ：<a title="取词&&标红 demo" href="http://qianduannotes.sinaapp.com/getKeyword/" target="_blank">http://qianduannotes.sinaapp.com/getKeyword/</a></p>
 <p>很多平时常用的东西，都用上了，所以拿出来说说。</p>
 
@@ -249,7 +249,7 @@ obj.style[i] = csses[i];
 
 <p>不知道为什么，在IE下报错了，后来便用cssText代替。</p>
 <p>效果：</p>
-<p><a href="http://qianduannotes.sinaapp.com/getKeyword/" target="_blank"><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/05/04/o_%e6%b7%bb%e5%8a%a0%e5%88%b0%e5%88%97%e8%a1%a8.png" data-source="http://images.cnblogs.com/cnblogs_com/hustskyking/477032/o_%e6%b7%bb%e5%8a%a0%e5%88%b0%e5%88%97%e8%a1%a8.png" alt="添加到列表" width="610" height="312"></a></p>
+<p><a href="http://qianduannotes.sinaapp.com/getKeyword/" target="_blank"><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/05/04/o_%e6%b7%bb%e5%8a%a0%e5%88%b0%e5%88%97%e8%a1%a8.png" data-source="http://images.cnblogs.com/cnblogs_com/hustskyking/477032/o_%e6%b7%bb%e5%8a%a0%e5%88%b0%e5%88%97%e8%a1%a8.png" alt="添加到列表" width="610" height="312"></a></p>
 
 
 <p><strong>3.标红</strong></p>

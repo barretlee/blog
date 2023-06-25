@@ -93,7 +93,7 @@ Marquee.prototype = {
 
 <p>gists地址：<a href="//gist.github.com/barretlee/6095976">//gist.github.com/barretlee/6095976</a></p>
 <p>代码写的比较粗糙，下面说说这个<strong>思路</strong>：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/07/26/26221029-f82024416caf481a91ad51b1576d33d0.jpg" data-source="http://images.cnitblog.com/blog/387325/201307/26221029-f82024416caf481a91ad51b1576d33d0.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/07/26/26221029-f82024416caf481a91ad51b1576d33d0.jpg" data-source="http://images.cnitblog.com/blog/387325/201307/26221029-f82024416caf481a91ad51b1576d33d0.jpg" alt=""></p>
 <p>BoxA和BoxB内容相同，当BoxA滚动离开外层盒子时，把scrollTop设置成，当前的scrollTop - BoxA的高度，记得再加上一个1.</p>
 <p>思路很简单，操作也很方便，我比较习惯用scrollTop来控制移动，有的人也喜欢用绝对定位和相对定位配合，但是这样写出来的插件兼容性不是很好，有些页面定位元素太多，可能会造成插件的样式乱套。</p>
 <p>这个插件（楼主比较懒，还没有写完）的<strong>使用方式</strong>：</p>

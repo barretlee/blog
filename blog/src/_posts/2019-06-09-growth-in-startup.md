@@ -16,7 +16,7 @@ date: 2019-06-09 20:10:00
 
 “所以导致工作以来属于自己的个人学习时间变少”，他说。
 
-![image](/blogimgs/2019/06/09/006tKfTcgy1fezyf4npsuj30p00dw40s.jpg)
+![image](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2019/06/09/006tKfTcgy1fezyf4npsuj30p00dw40s.jpg)
 
 我想，很多职业新人都会遇到类似的问题，针对上面三个问题，我们来一一分析下，找到更加深层的问题：
 

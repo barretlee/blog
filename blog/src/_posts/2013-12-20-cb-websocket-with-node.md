@@ -107,9 +107,9 @@ ws.onerror=function(e){
 ```
 
 <p>上面当然是一串不完整的代码，目的是演示握手过程中，客户端给服务端打招呼。在控制台我们可以看到：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/20/20133038-3e86224009f348619e44b835455d86c8.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/20133038-3e86224009f348619e44b835455d86c8.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/12/20/20133038-3e86224009f348619e44b835455d86c8.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/20133038-3e86224009f348619e44b835455d86c8.jpg" alt=""></p>
 <p>看起来很熟悉吧，其实就是发送了一个 HTTP 请求，这个我们在浏览器的 Network 中也可以看到：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/20/20133046-6882b98bedf44b46a5598d74d98531d3.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/20133046-6882b98bedf44b46a5598d74d98531d3.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/12/20/20133046-6882b98bedf44b46a5598d74d98531d3.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/20133046-6882b98bedf44b46a5598d74d98531d3.jpg" alt=""></p>
 <p>但是 WebSocket协议 并不是 HTTP 协议，刚开始验证的时候借用了 HTTP 的头，连接成功之后的通信就不是 HTTP 了，不信你用 fiddler2 抓包试试，肯定是拿不到的，后面的通信部分是基于 TCP 的连接。</p>
 <p>服务器要成功的进行通信，必须有应答，往下看：</p>
 
@@ -149,7 +149,7 @@ ws.onopen=function(e){
 ```
 
 <p>可以看到</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/20/20133127-7a4e0e60138c4f59b8c132ef1706c6e3.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/20133127-7a4e0e60138c4f59b8c132ef1706c6e3.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/12/20/20133127-7a4e0e60138c4f59b8c132ef1706c6e3.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/20133127-7a4e0e60138c4f59b8c132ef1706c6e3.jpg" alt=""></p>
 <h4>3. 数据帧格式</h4>
 <p>官方文档提供了一个结构图</p>
 
@@ -255,7 +255,7 @@ var ws = new WebSocket("ws://127.0.0.1:8000/"); ws.onopen = function(){ 　　ws
 ```
 
 <p>Server 收到的信息是这样的：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/20/20133241-2339e90ef5c94d318d1d36645fb545ce.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/20133241-2339e90ef5c94d318d1d36645fb545ce.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/12/20/20133241-2339e90ef5c94d318d1d36645fb545ce.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/20133241-2339e90ef5c94d318d1d36645fb545ce.jpg" alt=""></p>
 <p>一个放在Buffer格式的二进制流。而当我们输出的时候解析这个二进制流：</p>
 
 ```
@@ -284,7 +284,7 @@ require('net').createServer(function(o){
 ```
 
 <p>那输出的就是一个帧信息十分清晰的对象了：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/20/20133301-7e939b556bef46b8856b81c87b169c57.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/20133301-7e939b556bef46b8856b81c87b169c57.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/12/20/20133301-7e939b556bef46b8856b81c87b169c57.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/20133301-7e939b556bef46b8856b81c87b169c57.jpg" alt=""></p>
 <h4>5. 连接的控制</h4>
 <p>上面我买了个关子，提到的Opcode，没有详细说明，<a href="http://tools.ietf.org/html/rfc6455" target="_blank">官方文档</a>也给了一张表：</p>
 

@@ -29,7 +29,7 @@ date: 2020-06-28 22:52:00
 有了互联网以后，人们的信息触达面更广泛了，能够收到的反馈也会更多，当信息量达到一定程度后，我们就需要投入大量的时间去聆听、阅读、回复以及其他交互，这个过程中充斥了无效社交。为了分析在哪些环节会长生无效社交，我们不妨将社交行为做一个简单的分类：
 
 
-![upload successful](/blogimgs/2020/06/28/useless-socialization.png)
+![upload successful](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2020/06/28/useless-socialization.png)
 
 线上的社交分为阻塞式和异步式，比如打电话、发视频以及“钉一下”功能，基本都要求我们放下手头的工作，而微信和邮件都是可以换个时间去阅读和回复的。从社交的对象数量也可以分为，一对一，一对多和多对多等模式。
 

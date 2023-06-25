@@ -19,7 +19,7 @@ from: 博客园
 <p>Mixed Content: The page at "<a href="//www.taobao.com/">//www.taobao.com/</a>" was loaded over HTTPS, but requested an insecure image "<a href="http://g.alicdn.com/s.gif">http://g.alicdn.com/s.gif</a>". This content should also be served over HTTPS.</p>
 </blockquote>
 <p>HTTPS改造之后，我们可以在很多页面中看到如下警报：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/21/211107536449320.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/211107536449320.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/21/211107536449320.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/211107536449320.png" alt=""></p>
 <p>很多运营对 https 没有技术概念，在填入的数据中不免出现 http 的资源，体系庞大，出现疏忽和漏洞也是不可避免的。</p>
 <h3 id="cspupgrade-insecure-requests"><a class="headeranchor-link" name="user-content-cspupgrade-insecure-requests" href="#cspupgrade-insecure-requests"></a>CSP设置upgrade-insecure-requests</h3>
 <p>好在 W3C 工作组考虑到了我们升级 HTTPS 的艰难，在 2015 年 4 月份就出了一个 <code>Upgrade Insecure Requests</code> 的<a href="http://www.w3.org/TR/mixed-content/">草案</a>，他的作用就是让浏览器自动升级请求。</p>
@@ -31,9 +31,9 @@ header("Content-Security-Policy: upgrade-insecure-requests");
 ```
 
 <p>我们的页面是 https 的，而这个页面中包含了大量的 http 资源（图片、iframe等），页面一旦发现存在上述响应头，会在加载 http 资源时自动替换成 https 请求。可以查看 google 提供的一个 <a href="//googlechrome.github.io/samples/csp-upgrade-insecure-requests/index.html">demo</a>：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/21/211108018005511.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/211108018005511.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/21/211108018005511.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/211108018005511.png" alt=""></p>
 <p>不过让人不解的是，这个资源发出了两次请求，猜测是浏览器实现的 bug：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/21/211108089252988.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/211108089252988.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/21/211108089252988.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/211108089252988.png" alt=""></p>
 <p>当然，如果我们不方便在服务器/Nginx 上操作，也可以在页面中加入 <code>meta</code> 头：</p>
 
 ```

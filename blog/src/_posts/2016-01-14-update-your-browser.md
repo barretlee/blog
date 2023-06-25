@@ -37,15 +37,15 @@ BAT 三巨头，我就说说阿里巴巴吧，毕竟是自己服务的公司。
 
 阿里巴巴也在逐步去除对 IE6、7 浏览器的支持，并且逐步将 PC 端的 SHA-1 签名证书和 SSLV3 算法下线，可以看到有些客户端访问阿里巴巴的页面会跳转到这个链接：<http://www.taobao.com/markets/tbhome/ali-page-updater> 。
 
-![阿里巴巴-低版本浏览器升级提示](/blogimgs/2016/01/14/20160104_adb5e2a1.png)
+![阿里巴巴-低版本浏览器升级提示](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2016/01/14/20160104_adb5e2a1.png)
 
 并且在一些页面中，低版本的 IE 也会弹出提示框：
 
-![淘宝首页-低版本浏览器升级提示](/blogimgs/2016/01/14/20160104_587c7ec3.png)
+![淘宝首页-低版本浏览器升级提示](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2016/01/14/20160104_587c7ec3.png)
 
 天猫也是如此：
 
-![天猫首页-低版本浏览器升级提示](/blogimgs/2016/01/14/20160104_b41635cc.png)
+![天猫首页-低版本浏览器升级提示](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2016/01/14/20160104_b41635cc.png)
 
 ### 最后
 

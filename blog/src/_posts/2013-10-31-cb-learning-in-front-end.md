@@ -29,7 +29,7 @@ from: 博客园
 
 <h3>了解前端</h3>
 <p>　　很多人问我是做什么的，我回答，前端，大多数人听着会一头雾水，你要问我前端是什么，我现在还是不好给出一个明确的回答。前端要学的东西太多了，在给新人的第一培训中，我说了这些：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/10/31/31164537-58d37feb00254a4681b66f541d858856.jpg" data-source="http://images.cnitblog.com/blog/387325/201310/31164537-58d37feb00254a4681b66f541d858856.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/10/31/31164537-58d37feb00254a4681b66f541d858856.jpg" data-source="http://images.cnitblog.com/blog/387325/201310/31164537-58d37feb00254a4681b66f541d858856.jpg" alt=""></p>
 <p>　　但是前端远不止这些东西，在这里我想说说看书的重要性。</p>
 <p>　　我看过很多书，上面聂微东大哥说的书我在大三的时候就读过好几遍了，尤其是<code>《javascript权威指南》</code>，这本书第四版我看过四遍，第五版看过两遍，淘宝前端团队的第六版我看过一遍，现在还在读。我读书的目的是为了去了解整个前端以及他所用到的技术，这个很重要。我们学校有两个图书馆，我住在东边，所以经常会跑到东校区图书馆借阅一些书籍，去一趟图书馆就会带回来七八本书，两年下来，图书馆第四层前端相关的一百多本书籍基本被我一览无余，我不敢说自己对看到的那些知识都掌握了，但是我至少知道整个前端的发展历程，也学会了前端编码的基本技能。</p>
 <p>　　一本书写下来，作者需要花很大的功夫去查阅文献，即便写得再烂，也是一个人思想的精华，也有很多值得借鉴的地方，所有开始你的阅览群书之旅吧！这是我在图书馆看过的部分书籍的<strong>书单</strong>：<a title="豆瓣书籍" href="http://book.douban.com/people/hustskyking/collect" target="_blank">豆瓣读书</a>，这里只是一部分，后来看过的书名也都忘记了，没有继续补上。</p>

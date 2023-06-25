@@ -160,7 +160,7 @@ var require = function(path){
 ```
 
 <p>上面的代码已经可以很好地拿到文件递归关系了：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/29/271305219966201.jpg" data-source="http://images.cnitblog.com/blog/387325/201411/271305219966201.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/12/29/271305219966201.jpg" data-source="http://images.cnitblog.com/blog/387325/201411/271305219966201.jpg" alt=""></p>
 <h4>3. 添加事件机制，优化管理代码</h4>
 <p>但是我们有必要先把 responseText 缓存起来，如果不缓存文件，直接 eval 得到的 responseText 代码，想想会发生什么问题~ 如果模块之间存在循环引用，如：</p>
 
@@ -247,7 +247,7 @@ index.html -|          └> d.js
 ```
 
 <p>戳我 → <a href="http://qianduannotes.duapp.com/demo/require/index.html" target="_blank">Demo</a></p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/29/29201709-355dd08fe5b4497a919e6fe159c8df4c.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/29201709-355dd08fe5b4497a919e6fe159c8df4c.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/12/29/29201709-355dd08fe5b4497a919e6fe159c8df4c.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/29201709-355dd08fe5b4497a919e6fe159c8df4c.jpg" alt=""></p>
 <h4>4. CMD 规范的介绍</h4>
 <p>上面写了一大堆内容，也实现了模块加载器的原型，但是放在实际应用中，他就是个废品，回到最开始，我们为什么要使用模块化加载。目的是为了不去使用麻烦的命名空间，把复杂的模块依赖交给 require 这个函数去管理，但实际上呢，上面拿到的所有模块都是暴露在全局变量中的，也就是说，如果 a.js 和 b.js 中存在命名相同的变量，后者将会覆盖前者，这是我们不愿意看到的。为了处理此类问题，我们有必要把所有的模块都放到一个闭包中，这样一来，只要不使用 window.vars 命名，闭包之间的变量是不会相互影响的。我们可以使用自己的方式去管理代码，不过有人已经研究处理一套标准，而且是全球统一，那就拿着用吧~</p>
 <p>关于 CMD 规范，我这里就不多说了，可以去看看<a href="//github.com/cmdjs/specification/blob/master/draft/module.md" target="_blank">草案</a>，玉伯也翻译了一份，<a href="//github.com/seajs/seajs/issues/242" target="_blank">戳我</a>。每一模块有且仅有一个对外公开的接口 exports，如：</p>

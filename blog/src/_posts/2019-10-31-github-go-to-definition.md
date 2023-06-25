@@ -14,7 +14,7 @@ date: 2019-10-31 23:58:00
 
 Github 的源码阅读已经支持 Go to Definition 了，目前还在 beta 阶段，且需要用户手动开启，仔细研究了下它的实现方式，从逻辑上看是存在 bug 的，整体策略大概是：
 
-![Go to Definition](/blogimgs/2019/10/31/go-to-definition.png)
+![Go to Definition](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2019/10/31/go-to-definition.png)
 
 1. 仓库进入 Navigation 模式（initialization），Github Server 端对该版本（取 commit hash）的源码进行词法分析，保存关键 token 信息，并记录关键 token 的初始定义位置和被引用的位置；
 2. 用户进入网页，若 initialization 未完成则无效果；否则启动 Navigation 模式；

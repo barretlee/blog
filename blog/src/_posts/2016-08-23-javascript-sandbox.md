@@ -11,7 +11,7 @@ tags:
 date: 2016-08-23 01:05:13
 ---
 
-![Sandbox for Addies Birthday!! from //homesteadroots.blogspot.com/2010/07/sandbox-for-addies-birthday-could-also.html](/blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg">-->
+![Sandbox for Addies Birthday!! from //homesteadroots.blogspot.com/2010/07/sandbox-for-addies-birthday-could-also.html](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg">-->
 
 在 Node.js 中有一个模块叫做 VM，它提供了几个 API，允许代码在 V8 虚拟机上下文中运行，如：
 

@@ -12,7 +12,7 @@ date: 2016-08-11 20:24:40
 
 两月前花了些时间，将大学里学过的排序算法都复习了一遍，代码放在 github 上，没有整理。今天翻了翻代码，重新 review 了一遍，也顺便做了点记录。
 
-![//graduatedegrees.online.njit.edu/wp-content/uploads/2015/08/Algorithms-In-Computer-Science.jpg](/blogimgs/2016/08/11/6c0378f8gw1f6q2zz5oj1j20p00dwtam.jpg)<!--<source src="http://ww3.sinaimg.cn/large/6c0378f8gw1f6q2zz5oj1j20p00dwtam.jpg">-->
+![//graduatedegrees.online.njit.edu/wp-content/uploads/2015/08/Algorithms-In-Computer-Science.jpg](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2016/08/11/6c0378f8gw1f6q2zz5oj1j20p00dwtam.jpg)<!--<source src="http://ww3.sinaimg.cn/large/6c0378f8gw1f6q2zz5oj1j20p00dwtam.jpg">-->
 
 下面花了不少篇幅，将基础排序、希尔、归并、快排、堆排序等都介绍了一通，懒得思考的同学可以略过代码直接看文字，文章对排序的基本思路都做了介绍。
 

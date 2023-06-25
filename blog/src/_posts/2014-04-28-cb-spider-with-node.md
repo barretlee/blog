@@ -52,7 +52,7 @@ req.end();
 <p>上面短短七八行代码，就拿到了 AlloyTeam 首页的代码，真的十分简单，如果是 // 就得引用 https 模块咯，都是差不多的。</p>
 <h4>2. 正则提取目标内容</h4>
 <p>先看下我们要抓取的内容：&nbsp;</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/04/28/280127061279284.png" data-source="http://images.cnitblog.com/i/387325/201404/280127061279284.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/04/28/280127061279284.png" data-source="http://images.cnitblog.com/i/387325/201404/280127061279284.png" alt=""></p>
 <p>由于没有使用其他库，我们没办法像操作 DOM 一样获取目标内容，不过写正则也挺简单的，比如我们要 获取标题/文章链接/摘要 这些内容，正则表达式为：</p>
 
 ```
@@ -133,7 +133,7 @@ fs.writeFile('index.md', str, function (err) {
 ```
 
 <p>大功告成，过程其实是很简单的。拿到的内容（Linux 下，字体真丑！）：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/04/28/280128134707391.png" data-source="http://images.cnitblog.com/i/387325/201404/280128134707391.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/04/28/280128134707391.png" data-source="http://images.cnitblog.com/i/387325/201404/280128134707391.png" alt=""></p>
 <h3>二. 源码与小结</h3>
 <p>如果对正则不太熟悉，上面的工作是不太好完成的，很多开发者为 Node 提供了工具库，使用 npm 可以安装，如果不习惯正则，使用一些工具包辅助处理，可以把拿到的数据当作 DOM 来解析。</p>
 <p>我了解到的有一个叫做 node-jquery 的库貌似还不错，具体请读者自己去网上搜吧，应该挺多的。</p>
