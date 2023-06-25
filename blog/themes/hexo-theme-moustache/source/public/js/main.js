@@ -312,7 +312,7 @@ var operation = {
       var data = {
         'debug': false,
         'app': 'wxddd17adddf433070',    // 选填，默认为空
-        'img': urls && urls[0] && 'https://www.barretlee.com/blogimgs/avatar.png',
+        'img': urls && urls[0] && 'https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png',
         'link': window.location.href,
         'desc': $('meta[name="description"]').attr('content'),
         'title': $('.post-title').text()

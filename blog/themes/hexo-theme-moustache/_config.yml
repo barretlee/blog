@@ -6,11 +6,11 @@ source_edit: https://github.com/barretlee/blog/edit/master/blog/src/_posts/
 source_new: https://github.com/barretlee/blog/new/master/blog/src/_posts
 
 imgs:
-  favicon: /favicon.ico
-  avatar: /blogimgs/avatar.png
-  avatar150: /blogimgs/avatar150.png
-  app_icon: /blogimgs/app-icon.png
-  loading: /blogimgs/loading.gif
+  favicon: https://img.alicdn.com/imgextra/i3/O1CN01EVx62B1eyZLyJsJnY_!!6000000003940-2-tps-100-100.png
+  avatar: https://img.alicdn.com/imgextra/i1/O1CN01zmj6R326ehPa0NZO2_!!6000000007687-2-tps-1200-1200.png
+  avatar150: https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png
+  app_icon: https://img.alicdn.com/imgextra/i4/O1CN01LKRotr20M1ZGJkT3v_!!6000000006834-2-tps-1200-1200.png
+  loading: https://img.alicdn.com/imgextra/i4/O1CN01Czgiur21V0xDDZVK1_!!6000000006989-1-tps-1200-1200.gif
 
 pages:
   about: /about/

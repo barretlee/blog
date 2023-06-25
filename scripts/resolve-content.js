@@ -40,6 +40,8 @@ function deal(file) {
   // 图片处理，将 blogimg 中的非日期路径图片迁移到日期文件夹
   var content2 = content.replace(IMG_REG, function ($0, $1, $2) {
     $2 = $2.split(' ')[0];
+    // CDN 加速情况不处理
+    if ($2.indexOf('img.alicdn.com') > -1) return $0;
     if ($2 === LOADING_IMG_URL) return $0;
     if ($2.indexOf('www.barretlee.com') > -1) {
       // console.log('rename', $2);
