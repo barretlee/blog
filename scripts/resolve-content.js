@@ -25,7 +25,7 @@ function deal(file) {
   var IMG_REG = /\!\[([^\]]+?)?\]\(([\s\S]+?)\)/g;
   var START_REG = /^[\s\n]*---\s*\n/m;
   var content = fs.readFileSync(file).toString();
-  var LOADING_IMG_URL = "//img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png";
+  var LOADING_IMG_URL = "https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png";
   var isStandardPath = true;
   var date = DATE_REG.exec(file);
   if (!date) {
