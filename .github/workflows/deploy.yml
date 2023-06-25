@@ -6,8 +6,6 @@ on:
       - master
     paths: 
       - 'blog/**'
-    paths-ignore:
-      - .gitignore
 
 env:
   GIT_USER: barretlee
