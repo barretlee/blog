@@ -392,7 +392,7 @@ var operation = {
         scrollTop: $(hash).offset().top
       });
     }
-    var $target = $(".footer-nav a").eq(0);
+    var $target = $(".footer-nav a").eq(1);
     !$target.attr("id") && $target.trigger("click");
     $(window).on("load", function () {
       var hash = window.location.hash;
