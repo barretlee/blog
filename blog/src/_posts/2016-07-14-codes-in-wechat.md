@@ -14,7 +14,7 @@ date: 2016-07-14 00:00:01
 
 这几天有不少朋友在我的微信公众号留言，问我是如何在公众号页面中整齐摆放代码的，今天就分享下我的方法，事实上我也折腾了好一会儿。
 
-![//unsplash.com/photos/KR84RpMCb0w by Khara Woods](/blogimgs/2016/07/14/6c0378f8gw1f5spwap82oj20p00dwacl.jpg)<!--<source src="https://ww1.sinaimg.cn/large/6c0378f8gw1f5spwap82oj20p00dwacl.jpg">-->
+![//unsplash.com/photos/KR84RpMCb0w by Khara Woods](../blogimgs/2016/07/14/6c0378f8gw1f5spwap82oj20p00dwacl.jpg)<!--<source src="https://ww1.sinaimg.cn/large/6c0378f8gw1f5spwap82oj20p00dwacl.jpg">-->
 
 <!--more-->
 
@@ -46,7 +46,7 @@ date: 2016-07-14 00:00:01
 
 `Markdown Here` 是一款 Chrome 插件，顾名思义，就是将你写的 Markdown 直接转为 HTML 代码，我做了一个演示图片：
 
-![markdown here](/blogimgs/2016/07/14/6c0378f8gw1f5sr5vq6sng20f70c844o.gif)<!--<source src="https://ww1.sinaimg.cn/mw690/6c0378f8gw1f5sr5vq6sng20f70c844o.gif">-->
+![markdown here](../blogimgs/2016/07/14/6c0378f8gw1f5sr5vq6sng20f70c844o.gif)<!--<source src="https://ww1.sinaimg.cn/mw690/6c0378f8gw1f5sr5vq6sng20f70c844o.gif">-->
 
 图中的编辑框并不是一个 `textarea` 控件，试想下这个控件中怎么玩也玩不出渲染好的 HTML 代码来，事实上，它是一个可编辑的普通元素，即加了一个 `contenteditable` 属性，你可以按照下面的步骤测试下：
 
@@ -58,11 +58,11 @@ date: 2016-07-14 00:00:01
 
 微信公众号的编辑框也是 contenteditable 的，所以你可以通过 Markdown Here 插件将 Markdown 文本直接转换为代码。只可惜，可是在点击保存和预览的时候，内容又被微信的脚本重新解析了一次，过滤了部分内敛属性，一些转行符也被它给忽略了，如下在微信编辑框中展示正常的代码：
 
-![正常代码](/blogimgs/2016/07/14/6c0378f8gw1f5spemu4oxj20x608ijs2.jpg)<!--<source src="https://ww1.sinaimg.cn/large/6c0378f8gw1f5spemu4oxj20x608ijs2.jpg">-->
+![正常代码](../blogimgs/2016/07/14/6c0378f8gw1f5spemu4oxj20x608ijs2.jpg)<!--<source src="https://ww1.sinaimg.cn/large/6c0378f8gw1f5spemu4oxj20x608ijs2.jpg">-->
 
 在点击预览后，展示效果为：
 
-![错乱代码](/blogimgs/2016/07/14/6c0378f8gw1f5spfr9y53j20kc0gowfi.jpg)<!--<source src="https://ww1.sinaimg.cn/large/6c0378f8gw1f5spfr9y53j20kc0gowfi.jpg">-->
+![错乱代码](../blogimgs/2016/07/14/6c0378f8gw1f5spfr9y53j20kc0gowfi.jpg)<!--<source src="https://ww1.sinaimg.cn/large/6c0378f8gw1f5spfr9y53j20kc0gowfi.jpg">-->
 
 变成一行了，原因是代码中部分转行符号被过滤掉了。
 
@@ -70,7 +70,7 @@ date: 2016-07-14 00:00:01
 
 可以通过几行正则，将 Markdown 转换的源码做小小的修改，部分换行符 `\n` 替换成 `<br>` 标签就行了。我的个人博客采用的是 hexo 构建的，它渲染出来的代码在换行处已经有了换行标签：
 
-![棒棒的代码效果](/blogimgs/2016/07/14/6c0378f8gw1f5sprhj1v5j214c0ziafp.jpg)<!--<source src="https://ww1.sinaimg.cn/large/6c0378f8gw1f5sprhj1v5j214c0ziafp.jpg">-->
+![棒棒的代码效果](../blogimgs/2016/07/14/6c0378f8gw1f5sprhj1v5j214c0ziafp.jpg)<!--<source src="https://ww1.sinaimg.cn/large/6c0378f8gw1f5sprhj1v5j214c0ziafp.jpg">-->
 
 把博客代码直接粘贴过来的效果是：
 

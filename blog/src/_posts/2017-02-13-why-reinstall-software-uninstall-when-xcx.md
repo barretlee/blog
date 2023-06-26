@@ -12,7 +12,7 @@ date: 2017-02-13 08:33:47
 
 微信几波宣传攻势后，小程序在 16 年顺利成为了互联网的一个新关键词，它在商业圈和技术圈都掀起了一阵波澜。而有意思的是，它时冷时热，到最后吃瓜群众们也司空见惯了。
 
-![https://unsplash.com/search/ant?photo=dSM6qcdS7Hk](/blogimgs/2017/02/13/6c0378f8gy1fcojcvx2g7j20p00dw41q.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fcojcvx2g7j20p00dw41q">-->
+![https://unsplash.com/search/ant?photo=dSM6qcdS7Hk](../blogimgs/2017/02/13/6c0378f8gy1fcojcvx2g7j20p00dw41q.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fcojcvx2g7j20p00dw41q">-->
 
 <!--more-->
 

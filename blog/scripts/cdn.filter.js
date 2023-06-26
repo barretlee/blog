@@ -1,18 +1,31 @@
-// after_post_render
-// after_render:html
 hexo.extend.filter.register('after_render:html', function (data) {
   if (!data) return data;
-  // Github Action 的 CI 环境才执行替换，本地无需替换
-  if (process.env.NODE_ENV !== 'ci') return data;
+  if (process.env.NODE_ENV !== 'ci') {
+    // 本地环境修正图片路径，原始地址确保在 Github 下展示页正常
+    return data.replace(/<img(.*?)src="(.*?)"(.*?)>/gi, function (str, p1, p2) {
+      if (/^\.\.\/blogimgs\//.test(p2)) return str.replace(p2, p2.slice(2));
+      return str;
+    });
+  }
+  // Github Action 的 CI 环境才执行 CDN 替换
   const cdn = this.config.assets_cdn;
   return data.replace(/<img(.*?)src="(.*?)"(.*?)>/gi, function (str, p1, p2) {
-    if (/^\/blogimgs\//.test(p2)) return str.replace(p2, cdn + p2);
+    if (/^\.\.\/blogimgs\//.test(p2)) return str.replace(p2, cdn + p2.slice(2));
     return str;
-  }).replace(/<script src="(.*?)"/gi, function(str, p1) {
-    if (/^\/public\/js\//.test(p1)) return str.replace(p1, cdn + p1);
+  }).replace(/<script(.*?)src="(.*?)"/gi, function (str, p1, p2) {
+    if (/^\/public\/js\//.test(p2)) return str.replace(p2, cdn + p2);
     return str;
-  }).replace(/<link rel="stylesheet" href="(.*?)"/gi, function(str, p1) {
-    if (/^\/public\/css\//.test(p1)) return str.replace(p1, cdn + p1);
+  }).replace(/<link(.*?)href="(.*?)"/gi, function (str, p1, p2) {
+    if (/^\/public\/css\//.test(p2)) return str.replace(p2, cdn + p2);
     return str;
+  });
+});
+
+hexo.extend.filter.register('after_render:js', function (data) {
+  if (!data) return data;
+  if (process.env.NODE_ENV !== 'ci') return data;
+  const cdn = this.config.assets_cdn;
+  return data.replace(/(['"])(\/public\/js)/gi, function (str, p1, p2) {
+    return p1 + cdn + p2;
   });
 });

@@ -12,7 +12,7 @@ date: 2017-02-07 08:35:03
 
 Facade，中文译为门面、外观，所以本文要讲的 Facade Pattern 翻译时经常看到有两个名字，门面模式和外观模式。
 
-![https://unsplash.com/search/facade?photo=5NArdqS7FW4 by Chris Barbalis](/blogimgs/2017/02/07/6c0378f8gy1fchm1y9bubj20p00dw42z.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fchm1y9bubj20p00dw42z">-->
+![https://unsplash.com/search/facade?photo=5NArdqS7FW4 by Chris Barbalis](../blogimgs/2017/02/07/6c0378f8gy1fchm1y9bubj20p00dw42z.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fchm1y9bubj20p00dw42z">-->
 
 <!--more-->
 

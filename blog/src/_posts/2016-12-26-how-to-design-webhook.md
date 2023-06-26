@@ -12,7 +12,7 @@ date: 2016-12-26 12:39:59
 
 在一些工具流的设计中，经常遇到一个体验非常不好的情况：
 
-![轮询](/blogimgs/2016/12/26/TB19mqDOVXXXXceapXXXXXXXXXX-580-283.png)<!--<source src="http://img.alicdn.com/tfs/TB19mqDOVXXXXceapXXXXXXXXXX-580-283.png">-->
+![轮询](../blogimgs/2016/12/26/TB19mqDOVXXXXceapXXXXXXXXXX-580-283.png)<!--<source src="http://img.alicdn.com/tfs/TB19mqDOVXXXXceapXXXXXXXXXX-580-283.png">-->
 
 每次都需要采用长轮询或者隔一段时间再尝试的方式获取结果。其原因可能有两个：
 
@@ -23,7 +23,7 @@ date: 2016-12-26 12:39:59
 
 WebHook 存在的前提也需要满足以上两点，基本交互流程如下图：
 
-![WebHook](/blogimgs/2016/12/26/TB1TdWyOVXXXXXyaFXXXXXXXXXX-622-321.png)<!--<source src="http://img.alicdn.com/tfs/TB1TdWyOVXXXXXyaFXXXXXXXXXX-622-321.png">-->
+![WebHook](../blogimgs/2016/12/26/TB1TdWyOVXXXXXyaFXXXXXXXXXX-622-321.png)<!--<source src="http://img.alicdn.com/tfs/TB1TdWyOVXXXXXyaFXXXXXXXXXX-622-321.png">-->
 
 ### WebHook 的设计
 

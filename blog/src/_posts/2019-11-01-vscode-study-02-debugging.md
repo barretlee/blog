@@ -34,7 +34,7 @@ NODE_MODULE_VERSION 69. Please try re-compiling or re-installing
 
 Electron 是个什么东西？官方对它的定义是：“使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用”。
 
-![Electron Structure](/blogimgs/2019/11/01/electreon-structure.png)
+![Electron Structure](../blogimgs/2019/11/01/electreon-structure.png)
 
 打开 Electron 的 [文档](https://electronjs.org/docs)，从文档目录中，你大致就能够知道 Electron 可以做什么。Electron 有两大模块，`Main Process` 和 `Renderer Process`，暴露出来的上层 API 并不多，我数了一下，约摸 30 个。搞懂这 30 个 API 可能不是什么难事，但是在搞清楚 API 之前，我们需要先知道这两大模块之间是如何交互和协作的，以帮助我们更好地理解。
 
@@ -56,7 +56,7 @@ Main 进程中可以通过 `BrowserWindow` 实例化多个 Renderer 进程，且
 
 Main 和 Renderer 之间的关系，可以用这种图来形容（[图片来源](http://jlord.us/essential-electron/)）：
 
-![Main and Renderer](/blogimgs/2019/11/01/main-and-renderer.png)
+![Main and Renderer](../blogimgs/2019/11/01/main-and-renderer.png)
 
 对于 Electron，先了解这么多知识，如果你期望了解更多，可以移步 [Electron 官方文档](https://electronjs.org/docs)。
 
@@ -214,7 +214,7 @@ ws.send(`{
 
 使用 VS Code 打开 VS Code 的源码，点开左侧 sidebar 的 Debug Tab，你会看到调试区域存在很多个调试选项：
 
-![VSCode Debug Panel](/blogimgs/2019/11/01/vscode-debug-panel.png)
+![VSCode Debug Panel](../blogimgs/2019/11/01/vscode-debug-panel.png)
 
 这里的所有调试配置，都对应着项目中 `.vscode/launch.json` 的内容，我之前写过一篇关于 `launch.json` 的 [文章](https://www.barretlee.com/blog/2019/03/18/debugging-in-vscode-tutorial/)，在这里我们又有机会用到了。
 
@@ -246,11 +246,11 @@ ws.send(`{
 
 启动的默认端口是 `5875`，点击开始调试按钮，或者按下快捷键 `F5`，便会进入调试模块，在 VS Code 上也有体现：
 
-![VSCode Node Debugging](/blogimgs/2019/11/01/vscode-node-debugging.png)
+![VSCode Node Debugging](../blogimgs/2019/11/01/vscode-node-debugging.png)
 
 可以看到我们打点的位置也已经亮了起来，阻塞了 VS Code Dev 的启动：
 
-![VSCode Node Debugging Demo](/blogimgs/2019/11/01/vscode-node-deubgging-demo.png)
+![VSCode Node Debugging Demo](../blogimgs/2019/11/01/vscode-node-deubgging-demo.png)
 
 好了，现在可以开始你的 Main 进程代码探索之旅了。
 
@@ -297,7 +297,7 @@ Renderer 进程的调试，本质就是通过外部工具连接 Electron 中 Chr
 
 同样，开启调试后，找个 Renderer 进程会执行到的代码块进行断点，如 `vs/code/workbench/workbench.desktop.main.ts`，如果你的 VS Code Dev 已经启动了，可以在 VS Code Dev 的界面中按下 `cmd+r`，它会自动刷新 Renderer 进程（刷新页面），重新进入你的断点：
 
-![VSCode Chrome Debugging](/blogimgs/2019/11/01/vscode-chrome-deubgging.png)
+![VSCode Chrome Debugging](../blogimgs/2019/11/01/vscode-chrome-deubgging.png)
 
 怎么样，看到这里，是不是对开发 VS Code 的源码已经有信心了。
 
@@ -326,11 +326,11 @@ Renderer 进程的调试，本质就是通过外部工具连接 Electron 中 Chr
 通过这个配置启动 gulp，这样就可以对构建脚本进行断点了，由于配置中加了 `stopOnEntry`，当进入调试的时候，第一行就会断住：
 
 
-![VSCode Gulp Debugging](/blogimgs/2019/11/01/debug-grulp.png)
+![VSCode Gulp Debugging](../blogimgs/2019/11/01/debug-grulp.png)
 
 你也可以去掉这个参数，不过需要你在执行 gulp 之前在程序中提前断一个点：
 
-![VSCode Gulp Debugging](/blogimgs/2019/11/01/debug-gulp-file.png)
+![VSCode Gulp Debugging](../blogimgs/2019/11/01/debug-gulp-file.png)
 
 
 ### 小结

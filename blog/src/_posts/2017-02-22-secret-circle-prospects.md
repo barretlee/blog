@@ -15,7 +15,7 @@ date: 2017-02-22 23:01:32
 
 首先需要明确，小密圈是个什么东西。小密圈，它是一个工具，连接粉丝的工具，连接社群的工具。这个工具可以给社群中的人带来价值（知识、人脉、娱乐等），也可以给工具的使用者带来利益（财富回报、知识沉淀和整理、满足感、影响力等）。
 
-![https://unsplash.com/search/new?photo=RokFUDqlTIo](/blogimgs/2017/02/22/6c0378f8gy1fczncajxtcj20p00dw0vs.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fczncajxtcj20p00dw0vs">-->
+![https://unsplash.com/search/new?photo=RokFUDqlTIo](../blogimgs/2017/02/22/6c0378f8gy1fczncajxtcj20p00dw0vs.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fczncajxtcj20p00dw0vs">-->
 
 <!--more-->
 

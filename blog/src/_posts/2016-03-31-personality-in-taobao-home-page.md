@@ -23,15 +23,15 @@ date: 2016-03-31 13:55:00
 
 为了满足不同产品的需求，同时更好地展现产品特征，设计中采用了大量的色彩，如下图所示：
 
-![多彩的模块](/blogimgs/2016/03/31/TB1KHkKLVXXXXXdXXXXbY7EWpXX-1898-1474.png_1200x1200.jpg)<!--<source src="https://img.alicdn.com/tps/i2/TB1KHkKLVXXXXXdXXXXbY7EWpXX-1898-1474.png_1200x1200.jpg">-->
+![多彩的模块](../blogimgs/2016/03/31/TB1KHkKLVXXXXXdXXXXbY7EWpXX-1898-1474.png_1200x1200.jpg)<!--<source src="https://img.alicdn.com/tps/i2/TB1KHkKLVXXXXXdXXXXbY7EWpXX-1898-1474.png_1200x1200.jpg">-->
 
 同时也为业务提供了多套可供选择的模板：
 
-![多套模板](/blogimgs/2016/03/31/TB1aYAqLVXXXXbmXVXXhY.F2FXX-788-1602.png_800x800.jpg)<!--<source src="https://img.alicdn.com/tps/i2/TB1aYAqLVXXXXbmXVXXhY.F2FXX-788-1602.png_800x800.jpg">-->
+![多套模板](../blogimgs/2016/03/31/TB1aYAqLVXXXXbmXVXXhY.F2FXX-788-1602.png_800x800.jpg)<!--<source src="https://img.alicdn.com/tps/i2/TB1aYAqLVXXXXbmXVXXhY.F2FXX-788-1602.png_800x800.jpg">-->
 
 在满足业务需求的前提下，更重要的是以人为中心，把用户喜欢的东西放到最醒目的位置。如下图「我常逛的」区块，通过算法介入，打分排序，从业务池子中的几十个模块中选出四个：
 
-![我常逛的](/blogimgs/2016/03/31/TB1qX.JLVXXXXa6XXXXUkF86VXX-1826-1566.png_800x800.jpg)<!--<source src="https://img.alicdn.com/tps/i4/TB1qX.JLVXXXXa6XXXXUkF86VXX-1826-1566.png_800x800.jpg">-->
+![我常逛的](../blogimgs/2016/03/31/TB1qX.JLVXXXXa6XXXXUkF86VXX-1826-1566.png_800x800.jpg)<!--<source src="https://img.alicdn.com/tps/i4/TB1qX.JLVXXXXa6XXXXUkF86VXX-1826-1566.png_800x800.jpg">-->
 
 每个模块中的很多数据都是通过个性化接口获取的，并且为了提高运营的执行效率，需要前端实现以下功能：
 
@@ -43,11 +43,11 @@ date: 2016-03-31 13:55:00
 
 简单而言，就是需要实现模块的位置、模板、内容（或者部分内容）个性化，同时对每个维度做开关控制。为了更好地告诉用户自己的属性，也会在导航上为用户打标：
 
-![打标](/blogimgs/2016/03/31/TB1bxgkLVXXXXbTaXXXb.pt2pXX-398-978.png_600x600.jpg)<!--<source src="http://gtms04.alicdn.com/tps/i4/TB1bxgkLVXXXXbTaXXXb.pt2pXX-398-978.png_600x600.jpg">-->
+![打标](../blogimgs/2016/03/31/TB1bxgkLVXXXXbTaXXXb.pt2pXX-398-978.png_600x600.jpg)<!--<source src="http://gtms04.alicdn.com/tps/i4/TB1bxgkLVXXXXbTaXXXb.pt2pXX-398-978.png_600x600.jpg">-->
 
 设计也会有个性化的需求，如不同地域的人群展示不同的内容：
 
-![member 区域背景个性化](/blogimgs/2016/03/31/TB1BJgDLVXXXXazXpXXt2D.NXXX-1950-1468.png_800x800.jpg)<!--<source src="https://img.alicdn.com/tps/i4/TB1BJgDLVXXXXazXpXXt2D.NXXX-1950-1468.png_800x800.jpg">-->
+![member 区域背景个性化](../blogimgs/2016/03/31/TB1BJgDLVXXXXazXpXXt2D.NXXX-1950-1468.png_800x800.jpg)<!--<source src="https://img.alicdn.com/tps/i4/TB1BJgDLVXXXXazXpXXt2D.NXXX-1950-1468.png_800x800.jpg">-->
 
 ### 前端面临的问题
 
@@ -71,7 +71,7 @@ date: 2016-03-31 13:55:00
 
 前端还有一个模板匹配的问题，为了保证数据的纯洁性（其实是为了让运营配置后台清爽），光看业务数据是不知道该数据匹配哪种模板的，前端在区块配置列表中还得加上模块的模板 id，可以看看区块的配置后台：
 
-![区块配置后台](/blogimgs/2016/03/31/TB1g6sLLVXXXXXGXXXXwOxT5VXX-2286-1152.png_1200x1200.jpg)<!--<source src="http://gtms01.alicdn.com/tps/i1/TB1g6sLLVXXXXXGXXXXwOxT5VXX-2286-1152.png_1200x1200.jpg">-->
+![区块配置后台](../blogimgs/2016/03/31/TB1g6sLLVXXXXXGXXXXwOxT5VXX-2286-1152.png_1200x1200.jpg)<!--<source src="http://gtms01.alicdn.com/tps/i1/TB1g6sLLVXXXXXGXXXXwOxT5VXX-2286-1152.png_1200x1200.jpg">-->
 
 第四，也是一个让人头疼的问题，<b>兜底容灾的处理</b>，对于单模块单数据源的渲染，容灾是一件相当轻松的事情。而对于多模块多数据源的容灾处理，其逻辑的复杂程度超乎想象。
 
