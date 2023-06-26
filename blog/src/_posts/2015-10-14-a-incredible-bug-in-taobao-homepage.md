@@ -26,7 +26,7 @@ date: 2015-10-14 12:27:18
 
 很难得有机会让我碰到一个可以复现的, 我把它记录下来了。如下图所示, hover 到学习模块的边界位置时: 
 
-![problem](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/10/14/TB1lEgeJVXXXXamXpXXXXXXXXXX-1012-437.gif)<!--<source src="https://img.alicdn.com/tps/TB1lEgeJVXXXXamXpXXXXXXXXXX-1012-437.gif">-->
+![problem](/blogimgs/2015/10/14/TB1lEgeJVXXXXamXpXXXXXXXXXX-1012-437.gif)<!--<source src="https://img.alicdn.com/tps/TB1lEgeJVXXXXamXpXXXXXXXXXX-1012-437.gif">-->
 
 手动 hover 和模拟 hover 都有一样的问题, 没有多想, 立马加上了一句话修复了这个问题: 
 
@@ -42,7 +42,7 @@ date: 2015-10-14 12:27:18
 
 这个层在我的代码中肯定是不存在的, 我们只能用 bug 来形容这个问题。因为元素刚好贴在 `.channel2` 的边界, 猜测应该跟层渲染有关, 于是打开了控制台 `ESC -> Rendering -> Show layer borders`, 看到了这个: 
 
-![detail](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/10/14/TB1HCApJVXXXXaqXXXXXXXXXXXX-1012-437.gif)<!--<source src="https://img.alicdn.com/tps/TB1HCApJVXXXXaqXXXXXXXXXXXX-1012-437.gif">-->
+![detail](/blogimgs/2015/10/14/TB1HCApJVXXXXaqXXXXXXXXXXXX-1012-437.gif)<!--<source src="https://img.alicdn.com/tps/TB1HCApJVXXXXaqXXXXXXXXXXXX-1012-437.gif">-->
 
 仔细观察, 可以看到, 这个粉色块在瓦片边界和父元素边界之中, 可以断定, 这几个瓦片在渲染的时候存在问题。
 
@@ -95,7 +95,7 @@ if (!deflated_content_rect.Contains(canvas_playback_rect)) {
 
 我们看看 hover 上去之后, 层边界的变化: 
 
-![border](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/10/14/TB1I7P2JVXXXXc4XFXXXXXXXXXX-1012-437.gif)<!--<source src="https://img.alicdn.com/tps/TB1I7P2JVXXXXc4XFXXXXXXXXXX-1012-437.gif">-->
+![border](/blogimgs/2015/10/14/TB1I7P2JVXXXXc4XFXXXXXXXXXX-1012-437.gif)<!--<source src="https://img.alicdn.com/tps/TB1I7P2JVXXXXc4XFXXXXXXXXXX-1012-437.gif">-->
 
 很明显, 这里的高度溢出了, 但是没有处理, 看了下这个元素的 css, 确实高度上没有做处理, 在元素上添加 
 
@@ -109,7 +109,7 @@ if (!deflated_content_rect.Contains(canvas_playback_rect)) {
 
 最后的解决手段: 
 
-![resolve](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/10/14/TB18MgrJVXXXXXzXXXXXXXXXXXX-1012-437.gif)<!--<source src="https://img.alicdn.com/tps/TB18MgrJVXXXXXzXXXXXXXXXXXX-1012-437.gif">-->
+![resolve](/blogimgs/2015/10/14/TB18MgrJVXXXXXzXXXXXXXXXXXX-1012-437.gif)<!--<source src="https://img.alicdn.com/tps/TB18MgrJVXXXXXzXXXXXXXXXXXX-1012-437.gif">-->
 
 层渲染的问题我还是比较喜欢使用 3d 硬件加速来处理, 而 `overflow:hidden` 这样的 css 布局处理上, 我是不太推荐的, 搞不好就把哪个重要的内容隐藏掉了。
 

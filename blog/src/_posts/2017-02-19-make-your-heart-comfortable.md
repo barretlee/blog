@@ -11,7 +11,7 @@ date: 2017-02-19 21:41:03
 ---
 
 
-![unsplash](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2017/02/19/6c0378f8gy1fcw3j2r63aj20p00dw0uc.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fcw3j2r63aj20p00dw0uc">-->
+![unsplash](/blogimgs/2017/02/19/6c0378f8gy1fcw3j2r63aj20p00dw0uc.jpg)<!--<source src="http://ww1.sinaimg.cn/large/6c0378f8gy1fcw3j2r63aj20p00dw0uc">-->
 
 今天学到一个词，心流，指的是当人们沉浸在当下的某件事情时，全神贯注、全情投入并享受其中从而体验到的一种幸福的精神状态。
 

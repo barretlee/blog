@@ -1,6 +1,6 @@
 <% if(theme.gitalk) { %>
   <div id="gitalk" sid="<%- page.slug || page.path || 'barretlee-blog' %>"></div>
-  <script charset="utf-8" type="text/javascript" src="/public/js/gitalk.js"></script>
+  <script charset="utf-8" type="text/javascript" src="<%- config.assets_cdn %>/public/js/gitalk.js"></script>
   <script type="text/javascript">
   var postContent = document.querySelectorAll('.post-content>p');
   if (postContent && postContent.length) {

@@ -21,7 +21,7 @@ date: 2017-06-04 13:06:00
 
 所以我 fork 了这个项目，对它做了一些修改，目前是可以通过移动端编辑的。在 PC 上访问这个后台，长这个样子：
 
-![hexo-admin](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2017/06/04/hexo-blog-manager.png)
+![hexo-admin](/blogimgs/2017/06/04/hexo-blog-manager.png)
 
 Fork 过来后，给官方提过一个 PR，貌似还没有合并，合并的那些代码主要是兼容了移动端，但是后来我又发现了它的各种 bug 和性能问题，修复后，并没有提 PR，最新的代码在这里：[hexo-admin](https://github.com/barretlee/hexo-admin)。
 

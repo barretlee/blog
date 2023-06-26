@@ -86,7 +86,7 @@ var buffer  = new ArrayBuffer(30);
 ```
 
 <p>从 chrome 控制台可以看到：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/03/03/031349161314084.jpg" data-source="http://images.cnitblog.com/i/387325/201403/031349161314084.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/03/03/031349161314084.jpg" data-source="http://images.cnitblog.com/i/387325/201403/031349161314084.jpg" alt=""></p>
 <p>buffer 实例拥有一个 byteLength 的属性，用于获取 buffer 的 size，一个只有 IE11+ 以及 ios6+ 支持的 slice 方法，用于对 buffer 长度进行截取操作。</p>
 
 ```

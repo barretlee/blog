@@ -53,7 +53,7 @@ require('http').createServer((req, res) => {
 在程序第 3 行位置打一个断点：
 
 
-![upload successful](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2019/03/18/vscode-debug-nodejs.png)
+![upload successful](/blogimgs/2019/03/18/vscode-debug-nodejs.png)
 
 
 下面就一起来看看，这样一个程序的调试配置是怎样的，可以打开 `.vscode/launch.json`，查看 name 为 `调试 Node.js 程序` 的一项，配置为：
@@ -75,7 +75,7 @@ require('http').createServer((req, res) => {
 
 配置好了以后，点击调试按钮，或者按下 `F5`，VSCode 就会执行这段程序起一个服务器并开始监听 8001 端口。如果此时你通过浏览器访问 `http://127.0.0.1:8001` 或者命令行执行 `curl http://127.0.0.1:8001`，便会看到程序进入刚才的断点之中：
 
-![upload successful](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2019/03/18/vscode-debug-nodejs-breakpoint.png)
+![upload successful](/blogimgs/2019/03/18/vscode-debug-nodejs-breakpoint.png)
 
 相信这个调试界面你并不陌生。当然，还可以使用另外的配置方式，打开 `launch.json` 找到 name 为 `调试 Node.js 程序 - args` 的文件：
 
@@ -163,7 +163,7 @@ node --inspect-brk=DEBUG_PORT -r ts-node/register ./src/index.ts
 
 在启动调试之前，会启动一个 `typescript` 的编译操作，将文件编译到 `out` 目录下（具体可查看 `tsconfig.json` 的编译配置），然后通过 node 来启动编译后的文件，由于编译允许生成 sourcemap 文件，所以调试的断点依然会在源码上：
 
-![upload successful](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2019/03/18/debug-in-vscode-preluanchtask.png)
+![upload successful](/blogimgs/2019/03/18/debug-in-vscode-preluanchtask.png)
 
 ### 场景三：调试已启动的 Node.js 程序
 
@@ -186,7 +186,7 @@ node ./src/index.js
 
 推荐使用 `${command:PickProcess}` 作为 `processId` 的值，因为 VSCode 会遍历所有的 Node PID 列出来让你选择，如下图所示：
 
-![upload successful](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2019/03/18/vscode-debug-node-attach-choose.png)
+![upload successful](/blogimgs/2019/03/18/vscode-debug-node-attach-choose.png)
 
 图中第一个就是我们启动的程序，processId 为 `59172`，当然你也可以直接将配置中的值写死为 `59172`（并不推荐），这样就少了选择的过程了。
 
@@ -195,7 +195,7 @@ node ./src/index.js
 
 大家应该十分熟悉在 Chrome 中调试 JS 代码，不过 VSCode 允许你在安装了 `Debugger for Chrome` 插件后，直接在 VSCode 调试 JS 代码，让你的代码和调试融为一体，提升开发体验：
 
-![upload successful](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2019/03/18/debugger-for-chrome.png)
+![upload successful](/blogimgs/2019/03/18/debugger-for-chrome.png)
 
 可以通过如下简单的配置进行调试：
 

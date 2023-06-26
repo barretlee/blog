@@ -13,7 +13,7 @@ date: 2015-10-05 15:29:39
 
 今天摸索了下 HTTPS 的证书生成，以及它在 Nginx 上的部署。由于博客托管在 github 上，没办法部署证书，先记录下，后续有需要方便快捷操作。本文的阐述不一定完善，但是可以让一个初学者了解大致的原理，同时跟着操作可以为自己的博客/网站部署一个 HTTPS 证书。
 
-[![https](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/10/05/20151001_65a3140b.jpg)](//www.hallaminternet.com/assets/https.jpg)
+[![https](/blogimgs/2015/10/05/20151001_65a3140b.jpg)](//www.hallaminternet.com/assets/https.jpg)
 
 <!--more-->
 
@@ -21,7 +21,7 @@ date: 2015-10-05 15:29:39
 
 看看下面，部分电信用户访问京东首页的时候，会看到右下角有一个浮动广告：
 
-![京东首页被电信DNS注入](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/10/05/20151001_b342b301.jpg)
+![京东首页被电信DNS注入](/blogimgs/2015/10/05/20151001_b342b301.jpg)
 
 小白用户以为是京东有意放置的，细心的用户会发现，这个 iframe 一层嵌一层的恶心广告很明显是电信/中间人通过 DNS 劫持注入进去的，十分恶心，没有关闭按钮。
 
@@ -31,7 +31,7 @@ HTTPS 区别于 HTTP，它多了加密(encryption)，认证(verification)，鉴�
 
 ### 简述 HTTPS 的运作
 
-[![HTTPS交互](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/10/05/20151001_b347f684.jpg)](http://image.beekka.com/blog/2014/bg2014092003.png)
+[![HTTPS交互](/blogimgs/2015/10/05/20151001_b347f684.jpg)](http://image.beekka.com/blog/2014/bg2014092003.png)
 
 如上图所示，简述如下：
 
@@ -229,7 +229,7 @@ hello world
 
 如果你的代码没有输出 `hello world`，说明证书生成的时候存在问题。也可以通过浏览器访问：
 
-![https证书问题](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/10/05/20151001_9bf819eb.jpg)
+![https证书问题](/blogimgs/2015/10/05/20151001_9bf819eb.jpg)
 
 提示错误：
 

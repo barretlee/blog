@@ -8,7 +8,7 @@
 <span id="message"></span>
 <script type="text/javascript" src="/js/visitor/mini_original.js?v=20161116"></script>
 <script type="text/javascript">
-    window.use_fp = "1" == "1"; // ÊÇ·ñ²É¼¯Éè±¸Ö¸ÎÆ¡£
+    window.use_fp = "1" == "1"; // æ˜¯å¦é‡‡é›†è®¾å¤‡æŒ‡çº¹ã€‚
     var url = url || {};
     (function () {
         this.l = function (u, c) {
@@ -33,47 +33,47 @@
         };
     }).call(url);
 
-    // Á÷³ÌÈë¿Ú¡£
+    // æµç¨‹å…¥å£ã€‚
     wload(function () {
 
         try {
 
-            var need_restore = "1" == "1"; // ÊÇ·ñ×ß»Ö¸´Éí·İÁ÷³Ì¡£
+            var need_restore = "1" == "1"; // æ˜¯å¦èµ°æ¢å¤èº«ä»½æµç¨‹ã€‚
 
-            // Èç¹ûĞèÒª×ß»Ö¸´Éí·İÁ÷³Ì£¬³¢ÊÔ´Ó cookie »ñÈ¡ÓÃ»§Éí·İ¡£
+            // å¦‚æœéœ€è¦èµ°æ¢å¤èº«ä»½æµç¨‹ï¼Œå°è¯•ä» cookie è·å–ç”¨æˆ·èº«ä»½ã€‚
             if (!need_restore || !Store.CookieHelper.get("SRF")) {
 
-                // Èô»ñÈ¡Ê§°Ü×ß´´½¨·Ã¿ÍÁ÷³Ì¡£
-                // Á÷³ÌÖ´ĞĞÊ±¼ä¹ı³¤£¨³¬¹ı 3s£©£¬ÔòÈÏÎª³ö´í¡£
+                // è‹¥è·å–å¤±è´¥èµ°åˆ›å»ºè®¿å®¢æµç¨‹ã€‚
+                // æµç¨‹æ‰§è¡Œæ—¶é—´è¿‡é•¿ï¼ˆè¶…è¿‡ 3sï¼‰ï¼Œåˆ™è®¤ä¸ºå‡ºé”™ã€‚
                 var error_timeout = window.setTimeout("error_back()", 5000);
 
                 tid.get(function (tid, where, confidence) {
-                    // È¡Ö¸ÎÆË³ÀûÍê³É£¬Çå³ı³ö´í timeout ¡£
+                    // å–æŒ‡çº¹é¡ºåˆ©å®Œæˆï¼Œæ¸…é™¤å‡ºé”™ timeout ã€‚
                     window.clearTimeout(error_timeout);
                     incarnate(tid, where, confidence);
                 });
             } else {
-                // ÓÃ»§Éí·İ´æÔÚ£¬³¢ÊÔ»Ö¸´ÓÃ»§Éí·İ¡£
+                // ç”¨æˆ·èº«ä»½å­˜åœ¨ï¼Œå°è¯•æ¢å¤ç”¨æˆ·èº«ä»½ã€‚
                 restore();
             }
         } catch (e) {
-            // ³ö´í¡£
+            // å‡ºé”™ã€‚
             error_back();
         }
     });
 
-    // ¡°·µ»Ø¡± »Øµ÷º¯Êı¡£
+    // â€œè¿”å›â€ å›è°ƒå‡½æ•°ã€‚
     var return_back = function (response) {
 
         if (response["retcode"] == 20000000) {
             back();
         } else {
-            // ³ö´í¡£
+            // å‡ºé”™ã€‚
             error_back(response["msg"]);
         }
     };
 
-    // Ìø×ª»Ø³õÊ¼µØÖ·¡£
+    // è·³è½¬å›åˆå§‹åœ°å€ã€‚
     var back = function() {
 
         var url = "https://weibo.com/hustskyking";
@@ -82,7 +82,7 @@
         }
     };
 
-    // ¿çÓò¹ã²¥¡£
+    // è·¨åŸŸå¹¿æ’­ã€‚
     var cross_domain = function (response) {
 
         var from = "weibo";
@@ -100,12 +100,12 @@
             }
         } else {
 
-            // ³ö´í¡£
+            // å‡ºé”™ã€‚
             error_back(response["msg"]);
         }
     };
 
-    // ÎªÓÃ»§¸³Óè·Ã¿ÍÉí·İ ¡£
+    // ä¸ºç”¨æˆ·èµ‹äºˆè®¿å®¢èº«ä»½ ã€‚
     var incarnate = function (tid, where, conficence) {
 
         var gen_conf = "";
@@ -116,7 +116,7 @@
         url.l(incarnate_intr);
     };
 
-    // »Ö¸´ÓÃ»§¶ªÊ§µÄÉí·İ¡£
+    // æ¢å¤ç”¨æˆ·ä¸¢å¤±çš„èº«ä»½ã€‚
     var restore = function () {
 
         var from = "weibo";
@@ -126,10 +126,10 @@
         url.l(restore_intr);
     };
 
-    // ¿çÓò»Ö¸´¶ªÊ§µÄÉí·İ¡£
+    // è·¨åŸŸæ¢å¤ä¸¢å¤±çš„èº«ä»½ã€‚
     var restore_back = function (response) {
 
-        // Éí·İ»Ö¸´³É¹¦×ß¹ã²¥Á÷³Ì£¬·ñÔò×ß´´½¨·Ã¿ÍÁ÷³Ì¡£
+        // èº«ä»½æ¢å¤æˆåŠŸèµ°å¹¿æ’­æµç¨‹ï¼Œå¦åˆ™èµ°åˆ›å»ºè®¿å®¢æµç¨‹ã€‚
         if (response["retcode"] == 20000000) {
 
             var url = "https://weibo.com/hustskyking";
@@ -154,7 +154,7 @@
         }
     };
 
-    // ³ö´íÇé¿ö·µ»ØµÇÂ¼Ò³¡£
+    // å‡ºé”™æƒ…å†µè¿”å›ç™»å½•é¡µã€‚
     var error_back = function (msg) {
 
         var url = "https://weibo.com/hustskyking";

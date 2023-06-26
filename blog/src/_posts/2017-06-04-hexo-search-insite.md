@@ -13,7 +13,7 @@ date: 2017-06-04 12:30:00
 
 最近两个周末在 Hexo 博客的构建上做了不少事情，我会分成几篇文章一一叙述，首先来说一说 Hexo 的一个插件 `hexo-generator-search`，利用它可以给博客增加一个站内搜索，如下图所示：
 
-![问答](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2017/06/04/hexo-blog-search-plugin.png)
+![问答](/blogimgs/2017/06/04/hexo-blog-search-plugin.png)
 
 上面这个样式是我自己写的，但是用到了插件生成的 xml 文件，下面我来简述下如何安装和使用它。
 

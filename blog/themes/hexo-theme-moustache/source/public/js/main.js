@@ -1,3 +1,4 @@
+var assets_cdn = 'https://cdn.jsdelivr.net/gh/barretlee/blog/blog/themes/hexo-theme-moustache/source'；
 var weiboName = "@Barret李靖";
 if (window.location.hostname === 'barretlee.com') {
   window.location.href = location.url.replace('barretlee.com', 'www.barretlee.com');
@@ -15,7 +16,7 @@ var params = {};
   }
 }();
 
-if (params['share']) {
+if (params['share']) ;
   $('html').addClass('shareMode');
   $('<p style="color:#555;text-align:right; font-size:14px;" id="authorAppend">文 / Barret李靖</p>').prependTo('.post-content');
 } else {
@@ -255,7 +256,7 @@ var operation = {
   initSearch: function() {
     if ($('.local-search').size() && !isMobile.any()) {
       $(window).on('load', function() {
-        $.getScript('/public/js/search.js', function() {
+        $.getScript(assets_cdn + '/public/js/search.js', function() {
           searchFunc("/search.xml", 'local-search-input', 'local-search-result');
         });
       });
@@ -279,7 +280,7 @@ var operation = {
       if (src && /^\//.test(src)) src = window.location.origin + src;
       urls.push();
     });
-    $.getScript("/public/js/wechat.js", function () {
+    $.getScript(assets_cdn + "/public/js/wechat.js", function () {
       // $ctt.prepend(wechatStr);
       wechat('network', function (res) {
         var network = res.err_msg.split(':')[1];

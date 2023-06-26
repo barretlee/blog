@@ -10,7 +10,7 @@ date: 2019-06-11 11:51:00
 ---
 有同学在交流圈子里感叹，“感悟和计划比较容易有，执行力就…呵呵了”，如何提升执行力，下面我来聊一聊，给个思路。
 
-![upload successful](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2019/06/11/improving-excution.png)
+![upload successful](/blogimgs/2019/06/11/improving-excution.png)
 
 执行力是什么？百科上这么说的，**所谓执行力，指的是贯彻战略意图，完成预定目标的实际操作能力**。我们拆分下：
 

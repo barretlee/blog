@@ -228,7 +228,7 @@ processor.onaudioprocess=function(e){
     //将输入数缓冲复制到输出缓冲上
     for(var i=0; i
 <p>下面是整个 DEMO 的代码，效果预览：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2014/02/22/222051302848233.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/222051302848233.jpg" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/22/222051302848233.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/222051302848233.jpg" alt=""></p>
 <p>代码：</p>
 
 ```

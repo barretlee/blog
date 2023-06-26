@@ -48,7 +48,7 @@ from: 博客园
 <p>延伸阅读：<a href="http://www.cnblogs.com/hustskyking/p/manufacture-font-face-in-web.html">再探@font-face及webIcon制作</a></p>
 <h3 id="iconfont_2"><a class="headeranchor-link" name="user-content-iconfont_2" href="#iconfont_2"></a>iconfont 的蜕化处理</h3>
 <p>正常的情况下是一堆漂亮的 icon 图标，而当网络较慢或者 CDN 不稳定的时候，用户看到的是图示乱码的框框，优化之后，用户可以看到我们对 iconfont 的蜕化操作。效果预览：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/17/170948437225461.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/170948437225461.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/17/170948437225461.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/170948437225461.png" alt=""></p>
 
 ```
 # 绑定 hosts
@@ -59,7 +59,7 @@ from: 博客园
 
 <p>了解了iconfont 的制作之后，理解上图就不难了。中间乱码的那张图里，每个图标对应的都是无字符的码表表格，页面默认的字体呈现这些字符的状态就是 ""。这里我们提到的蜕化处理，只需要在对应 Unicode 码表时，将每个图标对应到有字符的码表表格中，就会看到最上层那张图片的效果。</p>
 <p>有人会问，那些蜕化的图标是从哪里来的？对应的键值又是多少？</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/17/170948513634127.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/170948513634127.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/17/170948513634127.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/170948513634127.png" alt=""></p>
 <p>除了 emoji 外，我们输入法能够输出的所有文字在 web 上也都是能够正常显示的，所谓的正常显示就是不会出现 ""。平时常用的搜狗输入法/百度输入法都提供了很多的特殊字符，我们可以在这些特殊字符中找到最能表现icon的字符，当然，甚至可以使用文字、字母来替代。</p>
 <p>比如音乐icon可以使用 "♫" 替代，计算字符码值的方式是：</p>
 
@@ -71,7 +71,7 @@ var htmlEncodedStr = "<#x" + code + ";";
 ```
 
 <p>以国内目前做的最好的 <a href="http://iconfont.cn/">iconfont 网站</a>为例，演示如何便捷的修改文字icon对应的默认码值:</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/17/170948589255051.gif" data-source="http://images0.cnblogs.com/blog2015/387325/201508/170948589255051.gif" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/17/170948589255051.gif" data-source="http://images0.cnblogs.com/blog2015/387325/201508/170948589255051.gif" alt=""></p>
 <p>修改完之后保存，此时这个 icon 对应的码值就已经变化了。</p>
 
 

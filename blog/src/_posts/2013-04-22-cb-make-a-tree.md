@@ -16,7 +16,7 @@ from: 博客园
 
 <p>在使用frameset布局的时候，经常会用到目录树，我们可以把一棵树写死，但是更多的情况是，这棵树需要随时被改动，所以我们期望的是他能够被动态的构建。</p>
 <p>MVC，算是了解一点，那本文就把这棵树根据M-V-C给拆开分解吧。</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/04/22/22110251-818c9f213e1241cf8c88b5a769638ede.png" data-source="http://images.cnitblog.com/blog/387325/201304/22110251-818c9f213e1241cf8c88b5a769638ede.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/04/22/22110251-818c9f213e1241cf8c88b5a769638ede.png" data-source="http://images.cnitblog.com/blog/387325/201304/22110251-818c9f213e1241cf8c88b5a769638ede.png" alt=""></p>
 <p><a title="DEMO" href="http://qianduannotes.sinaapp.com/test/tree.html" target="_blank">点击链接demo→</a></p>
 <p>下面就来看看这棵树是怎么构建的。　</p>
 <p>　</p>

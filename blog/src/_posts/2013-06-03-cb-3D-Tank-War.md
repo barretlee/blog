@@ -17,7 +17,7 @@ from: 博客园
 <p><span>建议先看看这个demo，bug是有的，chrome下玩玩，测试测试就行，O(&cap;_&cap;)O~</span></p>
 <p><span>　　DEMO：<a title="3D tank" href="http://qianduannotes.sinaapp.com/3dtank/html/index.html" target="_blank">http://qianduannotes.sinaapp.com/3dtank/html/index.html</a></span></p>
 <p>&nbsp;基本效果:</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/06/03/03235624-efc5a0a6284d45ce867229cc73a5d3f0.png" data-source="http://images.cnitblog.com/blog/387325/201306/03235624-efc5a0a6284d45ce867229cc73a5d3f0.png" alt="" width="573" height="300"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/06/03/03235624-efc5a0a6284d45ce867229cc73a5d3f0.png" data-source="http://images.cnitblog.com/blog/387325/201306/03235624-efc5a0a6284d45ce867229cc73a5d3f0.png" alt="" width="573" height="300"></p>
 
 
 <h3><span>关于</span></h3>
@@ -31,15 +31,15 @@ from: 博客园
 
 
 <p><span>　　<strong>2. 登录验证</strong></span></p>
-<p><span>　　<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/06/03/03231602-a2fe0e78de744ae5a32b23132f769107.png" data-source="http://images.cnitblog.com/blog/387325/201306/03231602-a2fe0e78de744ae5a32b23132f769107.png" alt=""></span></p>
+<p><span>　　<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/06/03/03231602-a2fe0e78de744ae5a32b23132f769107.png" data-source="http://images.cnitblog.com/blog/387325/201306/03231602-a2fe0e78de744ae5a32b23132f769107.png" alt=""></span></p>
 <p>　　采用的是解锁，这个创意应该是非常不错的，当登录的时候，A、B玩家下方会生成一个如上图的canvas解锁块，当然这个解锁卡也会通过socket传送到手机遥控端，手机解锁成功后方可登录。</p>
-<p>　　<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/06/03/03231922-39fd5ae76f1041e1a6cd2238b97b6a9b.png" data-source="http://images.cnitblog.com/blog/387325/201306/03231922-39fd5ae76f1041e1a6cd2238b97b6a9b.png" alt="" width="497" height="260"></p>
+<p>　　<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/06/03/03231922-39fd5ae76f1041e1a6cd2238b97b6a9b.png" data-source="http://images.cnitblog.com/blog/387325/201306/03231922-39fd5ae76f1041e1a6cd2238b97b6a9b.png" alt="" width="497" height="260"></p>
 
 
 <p><strong>　　3. 坦克360&deg;旋转</strong></p>
 <p>　　由于键盘控制只能上下左右，所以360&deg;是转不出来的..刚想截一张手机控制游戏的图，总是报错...囧（后台用的是php，socket控制信号传输，刚打开手机端网页的时候php socket报错）。<strong></strong></p>
 <p>手机遥控端视图：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/06/03/04082543-27c0d64ccf184cd08477d5a2c6b87e2d.png" data-source="http://images.cnitblog.com/blog/387325/201306/04082543-27c0d64ccf184cd08477d5a2c6b87e2d.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/06/03/04082543-27c0d64ccf184cd08477d5a2c6b87e2d.png" data-source="http://images.cnitblog.com/blog/387325/201306/04082543-27c0d64ccf184cd08477d5a2c6b87e2d.png" alt=""></p>
 <p>　　这里主要利用的是手机多点触控，touchstart,touchmove,touchend这三个事件。</p>
 
 ```
@@ -62,7 +62,7 @@ function canvasAddListener() {
 <p>前台主要采用的是css3和js（这是废话）。</p>
 <p><strong>1. css3构建一个3D游戏场地</strong></p>
 <p>效果：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/06/03/04000040-cee0817672774eb8bdd6a3a2e14e22f4.png" data-source="http://images.cnitblog.com/blog/387325/201306/04000040-cee0817672774eb8bdd6a3a2e14e22f4.png" alt="" width="339" height="338"></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/06/03/04000040-cee0817672774eb8bdd6a3a2e14e22f4.png" data-source="http://images.cnitblog.com/blog/387325/201306/04000040-cee0817672774eb8bdd6a3a2e14e22f4.png" alt="" width="339" height="338"></p>
 
 ```
 .box {
@@ -563,7 +563,7 @@ window.onkeydown = function(){
 <p>拆开分析下：</p>
 <p>　　<strong>① Tank对象</strong></p>
 <p>DIY坦克（还行，哈哈哈~）：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2013/06/03/04000220-9eec8435edc64f18a644e960407fc644.png" data-source="http://images.cnitblog.com/blog/387325/201306/04000220-9eec8435edc64f18a644e960407fc644.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/06/03/04000220-9eec8435edc64f18a644e960407fc644.png" data-source="http://images.cnitblog.com/blog/387325/201306/04000220-9eec8435edc64f18a644e960407fc644.png" alt=""></p>
 
 ```
 var Tank = function(setting){

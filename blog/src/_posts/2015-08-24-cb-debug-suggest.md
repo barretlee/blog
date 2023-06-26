@@ -176,7 +176,7 @@ gulp.task('javascript', function() {
 ```
 
 <p>关于 sourceMap 的 gulp 插件配置，详情可以<a href="//www.npmjs.com/package/gulp-sourcemaps">戳这里</a>。不仅仅是 JavaScript，CSS 也有 source maps，这个信息可以在 Chrome 控制台的设置选项中看到：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/24/242227387805954.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/242227387805954.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/24/242227387805954.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/242227387805954.png" alt=""></p>
 <p><strong>代码的拉取</strong></p>
 <p>如果一个项目只有你知道如何修改，那这个项目的技术设计就有点糟糕了，为了让众人都能处理你项目中的问题，一定要需要一个简洁的模式为开发者快速搭建测试环境，文档是一方面，如果有个一键操作的命令，那就更棒了！</p>
 
@@ -209,9 +209,9 @@ getPage:
 <p>整个流程就一两分钟，完成开发之前所有的准备工作。这个脚本不仅仅是给自己使用，如果其他人也需要参与开发，一个命令就能让参与者进入开发模式，加上文档说明，省却了很多沟通成本。</p>
 <h3 id="_5"><a class="headeranchor-link" name="user-content-_5" href="#_5"></a>在线调试实践(一个系统的调试工具)</h3>
 <p>输入需要调试的页面URL（如 <a href="http://www.taobao.com">http://www.taobao.com</a>）：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/24/242227502024677.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/242227502024677.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/24/242227502024677.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/242227502024677.png" alt=""></p>
 <p>插件会分析 DOM，遍历拿到页面所有被引用到的仓库：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/24/242227584832841.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/242227584832841.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/24/242227584832841.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/242227584832841.png" alt=""></p>
 <p>选择需要调试的模块（颗粒度细分到了html/js/css），点击调试按钮，可以看到调试页面的资源都会引用本地下载的文件。</p>
 <h3 id="_6"><a class="headeranchor-link" name="user-content-_6" href="#_6"></a>小结</h3>
 <p>优化流程、优化架构是我们矢志不渝坚持的方向，本文主要阐述，编辑代码到调试线上效果的过程，提出了解决 combo 和代码压缩等问题的方案和建议。希望可以给不擅长代理调试的同学一点启示。</p>

@@ -22,13 +22,13 @@ date: 2015-11-20 18:25:21
 
 因为百度输入法在 xx 编辑软件内会 loading 甚至死掉，而且联想功能和自动纠错功能太弱，我换成了搜狗，最近搜狗输入法一个 bug 把我郁闷死了：
 
-[![搜狗输入法bug - 微博](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/11/20/20151105_5356dbce.jpg)](http://weibo.com/1812166904/D4hGckyzd)
+[![搜狗输入法bug - 微博](/blogimgs/2015/11/20/20151105_5356dbce.jpg)](http://weibo.com/1812166904/D4hGckyzd)
 
 反馈给他们的技术人员，但是目前也没看到新版本更新，恰巧看到同事使用一款从来没见过的输入法，网上搜索了一番，感觉挺不错。
 
 这块输入法的名字叫做 Rime，中文名为：鼠须管（它有好几个名字，Windows 下叫做小狼毫），我用的是 Mac，就没有去研究 windows/Linux 下的 Rime 了，你能想到的输入法，它都支持，兼顾 windows/Linux/Mac 三大系统。
 
-![鼠须管](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/11/20/20151105_0f27f553.png)
+![鼠须管](/blogimgs/2015/11/20/20151105_0f27f553.png)
 
 ### 关于 Rime
 
@@ -59,11 +59,11 @@ $ brew cask install squirrel
 
 当你完成上述操作之后，我建议你先进入 `系统偏好设置->键盘->输入源`，把 鼠须管 和 默认ABC 之外的输入法先删除，因为你已经不需要它了，就像我这样：
 
-![删除其他输入法](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/11/20/20151105_76b01a35.png)
+![删除其他输入法](/blogimgs/2015/11/20/20151105_76b01a35.png)
 
 在我们上面提到的目录中，有很多东西，看着会有点头晕：
 
-![Rime 目录](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/11/20/20151105_121a1bdb.png)
+![Rime 目录](/blogimgs/2015/11/20/20151105_121a1bdb.png)
 
 但是可以清晰的看到有好几组，分别是 cangjie5（仓颉拼音）、double_pinyin_flypy（双拼）、luna_pinyin（朙月拼音）、luna_pinyin_simp（朙月拼音简体）等等。大多数人需要关注的是 `squirrel.custom.yaml`（输入法皮肤配置） 以及 `default.custom.yaml`（输入法引擎配置）这两个文件。
 
@@ -166,7 +166,7 @@ patch:
 
 它的作用是，当你按下 "\`" 这个符号的时候，会进入 emoji 的输入模式，或者平时随意输入的时候也会偶尔出现 emoji。我把这个配置项删掉了，原因是，当我输入一个字符，比如 "l" 的时候，我期望第一个出现的是 "了"，然而它确实 emoji，而且整排选项都是，如下图：
 
-![emoji](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/11/20/20151106_3b4722c1.png)
+![emoji](/blogimgs/2015/11/20/20151106_3b4722c1.png)
 
 ### 小结
 
@@ -215,7 +215,7 @@ patch:
 
 效果是这样：
 
-![Rime 配置效果](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/11/20/20151105_a9e4fc48.png)
+![Rime 配置效果](/blogimgs/2015/11/20/20151105_a9e4fc48.png)
 
 好吧，希望你能玩的愉快。
 

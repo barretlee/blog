@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 showFrom: false
 
-img_cdn: https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/
+assets_cdn: https://cdn.jsdelivr.net/gh/barretlee/blog@gh-pages
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -132,6 +132,7 @@ image_minifier:
 
 # for img lazyload
 lazyload:
-  enable: false
-  onlypost: true
-  imgCDN: 
+  enable: true
+  onlypost: false
+  isSPA: true
+  imgCDN: https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src

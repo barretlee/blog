@@ -238,6 +238,6 @@ alias gitlog="git log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%
 
 效果图（点击可放大）：
 
-![git log](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2016/08/04/6c0378f8gw1f6imxm25vtj21kw16p7wh.jpg)<!--<source src="//ww4.sinaimg.cn/large/6c0378f8gw1f6imxm25vtj21kw16p7wh.jpg">-->
+![git log](/blogimgs/2016/08/04/6c0378f8gw1f6imxm25vtj21kw16p7wh.jpg)<!--<source src="//ww4.sinaimg.cn/large/6c0378f8gw1f6imxm25vtj21kw16p7wh.jpg">-->
 
 本文完。

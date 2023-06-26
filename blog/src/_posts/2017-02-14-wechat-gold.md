@@ -16,11 +16,11 @@ published: false
 
 <!--more-->
 
-<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2017/02/14/6c0378f8gy1fcpylgxlr0j20ku112wjt" data-source="http://ww1.sinaimg.cn/large/6c0378f8gy1fcpylgxlr0j20ku112wjt" width="300" alt="黄金红包" />
+<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2017/02/14/6c0378f8gy1fcpylgxlr0j20ku112wjt" data-source="http://ww1.sinaimg.cn/large/6c0378f8gy1fcpylgxlr0j20ku112wjt" width="300" alt="黄金红包" />
 
 最低买入门槛是 0.001 克，貌似没有设置上限，并不是所有用户都能够抢黄金，至少绑定了一张银行卡的实名认证微信支付用户才有资格购买，刚才测试了一把：
 
-<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2017/02/14/6c0378f8gy1fcpyowlhejj20ku112ae2" data-source="http://ww1.sinaimg.cn/large/6c0378f8gy1fcpyowlhejj20ku112ae2" alt="购买 1 纳克" width="300" />
+<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2017/02/14/6c0378f8gy1fcpyowlhejj20ku112ae2" data-source="http://ww1.sinaimg.cn/large/6c0378f8gy1fcpyowlhejj20ku112ae2" alt="购买 1 纳克" width="300" />
 
 刚买完就亏损了一毛钱，买入时 0.28 元，准备卖出时已经降低到了 0.27 元，果然「投资有风险，买卖需谨慎」啊！不过，微信这么一搞，是不是要进入全民炒黄金时代呢；）
 

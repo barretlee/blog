@@ -11,7 +11,7 @@ date: 2016-07-14 09:56:09
 ---
 
 
-![//unsplash.com/photos/i--IN3cvEjg by Evan Dennis](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2016/07/14/6c0378f8gw1f5t7g1e2i9j20p00dwac9.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f5t7g1e2i9j20p00dwac9.jpg">-->
+![//unsplash.com/photos/i--IN3cvEjg by Evan Dennis](/blogimgs/2016/07/14/6c0378f8gw1f5t7g1e2i9j20p00dwac9.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f5t7g1e2i9j20p00dwac9.jpg">-->
 
 欢迎向小胡子哥提问，由于个人精力有限，并不是每一个问题都会去回答。
 

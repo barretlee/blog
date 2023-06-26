@@ -108,7 +108,7 @@ test();
 ```
 
 <p>我们期望收集到的日志是下面这样具体的信息：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/20/200018292699298.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200018292699298.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/20/200018292699298.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200018292699298.png" alt=""></p>
 <p>为了对资源进行更好的配置和管理，我们通常将静态资源放到异域上</p>
 
 ```
@@ -123,9 +123,9 @@ test();
 ```
 
 <p>而拿到的结果却是：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/20/200018372534203.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200018372534203.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/20/200018372534203.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200018372534203.png" alt=""></p>
 <p>翻开 Chromium 的 WebCore <a href="http://trac.webkit.org/browser/branches/chromium/1453/Source/WebCore/dom/ScriptExecutionContext.cpp#L293">源码</a>，可以看到：</p>
-<p><a href="http://trac.webkit.org/browser/branches/chromium/1453/Source/WebCore/dom/ScriptExecutionContext.cpp#L293" target="_blank"><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/20/200018447228952.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200018447228952.png" alt=""></a></p>
+<p><a href="http://trac.webkit.org/browser/branches/chromium/1453/Source/WebCore/dom/ScriptExecutionContext.cpp#L293" target="_blank"><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/20/200018447228952.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200018447228952.png" alt=""></a></p>
 <p>跨域情况下，返回的结果是 <code>Script error.</code>。</p>
 
 ```
@@ -140,7 +140,7 @@ sanitizeScriptError(message, line, sourceName, cachedScript);
 
 <p><a href="http://trac.webkit.org/browser/branches/chromium/648/Source/WebCore/dom/ScriptExecutionContext.cpp?rev=77122#L301">旧版</a> 的 WebCore 中只判断了 <code>securityOrigin()-&gt;canRequest(targetURL)</code>，新版中还多了一个 <code>cachedScript</code> 的判断，可以看出浏览器对这方面的限制越来越严格。</p>
 <p>在本地测试了下：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/20/200018530976144.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200018530976144.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/20/200018530976144.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200018530976144.png" alt=""></p>
 <p>可见在 <code>file://</code> 协议下，<code>securityOrigin()-&gt;canRequest(targetURL)</code> 也是 <code>false</code>。</p>
 <p><strong>为何<code>Script error.</code>?</strong></p>
 <p>简单报错： <code>Script error</code>，目的是避免数据泄露到不安全的域中，一个简单的例子：</p>
@@ -160,7 +160,7 @@ sanitizeScriptError(message, line, sourceName, cachedScript);
 ```
 
 <p>然而，却报错了：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/20/200019005666192.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200019005666192.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/20/200019005666192.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200019005666192.png" alt=""></p>
 <p>这是意料之中的错误，跨域资源共享策略要求，服务器也设置 <code>Access-Control-Allow-Origin</code> 的响应头：</p>
 
 ```
@@ -169,7 +169,7 @@ header('Access-Control-Allow-Origin: *');
 ```
 
 <p>回头看看我们 CDN 的资源，</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/20/200019081911756.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200019081911756.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/20/200019081911756.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200019081911756.png" alt=""></p>
 <p>Javascript/CSS/Image/Font/SWF 等这些静态资源其实都已经早早地加上了 CORS 响应头。</p>
 <h4 id="2"><a class="headeranchor-link" name="user-content-2" href="#2"></a>2. 压缩代码无法定位到错误的具体位置</h4>
 <p>线上的代码几乎都是经过打包压缩的，几十上百的文件压缩后打包成一个，而且只有一行。当我们收到 <code>a is not defined</code> 的时候，如果只在特定场景下才报错，我们根本无法定位到这个被压缩的 <code>a</code> 是个什么东西，那么此时的错误日志就是无效的。</p>
@@ -230,7 +230,7 @@ window.addEventListener("error", fn);
 ```
 
 <p>触发错误之后，上面代码的结果为：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/20/200019171131048.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200019171131048.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/20/200019171131048.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200019171131048.png" alt=""></p>
 <p><code>window.onerror</code> 和 <code>addEventListener</code> 都执行了，并只执行了一次。</p>
 <h4 id="4"><a class="headeranchor-link" name="user-content-4" href="#4"></a>4. 收集日志的量</h4>
 <p>没有必要将所有的错误信息全部送到 Log 中，这个量太大了。如果网页 PV 有 1kw，那么一个必现错误发送的 log 信息将有 1kw 条，大约一个 G 的日志。我们可以给 <code>Reporter</code> 函数添加一个采样率：</p>
@@ -313,7 +313,7 @@ window.onerror = function(){
 <span>上面的代码直接报错了，没有继续往下执行。页面中可能有好几个 script 标签，但是 </span><code>window.onerror</code><span> 这个错误监听一定要放到最前头！</span>
 <h3 id="_5"><a class="headeranchor-link" name="user-content-_5" href="#_5"></a>错误的警报与提示</h3>
 <p>什么时候该警报？不能有错就报。上面也说了，因为网络环境和浏览器环境因素，复杂页面我们允许千分之一的错误率。日志处理后的数据图：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/2015/08/20/200019264726641.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200019264726641.png" alt=""></p>
+<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/20/200019264726641.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/200019264726641.png" alt=""></p>
 <p>图中有两根线，橙色线是今日的数据，浅蓝色线是往日平均数据，每隔 10 分钟产生一条记录，横坐标是 0-24 点的时间轴，纵坐标是错误量。可以很明显的看出，在凌晨一两点左右，服务出现了异常，错误信息是平均值的十几倍，那么这个时候就改报警了。</p>
 <p>报警的条件可以设置得严苛一点，因为误报是件很烦人的事情，短信、邮件、软件等信息轰炸，有的时候还是大半夜。那么，一般满足如下条件可以报警：</p>
 <ul>
