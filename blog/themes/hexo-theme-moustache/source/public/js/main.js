@@ -311,10 +311,10 @@ var operation = {
 
       var data = {
         'debug': false,
-        'app': 'wxddd17adddf433070',    // 选填，默认为空
-        'img': urls && urls[0] && 'https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png',
+        'app': 'wxddd17adddf433070',
+        'img': 'https://www.barretlee.com/blogimgs/avatar150.png',
         'link': window.location.href,
-        'desc': $('meta[name="description"]').attr('content'),
+        'desc': $('.post-content').text().slice(0, 140),
         'title': $('.post-title').text()
       };
       var callback = function() {};
