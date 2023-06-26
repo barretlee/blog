@@ -91,7 +91,7 @@ function deal(file) {
       }
     }
     // TODO: replace $1;
-    return `![${$1 || 'image'}](https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src/blogimgs/${imgDirPath}/${name})`;
+    return `![${$1 || 'image'}](/blogimgs/${imgDirPath}/${name})`;
   });
   if (content !== content2) {
     console.log('>>> rewrite', file);
