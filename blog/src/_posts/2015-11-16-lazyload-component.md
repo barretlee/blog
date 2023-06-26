@@ -50,7 +50,7 @@ Lazyload.prototype._detectElementIfInScreen = function() {
 使用方式：
 
 ```
-<script src="//raw.githubusercontent.com/barretlee/lazyload/master/index.js"></script>
+<script src="https://raw.githubusercontent.com/barretlee/lazyload/master/index.js"></script>
 
 <div class="box">
   <div class="item"><img src data-src="img-path"></div>

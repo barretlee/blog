@@ -79,8 +79,8 @@ delayNode.connect(context.destination);
 <p>这里需要注意的是，destination 是 AudioContext 实例的固有属性，他就是信号的最终汇聚的位置，也是信号的输出位置。下面是一个简单的 DEMO 代码：</p>
 
 ```
-<audio src="http://qianduannotes.duapp.com/file/tankWar.mp3" id="origin"></audio>
-<audio src="http://qianduannotes.duapp.com/file/tankWar.mp3" id="audio"></audio>
+<audio src="https://qianduannotes.duapp.com/file/tankWar.mp3" id="origin"></audio>
+<audio src="https://qianduannotes.duapp.com/file/tankWar.mp3" id="audio"></audio>
 <input type="button" onclick="origin.play()" value="原始音质 播放">
 <input type="button" onclick="origin.pause()" value="原始音源 暂停"><br>
 <input type="button" onclick="audio.play()" value="滤波音质 播放">
@@ -228,13 +228,13 @@ processor.onaudioprocess=function(e){
     //将输入数缓冲复制到输出缓冲上
     for(var i=0; i
 <p>下面是整个 DEMO 的代码，效果预览：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/22/222051302848233.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/222051302848233.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201402/222051302848233.jpg" alt=""></p>
 <p>代码：</p>
 
 ```
 
 <canvas id="canvas" width="400" height="100"></canvas>
-<audio id="audio" autoplay src="http://qianduannotes.duapp.com/file/tankWar.mp3"></audio>
+<audio id="audio" autoplay src="https://qianduannotes.duapp.com/file/tankWar.mp3"></audio>
 <br>
 <input type="button" onclick="audio.play()" value="播放">
 <input type="button" onclick="audio.pause()" value="暂停">

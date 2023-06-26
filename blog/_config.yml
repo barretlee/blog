@@ -12,7 +12,6 @@ language: zh-cn
 timezone: Asia/Shanghai
 
 showFrom: false
-
 assets_cdn: https://cdn.jsdelivr.net/gh/barretlee/blog@gh-pages
 
 # URL
@@ -131,8 +130,8 @@ image_minifier:
   silent: false
 
 # for img lazyload
-lazyload:
-  enable: true
-  onlypost: false
-  isSPA: true
-  imgCDN: https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src
+# lazyload:
+#   enable: true
+#   onlypost: false
+#   isSPA: true
+#   imgCDN: https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src

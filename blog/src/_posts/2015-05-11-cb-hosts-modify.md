@@ -44,7 +44,7 @@ from: 博客园
 <li>新开 tab，打开 <a href="http://www.taobao.com">www.taobao.com</a>，是不是进不去了 &lt;这里说明 hosts 修改生效了&gt;</li>
 <li>注释掉刚才hosts修改，<code># 127.0.0.1 www.taobao.com</code> ，再打开 <a href="http://www.taobao.com">www.taobao.com</a>，很好，正常打开了 &lt;这里说明 hosts 修改也生效了&gt;</li>
 <li>去掉注释符，<code>127.0.0.1 www.taobao.com</code> ，再打开 <a href="http://www.taobao.com">www.taobao.com</a>，依然可以访问！！！</li>
-<li>Chrome 中进入 chrome://net-internals/#sockets，<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/05/11/111045527042806.png" data-source="http://images.cnitblog.com/blog2015/387325/201505/111045527042806.png" alt="">，可以看到淘宝首页中很多域名都是与服务器保持着长连接，点击上方的 <code>close idle sockets</code> 按钮，可以关闭所有的长连接</li>
+<li>Chrome 中进入 chrome://net-internals/#sockets，<img src="https://images.cnitblog.com/blog2015/387325/201505/111045527042806.png" alt="">，可以看到淘宝首页中很多域名都是与服务器保持着长连接，点击上方的 <code>close idle sockets</code> 按钮，可以关闭所有的长连接</li>
 <li>此时，再去访问 <a href="http://www.taobao.com">www.taobao.com</a>，是不是进不去了！</li>
 </ol>
 <h3 id="1">为何一些修改可以让 "Hosts 生效"</h3>

@@ -105,7 +105,7 @@ gain2.gain.value = 1 - volume.value / 100;
 ```
 
 <p>效果并不是特别好，他对音量的控制如下图：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/27/271310073679049.png" data-source="http://images.cnitblog.com/blog/387325/201402/271310073679049.png" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201402/271310073679049.png" alt=""></p>
 <p>稍微修改下控制函数：</p>
 
 ```
@@ -116,7 +116,7 @@ gain2.gain.value = Math.cos((1.0 - vol) * 0.5 * Math.PI);
 ```
 
 <p>可以感受到音量的变化是这样的：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/27/271310163176584.png" data-source="http://images.cnitblog.com/blog/387325/201402/271310163176584.png" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201402/271310163176584.png" alt=""></p>
 <p>详情可以戳这个demo：<a href="http://qianduannotes.duapp.com/demo/audio/" target="_blank">http://qianduannotes.duapp.com/demo/audio/</a></p>
 <h3>二、小结</h3>
 <p>本文的目的是介绍 Web Audio API 的 GainNode 节点的使用，并将此应用到声道的切换之中，上面的例子不能算是严格的声道切换，但如果我们只给 volume 参数设定 0 ,50, 100 这三个值，那效果跟声道的切换就差不多了~</p>

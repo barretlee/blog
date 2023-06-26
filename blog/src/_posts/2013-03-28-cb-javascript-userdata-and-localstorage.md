@@ -59,7 +59,7 @@ from: 博客园
 </tbody>
 </table>
 <p>　　上表是UserData的大小限制，也是从微软那里拷贝过来的，大家应该知道IE浏览器有可以设置安全等级</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/03/28/28222651-d8a98f6c104a45b2a2e3bb404811f269.png" data-source="http://images.cnitblog.com/blog/387325/201303/28222651-d8a98f6c104a45b2a2e3bb404811f269.png" alt="IE安全设置"></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201303/28222651-d8a98f6c104a45b2a2e3bb404811f269.png" alt="IE安全设置"></p>
 <p>　　表格里的几个英文单词就对应着看吧，~\(≧▽≦)/~</p>
 <p><strong>　　2.localStorage</strong></p>
 <blockquote>

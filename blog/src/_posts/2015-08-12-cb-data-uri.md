@@ -29,7 +29,7 @@ data:image/gif;base64,R0lGODlhEAAOALMAAOazToeHh0tLS/7LZv/0jvb29t/f3//Ub//ge8WSLf
 ```
 
 <p>其协议为 data，并告诉客户端将这个内容作为 <code>image/gif</code> 格式来解析，需要解析的内容使用的是 base64 编码。它直接包含了内容但并没有一个确定的资源地址。</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/12/120937188795030.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/120937188795030.png" alt=""></p>
+<p><img src="https://images0.cnblogs.com/blog2015/387325/201508/120937188795030.png" alt=""></p>
 <h3 id="_1"><a class="headeranchor-link" name="user-content-_1" href="#_1"></a>格式</h3>
 <p>Data URI 的格式十分简单，如下所示：</p>
 
@@ -134,7 +134,7 @@ iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHx
 <p><strong>这里存在一个坑：部分系统兼容模式下的 IE8 也认识 css 中的 hack 符号 <code>*</code>，但是不支持 <code>mhtml</code>，所以上面的内容不会生效。处理方案估计就只有使用 IE 的条件注释了。</strong></p>
 <h3 id="https"><a class="headeranchor-link" name="user-content-https" href="#https"></a>HTTPS 下的安全提示</h3>
 <p>HTTPS 打开页面，当在 IE6、7 下使用 data URIs 时，会看到如下提醒：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/12/120937285514109.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/120937285514109.png" alt=""></p>
+<p><img src="https://images0.cnblogs.com/blog2015/387325/201508/120937285514109.png" alt=""></p>
 <p>MS 的解释是：</p>
 <blockquote>
 <p>您正在查看的网站是个安全网站。它使用了 SSL （安全套接字层）或 PCT（保密通讯技术）这样的安全协议来确保您所收发信息的安全性。 
@@ -143,7 +143,7 @@ iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHx
 </blockquote>
 <p>很明显，IE 嗅到了"未使用安全协议的项目"。</p>
 <p>浏览器在解析到一个 URI 的时候，会首先判断协议头，如果是以 <code>http(s)</code> 开头，它便会建立一个网络链接下载资源，如果它发现协议头为 <code>data:</code>，便会将其作为一个 Data URI 资源进行解析。</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/08/12/120937376765288.png" data-source="http://images0.cnblogs.com/blog2015/387325/201508/120937376765288.png" alt=""></p>
+<p><img src="https://images0.cnblogs.com/blog2015/387325/201508/120937376765288.png" alt=""></p>
 <p>但是从 chrome 的瀑布流，我们可以做这样的猜测：</p>
 <p>图中每个 Data URI 都发起了请求，不过状态都是 <code>data(from cache)</code>，禁用缓存之后，依然如此。所以可以断定，浏览器在下载源码解析成 DOM 的时候，会将 Data URI 的资源解析出来，并缓存在本地，最后 Data URI 每个对应位置都会发起一次请求，只是这个请求还未建立链接，就被发现存在缓存的浏览器给拍死了。</p>
 <h3 id="_3"><a class="headeranchor-link" name="user-content-_3" href="#_3"></a>安全阀门</h3>

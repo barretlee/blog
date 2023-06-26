@@ -57,7 +57,7 @@ Sec-WebSocket-Version: 13
 <p><a href="http://www.cnblogs.com/hustskyking/p/websocket-with-node.html" target="_blank">前文</a>中也提到了 client 请求的格式（如上），首先 php 建立一个 socket 连接，监听端口的信息。</p>
 <h4>1. socket 连接的建立</h4>
 <p>关于 socket 套接字的建立，相信很多大学修过计算机网络的人都知道了，下面是一张连接建立的过程：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/25/25124523-33fc2253152447d4a16bac3b6704d832.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/25124523-33fc2253152447d4a16bac3b6704d832.jpg" alt="" width="467" height="620"></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201312/25124523-33fc2253152447d4a16bac3b6704d832.jpg" alt="" width="467" height="620"></p>
 
 ```
 // 建立一个 socket 套接字
@@ -158,7 +158,7 @@ ws.onerror = function(){
 ```
 
 <p>运行服务器代码，当客户端连接的时候，我们可以看到：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/25/25124555-64ad002702334156a80bedef37fbf361.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/25124555-64ad002702334156a80bedef37fbf361.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201312/25124555-64ad002702334156a80bedef37fbf361.jpg" alt=""></p>
 <p>通过上面的代码可以清晰的看到整个交流的过程。首先是建立连接，node 中这一步已经封装到了 net 和 http 模块，然后判断是否握手，如果没有的话，就 shakeHands。这里的握手我直接就 echo 了一个单词，表示进行了这个东西，<a href="http://www.cnblogs.com/hustskyking/p/websocket-with-node.html" target="_blank">前文</a>我们提到过握手算法，这里就直接写了。</p>
 <h4>2. 提取 Sec-WebSocket-Key 信息</h4>
 
@@ -187,7 +187,7 @@ function encry($req){
 ```
 
 <p>将 SHA-1 加密后的字符串再进行一次 base64 加密。如果加密算法错误，客户端在进行校检的时候会直接报错：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/25/25124720-0518fd35df2c4f7a91f624e4bbf2ec6c.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/25124720-0518fd35df2c4f7a91f624e4bbf2ec6c.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201312/25124720-0518fd35df2c4f7a91f624e4bbf2ec6c.jpg" alt=""></p>
 <h4>4. 应答 Sec-WebSocket-Accept</h4>
 
 ```
@@ -209,9 +209,9 @@ function dohandshake($socket, $req){
 ```
 
 <p>这里千万要注意，每一个请求和相应的格式，最后有一个空行，也就是 <code>\r\n</code>，开始测试的时候把这东西给弄丢了，纠结了半天。</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/25/25124605-f1c4f57be53a43b1bcfb20392fe6c18a.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/25124605-f1c4f57be53a43b1bcfb20392fe6c18a.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201312/25124605-f1c4f57be53a43b1bcfb20392fe6c18a.jpg" alt=""></p>
 <p>当客户端成功校检key后，会触发 onopen 函数：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/25/25124618-53351ac2263d4ca89be4bd7eaca1968c.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/25124618-53351ac2263d4ca89be4bd7eaca1968c.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201312/25124618-53351ac2263d4ca89be4bd7eaca1968c.jpg" alt=""></p>
 <h4>5. 数据帧处理</h4>
 
 ```
@@ -280,7 +280,7 @@ ws.send("李靖");
 ```
 
 <p>在连通之后发送数据，服务器原样返回：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/12/25/25124629-a1d032dbd01a4a958cae055a99c964eb.jpg" data-source="http://images.cnitblog.com/blog/387325/201312/25124629-a1d032dbd01a4a958cae055a99c964eb.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201312/25124629-a1d032dbd01a4a958cae055a99c964eb.jpg" alt=""></p>
 
 
 <h3>二、注意问题</h3>

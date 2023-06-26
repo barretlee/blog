@@ -22,7 +22,7 @@ from: 博客园
 <p>　　<span>因为在不同系统的编辑工具对tab解析不一样，windows下的tab键是占四个空格的位置，而在linux下会变成占八个空格的位置（除非你自己设定了tab键所占的位置长度）。</span></p>
 <p>　　一些童鞋可能会有疑问，tab键换成四个空格，多麻烦啊~</p>
 <p>　　其实不然，我平时用sublime text比较多，在这个工具中可以对tab键进行设置。</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/08/09/09141737-747feb02ee5140f8956f9b70ce9f1aae.png" data-source="http://images.cnitblog.com/blog/387325/201308/09141737-747feb02ee5140f8956f9b70ce9f1aae.png" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201308/09141737-747feb02ee5140f8956f9b70ce9f1aae.png" alt=""></p>
 <p>　　选择Indent Using Spaces，Tab Width：4两项即可。</p>
 
 

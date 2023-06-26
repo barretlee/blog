@@ -198,7 +198,7 @@ $.extend.apply( null, [ true, { "a" : 1, "b" : 2 } ] );
 ```
 window 
 <p><span>即，window.a = 1</span></p>
-<p>&nbsp;<img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/07/20/20134313-96862ff8cfa84a72a7ef6ab81b6d66a6.jpg" data-source="http://images.cnitblog.com/blog/387325/201307/20134313-96862ff8cfa84a72a7ef6ab81b6d66a6.jpg" alt=""></p>
+<p>&nbsp;<img src="https://images.cnitblog.com/blog/387325/201307/20134313-96862ff8cfa84a72a7ef6ab81b6d66a6.jpg" alt=""></p>
 
 
 <ul>
@@ -212,7 +212,7 @@ $.extend.apply( null, [ true, { "a" : 1, "b" : 2 } ].concat( { "c" : 3, "d" : 4 
 
 <p>相当于传入三个参数，第一个是true，第二个是 匿名对象{ "a" : 1, "b" : 2 }，第三个是匿名对象{ "c" : 3, "d" : 4 }, 此时的this环境是null（因为将函数绑定到null上面了）。</p>
 <p>那么结果就是{ "a" : 1, "b" : 2,&nbsp;"c" : 3, "d" : 4 }, 此刻并不能在window中索引到a这个属性</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/07/20/20134220-8b0da1f1b68c41d190e65c9925dca2c4.jpg" data-source="http://images.cnitblog.com/blog/387325/201307/20134220-8b0da1f1b68c41d190e65c9925dca2c4.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201307/20134220-8b0da1f1b68c41d190e65c9925dca2c4.jpg" alt=""></p>
 <p>如要想要访问，那便是null.a，但这种访问方式肯定是不对的。</p>
 <p>由于没有变量来接收这个返回的值，所以被作为垃圾给回收了。</p>
 

@@ -60,7 +60,7 @@ Password: <input type="password"><br>
 </tbody>
 </table>
 <p>照顾用户的响应式布局除了要考虑这些屏幕的横屏，还得把竖屏考虑进去。我简单的做了一个登陆页面：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/01/13/131712295330.jpg" data-source="http://images.cnitblog.com/blog/387325/201401/131712295330.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201401/131712295330.jpg" alt=""></p>
 <p>正确的账号是：barret，密码是：123，你可以用错误的信息先去测试下~</p>
 <p>可以戳这个DEMO：<a href="http://qianduannotes.duapp.com/demo/login/login.html" target="_blank">http://qianduannotes.duapp.com/demo/login/login.html</a></p>
 <h4>2. 交互</h4>

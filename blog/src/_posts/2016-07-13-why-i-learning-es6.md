@@ -16,7 +16,7 @@ date: 2016-07-13 00:15:49
 
 <!--more-->
 
-![//unsplash.com/@dtopkin1 by Dayne Topkin](/blogimgs/2016/07/13/6c0378f8gw1f5rkudyzzoj20p00dwt9x.jpg)<!--<source src="//ww1.sinaimg.cn/large/6c0378f8gw1f5rkudyzzoj20p00dwt9x.jpg">-->
+![//unsplash.com/@dtopkin1 by Dayne Topkin](/blogimgs/2016/07/13/6c0378f8gw1f5rkudyzzoj20p00dwt9x.jpg)<!--<source src="https://ww1.sinaimg.cn/large/6c0378f8gw1f5rkudyzzoj20p00dwt9x.jpg">-->
 
 记得之前 [winter](http://weibo.com/u/1196343093) 在微博上说，不要对知识存在偏见性，人家吵架说什么什么东西不要学，千万千万别信，但是他们吵架时提到的知识点，记得赶紧收进口袋装好。那么，ES6 这个话题呢？你是否对这个话题存在偏见性？
 

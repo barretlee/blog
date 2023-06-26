@@ -33,13 +33,13 @@ obj.addEventListener("click", func, false); // 冒泡方式
 ```
 
 <p>事件只会因为捕获或者冒泡触发一次。举个栗子：</p>
-<p><strong><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/17/172047332617225.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/172047332617225.jpg" alt=""></strong></p>
+<p><strong><img src="https://images.cnitblog.com/blog/387325/201402/172047332617225.jpg" alt=""></strong></p>
 <p>点击 s2，结果是：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/17/172049374659103.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/172049374659103.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201402/172049374659103.jpg" alt=""></p>
 <p>因为这里采用的是捕获模式，从 document 往 s2 走，依次发现 s1 和 s2 都有注册捕获事件，于是便触发了，然后冒泡，没找到冒泡事件，不执行任何操作。如果将 true 改成 false，可以看到结果相反。为了更好的让你理解整个事件机制，我给他们的捕获和冒泡模式下都注册事件：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/17/172057001398575.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/172057001398575.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201402/172057001398575.jpg" alt=""></p>
 <p>结果真是太清晰了：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/17/172057281606167.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/172057281606167.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201402/172057281606167.jpg" alt=""></p>
 
 
 <h3>二、误区</h3>
@@ -48,20 +48,20 @@ obj.addEventListener("click", func, false); // 冒泡方式
 <p>这一点，从上面的例子可以看出，你随便打乱四个事件绑定的顺序，结果一般不变！出现这样结果的原因是存在捕获模式和冒泡模式。但是值得注意的是，下面 #5楼 @糖果果 提出的问题，之所以如此是因为事件目的地节点既绑定了冒泡事件也绑定了捕获事件，此时的执行顺序按照绑定的先后顺序执行（情况比较少见）。</p>
 <p><strong>2.event.stopPropagation();就是阻止事件的冒泡</strong></p>
 <p>这个表述不能说他错误，但是是不完整的，他除了阻止事件的冒泡，还阻止事件的继续捕获，简而言之就是阻止事件的进一步传播。下面的例子可以看到：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/17/172104390057858.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/172104390057858.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201402/172104390057858.jpg" alt=""></p>
 <p>结果是输出了 s1.</p>
 
 
 <h3>三、拓展</h3>
 <p><strong>1.&nbsp;stopImmediatePropagation 的使用</strong></p>
 <p>这玩意儿是 w3c 的东西，使用的也不是特别多，我们知道 stopPropagation 可以阻止事件的进一步传播，但是他阻止不了该元素上绑定的其他函数的执行，比如我们在 obj 上绑定了 func1 和 func2，如果我们在 func1 中使用了&nbsp;stopPropagation ，那 func2 依然还是会执行出来。倘若这里使用&nbsp;stopImmediatePropagation，结果就不一样了，他不仅阻止事件的传播，还阻止 func2 的执行。如：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/17/172112453398807.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/172112453398807.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201402/172112453398807.jpg" alt=""></p>
 <p>结果是：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/17/172113011073790.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/172113011073790.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201402/172113011073790.jpg" alt=""></p>
 <p>而改成evt.stopImmediatePropagation();之后，阻止了第二个监听事件的触发：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/17/172113246634621.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/172113246634621.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201402/172113246634621.jpg" alt=""></p>
 <p>结果是：</p>
-<p><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2014/02/17/172113354087200.jpg" data-source="http://images.cnitblog.com/blog/387325/201402/172113354087200.jpg" alt=""></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201402/172113354087200.jpg" alt=""></p>
 <p><strong>2. setCapture 和 releaseCapture</strong></p>
 <p>这两个是 IE 下的事件绑定函数，只要我们在某个元素上 setCapture 了，那么你在任何地方的鼠标操作（mouseXXX之类的动作）都会在这个元素上触发（前提是你在这个元素上绑定了事件），releaseCapture 或者本窗口失去聚焦才会释放这个绑定~</p>
 

@@ -80,7 +80,7 @@ from: 博客园
 <li>X-UA-Compatible Meta或对应的响应头；</li>
 </ul>
 <p><strong>四、</strong>浏览器综合考虑开发者工具设置、第三步服务器返回的设置、兼容性列表设置等等情况，决定页面使用何种文本模式。这个过程有点复杂，放一张Qwrap群里灰大提供的流程图，可以自己点开看大图。</p>
-<p><a href="http://st.imququ.com/uploads/2012/02/ie9.jpg"><img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2013/06/08/m_ie9.jpg" data-source="http://st.imququ.com/uploads/2012/02/m_ie9.jpg" alt="" width="500" height="875"></a></p>
+<p><a href="http://st.imququ.com/uploads/2012/02/ie9.jpg"><img src="https://st.imququ.com/uploads/2012/02/m_ie9.jpg" alt="" width="500" height="875"></a></p>
 <p>（上图是IE9选取文本模式的流程图，<a href="http://st.imququ.com/uploads/2012/02/ie8.png">这里还有IE8版本</a>，有一些区别）</p>
 <h4>问题终于来了！</h4>
 <p>回顾下前面的介绍，浏览器模式决定：1）发送给服务端的UA；2）默认的文本模式；3）如何解析条件注释。它在请求发送前就已经确定，且不受服务端控制。文本模式决定：1）排版引擎；2）JS引擎。它在浏览器得到响应后最终确定，服务端可通过doctype或X-UA-Compatible来控制。</p>

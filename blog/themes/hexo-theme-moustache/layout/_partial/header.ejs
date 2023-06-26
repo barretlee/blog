@@ -48,5 +48,5 @@ if(page.description) {
   <% if (page.prev){ %><link rel="prev" href="<%- config.url %><%- url_for(page.prev.path) %>" title="<%= page.prev.title %>" /><% } %>
   <% if (page.next){ %><link rel="next" href="<%- config.url %><%- url_for(page.next.path) %>" title="<%= page.next.title %>" /><% } %>
   <link rel="start" href="<%- config.url %><%- url_for('entry/') %>" title="Blog Entry" />
-  <link rel="stylesheet" href="<%- config.assets_cdn %>/public/css/style.css?v=20191101">
+  <link rel="stylesheet" href="/public/css/style.css?v=20191101">
 </head>

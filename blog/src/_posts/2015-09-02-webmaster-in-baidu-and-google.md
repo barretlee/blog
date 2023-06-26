@@ -40,7 +40,7 @@ Web 发展极快，由于客户端厂商纷纭加之开发者没把重点放在 
 ```html
 <div itemscope itemtype="http://schema.org/Person">   
   <span itemprop="name">李靖</span>   
-  <img src="https://img.alicdn.com/tfs/TB1oyqGa_tYBeNjy1XdXXXXyVXa-300-300.png" loading="lazy" data-original="/blogimgs/2015/09/02/avatar.png" data-source="http://barretlee.com/avatar.png" itemprop="image" />    
+  <img src="https://barretlee.com/avatar.png" itemprop="image" />    
   <span itemprop="jobTitle">攻城师</span>   
   <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">     
     <span itemprop="streetAddress">文一西路969号</span>     
