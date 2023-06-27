@@ -4,16 +4,16 @@
 	   data-disqus-identifier="<%- page.slug || page.path %>" 
 		 tabindex="0" aria-hidden="true">评论内容</a>
 	<a href="javascript: void(0);" id="comments">相关文章</a>
-	<a href="<%- url_for('/friends/') %>" tabindex="0" aria-hidden="true">友情链接</a>
+	<a href="<%- url_for('/friends/') %>" tabindex="0" aria-hidden="true" style="display: none;">友情链接</a>
 </div>
 <div class="nav-detail">
 	<div tabindex="0">
 		<%- partial("gitalk") %>
 	</div>
 	<div style="display:block;">
-		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>打开评论</span></div>
 		<%- partial("relative") %>
-		<a href="<%- url_for('/entry/') %>" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a>
+		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>留下评论</span></div>
+		<!-- <a href="<%- url_for('/entry/') %>" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a> -->
 	</div>
 	<div class="friends-box">
 		<ul>
