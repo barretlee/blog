@@ -42,8 +42,8 @@ if(page.description) {
   <meta name="generator" content="https://hexo.io" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="renderer" content="webkit">
-  <link href="<%- config.url %><%- theme.imgs.app_icon %>" rel="apple-touch-icon-precomposed">
-  <link rel="shoticon" href="<%- config.url %><%- theme.imgs.favicon %>" type="image/x-icon">
+  <link href="<%- theme.imgs.app_icon %>" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="<%- theme.imgs.favicon %>" type="image/x-icon">
   <link rel="alternate" type="application/rss+xml" href="<%- config.url %><%- theme.pages.feed %>" title="<%= config.title %>" />
   <% if (page.prev){ %><link rel="prev" href="<%- config.url %><%- url_for(page.prev.path) %>" title="<%= page.prev.title %>" /><% } %>
   <% if (page.next){ %><link rel="next" href="<%- config.url %><%- url_for(page.next.path) %>" title="<%= page.next.title %>" /><% } %>
