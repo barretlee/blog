@@ -40,7 +40,7 @@ function deal(file) {
   var content2 = content.replace(IMG_REG, function ($0, $1, $2) {
     $2 = $2.split(' ')[0];
     // CDN 加速情况不处理
-    if ($2.indexOf('img.alicdn.com') > -1 || $2.indexOf('cdn.jsdelivr.net') > -1) return $0;
+    if ($2.indexOf('img.alicdn.com') > -1 || $2.indexOf('jsdelivr.net') > -1) return $0;
     if ($2.indexOf('www.barretlee.com') > -1) {
       var p = '/blogimgs/' + $2.split('/blogimgs/')[1];
       return `![${$1 || 'image'}](${p})`;

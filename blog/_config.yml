@@ -12,7 +12,7 @@ language: zh-cn
 timezone: Asia/Shanghai
 
 showFrom: false
-assets_cdn: https://cdn.jsdelivr.net/gh/barretlee/blog@gh-pages
+assets_cdn: https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -134,4 +134,4 @@ image_minifier:
 #   enable: true
 #   onlypost: false
 #   isSPA: true
-#   imgCDN: https://cdn.jsdelivr.net/gh/barretlee/blog/blog/src
+#   imgCDN: https://fastly.jsdelivr.net/gh/barretlee/blog/blog/src
