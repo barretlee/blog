@@ -95,12 +95,7 @@ tags = Object.keys(_tags);
           · 归类:<%- partial('post/category', {post: post, separator: "/"}) %>
         <% } else { %>
           · 标签:<%- partial('post/tag', {post: post}) %>
-        <% } %> ·<span
-              class="ds-thread-count disqus-comment-count cy_cmt_count"
-              data-thread-key="<%- post.slug || post.path %>"
-              data-disqus-identifier="<%- post.slug || post.path %>"
-              id="sourceId::<%- post.slug || post.path %>"
-              ></span>)</span>
+        <% } %>)</span>
       </li>
       <% }) %>
     </ul>
