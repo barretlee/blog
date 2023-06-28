@@ -1,7 +1,6 @@
 <% var diff = Math.ceil((new Date - page.date) / (1000*60*60*24));
 if(diff > 500 && page.warning) { %>
 <div class="old-article-warning">
-	本文在 <b><%- diff %></b> 天之前发表，技术更替飞快，文中部分内容可能已经过时，如有疑问，
-	请在下方留言，或者联系 <a href="<%- url_for('about') %>">小胡子哥</a>。
+	本文在 <b><%- diff %></b> 天之前发表，技术更替飞快，文中部分内容可能已经过时，如有疑问，请联系作者 <a href="<%- url_for('about') %>">Barret李靖</a>。
 </div>
 <% } %>
