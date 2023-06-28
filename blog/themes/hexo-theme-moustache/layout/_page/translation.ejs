@@ -11,11 +11,11 @@
     </span>
 	</h1>
 	<div class="clearfix response-overflow">
-		<div class="entry-recent-post" style="float:none; width: 100%;">
+		<div class="entry-recent-post" style="float:none; width: auto">
 			翻译计划：<a href="https://github.com/barretlee/translation-plan">https://github.com/barretlee/translation-plan</a>
 		</div>
-		<div class="entry-recent-posts" style="float:none; width: 100%;">
-			<h2 style="width:100%;">近期译文</h2>
+		<div class="entry-recent-posts" style="float:none; width: auto; max-width: 100%;">
+			<h2>近期译文</h2>
 			<ul itemscope itemtype="http://schema.org/Article">
 			<% site.posts.sort('date', 'desc').filter(function(post) {
 				var _tags = {}; var tags = [];
