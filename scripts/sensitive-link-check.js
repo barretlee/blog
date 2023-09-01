@@ -124,7 +124,7 @@ async function sendEmail(sensitiveDomains) {
 (async () => {
   const allDomains = getLinks();
   const sensitiveWords = getSensitiveWord();
-  const sensitiveDomains = await checkSensitivePage(allDomains, sensitiveWords);
+  const sensitiveDomains = [ 'test.com' ] || await checkSensitivePage(allDomains, sensitiveWords);
   console.log('sensitiveDomains: ', sensitiveDomains);
   if (sensitiveDomains.length) {
     await sendEmail(sensitiveDomains);
