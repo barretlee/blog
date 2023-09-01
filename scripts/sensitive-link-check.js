@@ -106,10 +106,14 @@ async function sendEmail(sensitiveDomains) {
   const mailOptions = {
     from: `Notify <${user}>`,
     to: to ? to.split(',') : user,
-    subject: 'Content Sensitive Notification',
-    text: `We have detected some suspected pornographic external links on your blog. Please check them and fix them in a timely manner, including: ${sensitiveDomains.join(', ')}
+    subject: '敏感内容提醒 - Content Sensitive Notification',
+    text: `您的站点存在疑似色情敏感内容
+
+We have detected some suspected pornographic external links on your blog.
+
+Please check them and fix them in a timely manner, including: ${sensitiveDomains.join(', ')}
     
-    If there are any false positives, you can add the whitelist domains (whiteListDomains) in the CI script.`,
+If there are any false positives, you can add the whitelist domains (whiteListDomains) in the CI script.`,
   };
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
