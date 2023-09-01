@@ -47,7 +47,7 @@ jobs:
 
       - name: Excute Script
         run: |
-          NODE_ENV=ci npm run deploy
+          NODE_ENV=ci npm run sensitive-link-check
         working-directory: .
       
       - name: save node_modules
