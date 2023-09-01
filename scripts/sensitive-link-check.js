@@ -128,7 +128,7 @@ If there are any false positives, you can add the whitelist domains (whiteListDo
 (async () => {
   const allDomains = getLinks();
   const sensitiveWords = getSensitiveWord();
-  const sensitiveDomains = [ 'test.com' ] || await checkSensitivePage(allDomains, sensitiveWords);
+  const sensitiveDomains = await checkSensitivePage(allDomains, sensitiveWords);
   console.log('sensitiveDomains: ', sensitiveDomains);
   if (sensitiveDomains.length) {
     await sendEmail(sensitiveDomains);
