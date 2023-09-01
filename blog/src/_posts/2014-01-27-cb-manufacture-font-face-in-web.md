@@ -269,7 +269,6 @@ body {
 <h3>五、参考资料</h3>
 <ul>
 <li><a href="http://www.w3.org/TR/css3-fonts/#the-font-face-rule" target="_blank">http://www.w3.org/TR/css3-fonts/#the-font-face-rule</a> W3.ORG</li>
-<li><a href="http://www.w3help.org/zh-cn/causes/RF1001" target="_blank">http://www.w3help.org/zh-cn/causes/RF1001</a> W3Help</li>
 <li><a href="http://www.php100.com/manual/css3_0/@font-face.shtml" target="_blank">http://www.php100.com/manual/css3_0/@font-face.shtml</a> Font-Face</li>
 <li><a href="http://www.fontsquirrel.com/fontface/generator" target="_blank">http://www.fontsquirrel.com/fontface/generator</a> Tool</li>
 </ul>

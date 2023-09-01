@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "moment": "^2.29.4",
+    "puppeteer": "^21.1.1",
     "yaml": "^1.10.2"
   },
   "devDependencies": {}
