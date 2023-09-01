@@ -6,7 +6,8 @@
     "resolve-content": "node scripts/resolve-content.js",
     "resize-images": "node scripts/resize-images.js",
     "commitlint": "node ./node_modules/@commitlint/cli/lib/cli.js -E HUSKY_GIT_PARAMS",
-    "images-task": "npm run resolve-content;"
+    "images-task": "npm run resolve-content",
+    "sensitive-link-check": "node scripts/sensitive-link-check.js"
   },
   "repository": {
     "type": "git",
@@ -27,8 +28,8 @@
   },
   "dependencies": {
     "moment": "^2.29.4",
+    "nodemailer": "^6.9.4",
     "puppeteer": "^21.1.1",
     "yaml": "^1.10.2"
-  },
-  "devDependencies": {}
+  }
 }

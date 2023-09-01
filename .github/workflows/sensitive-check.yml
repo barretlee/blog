@@ -1,16 +1,18 @@
-name: blog-build
+name: sensitive-link-check
 
 on:
   push:
     branches:
       - master
     paths: 
-      - 'blog/**'
+      - 'blog/src/_posts/'
 
 env:
-  GIT_USER: barretlee
-  GIT_EMAIL: barret.china@gmail.com
-
+  CONTENT_PATH: ${{ vars.CONTENT_PATH }}
+  WHITELIST_DOMAINS: ${{ vars.WHITELIST_DOMAINS }}
+  EMAIL_USER: ${{ secrets.EMAIL_USER }}
+  EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+  EMAIL_TO: ${{ secrets.EMAIL_TO }}
 jobs:
   build:
     name: Build on node ${{ matrix.node_version }} and ${{ matrix.os }}
@@ -37,34 +39,16 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
           cache: 'npm'
-
-      - name: Configuration environment
-        env:
-          HEXO_DEPLOY_PRI: ${{ secrets.HEXO_DEPLOY_PRI }}
-        run: |
-          sudo timedatectl set-timezone "Asia/Shanghai"
-          mkdir -p ~/.ssh/
-          echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git config --global user.name $GIT_USER
-          git config --global user.email $GIT_EMAIL
-
-      # - name: Test connection
-      #   run: |
-      #     ssh -vvvT git@github.com
           
       - name: Install dependencies
         if: steps.restore.outputs.cache-hit != 'true'
         run: npm install
-        working-directory: blog
+        working-directory: .
 
-      - name: Deploy hexo
+      - name: Excute Script
         run: |
           NODE_ENV=ci npm run deploy
-        working-directory: blog
-        # 插件问题，execSync 操作导致输出到 stdout 的内容太多，溢出报错
-        # node -e "const fs = require('fs'); let content = fs.readFileSync('_config.yml').toString().replace(/image_minifier[\s\S]+?enable: false/gmi, 'image_minifier:\n  enable: true'); fs.writeFileSync('_config.yml', content);"
+        working-directory: .
       
       - name: save node_modules
         uses: actions/cache@v2

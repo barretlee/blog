@@ -2,11 +2,15 @@
 
 const fs = require('fs');
 const path = require('path');
-const puppeteer = require("puppeteer");
 const exexSync = require('child_process').execSync;
+const puppeteer = require("puppeteer");
+const nodemailer = require("nodemailer");
 
-const whiteListDomains = require('./domain/whitelist');
-const base = path.join(__dirname, "../blog/src/_posts/");
+const { WHITELIST_DOMAINS, CONTENT_PATH } = process.env;
+
+let whiteListDomains = require('./domain/whitelist');
+whiteListDomains = whiteListDomains.concat(...(WHITELIST_DOMAINS || '').split(',')).filter(Boolean);
+const base = path.join(__dirname, "../", CONTENT_PATH || "blog/src/_posts/");
 
 function travelDir(filePath, handler) {
   fs.readdirSync(filePath).forEach(function (file) {
@@ -62,14 +66,15 @@ function getSensitiveWord() {
   );
 }
 
-
 async function checkSensitivePage(allDomains, sensitiveWords) {
   const sensitiveDomains = [];
-  const browser = await puppeteer.launch({ headless: false, });
+  const browser = await puppeteer.launch({
+    headless: process.env.NODE_ENV === 'ci' ? 'new' : false,
+  });
   const page = await browser.newPage();
-  for (const domain of allDomains) {
+  for (const [index, domain] of allDomains.entries()) {
     try {
-      console.log('Checking: ' + domain);
+      console.log(`Checking(${index + 1}/${allDomains.length}): ${domain}`);
       try {
         await page.goto('http://' + domain, {
           timeout: 3 * 1000,
@@ -89,10 +94,39 @@ async function checkSensitivePage(allDomains, sensitiveWords) {
     } catch (e) { }
   }
   await browser.close();
-  console.log(sensitiveDomains);
   return sensitiveDomains;
 }
 
-const allDomains = getLinks();
-const sensitiveWords = getSensitiveWord();
-checkSensitivePage(allDomains, sensitiveWords);
+async function sendEmail(sensitiveDomains) {
+  const { EMAIL_USER: user, EMAIL_PASS: pass, EMAIL_TO: to } = process.env;
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: { user, pass },
+  });
+  const mailOptions = {
+    from: `Notify <${user}>`,
+    to: to ? to.split(',') : user,
+    subject: 'Content Sensitive Notification',
+    text: `We have detected some suspected pornographic external links on your blog. Please check them and fix them in a timely manner, including: ${sensitiveDomains.join(', ')}
+    
+    If there are any false positives, you can add the whitelist domains (whiteListDomains) in the CI script.`,
+  };
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+}
+
+
+(async () => {
+  const allDomains = getLinks();
+  const sensitiveWords = getSensitiveWord();
+  const sensitiveDomains = await checkSensitivePage(allDomains, sensitiveWords);
+  console.log('sensitiveDomains: ', sensitiveDomains);
+  if (sensitiveDomains.length) {
+    await sendEmail(sensitiveDomains);
+  }
+})()
