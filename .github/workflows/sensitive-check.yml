@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths: 
-      - 'blog/src/_posts/'
+      - 'blog/src/_posts/**'
 
 env:
   CONTENT_PATH: ${{ vars.CONTENT_PATH }}
