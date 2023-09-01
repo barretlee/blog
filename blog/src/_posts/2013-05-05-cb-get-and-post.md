@@ -57,7 +57,6 @@ from: 博客园
 <p>[1].http://hi.baidu.com/liuzd003/blog/item/7bfecbfa6ea94ed8b58f318c.html</p>
 <p>[2].http://www.blogjava.net/onlykeke/archive/2006/08/23/65285.aspx</p>
 <p>[3].http://baike.baidu.com/view/2067025.htm</p>
-<p>[4].http://www.chxwei.com/article.asp?id=373</p>
 <p>[5].http://blog.csdn.net/somat/archive/2004/10/29/158707.aspx</p>
 
 
