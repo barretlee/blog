@@ -6,6 +6,8 @@ on:
       - master
     paths: 
       - 'blog/src/_posts/**'
+  schedule:
+    - cron: '0 0 * * *' # 每天凌晨0点定时触发
 
 env:
   CONTENT_PATH: ${{ vars.CONTENT_PATH }}
