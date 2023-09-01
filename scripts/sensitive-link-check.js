@@ -70,6 +70,7 @@ async function checkSensitivePage(allDomains, sensitiveWords) {
   const sensitiveDomains = [];
   const browser = await puppeteer.launch({
     headless: process.env.NODE_ENV === 'ci' ? 'new' : false,
+    protocolTimeout: 30 * 60 * 1000, // 30min
   });
   const page = await browser.newPage();
   for (const [index, domain] of allDomains.entries()) {

@@ -1,4 +1,4 @@
-name: sensitive-link-check
+name: sensitive-check
 
 on:
   push:
@@ -49,7 +49,7 @@ jobs:
 
       - name: Excute Script
         run: |
-          NODE_ENV=ci npm run sensitive-link-check
+          NODE_ENV=ci npm run sensitive-check
         working-directory: .
       
       - name: save node_modules
