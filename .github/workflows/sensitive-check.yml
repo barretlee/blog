@@ -49,7 +49,7 @@ jobs:
 
       - name: Excute Script
         run: |
-          NODE_ENV=ci npm run sensitive-check
+          NODE_ENV=ci npm run detect-sensitive-content
         working-directory: .
       
       - name: save node_modules
