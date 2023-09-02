@@ -7,7 +7,7 @@
     "resize-images": "node scripts/resize-images.js",
     "commitlint": "node ./node_modules/@commitlint/cli/lib/cli.js -E HUSKY_GIT_PARAMS",
     "images-task": "npm run resolve-content",
-    "sensitive-check": "node scripts/sensitive-check.js"
+    "detect-sensitive-content": "node scripts/detect-sensitive-content.js"
   },
   "repository": {
     "type": "git",

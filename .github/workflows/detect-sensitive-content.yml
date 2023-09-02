@@ -1,4 +1,4 @@
-name: sensitive-check
+name: detect-sensitive-content
 
 on:
   push:
