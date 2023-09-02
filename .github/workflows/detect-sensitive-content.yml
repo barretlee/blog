@@ -7,7 +7,7 @@ on:
     paths: 
       - 'blog/src/_posts/**'
   schedule:
-    - cron: '0 0 * * *' # 每天凌晨0点定时触发
+    - cron: '0 0 * * *'
 
 env:
   CONTENT_PATH: ${{ vars.CONTENT_PATH }}
@@ -27,14 +27,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
-      - name: restore node_modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
 
       - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v3.4.1
@@ -51,9 +43,3 @@ jobs:
         run: |
           NODE_ENV=ci npm run detect-sensitive-content
         working-directory: .
-      
-      - name: save node_modules
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
