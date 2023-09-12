@@ -1,7 +1,7 @@
 ---
 title: 招行香港一卡通办理和使用
 description: 最近办了一张招行香港一卡通，流程比较长，遇到的问题也很多，趁着自己还记得比较清楚，写下来备忘。
-warning: true
+warning: false
 categories:
   - 随笔
   - 在路上
