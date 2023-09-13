@@ -14,7 +14,7 @@ const base = path.join(__dirname, "../", CONTENT_PATH || "blog/src/_posts/");
 
 function travelDir(filePath, handler) {
   fs.readdirSync(filePath).forEach(function (file) {
-    const file = path.join(filePath, file);
+    file = path.join(filePath, file);
     if (fs.statSync(file).isDirectory()) {
       exports.travel(file, handler);
     } else {
