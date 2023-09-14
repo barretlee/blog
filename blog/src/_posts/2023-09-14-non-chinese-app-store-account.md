@@ -1,7 +1,6 @@
+---
 title: 美区 App Store 账号和礼品卡
-description: >-
-  如果你要在非中国大陆区下载和体验产品，躲不过的第一个门槛是，你得有对应国家或地区的 App Store
-  账号，很多年前我在某宝上买了一个美区账号，用了几年之后，突然不可登录了，由于没有及时修改账号绑定的邮箱和手机号码，目前已经无法完成风险验证，相当于这个账号就没了。
+description: 如果你要在非中国大陆区下载和体验产品，躲不过的第一个门槛是，你得有对应国家或地区的 App Store 账号，很多年前我在某宝上买了一个美区账号，用了几年之后，突然不可登录了，由于没有及时修改账号绑定的邮箱和手机号码，目前已经无法完成风险验证，相当于这个账号就没了。
 warning: true
 tags:
   - 小胡子哥的思源地
@@ -79,15 +78,15 @@ Apple 的官网是 [apple.com](https://apple.com)，点击进入到官网后，�
 
 **1. 切换到美区地址后，往下拉，在汇率卡片下面，有一个礼品卡入口**
 
-<p><img src="/blogimgs/2023/09/14/gift-card-alipay-entry.png" alt="Gift Card Alipay Entry" width="350" /></p>
+<p><img src="/../blogimgs/2023/09/14/gift-card-alipay-entry.png" alt="Gift Card Alipay Entry" width="350" /></p>
 
 **2. 点击进去后，拉倒最底部，找到「更多大牌折扣礼卡」入口**
 
-<p><img src="/blogimgs/2023/09/14/alipay-more-giftcard.png" alt="Alipay More Gift card" width="350" /></p>
+<p><img src="/../blogimgs/2023/09/14/alipay-more-giftcard.png" alt="Alipay More Gift card" width="350" /></p>
 
 **3. 点击进去后找到苹果礼品卡入口，在列表中，比价醒目**
 
-<p><img src="/blogimgs/2023/09/14/alipay-giftcard.png" alt="Alipay More Gift card" width="350" /></p>
+<p><img src="/../blogimgs/2023/09/14/alipay-giftcard.png" alt="Alipay More Gift card" width="350" /></p>
 
 它支持 2 到 500 美金的任意额度进行充值，**存在支付失败的可能，多尝试几次就好了**，大概会在付款结束后的 15min 内在当前账户的个人页里头发卡号给你，交易前多看看文字提醒。
 
@@ -95,7 +94,7 @@ Apple 的官网是 [apple.com](https://apple.com)，点击进入到官网后，�
 
 成功购买了 Gift Card，在尝试购买软件的时候，却失败了，提示「Your Purchase Could Not Be Completed」相关异常？
 
-<p><img src="/blogimgs/2023/09/14/gift-card-failed.png" alt="Gift Card Pay Failed" width="400" /></p>
+<p><img src="/../blogimgs/2023/09/14/gift-card-failed.png" alt="Gift Card Pay Failed" width="400" /></p>
 
 这也是比较正常的现象，如果你是新账号，然后立马充值了礼品卡，在点击付费软件下载的时候，**会触发风控，一天后重新尝试就好了**，如果持续失败，你倒是可以联系下客服，告诉他你购买礼品卡后付费持续失败，要求退款，他们肯定会帮你处理好的。
 
