@@ -13,6 +13,7 @@ timezone: Asia/Shanghai
 
 showFrom: false
 assets_cdn: https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages
+image_assets_cdn: https://ghproxy.com/https://raw.githubusercontent.com/barretlee/blog/gh-pages
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'

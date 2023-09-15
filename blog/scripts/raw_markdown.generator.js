@@ -1,6 +1,8 @@
 const moment = require('moment');
 hexo.extend.generator.register('raw_markdown', function(locals){
+  // placeholder
   return;
+
   var list = {posts: [], pages: []};
   var ret = [];
   var posts = locals.posts.data.filter(function(post) {
