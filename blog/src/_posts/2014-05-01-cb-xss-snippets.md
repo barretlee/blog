@@ -22,7 +22,6 @@ from: 博客园
 <li><a href="http://www.wooyun.org/whitehats/%E5%BF%83%E4%BC%A4%E7%9A%84%E7%98%A6%E5%AD%90" target="_blank">http://www.wooyun.org/whitehats/心伤的瘦子</a> 系列教程</li>
 <li><a href="http://ha.ckers.org/xss.html" target="_blank">http://ha.ckers.org/xss.html</a> 反射性XSS详细分析和解释</li>
 <li><a href="http://html5sec.org/" target="_blank">http://html5sec.org/</a> 各种技巧 ★★★★★</li>
-<li><a href="http://www.80sec.com/" target="_blank">http://www.80sec.com/</a> 一些不错的文章</li>
 
 </ol>
 <h3>二、XSS攻击要点</h3>
