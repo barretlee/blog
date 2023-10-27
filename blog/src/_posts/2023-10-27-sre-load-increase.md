@@ -8,6 +8,7 @@ tags:
   - SRE
   - Load
 categories:
+  - 工具
   - 运维技术
   - 后端杂烩
 date: 2023-10-27 15:13:00
