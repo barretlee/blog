@@ -1,6 +1,6 @@
+---
 title: Load 持续飙高的原理讲解和应急机制
-description: >-
-  处理原则：1. 连续出现 Load1、Load5、Load15 的报警，要格外引起注意，系统可能真的吃不消了; 2. Load 飙高，CPU 也高，赶紧
+description: 处理原则：1. 连续出现 Load1、Load5、Load15 的报警，要格外引起注意，系统可能真的吃不消了; 2. Load 飙高，CPU 也高，赶紧
   CPU Profile 找原因; 3. Load 飙高，CPU 不高，观察 top 中的 wa 以及日志中的超时报错，如果确定是网络问题，直接置换机器
 warning: true
 author: Barret李靖
