@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript本地储存（2）：userData和localStorage | 小胡子哥的个人网站</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
+  <meta name="author" content="https://plus.google.com/112634278852964994392?hl=zh-cn">
+  <meta name="email" content="barret.china@gmail.com">
+  <meta name="description" content="　　上文对cookie的知识进行了归纳，同时也提到了cookie的大小是有限制的。cookie 是有大小限制的，每个 cookie 所存放的数据不能超过4kb，如果 cookie 字符串的长度超过4kb，则该属性将返回空字符串。&amp;mdash;&amp;mdash;上文提要　　如果我们需要在客户端储存比较大容">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="JavaScript本地储存（2）：userData和localStorage | 小胡子哥的个人网站">
+  <meta property="og:url" content="https://www.barretlee.com/blog/2013/03/28/cb-javascript-userdata-and-localstorage/">
+  <meta property="og:site_name" content="JavaScript本地储存（2）：userData和localStorage">
+  <meta property="og:description" content="　　上文对cookie的知识进行了归纳，同时也提到了cookie的大小是有限制的。cookie 是有大小限制的，每个 cookie 所存放的数据不能超过4kb，如果 cookie 字符串的长度超过4kb，则该属性将返回空字符串。&amp;mdash;&amp;mdash;上文提要　　如果我们需要在客户端储存比较大容">
+  <meta name="generator" content="https://hexo.io" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link href="https://img.alicdn.com/imgextra/i4/O1CN01LKRotr20M1ZGJkT3v_!!6000000006834-2-tps-1200-1200.png" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="https://img.alicdn.com/imgextra/i3/O1CN01EVx62B1eyZLyJsJnY_!!6000000003940-2-tps-100-100.png" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="https://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
+  <link rel="prev" href="https://www.barretlee.com/blog/2013/03/28/JSON/" title="JSON" />
+  <link rel="next" href="https://www.barretlee.com/blog/2013/03/27/cb-javascript-cookie/" title="JavaScript本地储存（1）：cookie在前端" />
+  <link rel="start" href="https://www.barretlee.com/entry/" title="Blog Entry" />
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/css/style-20230627-2.css">
+
+</head>
+
+
+<body>
+  <div class="rainbow"></div>
+  <div class="container">
+  <span class="local-search local-search-google local-search-plugin" style="display: none;">
+  <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+  <i class="icon" aria-hidden="true" title="点击进入 Google 搜索">&#x2708;</i>
+  <div id="local-search-result" class="local-search-result-cls"></div>
+</span>
+  <div class="article" itemscope itemtype="http://schema.org/Article">
+    <div class="post">
+      <div class="bread">
+        <a href="/">小胡子哥的个人网站</a> »
+        <a href="/entry/">博客</a> »
+        
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E6%9D%82%E7%89%A9%E9%97%B4/">杂物间</a>
+
+
+      </div>
+      <div class="post-title-wrapper">
+        <h1 class="post-title" itemprop="name">JavaScript本地储存（2）：userData和localStorage</h1>
+        <a href="/about/"><img src="https://img.alicdn.com/imgextra/i1/O1CN01zmj6R326ehPa0NZO2_!!6000000007687-2-tps-1200-1200.png" alt="Barret李靖" /></a>
+      </div>
+      <div class="post-info">
+        <span>作者: <a href="/about/">Barret李靖</a></span>
+        <span>
+          <time itemprop="timeCreated" aria-hidden="true">2013-03-28 11:25:00</time>
+          <span class="aria-readonly">本文发布时间为2013年03月28日11时25分00秒</span>
+        </span>
+        
+        <span>分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E6%9D%82%E7%89%A9%E9%97%B4/">杂物间</a>
+
+</span>
+        
+        
+        <span tabindex="0" aria-hidden="true">标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</span>
+        
+        <span class="aria-readonly">下面是正文内容</span>
+        <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
+                      class="ds-thread-count hash-to-comments disqus-comment-count"
+                      data-thread-key="cb-javascript-userdata-and-localstorage"
+                      data-disqus-identifier="cb-javascript-userdata-and-localstorage"></a></span>
+      </div>
+      <div class="post-content" itemprop="articleBody">
+        
+        <p>　　<a title="JavaScript本地储存（1）：cookie在前端"  target="_blank" href="http://www.cnblogs.com/hustskyking/archive/2013/03/27/2984328.html" target="_blank">上文</a>对cookie的知识进行了归纳，同时也提到了cookie的大小是有限制的。</p>
+<blockquote>
+<p><span>cookie 是有大小限制的，每个 cookie 所存放的数据不能超过4kb，如果 cookie 字符串的长度超过4kb，则该属性将返回空字符串。&mdash;&mdash;<a title="JavaScript本地储存（1）：cookie在前端"  target="_blank" href="http://www.cnblogs.com/hustskyking/archive/2013/03/27/2984328.html" target="_blank">上文</a>提要</span></p>
+</blockquote>
+<p>　　<span>如果我们需要在客户端储存比较大容量的数据，怎么办？下面给大家介绍userData和localStorage的基本知识和一些应用。先说明下为什么把两个东西扯到一起说，因为后面写了个对象，把UserData和localStorage包装到了一起O(&cap;_&cap;)O~</span></p>
+
+
+<h3><span>Conception [基本概念]</span></h3>
+<p><span>　　毫无疑问，无论是UserData还是localStorage都是储存在客户端磁盘的一段文本，但是两者也有很大的差异性。</span></p>
+<p><strong>　　1.UserData</strong></p>
+<p>　　单单说UserData是不太准确的，要实现本地储存得说\UserData Behavior"。</p>
+<blockquote>
+<p>　<span>UserData Behavior</span></p>
+<span>&mdash;&mdash; Enables the object to persist data in user data.　　</span></blockquote>
+<p>　　这是来自<a title="MS UserData"  target="_blank" href="http://msdn.microsoft.com/zh-cn/vstudio/ms531424" target="_blank">微软</a>的解释。意思是允许对象在用户页面保存数据。它适用于win32和Unix的MS IE5.0版本以上平台。</p>
+<table class="clsStd">
+<tbody>
+<tr><th>Security Zone</th><th>Document Limit (KB)</th><th>Domain Limit (KB)</th></tr>
+<tr>
+<td>Local Machine</td>
+<td>128</td>
+<td>1024</td>
+</tr>
+<tr>
+<td>Intranet</td>
+<td>512</td>
+<td>10240</td>
+</tr>
+<tr>
+<td>Trusted Sites</td>
+<td>128</td>
+<td>1024</td>
+</tr>
+<tr>
+<td>Internet</td>
+<td>128</td>
+<td>1024</td>
+</tr>
+<tr>
+<td>Restricted</td>
+<td>64</td>
+<td>640</td>
+</tr>
+</tbody>
+</table>
+<p>　　上表是UserData的大小限制，也是从微软那里拷贝过来的，大家应该知道IE浏览器有可以设置安全等级</p>
+<p><img src="https://images.cnitblog.com/blog/387325/201303/28222651-d8a98f6c104a45b2a2e3bb404811f269.png" alt="IE安全设置"></p>
+<p>　　表格里的几个英文单词就对应着看吧，~\(≧▽≦)/~</p>
+<p><strong>　　2.localStorage</strong></p>
+<blockquote>
+<p><span>Web storage is being standardized by the World Wide Web Consortium (W3C). It was originally part of the HTML 5 specification, but is now in a separate specification. It is supported by Internet Explorer 8, Mozilla-based browsers ,Safari 4, Google Chrome 4, and Opera 10.50. As of 14 March 2011 Opera and IE9 supports the storage events.</span></p>
+</blockquote>
+<p>　　上面一串*<%￥...是来自<a title="wiki localStorage"  target="_blank" href="http://en.wikipedia.org/wiki/Web_storage" target="_blank">wiki</a>的说明，跟localStorage一起的还有sessionStorage，这里就只说说localStorage。上文大意（英语水平低就是可怜）：网页储存被W3C标准化，原来本属于HTML5标准的一部分，现在已经被独立出来了。它适用于IE 8+，FF 2+，Safari 4+，chrome 4+， Opera 10.50+。</p>
+<p>　　<strong>P.S.：</strong>sessionStorage用于本地存储一个会话（session）中的数据，这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。</p>
+<p><span>　　</span>标准建议对于每个domain，localStorage大小为<strong>5M</strong>，达到限制时浏览器可以去问用户是否允许增加存储空间。</p>
+<p>　 &nbsp; 这是<a title="test"  target="_blank" href="http://hi.baidu.com/erik168/item/85490cce5ccb7ad9ee183bdf" target="_blank">网友</a>的对\浏览器具体能保存多少个字符"的一个测试。</p>
+<blockquote>
+<p><strong>测试结果：</strong></p>
+<p>　对英文字符和中文字符来说，测试结果并无变化，所以存储格式可能为UTF16。</p>
+<p>　以下为测试数据(key有5个字符):</p>
+<p>　　　　IE 9&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &gt;&nbsp;4999995 + 5 = 5000000</p>
+<p>　　　　firefox&nbsp;8.0.2&nbsp;&gt;&nbsp;5242875 + 5 = 5242880</p>
+<p>　　　　chrome &nbsp;16.0 &nbsp;&gt;&nbsp;2621435 + 5 = 2621440</p>
+<p>　　　　safari &nbsp;5.1 &nbsp;&nbsp;&gt;&nbsp;2621435&nbsp;+ 5 = 2621440</p>
+<p>　　　　opera &nbsp; 11.60&nbsp;&gt;&nbsp;1966068&nbsp;+ 5 = 1966073</p>
+<p>&nbsp;</p>
+</blockquote>
+
+
+<h3>&nbsp;Grammar [语法介绍]</h3>
+<p><strong>　　1.userData</strong></p>
+
+<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line">XML       &lt;prefix: customtag=<span class="string">&quot;&quot;</span> id=<span class="string">&quot;sID&quot;</span>&gt;</span><br><span class="line">HTML     　&lt;element id=<span class="string">&quot;sID&quot;</span>&gt;</span><br><span class="line">Scripting  object .style.behavior = <span class="string">&quot;url(&#x27;<span class="subst">#<span class="keyword">default</span></span><span class="subst">#userData</span>&#x27;)&quot;</span></span><br><span class="line">object .addBehavior (<span class="string">&quot;<span class="subst">#<span class="keyword">default</span></span><span class="subst">#userData</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p></element></prefix:></p>
+<p>　　上面介绍了几种语言中userData的用法，当然这也是从<a title="MSDN UserData"  target="_blank" href="http://msdn.microsoft.com/zh-cn/vstudio/ms531424" target="_blank">MSDN</a>拿过来的（呵呵，真心好用）。那这里我们重点放在前端常用的位置上，也就是标红了的HTML中。</p>
+<p>　　　　1）<span><strong>属性:</strong></span></p>
+<p><span>　　　　　　expires &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;设置或者获取 userData behavior 保存数据的失效日期。</span></p>
+<p><span>　　　　　　XMLDocument &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;获取 XML 的引用。</span></p>
+<p><span>　　　　2）<strong>方法:</strong></span></p>
+<p><span>　　　　　　getAttribute() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;获取指定的属性值。</span></p>
+<p><span>　　　　　　load(object) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;从 userData &nbsp;存储区载入存储的对象数据。</span></p>
+<p><span>　　　　　　removeAttribute() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;移除对象的指定属性。</span></p>
+<p><span>　　　　　　save(object) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 将对象数据存储到一个 userData 存储区。</span></p>
+<p><span>　　　　　　setAttribute() &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 设置指定的属性值。</span></p>
+<p><span>　　具体如何实现，请转到最下面封装的一个对象中~</span></p>
+<p><strong>　　2.localStorage</strong></p>
+<p>　　　　1）<strong>方法：</strong></p>
+<p>　　　　　　localStorage.getItem(key) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;获取指定key本地存储的值</p>
+<p>　　　　　　localStorage.setItem(key,value) &nbsp;将value存储到key字段</p>
+<p>　　　　　　localStorage.removeItem(key) &nbsp; &nbsp;删除指定key本地存储的值</p>
+
+
+<h3>Pacaking [对象封装]</h3>
+
+<figure class="highlight plaintext"><figcaption><span>of userDate&&localStorage</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">localData = &#123;</span><br><span class="line">         hname:location.hostname?location.hostname:&#x27;localStatus&#x27;,</span><br><span class="line">         isLocalStorage:window.localStorage?true:false,</span><br><span class="line">         dataDom:null,</span><br><span class="line"></span><br><span class="line">         initDom:function()&#123; //初始化userData</span><br><span class="line">             if(!this.dataDom)&#123;</span><br><span class="line">                 try&#123;</span><br><span class="line">                     this.dataDom = document.createElement(&#x27;input&#x27;);//这里使用hidden的input元素</span><br><span class="line">                     this.dataDom.type = &#x27;hidden&#x27;;</span><br><span class="line">                     this.dataDom.style.display = &quot;none&quot;;</span><br><span class="line">                     this.dataDom.addBehavior(&#x27;#default#userData&#x27;);//这是userData的语法</span><br><span class="line">                     document.body.appendChild(this.dataDom);</span><br><span class="line">                     var exDate = new Date();</span><br><span class="line">                     exDate = exDate.getDate()+30;</span><br><span class="line">                     this.dataDom.expires = exDate.toUTCString();//设定过期时间</span><br><span class="line">                 &#125;catch(ex)&#123;</span><br><span class="line">                     return false;</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">             return true;</span><br><span class="line">         &#125;,</span><br><span class="line">         set:function(key,value)&#123;</span><br><span class="line">             if(this.isLocalStorage)&#123;</span><br><span class="line">                 window.localStorage.setItem(key,value);</span><br><span class="line">             &#125;else&#123;</span><br><span class="line">                 if(this.initDom())&#123;</span><br><span class="line">                     this.dataDom.load(this.hname);</span><br><span class="line">                     this.dataDom.setAttribute(key,value);</span><br><span class="line">                     this.dataDom.save(this.hname)</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;,</span><br><span class="line">         get:function(key)&#123;</span><br><span class="line">             if(this.isLocalStorage)&#123;</span><br><span class="line">                 return window.localStorage.getItem(key);</span><br><span class="line">             &#125;else&#123;</span><br><span class="line">                 if(this.initDom())&#123;</span><br><span class="line">                     this.dataDom.load(this.hname);</span><br><span class="line">                     return this.dataDom.getAttribute(key);</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;,</span><br><span class="line">         remove:function(key)&#123;</span><br><span class="line">             if(this.isLocalStorage)&#123;</span><br><span class="line">                 localStorage.removeItem(key);</span><br><span class="line">             &#125;else&#123;</span><br><span class="line">                 if(this.initDom())&#123;</span><br><span class="line">                     this.dataDom.load(this.hname);</span><br><span class="line">                     this.dataDom.removeAttribute(key);</span><br><span class="line">                     this.dataDom.save(this.hname)</span><br><span class="line">                 &#125;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3>Usage [使用说明]</h3>
+<p>　　<strong>1.初始化</strong></p>
+
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">localData.initDom()<span class="comment">;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>　　<strong>2.设置 key/value</strong></p>
+
+<figure class="highlight q"><table><tr><td class="code"><pre><span class="line">localData.<span class="built_in">set</span>(<span class="built_in">key</span>, <span class="built_in">value</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>　　<strong>3.获取 value</strong></p>
+
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">localData.<span class="built_in">get</span>(<span class="built_in">key</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>　　<strong>4.删除</strong></p>
+
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">localData.<span class="built_in">remove</span>(<span class="built_in">key</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3>Attention [注意事项]</h3>
+<p>　　1.localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。</p>
+<p>　　2.出于安全原因，只有在同一个目录和相同的协议下才能进行持久化存储。数据是未加密的，建议你不要保存过于隐私的信息。</p>
+<p>下文将对<a title="web离线"  target="_blank" href="http://www.cnblogs.com/hustskyking/archive/2013/03/30/javascript-applicationcache.html" target="_blank">web离线</a>作具体介绍。</p>
+
+
+<h3>Related blog [相关博文]</h3>
+<p>　　<a class="titlelink"  target="_blank" href="http://www.cnblogs.com/hustskyking/archive/2013/03/27/javascript-cookie.html">JavaScript本地储存（1）：cookie在前端</a><span>&nbsp;</span></p>
+<p>　　<a class="titlelink"  target="_blank" href="http://www.cnblogs.com/hustskyking/archive/2013/03/30/javascript-applicationcache.html">Javascript本地储存（3）：离线web应用</a></p>
+
+
+<h3>Reference [参考资料]</h3>
+<p>　　1.<a title="wiki localStorage"  target="_blank" href="http://en.wikipedia.org/wiki/Web_storage" target="_blank">wiki</a></p>
+<p>　　2.<a title="MSDN UserData"  target="_blank" href="http://msdn.microsoft.com/zh-cn/vstudio/ms531424" target="_blank">MSDN</a></p>
+<p>　　3.<a title="beiYuu博客"  target="_blank" href="http://www.cnblogs.com/beiyuu/archive/2011/07/20/js-localstorage-userdata.html" target="_blank">BeiYuu博客</a></p>
+<p>　　4.<a title="test"  target="_blank" href="http://hi.baidu.com/erik168/item/85490cce5ccb7ad9ee183bdf" target="_blank">网友</a></p>
+      </div>
+    </div>
+    
+<div class="old-article-warning">
+	本文在 <b>3866</b> 天之前发表，技术更替飞快，文中部分内容可能已经过时，如有疑问，请联系作者 <a href="/about">Barret李靖</a>。
+</div>
+
+    <!-- <div class="follow-wechat"><img src="/blogimgs/follow.jpg"></div> -->
+
+<div class="copyright" itemscope itemtype="http://schema.org/ProfilePage" tabindex="0" aria-hidden="true">
+	<!-- <a href="/about/#support" class="supportme">赏</a> -->
+	<ul>
+		<li>作者: <a href="/about/" itemprop="name">Barret李靖</a></li>
+		
+		<li>文章分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E6%9D%82%E7%89%A9%E9%97%B4/">杂物间</a>
+
+</li>
+		
+		
+		<li>文章标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</li>
+		
+		<li>发表日期: 2013-03-28 11:25:00</li>
+		<li>最后编辑时间: 2023-10-27 15:38:27</li>
+		<li>本文 Markdown 地址: <a target="_
+			" href="https://github.com/barretlee/blog/tree/master/blog/src/_posts/2013-03-28-cb-javascript-userdata-and-localstorage.md">JavaScript本地储存（2）：userData和localStorage</a></li>
+		<li>版权声明：<a  target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">CC BY-NC-ND 3.0</a></li>
+		<li>
+			Feed 订阅: <a href="/rss2.xml"><i class="icon">&#x25c8;</i></a>
+			<div style="opacity:.3;text-align:right;margin:5px -5px -10px 0;float:right;font-size: 12px;">
+				编辑本文：<a  target="_blank" href="https://github.com/barretlee/blog/edit/master/blog/src/_posts/2013-03-28-cb-javascript-userdata-and-localstorage.md" target="_blank" aria-hidden="true"><i class="icon">&#xe622;</i></a>；
+				新建文章：<a  target="_blank" href="https://github.com/barretlee/blog/new/master/blog/src/_posts" target="_blank" aria-hidden="true"><i class="icon">&#xe616;</i></a>
+			</div>
+		</li>
+		
+	</ul>
+	<a href="/about/"><img src="https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png" /></a>
+</div>
+
+    <em  class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾
+<ul role="group" aria-labelledby="i1" aria-expanded="false">
+  <li><a href="/entry/">博客</a></li>
+  <!-- <li><a href="/translation/">翻译</a></li> -->
+  <li><a href="/message/">留言</a></li>
+  <li><a href="/demo/">实验室</a></li>
+  <!-- <a><a href="/comments/">最近评论</a></li> -->
+  <li><a href="/friends/">友情链接</a></li>
+</ul>
+</em>
+  </div>
+  <div class="post-relative">
+<div class="page-relative">
+  
+    <a href="/blog/2013/03/28/JSON/" class="post-prev">
+      <i class="icon" tabindex="0" aria-hidden="true">&#x261c;</i>
+      <span class="aria-readonly">上一篇文章</span>
+      
+        <b>JSON</b>
+      
+    </a>
+  
+  
+    <a href="/blog/2013/03/27/cb-javascript-cookie/" class="post-next">
+      <span class="aria-readonly">下一篇文章</span>
+      <b>JavaScript本地储存（1）：cookie在前端</b>
+      <i class="icon" tabindex="0" aria-hidden="true">&#xe602;</i>
+    </a>
+  
+</div>
+
+
+<div class="page-relative-fixed" tabindex="0" aria-hidden="true">
+  
+  <a href="/blog/2013/03/28/JSON/" class="prev" title="JSON">
+    <i class="icon">&#xe600;</i>
+    
+    <b>JSON</b>
+    
+  </a>
+  
+  
+  <a href="/blog/2013/03/27/cb-javascript-cookie/" class="next" title="JavaScript本地储存（1）：cookie在前端">
+    <i class="icon">&#x261e;</i>
+    <b>JavaScript本地储存（1）：cookie在前端</b>
+  </a>
+  
+</div>
+</div>
+</div>
+<div class="sidebar" tabindex="0" aria-hidden="true">
+	<div class="func-btns func-btns-up">
+    <span class="func-item">
+        <i class="func-nav icon">&#xe618;<span>目录</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="javascript:void(0);" onclick="return false;">显示目录</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-font icon">&#xe604;<span>夜间</span></i>
+        <div class="font-choose-box">
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <div class="font-choose bg-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-sun font-type-song"><i class="icon">&#xe61a;</i></a>
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-moon font-type-hei"><i class="icon">&#xe619;</i></a>
+          </div>
+          <!-- <div class="font-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-song">黑体</a>
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-hei">宋体</a>
+          </div> -->
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-about icon">&#x263b;<span>关于</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p><a href="/about/" class="func-about-link" target="_blank">关于作者</a></p>
+          <div id="followMeOnWeibo"></div>
+        </div>
+    </span>
+	</div>
+	<div class="func-btns">
+    <!-- <span class="func-item">
+        <a  target="_blank" href="http://demo.barretlee.com" target="_blank"><i class="func-rss icon">&#xe603;<span>实验</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a  target="_blank" href="http://demo.barretlee.com" target="_blank">Demo平台</a></p>
+          <p class="seperator"><a  target="_blank" href="http://md.barretlee.com" target="_blank">WX格式</a></p>
+          <p><a  target="_blank" href="http://snippets.barretlee.com" target="_blank">Snippet应用</a></p>
+        </div>
+    </span> -->
+    <!-- <span class="func-item">
+        <i class="func-fb icon">&#x2121;<span>留言</span></i>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a href="/message/" target="_blank">给我留言</a></p>
+          <p><a href="/comments/" target="_blank">近期留言</a></p>
+        </div>
+    </span> -->
+    <span class="func-item">
+        <a href="/friends/" target="_blank"><i class="func-rss icon">&#xe601;<span>链接</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="/friends/" target="_blank">友情链接</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <a href="/rss2.xml" target="_blank"><i class="func-rss icon">&#x25c8;<span>订阅</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i><a href="/rss2.xml" target="_blank">订阅我吧！</a></div>
+    </span>
+	</div>
+</div>
+
+<div class="single-page-footer">
+<div class="footer">
+	<div class="footer-wraper">
+		<div class="footer-content">
+			<div class="footer-nav">
+	<a href="javascript: void(0);" class="ds-thread-count disqus-comment-count"
+	   data-thread-key="cb-javascript-userdata-and-localstorage"
+	   data-disqus-identifier="cb-javascript-userdata-and-localstorage" 
+		 tabindex="0" aria-hidden="true">评论内容</a>
+	<a href="javascript: void(0);" id="comments">相关文章</a>
+	<a href="/friends/" tabindex="0" aria-hidden="true" style="display: none;">友情链接</a>
+</div>
+<div class="nav-detail">
+	<div tabindex="0">
+		
+  <div id="gitalk" sid="cb-javascript-userdata-and-localstorage"></div>
+  <script charset="utf-8" type="text/javascript" src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/gitalk.js"></script>
+  <script type="text/javascript">
+  var postContent = document.querySelectorAll('.post-content>p');
+  if (postContent && postContent.length) {
+    postContent = postContent.item(0).textContent + (postContent.item(1) && postContent.item(1).textContent || '');
+    postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
+  }
+
+  var gitalk = new Gitalk({
+    clientID: '50a1b3aa7854b01a1c85',
+    clientSecret: '226ac154f80a6aea0985da874126b35795f22eed',
+    language: "zh-CN",
+    perPage: 100,
+    createIssueManually: false,
+    repo: 'blog',
+    owner: 'barretlee',
+    admin: ['barretlee'],
+    id: "cb-javascript-userdata-and-localstorage",
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent,
+    distractionFreeMode: false
+  });
+
+  window.addEventListener('load', function () {
+    gitalk.render('gitalk');
+  });
+
+  // show count
+  var commentTimer = setInterval(() => {
+    var count = document.querySelector('.gt-link-counts');
+    var showCount = document.querySelector('.hash-to-comments');
+    if (count && showCount) {
+      showCount.textContent = count.textContent;
+      clearInterval(commentTimer);
+    }
+  }, 500);
+  setTimeout(() => {
+    clearInterval(commentTimer);
+  }, 60 * 1E3);
+  </script>
+  
+	</div>
+	<div style="display:block;">
+		<div class="relative-wrapper">
+	<div class="relative-article">
+		
+		<ul>
+			<li>
+				<span><font aria-hidden="true">2019-03-13 »</font> </span>
+				<a href="/blog/2019/03/13/first-buildin-module-kv-storage/">KV Storage，Web 上第一个内置模块</a>
+				<span class="aria-readonly">发表时间为2019年03月13日</span>
+				<div class="relative-box">
+          <a href="/blog/2019/03/13/first-buildin-module-kv-storage/" class="relative-img-wrapper"><img src="https://ghproxy.com/https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2019/03/13/kv-storage-build-in-module.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2019/03/13/kv-storage-build-in-module.png"/></a>
+          <span class="aria-readonly">文章概要 </span>原文地址：KV Storage, the Web’s First Built-in Module原文时间：2019年3月翻译计划：https://github.com/barretlee/translation-plan翻译人员：小胡子哥在...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2017-06-06 »</font> </span>
+				<a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/">深入理解 Node Stream 内部机制</a>
+				<span class="aria-readonly">发表时间为2017年06月06日</span>
+				<div class="relative-box">
+          <a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/" class="relative-img-wrapper"><img src="https://ghproxy.com/https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2017/06/06/node-stream-readable-flowing.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2017/06/06/node-stream-readable-flowing.png"/></a>
+          <span class="aria-readonly">文章概要 </span>相信很多人对 Node 的 Stream 已经不陌生了，不论是请求流、响应流、文件流还是 socket 流，这些流的底层都是使用 stream 模块封装的，甚至我们平时用的最多的 console.log 打印日志也使用了它，不信你打开 No...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-09-28 »</font> </span>
+				<a href="/blog/2016/09/28/ieee754-operation-in-js/">揭秘 0.1 + 0.2 != 0.3</a>
+				<span class="aria-readonly">发表时间为2016年09月28日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/09/28/ieee754-operation-in-js/" class="relative-img-wrapper"><img src="https://ghproxy.com/https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>“0.1 + 0.2 &#x3D; ?”，这道题如果给小学生，他会立马告诉你答案是 0.3，但是交给一些程序去计算，结果就不是那么简单了。-->
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-08-23 »</font> </span>
+				<a href="/blog/2016/08/23/javascript-sandbox/">构建一个安全的 JavaScript 沙箱</a>
+				<span class="aria-readonly">发表时间为2016年08月23日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/08/23/javascript-sandbox/" class="relative-img-wrapper"><img src="https://ghproxy.com/https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>-->在 Node.js 中有一个模块叫做 VM，它提供了几个 API，允许代码在 V8 虚拟机上下文中运行，如：const vm = require(&#x27;vm&#x27;);const sandbox = &#123; a: 1, b: 2 &#125;;const script = new vm.Script(&#x27;a + b&#x27;);const context = new vm.createContext(sandbox);script.runInContext(context);vm.Script 中的代码是预编译好的，通过 vm.createContext 将代码加载到一个上下文环境中，置入沙箱（sandbox），然后通过 script.runInContext 执行代码，整个操作都在封闭的 VM 中进行。这是 Node.js 提供给我们的便捷功能，那么，在浏览器环境中呢？是否也能做到将代码运行在沙箱中？本文带着大家来探索一番。
+        </div>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>留下评论</span></div>
+		<!-- <a href="/entry/" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a> -->
+	</div>
+	<div class="friends-box">
+		<ul>
+			
+			<li><a  target="_blank" href="http://hustskyking.cnblogs.com" target="_blank">旧博客</a> <font aria-hidden="true">»</font> <span>我的旧博客（博客园荣誉博客）</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangmengxue.com" target="_blank">大额</a> <font aria-hidden="true">»</font> <span>大额大额哼歌等日落</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangxinxu.com" target="_blank">张鑫旭</a> <font aria-hidden="true">»</font> <span>原来大学我俩一个团队的~</span></li>
+			
+			<li><a  target="_blank" href="http://web-tinker.com" target="_blank">次碳酸钴</a> <font aria-hidden="true">»</font> <span>深度交流的一个好朋友</span></li>
+			
+			<li><a  target="_blank" href="http://imququ.com" target="_blank">屈屈</a> <font aria-hidden="true">»</font> <span>蛐蛐同学</span></li>
+			
+			<li><a  target="_blank" href="http://www.ruanyifeng.com" target="_blank">阮一峰</a> <font aria-hidden="true">»</font> <span>阮老师</span></li>
+			
+			<li><a href="/friends/">更多列表 <font aria-hidden="true">»</font></a></li>
+		</ul>
+	</div>
+</div>
+			
+<div class="website-info" aria-hidden="true">
+	<a class="page_editor" href="/admin/#/posts/clo8axsx90010iroxgim6f3g4" target="_blank">🙈</a>
+	<span>&copy;2013-2023 <small><a  target="_blank" href="https://www.miit.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
+	本站由 <a href="/">Barret李靖</a> 纯手工打造 | <a href="/about#contact">联系方式</a>
+	<a href='https://union.zhaodao.ai/#random' title="随机跳转到一个有意思的网站" target='_blank' class="zhidao_ai"><img src='https://img.alicdn.com/imgextra/i2/O1CN01VjiZUL1r0eXge4taM_!!6000000005569-55-tps-300-300.svg' width="20" height="20"></a>
+</div>
+
+		</div>
+	</div>
+</div>
+</div>
+<div class="tools-wrapper" tabindex="0" aria-hidden="true">
+	<a class="gotop icon" href="#" title="回到顶部">&#x2191;</a>
+	<!-- <a class="wechart icon">&#xe60d;<span><img src="/blogimgs/wechart.png" title="扫码添加小胡子哥微信"/> </span></a> -->
+	<a class="hash-to-comments icon" title="我要评论">&#x2121;</a>
+</div>
+<div class="fixerr" tabindex="0" aria-hidden="true">纠错模式</div>
+
+</body>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/jquery.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/main.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67248043-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-67248043-3');
+</script>
+
+<!-- Baidu Analysis -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3524fff9629f2c80f8ea5daa13e67003";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.async = true;
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+  window.onerror = function(e) {
+    window.console && window.console.log && window.console.log(e);
+    try {
+      $('#loadLayer').remove();
+    } catch(e) {}
+    return true;
+  };
+</script>
+</html>
