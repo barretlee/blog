@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v3
       
       - name: restore node_modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
@@ -67,7 +67,7 @@ jobs:
         # node -e "const fs = require('fs'); let content = fs.readFileSync('_config.yml').toString().replace(/image_minifier[\s\S]+?enable: false/gmi, 'image_minifier:\n  enable: true'); fs.writeFileSync('_config.yml', content);"
       
       - name: save node_modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
