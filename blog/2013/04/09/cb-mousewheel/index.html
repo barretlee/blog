@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript之鼠标滚动事件 | 小胡子哥的个人网站</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
+  <meta name="author" content="https://plus.google.com/112634278852964994392?hl=zh-cn">
+  <meta name="email" content="barret.china@gmail.com">
+  <meta name="description" content="最近正在做评论模块的image LazyLoad（图片资源延迟加载/按需加载），其中涉及到一些mouse scroll操作。老外的Mouse wheel programming in JavaScript一文，对我很有价值。&amp;mdash;&amp;mdash;以下为翻译&amp;mdash;&amp;mdash;本文有些信息可">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="JavaScript之鼠标滚动事件 | 小胡子哥的个人网站">
+  <meta property="og:url" content="https://www.barretlee.com/blog/2013/04/09/cb-mousewheel/">
+  <meta property="og:site_name" content="JavaScript之鼠标滚动事件">
+  <meta property="og:description" content="最近正在做评论模块的image LazyLoad（图片资源延迟加载/按需加载），其中涉及到一些mouse scroll操作。老外的Mouse wheel programming in JavaScript一文，对我很有价值。&amp;mdash;&amp;mdash;以下为翻译&amp;mdash;&amp;mdash;本文有些信息可">
+  <meta name="generator" content="https://hexo.io" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link href="https://img.alicdn.com/imgextra/i4/O1CN01LKRotr20M1ZGJkT3v_!!6000000006834-2-tps-1200-1200.png" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="https://img.alicdn.com/imgextra/i3/O1CN01EVx62B1eyZLyJsJnY_!!6000000003940-2-tps-100-100.png" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="https://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
+  <link rel="prev" href="https://www.barretlee.com/blog/2013/04/09/cb-uncurrying/" title="javascript中有趣的反柯里化" />
+  <link rel="next" href="https://www.barretlee.com/blog/2013/04/03/cb-CDS_jsonp/" title="JavaScript跨域（2）：JSONP跨域" />
+  <link rel="start" href="https://www.barretlee.com/entry/" title="Blog Entry" />
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/css/style-20230627-2.css">
+</head>
+
+
+<body>
+  <div class="rainbow"></div>
+  <div class="container">
+  <span class="local-search local-search-google local-search-plugin" style="display: none;">
+  <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+  <i class="icon" aria-hidden="true" title="点击进入 Google 搜索">&#x2708;</i>
+  <div id="local-search-result" class="local-search-result-cls"></div>
+</span>
+  <div class="article" itemscope itemtype="http://schema.org/Article">
+    <div class="post">
+      <div class="bread">
+        <a href="/">小胡子哥的个人网站</a> »
+        <a href="/entry/">博客</a> »
+        
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E6%9D%82%E7%89%A9%E9%97%B4/">杂物间</a>
+
+
+      </div>
+      <div class="post-title-wrapper">
+        <h1 class="post-title" itemprop="name">JavaScript之鼠标滚动事件</h1>
+        <a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i1/O1CN01zmj6R326ehPa0NZO2_!!6000000007687-2-tps-1200-1200.png" alt="Barret李靖" /></a>
+      </div>
+      <div class="post-info">
+        <span>作者: <a href="/about/">Barret李靖</a></span>
+        <span>
+          <time itemprop="timeCreated" aria-hidden="true">2013-04-09 08:36:00</time>
+          <span class="aria-readonly">本文发布时间为2013年04月09日08时36分00秒</span>
+        </span>
+        
+        <span>分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E6%9D%82%E7%89%A9%E9%97%B4/">杂物间</a>
+
+</span>
+        
+        
+        <span tabindex="0" aria-hidden="true">标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</span>
+        
+        <span class="aria-readonly">下面是正文内容</span>
+        <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
+                      class="ds-thread-count hash-to-comments disqus-comment-count"
+                      data-thread-key="cb-mousewheel"
+                      data-disqus-identifier="cb-mousewheel"></a></span>
+      </div>
+      <div class="post-content" itemprop="articleBody">
+        
+        <p><span>最近正在做评论模块的</span><a  target="_blank" href="http://blog.163.com/jinlu_hz/blog/static/11383015220112251147684/" target="_blank">image LazyLoad</a><span>（图片资源延迟加载/按需加载），其中涉及到一些mouse scroll操作。老外的</span><a  target="_blank" href="http://adomas.org/javascript-mouse-wheel/" rel="nofollow" target="_blank">Mouse wheel programming in JavaScript</a><span>一文，对我很有价值。</span><span>&mdash;&mdash;以下为翻译&mdash;&mdash;</span><span>本文有些信息可能已经过时，但是大部分知识点仍旧有用。</span><span>Web应用日新月异，也越来越接近于桌面应用。功能上越来越强，比如drag<drop（拖拽），autocompletition（自动完成/自动补全）等等。在AJAX的配合下，这些应用都易于实现。</span><span>本文要说的并不是AJAX技术，而是关于相对简单的用户输入手段&mdash;&mdash;鼠标滚轮。目前已经很难找到不带滚轮的鼠标了，大多数用户会使用滚轮用来滚动浏览器、缩放页面/照片之类的操作。Web应用在这个领域却鲜有建树。本文将提供一些基于鼠标滚轮的javascript事件和相关的处理手段。</span></p>
+<h3>Annotated code 带注释的代码</h3>
+<p>
+<span>下面是一段带注释的javascript代码，阐述鼠标滚动事件背后的一些原理。</span><span>//此处不准备对代码注释进行翻译，<a  target="_blank" href="http://adomas.org/javascript-mouse-wheel/plain.html" rel="nofollow" target="_blank">查看源代码</a></span></p>
+
+
+
+<figure class="highlight qml"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * This is high-level function.</span></span><br><span class="line"><span class="comment"> * It must react to delta being more/less than zero.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params">delta</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (delta &lt; <span class="number">0</span>)</span><br><span class="line">        ...;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        ...;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Event handler for mouse wheel event.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">wheel</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> delta = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (!event) <span class="comment">/* For IE. */</span></span><br><span class="line">        event = <span class="built_in">window</span>.event;</span><br><span class="line">    <span class="keyword">if</span> (event.wheelDelta) &#123; <span class="comment">/* IE/Opera. */</span></span><br><span class="line">        delta = event.wheelDelta / <span class="number">120</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * In Opera 9, delta differs in sign as compared to IE.</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">window</span>.opera)</span><br><span class="line">            delta = -delta;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (event.detail) &#123;</span><br><span class="line">        <span class="comment">/** Mozilla case. */</span></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * In Mozilla, sign of delta is different than in IE.</span></span><br><span class="line"><span class="comment">         * Also, delta is multiple of 3.</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">            delta = -event.detail / <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * If delta is nonzero, handle it.</span></span><br><span class="line"><span class="comment">     * Basically, delta is now positive if wheel was scrolled up,</span></span><br><span class="line"><span class="comment">     * and negative, if wheel was scrolled down.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">if</span> (delta)</span><br><span class="line">        handle(delta);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Prevent default actions caused by mouse wheel.</span></span><br><span class="line"><span class="comment">     * That might be ugly, but we handle scrolls somehow</span></span><br><span class="line"><span class="comment">     * anyway, so don&#x27;t bother here..</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">if</span> (event.preventDefault)</span><br><span class="line">        event.preventDefault();</span><br><span class="line">    event.returnValue = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Initialization code.</span></span><br><span class="line"><span class="comment"> * If you use your own event management code, change it as required.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener)</span><br><span class="line">    <span class="comment">/** DOMMouseScroll is for mozilla. */</span></span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;DOMMouseScroll&#x27;</span>, wheel, <span class="literal">false</span>);</span><br><span class="line"><span class="comment">/** IE/Opera. */</span></span><br><span class="line"><span class="built_in">window</span>.onmousewheel = <span class="built_in">document</span>.onmousewheel = wheel;  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3>Handler function 事件处理函数</h3>
+<p><span>代码中的"handle"是用户的自定义函数，其中带了一个参数为delta。由</span><img src="https://adomas.org/javascript-mouse-wheel/deltas.png" alt="Deltas pictured. Negative means down, positive up."><span>于浏览器平台的差异性，我们只能够捕捉到滚动的差值（deltas），这个值是滚轮的变化值。</span><span>通常，你只能获取到delta的正值与负值，如左图所示。</span><span>如果delta是正值，滚动向前滚动，反之则为向后滚动。在许多应用中，向上滚动就是页面向上滚动。</span><span>你可能很疑惑，delta的实际值到底会是什么。实际上，上述代码其实是被调整过的，使得99%的情况下获取到的值要么-1要么就是+1。即时如此，如果在firefox下迅速滚动，会出现&plusmn;3的情况。</span><a  target="_blank" href="http://digg.com/programming/Mouse_wheel_programming_in_JavaScript#c2431219" rel="nofollow" target="_blank">Digg</a><span>上有人提出14的delta值，Geoffrey Kruse在他的pc上甚至得到了76的值。当然了，这也取决于鼠标敏感度的设置。firefox有一些微妙的现象：如果快速滚动的同时点击右键（原文 scrolling the wheel fast and then push the right mouse button for the menu），会报出例如30的delta值。</span><span>//不明白作者是如何触发这个操作的</span><a  target="_blank" href="http://www.robsite.de/" rel="nofollow" target="_blank">Robert Gerlach</a><span>在Safari下做了一些测试："只是滚动一圈的话，值为+-0.1，如果滚动地稍微快点的话（多滚动几圈），这个值也会变大。 这是因为Mac OS下有鼠标滚轮加速功能。滚动一次，浏览器滚动1像素，滚动3次，浏览器却滚动30像素"。同时他也对Camino（基于Gecko的内核引擎）进行研究：\与Safari相似（+- 0.3 to +-Infinity），虽然使用了与firefox相同的内核引擎，但结果这个delta值却只在+-2.666666里浮动，无论滚动速度如何。"</span><span>在此可以看一下</span><a  target="_blank" href="http://adomas.org/javascript-mouse-wheel/test.html" rel="nofollow" target="_blank">测试页面A</a><span>与</span><a  target="_blank" href="http://adomas.org/javascript-mouse-wheel/test2.html" rel="nofollow" target="_blank">测试页面B</a><span>。</span></p>
+<h3>Compatability 兼容性</h3>
+<p>
+<span>//作者在此感谢了许多人，不作翻译</span></p>
+<h3>Usability 可用性</h3>
+<p>
+<span>Few \don't"s&mdash;&mdash;几个不要</span></p>
+<ul>
+<li>不要使用滚动进行一些不符合常理的操作，用户已经习惯用滚轮来作页面滚动之类的操作了。一些map应用使用滚轮进行缩放，这个操作符合用户的预期，大胆使用即可。</li>
+<li>不要强迫用户依赖滚轮进行操作。<span>//作者的意思</span><span>是</span><span>应该</span><span>提供一种可替换方案，使得在滚轮操作无效的情况下，应用程序仍旧可用</span></li>
+<li>尽量避免全局滚动条，这些滚动条可能会给用户在进行滚动时带来一些困惑。</li>
+
+</ul>
+
+
+<h3>Real world examples 应用实例</h3>
+<p>
+<a  target="_blank" href="http://maps.google.com/" rel="nofollow" target="_blank">Google Maps</a><span>利用滚轮进行zoom in/out。</span><a  target="_blank" href="http://mapper.acme.com/" rel="nofollow" target="_blank">ACME Mapper</a><span>Google Maps的增强版</span><span>//在chrome10下滚动无效</span><a  target="_blank" href="http://imageflow.finnrudolph.de/" rel="nofollow" target="_blank">ImageFlow</a><span>&nbsp;by Finn Rudolph</span></p>
+
+
+
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line"><span class="comment">/** Event handler for mouse wheel event.</span></span><br><span class="line"><span class="comment">         *鼠标滚动事件</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">var</span> wheel = <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> delta = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (!event) <span class="comment">/* For IE. */</span></span><br><span class="line">                event = window.event;</span><br><span class="line">            <span class="keyword">if</span> (event.wheelDelta) &#123; <span class="comment">/* IE/Opera. */</span></span><br><span class="line">                delta = event.wheelDelta / <span class="number">120</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (event.detail) &#123;</span><br><span class="line">                <span class="comment">/** Mozilla case. */</span></span><br><span class="line">                <span class="comment">/** In Mozilla, sign of delta is different than in IE.</span></span><br><span class="line"><span class="comment">                 * Also, delta is multiple of 3.</span></span><br><span class="line"><span class="comment">                 */</span></span><br><span class="line">                delta = -event.detail / <span class="number">3</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">/** If delta is nonzero, handle it.</span></span><br><span class="line"><span class="comment">             * Basically, delta is now positive if wheel was scrolled up,</span></span><br><span class="line"><span class="comment">             * and negative, if wheel was scrolled down.</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="keyword">if</span> (delta)</span><br><span class="line">                handle(delta);</span><br><span class="line">            <span class="comment">/** Prevent default actions caused by mouse wheel.</span></span><br><span class="line"><span class="comment">             * That might be ugly, but we handle scrolls somehow</span></span><br><span class="line"><span class="comment">             * anyway, so don&#x27;t bother here..</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            <span class="keyword">if</span> (event.preventDefault)</span><br><span class="line">                event.preventDefault();</span><br><span class="line">            event.returnValue = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/** Initialization code.</span></span><br><span class="line"><span class="comment">         * If you use your own event management code, change it as required.</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">if</span> (window.addEventListener) &#123;</span><br><span class="line">            <span class="comment">/** DOMMouseScroll is for mozilla. */</span></span><br><span class="line">            window.addEventListener(<span class="string">&#x27;DOMMouseScroll&#x27;</span>, wheel, <span class="literal">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">/** IE/Opera. */</span></span><br><span class="line">        window.onmousewheel = document.onmousewheel = wheel;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/** This is high-level function.</span></span><br><span class="line"><span class="comment">         * It must react to delta being more/less than zero.</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">var</span> handle = <span class="keyword">function</span>(<span class="params">delta</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> random_num = Math.<span class="built_in">floor</span>((Math.<span class="built_in">random</span>() * <span class="number">100</span>) + <span class="number">50</span>);</span><br><span class="line">            <span class="keyword">if</span> (delta &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">// alert(&quot;鼠标滑轮向下滚动：&quot; + delta + &quot;次！&quot;); // 1</span></span><br><span class="line">                $(<span class="string">&quot;btn_next_pic&quot;</span>).onclick(random_num);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// alert(&quot;鼠标滑轮向上滚动：&quot; + delta + &quot;次！&quot;); // -1</span></span><br><span class="line">                $(<span class="string">&quot;btn_last_pic&quot;</span>).onclick(random_num);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3>Reference [参考]</h3>
+<p>　　1.http://blog.163.com/jinlu_hz/blog/static/113830152201122911356714/</p>
+<p>　　2.http://qiaolevip.iteye.com/blog/1673396</p>
+
+
+      </div>
+    </div>
+    
+<div class="old-article-warning">
+	本文在 <b>4399</b> 天之前发表，技术更替飞快，文中部分内容可能已经过时，如有疑问，请联系作者 <a href="/about">Barret李靖</a>。
+</div>
+
+    <!-- <div class="follow-wechat"><img src="/blogimgs/follow.jpg"></div> -->
+
+<div class="copyright" itemscope itemtype="http://schema.org/ProfilePage" tabindex="0" aria-hidden="true">
+	<!-- <a href="/about/#support" class="supportme">赏</a> -->
+	<ul>
+		<li>作者: <a href="/about/" itemprop="name">Barret李靖</a></li>
+		
+		<li>文章分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E6%9D%82%E7%89%A9%E9%97%B4/">杂物间</a>
+
+</li>
+		
+		
+		<li>文章标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</li>
+		
+		<li>发表日期: 2013-04-09 08:36:00</li>
+		<li>最后编辑时间: 2025-04-24 17:37:42</li>
+		<li>本文 Markdown 地址: <a target="_
+			" href="https://github.com/barretlee/blog/tree/master/blog/src/_posts/2013-04-09-cb-mousewheel.md">JavaScript之鼠标滚动事件</a></li>
+		<li>版权声明：<a  target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">CC BY-NC-ND 3.0</a></li>
+		<li>
+			Feed 订阅: <a href="/rss2.xml"><i class="icon">&#x25c8;</i></a>
+			<div style="opacity:.3;text-align:right;margin:5px -5px -10px 0;float:right;font-size: 12px;">
+				编辑本文：<a  target="_blank" href="https://github.com/barretlee/blog/edit/master/blog/src/_posts/2013-04-09-cb-mousewheel.md" target="_blank" aria-hidden="true"><i class="icon">&#xe622;</i></a>；
+				新建文章：<a  target="_blank" href="https://github.com/barretlee/blog/new/master/blog/src/_posts" target="_blank" aria-hidden="true"><i class="icon">&#xe616;</i></a>
+			</div>
+		</li>
+		
+	</ul>
+	<a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png" /></a>
+</div>
+
+    <em  class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾
+<ul role="group" aria-labelledby="i1" aria-expanded="false">
+  <li><a href="/entry/">博客</a></li>
+  <!-- <li><a href="/translation/">翻译</a></li> -->
+  <li><a href="/message/">留言</a></li>
+  <li><a href="/demo/">实验室</a></li>
+  <!-- <a><a href="/comments/">最近评论</a></li> -->
+  <li><a href="/friends/">友情链接</a></li>
+</ul>
+</em>
+  </div>
+  <div class="post-relative">
+<div class="page-relative">
+  
+    <a href="/blog/2013/04/09/cb-uncurrying/" class="post-prev">
+      <i class="icon" tabindex="0" aria-hidden="true">&#x261c;</i>
+      <span class="aria-readonly">上一篇文章</span>
+      
+        <b>javascript中有趣的反柯里化</b>
+      
+    </a>
+  
+  
+    <a href="/blog/2013/04/03/cb-CDS_jsonp/" class="post-next">
+      <span class="aria-readonly">下一篇文章</span>
+      <b>JavaScript跨域（2）：JSONP跨域</b>
+      <i class="icon" tabindex="0" aria-hidden="true">&#xe602;</i>
+    </a>
+  
+</div>
+
+
+<div class="page-relative-fixed" tabindex="0" aria-hidden="true">
+  
+  <a href="/blog/2013/04/09/cb-uncurrying/" class="prev" title="javascript中有趣的反柯里化">
+    <i class="icon">&#xe600;</i>
+    
+    <b>javascript中有趣的反柯里化</b>
+    
+  </a>
+  
+  
+  <a href="/blog/2013/04/03/cb-CDS_jsonp/" class="next" title="JavaScript跨域（2）：JSONP跨域">
+    <i class="icon">&#x261e;</i>
+    <b>JavaScript跨域（2）：JSONP跨域</b>
+  </a>
+  
+</div>
+</div>
+</div>
+<div class="sidebar" tabindex="0" aria-hidden="true">
+	<div class="func-btns func-btns-up">
+    <span class="func-item">
+        <i class="func-nav icon">&#xe618;<span>目录</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="javascript:void(0);" onclick="return false;">显示目录</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-font icon">&#xe604;<span>夜间</span></i>
+        <div class="font-choose-box">
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <div class="font-choose bg-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-sun font-type-song"><i class="icon">&#xe61a;</i></a>
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-moon font-type-hei"><i class="icon">&#xe619;</i></a>
+          </div>
+          <!-- <div class="font-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-song">黑体</a>
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-hei">宋体</a>
+          </div> -->
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-about icon">&#x263b;<span>关于</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p><a href="/about/" class="func-about-link" target="_blank">关于作者</a></p>
+          <div id="followMeOnWeibo"></div>
+        </div>
+    </span>
+	</div>
+	<div class="func-btns">
+    <!-- <span class="func-item">
+        <a  target="_blank" href="http://demo.barretlee.com" target="_blank"><i class="func-rss icon">&#xe603;<span>实验</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a  target="_blank" href="http://demo.barretlee.com" target="_blank">Demo平台</a></p>
+          <p class="seperator"><a  target="_blank" href="http://md.barretlee.com" target="_blank">WX格式</a></p>
+          <p><a  target="_blank" href="http://snippets.barretlee.com" target="_blank">Snippet应用</a></p>
+        </div>
+    </span> -->
+    <!-- <span class="func-item">
+        <i class="func-fb icon">&#x2121;<span>留言</span></i>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a href="/message/" target="_blank">给我留言</a></p>
+          <p><a href="/comments/" target="_blank">近期留言</a></p>
+        </div>
+    </span> -->
+    <span class="func-item">
+        <a href="/friends/" target="_blank"><i class="func-rss icon">&#xe601;<span>链接</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="/friends/" target="_blank">友情链接</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <a href="/rss2.xml" target="_blank"><i class="func-rss icon">&#x25c8;<span>订阅</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i><a href="/rss2.xml" target="_blank">订阅我吧！</a></div>
+    </span>
+	</div>
+</div>
+
+<div class="single-page-footer">
+<div class="footer">
+	<div class="footer-wraper">
+		<div class="footer-content">
+			<div class="footer-nav">
+	<a href="javascript: void(0);" class="ds-thread-count disqus-comment-count"
+	   data-thread-key="cb-mousewheel"
+	   data-disqus-identifier="cb-mousewheel" 
+		 tabindex="0" aria-hidden="true">评论内容</a>
+	<a href="javascript: void(0);" id="comments">相关文章</a>
+	<a href="/friends/" tabindex="0" aria-hidden="true" style="display: none;">友情链接</a>
+</div>
+<div class="nav-detail">
+	<div tabindex="0">
+		
+  <div id="gitalk" sid="cb-mousewheel"></div>
+  <script charset="utf-8" type="text/javascript" src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/gitalk.js"></script>
+  <script type="text/javascript">
+  var postContent = document.querySelectorAll('.post-content>p');
+  if (postContent && postContent.length) {
+    postContent = postContent.item(0).textContent + (postContent.item(1) && postContent.item(1).textContent || '');
+    postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
+  }
+
+  var gitalk = new Gitalk({
+    clientID: '50a1b3aa7854b01a1c85',
+    clientSecret: '226ac154f80a6aea0985da874126b35795f22eed',
+    language: "zh-CN",
+    perPage: 100,
+    createIssueManually: false,
+    repo: 'blog',
+    owner: 'barretlee',
+    admin: ['barretlee'],
+    id: "cb-mousewheel",
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent,
+    distractionFreeMode: false
+  });
+
+  window.addEventListener('load', function () {
+    gitalk.render('gitalk');
+  });
+
+  // show count
+  var commentTimer = setInterval(() => {
+    var count = document.querySelector('.gt-link-counts');
+    var showCount = document.querySelector('.hash-to-comments');
+    if (count && showCount) {
+      showCount.textContent = count.textContent;
+      clearInterval(commentTimer);
+    }
+  }, 500);
+  setTimeout(() => {
+    clearInterval(commentTimer);
+  }, 60 * 1E3);
+  </script>
+  
+	</div>
+	<div style="display:block;">
+		<div class="relative-wrapper">
+	<div class="relative-article">
+		
+		<ul>
+			<li>
+				<span><font aria-hidden="true">2019-03-13 »</font> </span>
+				<a href="/blog/2019/03/13/first-buildin-module-kv-storage/">KV Storage，Web 上第一个内置模块</a>
+				<span class="aria-readonly">发表时间为2019年03月13日</span>
+				<div class="relative-box">
+          <a href="/blog/2019/03/13/first-buildin-module-kv-storage/" class="relative-img-wrapper"><img src="https://ghproxy.com/https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2019/03/13/kv-storage-build-in-module.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2019/03/13/kv-storage-build-in-module.png"/></a>
+          <span class="aria-readonly">文章概要 </span>原文地址：KV Storage, the Web’s First Built-in Module原文时间：2019年3月翻译计划：https://github.com/barretlee/translation-plan翻译人员：小胡子哥在...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2017-06-06 »</font> </span>
+				<a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/">深入理解 Node Stream 内部机制</a>
+				<span class="aria-readonly">发表时间为2017年06月06日</span>
+				<div class="relative-box">
+          <a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/" class="relative-img-wrapper"><img src="https://ghproxy.com/https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2017/06/06/node-stream-readable-flowing.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2017/06/06/node-stream-readable-flowing.png"/></a>
+          <span class="aria-readonly">文章概要 </span>相信很多人对 Node 的 Stream 已经不陌生了，不论是请求流、响应流、文件流还是 socket 流，这些流的底层都是使用 stream 模块封装的，甚至我们平时用的最多的 console.log 打印日志也使用了它，不信你打开 No...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-09-28 »</font> </span>
+				<a href="/blog/2016/09/28/ieee754-operation-in-js/">揭秘 0.1 + 0.2 != 0.3</a>
+				<span class="aria-readonly">发表时间为2016年09月28日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/09/28/ieee754-operation-in-js/" class="relative-img-wrapper"><img src="https://ghproxy.com/https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>“0.1 + 0.2 &#x3D; ?”，这道题如果给小学生，他会立马告诉你答案是 0.3，但是交给一些程序去计算，结果就不是那么简单了。-->
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-08-23 »</font> </span>
+				<a href="/blog/2016/08/23/javascript-sandbox/">构建一个安全的 JavaScript 沙箱</a>
+				<span class="aria-readonly">发表时间为2016年08月23日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/08/23/javascript-sandbox/" class="relative-img-wrapper"><img src="https://ghproxy.com/https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>-->在 Node.js 中有一个模块叫做 VM，它提供了几个 API，允许代码在 V8 虚拟机上下文中运行，如：const vm = require(&#x27;vm&#x27;);const sandbox = &#123; a: 1, b: 2 &#125;;const script = new vm.Script(&#x27;a + b&#x27;);const context = new vm.createContext(sandbox);script.runInContext(context);vm.Script 中的代码是预编译好的，通过 vm.createContext 将代码加载到一个上下文环境中，置入沙箱（sandbox），然后通过 script.runInContext 执行代码，整个操作都在封闭的 VM 中进行。这是 Node.js 提供给我们的便捷功能，那么，在浏览器环境中呢？是否也能做到将代码运行在沙箱中？本文带着大家来探索一番。
+        </div>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>留下评论</span></div>
+		<!-- <a href="/entry/" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a> -->
+	</div>
+	<div class="friends-box">
+		<ul>
+			
+			<li><a  target="_blank" href="http://hustskyking.cnblogs.com" target="_blank">旧博客</a> <font aria-hidden="true">»</font> <span>我的旧博客（博客园荣誉博客）</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangmengxue.com" target="_blank">大额</a> <font aria-hidden="true">»</font> <span>大额大额哼歌等日落</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangxinxu.com" target="_blank">张鑫旭</a> <font aria-hidden="true">»</font> <span>原来大学我俩一个团队的~</span></li>
+			
+			<li><a  target="_blank" href="http://web-tinker.com" target="_blank">次碳酸钴</a> <font aria-hidden="true">»</font> <span>深度交流的一个好朋友</span></li>
+			
+			<li><a  target="_blank" href="http://imququ.com" target="_blank">屈屈</a> <font aria-hidden="true">»</font> <span>蛐蛐同学</span></li>
+			
+			<li><a  target="_blank" href="http://www.ruanyifeng.com" target="_blank">阮一峰</a> <font aria-hidden="true">»</font> <span>阮老师</span></li>
+			
+			<li><a href="/friends/">更多列表 <font aria-hidden="true">»</font></a></li>
+		</ul>
+	</div>
+</div>
+			
+<div class="website-info" aria-hidden="true">
+	<a class="page_editor" href="/admin/#/posts/cm9v66mdz001rk5qe98x1hm15" target="_blank">🙈</a>
+	<span>&copy;2013-2025 <small><a  target="_blank" href="https://www.miit.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
+	本站由 <a href="/">Barret李靖</a> 纯手工打造 | <a href="/about#contact">联系方式</a>
+	<a href='https://union.zhaodao.ai/#random' title="随机跳转到一个有意思的网站" target='_blank' class="zhidao_ai"><img src='https://img.alicdn.com/imgextra/i2/O1CN01VjiZUL1r0eXge4taM_!!6000000005569-55-tps-300-300.svg' width="20" height="20"></a>
+</div>
+
+		</div>
+	</div>
+</div>
+</div>
+<div class="tools-wrapper" tabindex="0" aria-hidden="true">
+	<a class="gotop icon" href="#" title="回到顶部">&#x2191;</a>
+	<!-- <a class="wechart icon">&#xe60d;<span><img src="/blogimgs/wechart.png" title="扫码添加小胡子哥微信"/> </span></a> -->
+	<a class="hash-to-comments icon" title="我要评论">&#x2121;</a>
+</div>
+<div class="fixerr" tabindex="0" aria-hidden="true">纠错模式</div>
+
+</body>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/jquery.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/main.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67248043-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-67248043-3');
+</script>
+
+<!-- Baidu Analysis -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3524fff9629f2c80f8ea5daa13e67003";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.async = true;
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+  window.onerror = function(e) {
+    window.console && window.console.log && window.console.log(e);
+    try {
+      $('#loadLayer').remove();
+    } catch(e) {}
+    return true;
+  };
+</script>
+</html>
