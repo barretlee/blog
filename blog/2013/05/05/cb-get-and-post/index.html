@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>浅谈HTTP中Get与Post的区别 | 小胡子哥的个人网站</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
+  <meta name="author" content="https://plus.google.com/112634278852964994392?hl=zh-cn">
+  <meta name="email" content="barret.china@gmail.com">
+  <meta name="description" content="　Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。到这里，大家应该">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="浅谈HTTP中Get与Post的区别 | 小胡子哥的个人网站">
+  <meta property="og:url" content="https://www.barretlee.com/blog/2013/05/05/cb-get-and-post/">
+  <meta property="og:site_name" content="浅谈HTTP中Get与Post的区别">
+  <meta property="og:description" content="　Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。到这里，大家应该">
+  <meta name="generator" content="https://hexo.io" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link href="https://img.alicdn.com/imgextra/i4/O1CN01LKRotr20M1ZGJkT3v_!!6000000006834-2-tps-1200-1200.png" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="https://img.alicdn.com/imgextra/i3/O1CN01EVx62B1eyZLyJsJnY_!!6000000003940-2-tps-100-100.png" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="https://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
+  <link rel="prev" href="https://www.barretlee.com/blog/2013/05/05/cb-getKeywords-2/" title="Javascript综合应用小案例（续）" />
+  <link rel="next" href="https://www.barretlee.com/blog/2013/05/04/cb-getkeywords/" title="Javascript综合应用小案例" />
+  <link rel="start" href="https://www.barretlee.com/entry/" title="Blog Entry" />
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/css/style-20230627-2.css">
+</head>
+
+
+<body>
+  <div class="rainbow"></div>
+  <div class="container">
+  <span class="local-search local-search-google local-search-plugin" style="display: none;">
+  <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+  <i class="icon" aria-hidden="true" title="点击进入 Google 搜索">&#x2708;</i>
+  <div id="local-search-result" class="local-search-result-cls"></div>
+</span>
+  <div class="article" itemscope itemtype="http://schema.org/Article">
+    <div class="post">
+      <div class="bread">
+        <a href="/">小胡子哥的个人网站</a> »
+        <a href="/entry/">博客</a> »
+        
+	<a class="category-link" href="/blog/categories/%E7%BD%91%E7%BB%9C%E4%BA%A4%E4%BA%92/">网络交互</a>,<a class="category-link" href="/blog/categories/%E7%BD%91%E7%BB%9C%E4%BA%A4%E4%BA%92/%E5%89%AA%E8%B4%B4%E6%9D%BF/">剪贴板</a>
+
+
+      </div>
+      <div class="post-title-wrapper">
+        <h1 class="post-title" itemprop="name">浅谈HTTP中Get与Post的区别</h1>
+        <a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i1/O1CN01zmj6R326ehPa0NZO2_!!6000000007687-2-tps-1200-1200.png" alt="Barret李靖" /></a>
+      </div>
+      <div class="post-info">
+        <span>作者: <a href="/about/">Barret李靖</a></span>
+        <span>
+          <time itemprop="timeCreated" aria-hidden="true">2013-05-05 08:40:00</time>
+          <span class="aria-readonly">本文发布时间为2013年05月05日08时40分00秒</span>
+        </span>
+        
+        <span>分类: 
+	<a class="category-link" href="/blog/categories/%E7%BD%91%E7%BB%9C%E4%BA%A4%E4%BA%92/">网络交互</a>,<a class="category-link" href="/blog/categories/%E7%BD%91%E7%BB%9C%E4%BA%A4%E4%BA%92/%E5%89%AA%E8%B4%B4%E6%9D%BF/">剪贴板</a>
+
+</span>
+        
+        
+        <span tabindex="0" aria-hidden="true">标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/http/" rel="tag">http</a>
+</span>
+        
+        <span class="aria-readonly">下面是正文内容</span>
+        <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
+                      class="ds-thread-count hash-to-comments disqus-comment-count"
+                      data-thread-key="cb-get-and-post"
+                      data-disqus-identifier="cb-get-and-post"></a></span>
+      </div>
+      <div class="post-content" itemprop="articleBody">
+        
+        <p>　Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的<span>查，改，增，删</span>4个操作。到这里，大家应该有个大概的了解了，GET一般用于<span>获取/查询</span>资源信息，而POST一般用于<span>更新</span>资源信息。</p>
+<p>　　<span><strong>1</strong>.根据HTTP规范，GET用于信息获取，而且应该是安全的和幂等的。</span></p>
+<p>　　(1).所谓安全的意味着该操作用于获取信息而非修改信息。换句话说，GET 请求一般不应产生副作用。就是说，它仅仅是获取资源信息，就像数据库查询一样，不会修改，增加数据，不会影响资源的状态。</p>
+<p>　　<em>&nbsp;注意：这里安全的含义仅仅是指是非修改信息。</em></p>
+<p>　　(2).幂等的意味着对同一URL的多个请求应该返回同样的结果。这里我再解释一下<span><strong>幂等</strong></span>这个概念：</p>
+
+<figure class="highlight plaintext"><figcaption><span>幂等有一下几种定义：　　对于单目运算，如果一个运算对于在范围内的所有的一个数多次进行该运算所得的结果和进行一次该运算所得的结果是一样的，那么我们就称该运算是幂等的。比如绝对值运算就是一个例子，在实数集中，有abs(a)</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>看完上述解释后，应该可以理解GET幂等的含义了。</p>
+<p>　　但在实际应用中，以上2条规定并没有这么严格。引用别人文章的例子：比如，新闻站点的头版不断更新。虽然第二次请求会返回不同的一批新闻，该操作仍然被认为是安全的和幂等的，因为它总是返回当前的新闻。从根本上说，如果目标是当用户打开一个链接时，他可以确信从自身的角度来看没有改变资源即可。</p>
+<p>　　<span><strong>2</strong>.根据HTTP规范，POST表示可能修改变服务器上的资源的请求。</span>继续引用上面的例子：还是新闻以网站为例，读者对新闻发表自己的评论应该通过POST实现，因为在评论提交后站点的资源已经不同了，或者说资源被修改了。</p>
+
+
+<p>　　上面大概说了一下HTTP规范中GET和POST的一些原理性的问题。但在实际的做的时候，很多人却没有按照HTTP规范去做，导致这个问题的原因有很多，比如说：</p>
+<p>　　<span><strong>1</strong></span>.很多人贪方便，更新资源时用了GET，因为用POST必须要到FORM（表单），这样会麻烦一点。</p>
+<p>　　<span><strong>2</strong></span>.对资源的增，删，改，查操作，其实都可以通过GET/POST完成，不需要用到PUT和DELETE。</p>
+<p>　　<span><strong>3</strong></span>.另外一个是，早期的Web MVC框架设计者们并<span>没有有意识地将URL当作抽象的资源来看待和设计</span>，所以导致一个比较严重的问题是传统的Web MVC框架基本上都只支持GET和POST两种HTTP方法，而不支持PUT和DELETE方法。</p>
+<p>&nbsp;　　<em>简单解释一下MVC：MVC本来是存在于Desktop程序中的，M是指数据模型，V是指用户界面，C则是控制器。使用MVC的目的是将M和V的实现代码分离，从而使同一个程序可以使用不同的表现形式。</em></p>
+<p>　　以上3点典型地描述了老一套的风格（没有严格遵守HTTP规范），随着架构的发展，现在出现REST(Representational State Transfer)，一套支持HTTP规范的新风格，这里不多说了，可以参考《RESTful Web Services》。</p>
+
+
+<p>　　说完原理性的问题，我们再从<span>表面现像上面看看GET和POST的区别</span>：</p>
+<p>　　<span><strong>1</strong></span>.GET请求的数据会附在URL之后（就是把数据放置在HTTP协议头中），以?分割URL和传输数据，参数之间以<相连，如：login.action?name=hyddd<password=idontknow<verify=%E4%BD%A0%E5%A5%BD。如果数据是英文字母/数字，原样发送，如果是空格，转换为+，如果是中文/其他字符，则直接把字符串用BASE64加密，得出如：%E4%BD%A0%E5%A5%BD，其中％XX中的XX为该符号以16进制表示的ASCII。</p>
+<p>　　POST把提交的数据则放置在是HTTP包的包体中。</p>
+<p>　　<span><strong>2</strong></span>."GET方式提交的数据最多只能是1024字节，理论上POST没有限制，可传较大量的数据，IIS4中最大为80KB，IIS5中为100KB"？？！</p>
+<p>　　以上这句是我从其他文章转过来的，其实这样说是错误的，不准确的：</p>
+<p>　　(1).首先是"GET方式提交的数据最多只能是1024字节"，因为GET是通过URL提交数据，那么GET可提交的数据量就跟URL的长度有直接关系了。而实际上，<span>URL不存在参数上限的问题，HTTP协议规范没有对URL长度进行限制</span>。这个限制是特定的浏览器及服务器对它的限制。IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系统的支持。</p>
+<p>　　注意这是限制是整个URL长度，而不仅仅是你的参数值数据长度。[见参考资料5]</p>
+<p>　　(2).理论上讲，<span>POST是没有大小限制的，HTTP协议规范也没有进行大小限制</span>，说\POST数据量存在80K/100K的大小限制"是不准确的，POST数据是没有限制的，起限制作用的是服务器的处理程序的处理能力。</p>
+<p>　　对于ASP程序，Request对象处理每个表单域时存在100K的数据长度限制。但如果使用Request.BinaryRead则没有这个限制。</p>
+<p>　　由这个延伸出去，对于IIS 6.0，微软出于安全考虑，加大了限制。我们还需要注意：</p>
+<p>　　　　 1).IIS 6.0默认ASP POST数据量最大为200KB，每个表单域限制是100KB。　　　　 2).IIS 6.0默认上传文件的最大大小是4MB。　　　　 3).IIS 6.0默认最大请求头是16KB。　　IIS 6.0之前没有这些限制。[见参考资料5]</p>
+<p>　　所以上面的80K，100K可能只是默认值而已(注：关于IIS4和IIS5的参数，我还没有确认)，但肯定是可以自己设置的。由于每个版本的IIS对这些参数的默认值都不一样，具体请参考相关的IIS配置文档。</p>
+<p>　　<span><strong>3</strong></span>.在ASP中，服务端获取GET请求参数用Request.QueryString，获取POST请求参数用Request.Form。在JSP中，用request.getParameter(\"XXXX\")来获取，虽然jsp中也有request.getQueryString()方法，但使用起来比较麻烦，比如：传一个test.jsp?name=hyddd<password=hyddd，用request.getQueryString()得到的是：name=hyddd<password=hyddd。在PHP中，可以用$_GET和$_POST分别获取GET和POST中的数据，而$_REQUEST则可以获取GET和POST两种请求中的数据。值得注意的是，JSP中使用request和PHP中使用$_REQUEST都会有隐患，这个下次再写个文章总结。</p>
+<p>　　<span><strong>4</strong></span>.POST的安全性要比GET的安全性高。注意：这里所说的安全性和上面GET提到的\安全"不是同个概念。上面\安全"的含义仅仅是不作数据修改，而这里安全的含义是真正的Security的含义，比如：通过GET提交数据，用户名和密码将明文出现在URL上，因为(1)登录页面有可能被浏览器缓存，(2)其他人查看浏览器的历史纪录，那么别人就可以拿到你的账号和密码了，除此之外，使用GET提交数据还可能会造成Cross-site request forgery攻击。</p>
+<p>　　总结一下，<span>Get</span>是向服务器发索取数据的一种<span>请求</span>，而<span>Post</span>是向服务器提交数据的一种<span>请求</span>，在FORM（表单）中，Method默认为"GET"，实质上，GET和POST只是发送机制不同，并不是一个取一个发！</p>
+
+
+<p><strong>参考资料</strong>：</p>
+<p>[1].http://hi.baidu.com/liuzd003/blog/item/7bfecbfa6ea94ed8b58f318c.html</p>
+<p>[2].http://www.blogjava.net/onlykeke/archive/2006/08/23/65285.aspx</p>
+<p>[3].http://baike.baidu.com/view/2067025.htm</p>
+<p>[5].http://blog.csdn.net/somat/archive/2004/10/29/158707.aspx</p>
+
+
+<p>本文转自：<a  target="_blank" href="http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html" target="_blank">hyddd</a></p>
+
+      </div>
+    </div>
+    
+<div class="old-article-warning">
+	本文在 <b>4459</b> 天之前发表，技术更替飞快，文中部分内容可能已经过时，如有疑问，请联系作者 <a href="/about">Barret李靖</a>。
+</div>
+
+    <!-- <div class="follow-wechat"><img src="/blogimgs/follow.jpg"></div> -->
+
+<div class="copyright" itemscope itemtype="http://schema.org/ProfilePage" tabindex="0" aria-hidden="true">
+	<!-- <a href="/about/#support" class="supportme">赏</a> -->
+	<ul>
+		<li>作者: <a href="/about/" itemprop="name">Barret李靖</a></li>
+		
+		<li>文章分类: 
+	<a class="category-link" href="/blog/categories/%E7%BD%91%E7%BB%9C%E4%BA%A4%E4%BA%92/">网络交互</a>,<a class="category-link" href="/blog/categories/%E7%BD%91%E7%BB%9C%E4%BA%A4%E4%BA%92/%E5%89%AA%E8%B4%B4%E6%9D%BF/">剪贴板</a>
+
+</li>
+		
+		
+		<li>文章标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/http/" rel="tag">http</a>
+</li>
+		
+		<li>发表日期: 2013-05-05 08:40:00</li>
+		<li>最后编辑时间: 2025-07-19 11:01:03</li>
+		<li>本文 Markdown 地址: <a target="_
+			" href="https://github.com/barretlee/blog/tree/master/blog/src/_posts/2013-05-05-cb-get-and-post.md">浅谈HTTP中Get与Post的区别</a></li>
+		<li>版权声明：<a  target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">CC BY-NC-ND 3.0</a></li>
+		<li>
+			Feed 订阅: <a href="/rss2.xml"><i class="icon">&#x25c8;</i></a>
+			<div style="opacity:.3;text-align:right;margin:5px -5px -10px 0;float:right;font-size: 12px;">
+				编辑本文：<a  target="_blank" href="https://github.com/barretlee/blog/edit/master/blog/src/_posts/2013-05-05-cb-get-and-post.md" target="_blank" aria-hidden="true"><i class="icon">&#xe622;</i></a>；
+				新建文章：<a  target="_blank" href="https://github.com/barretlee/blog/new/master/blog/src/_posts" target="_blank" aria-hidden="true"><i class="icon">&#xe616;</i></a>
+			</div>
+		</li>
+		
+	</ul>
+	<a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png" /></a>
+</div>
+
+    <em  class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾
+<ul role="group" aria-labelledby="i1" aria-expanded="false">
+  <li><a href="/entry/">博客</a></li>
+  <!-- <li><a href="/translation/">翻译</a></li> -->
+  <li><a href="/message/">留言</a></li>
+  <li><a href="/demo/">实验室</a></li>
+  <!-- <a><a href="/comments/">最近评论</a></li> -->
+  <li><a href="/friends/">友情链接</a></li>
+</ul>
+</em>
+  </div>
+  <div class="post-relative">
+<div class="page-relative">
+  
+    <a href="/blog/2013/05/05/cb-getKeywords-2/" class="post-prev">
+      <i class="icon" tabindex="0" aria-hidden="true">&#x261c;</i>
+      <span class="aria-readonly">上一篇文章</span>
+      
+        <b>Javascript综合应用小案例（续）</b>
+      
+    </a>
+  
+  
+    <a href="/blog/2013/05/04/cb-getkeywords/" class="post-next">
+      <span class="aria-readonly">下一篇文章</span>
+      <b>Javascript综合应用小案例</b>
+      <i class="icon" tabindex="0" aria-hidden="true">&#xe602;</i>
+    </a>
+  
+</div>
+
+
+<div class="page-relative-fixed" tabindex="0" aria-hidden="true">
+  
+  <a href="/blog/2013/05/05/cb-getKeywords-2/" class="prev" title="Javascript综合应用小案例（续）">
+    <i class="icon">&#xe600;</i>
+    
+    <b>Javascript综合应用小案例（续）</b>
+    
+  </a>
+  
+  
+  <a href="/blog/2013/05/04/cb-getkeywords/" class="next" title="Javascript综合应用小案例">
+    <i class="icon">&#x261e;</i>
+    <b>Javascript综合应用小案例</b>
+  </a>
+  
+</div>
+</div>
+</div>
+<div class="sidebar" tabindex="0" aria-hidden="true">
+	<div class="func-btns func-btns-up">
+    <span class="func-item">
+        <i class="func-nav icon">&#xe618;<span>目录</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="javascript:void(0);" onclick="return false;">显示目录</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-font icon">&#xe604;<span>夜间</span></i>
+        <div class="font-choose-box">
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <div class="font-choose bg-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-sun font-type-song"><i class="icon">&#xe61a;</i></a>
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-moon font-type-hei"><i class="icon">&#xe619;</i></a>
+          </div>
+          <!-- <div class="font-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-song">黑体</a>
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-hei">宋体</a>
+          </div> -->
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-about icon">&#x263b;<span>关于</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p><a href="/about/" class="func-about-link" target="_blank">关于作者</a></p>
+          <div id="followMeOnWeibo"></div>
+        </div>
+    </span>
+	</div>
+	<div class="func-btns">
+    <!-- <span class="func-item">
+        <a  target="_blank" href="http://demo.barretlee.com" target="_blank"><i class="func-rss icon">&#xe603;<span>实验</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a  target="_blank" href="http://demo.barretlee.com" target="_blank">Demo平台</a></p>
+          <p class="seperator"><a  target="_blank" href="http://md.barretlee.com" target="_blank">WX格式</a></p>
+          <p><a  target="_blank" href="http://snippets.barretlee.com" target="_blank">Snippet应用</a></p>
+        </div>
+    </span> -->
+    <!-- <span class="func-item">
+        <i class="func-fb icon">&#x2121;<span>留言</span></i>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a href="/message/" target="_blank">给我留言</a></p>
+          <p><a href="/comments/" target="_blank">近期留言</a></p>
+        </div>
+    </span> -->
+    <span class="func-item">
+        <a href="/friends/" target="_blank"><i class="func-rss icon">&#xe601;<span>链接</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="/friends/" target="_blank">友情链接</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <a href="/rss2.xml" target="_blank"><i class="func-rss icon">&#x25c8;<span>订阅</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i><a href="/rss2.xml" target="_blank">订阅我吧！</a></div>
+    </span>
+	</div>
+</div>
+
+<div class="single-page-footer">
+<div class="footer">
+	<div class="footer-wraper">
+		<div class="footer-content">
+			<div class="footer-nav">
+	<a href="javascript: void(0);" class="ds-thread-count disqus-comment-count"
+	   data-thread-key="cb-get-and-post"
+	   data-disqus-identifier="cb-get-and-post" 
+		 tabindex="0" aria-hidden="true">评论内容</a>
+	<a href="javascript: void(0);" id="comments">相关文章</a>
+	<a href="/friends/" tabindex="0" aria-hidden="true" style="display: none;">友情链接</a>
+</div>
+<div class="nav-detail">
+	<div tabindex="0">
+		
+  <div id="gitalk" sid="cb-get-and-post"></div>
+  <script charset="utf-8" type="text/javascript" src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/gitalk.js"></script>
+  <script type="text/javascript">
+  var postContent = document.querySelectorAll('.post-content>p');
+  if (postContent && postContent.length) {
+    postContent = postContent.item(0).textContent + (postContent.item(1) && postContent.item(1).textContent || '');
+    postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
+  }
+
+  var gitalk = new Gitalk({
+    clientID: '50a1b3aa7854b01a1c85',
+    clientSecret: '226ac154f80a6aea0985da874126b35795f22eed',
+    language: "zh-CN",
+    perPage: 100,
+    createIssueManually: false,
+    repo: 'blog',
+    owner: 'barretlee',
+    admin: ['barretlee'],
+    id: "cb-get-and-post",
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent,
+    distractionFreeMode: false
+  });
+
+  window.addEventListener('load', function () {
+    gitalk.render('gitalk');
+  });
+
+  // show count
+  var commentTimer = setInterval(() => {
+    var count = document.querySelector('.gt-link-counts');
+    var showCount = document.querySelector('.hash-to-comments');
+    if (count && showCount) {
+      showCount.textContent = count.textContent;
+      clearInterval(commentTimer);
+    }
+  }, 500);
+  setTimeout(() => {
+    clearInterval(commentTimer);
+  }, 60 * 1E3);
+  </script>
+  
+	</div>
+	<div style="display:block;">
+		<div class="relative-wrapper">
+	<div class="relative-article">
+		
+		<ul>
+			<li>
+				<span><font aria-hidden="true">2017-06-16 »</font> </span>
+				<a href="/blog/2017/06/16/bittorrent-dht-protocal/">BitTorrent DHT 协议简述</a>
+				<span class="aria-readonly">发表时间为2017年06月16日</span>
+				<div class="relative-box">
+          <a href="/blog/2017/06/16/bittorrent-dht-protocal/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2017/06/16/6c0378f8gy1fgn4e4xjodj20rs0flaap.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2017/06/16/6c0378f8gy1fgn4e4xjodj20rs0flaap.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>BitTorrent DHT 协议原理还是比较好理解的，内容不多，本文把基本的介绍、规则和路由表维护规则做了简述，方便理解。官方文档：http://www.bittorrent.org/beps/bep_0005.html-->
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2017-05-01 »</font> </span>
+				<a href="/blog/2017/05/01/wp-local-development/">Wordpress 本地调试</a>
+				<span class="aria-readonly">发表时间为2017年05月01日</span>
+				<div class="relative-box">
+          
+          <span class="aria-readonly">文章概要 </span>最近准备把博客迁移到 Wordpress 上，在主机上部署好了 Wordpress 后，遇到了一个头疼的问题，我期望将线上的环境同步一份到本地，本地代码与服务器保持同步，本地修改后可以及时预览。
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-12-26 »</font> </span>
+				<a href="/blog/2016/12/26/how-to-design-webhook/">如何设计友好的 WebHook</a>
+				<span class="aria-readonly">发表时间为2016年12月26日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/12/26/how-to-design-webhook/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/12/26/TB19mqDOVXXXXceapXXXXXXXXXX-580-283.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/12/26/TB19mqDOVXXXXceapXXXXXXXXXX-580-283.png"/></a>
+          <span class="aria-readonly">文章概要 </span>在一些工具流的设计中，经常遇到一个体验非常不好的情况：-->每次都需要采用长轮询或者隔一段时间再尝试的方式获取结果。其原因可能有两个：调用方（Client）没有一个稳定的在线服务，Server 无法主动联系 ClientServer 并没有考虑主动 Push 消息
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-11-19 »</font> </span>
+				<a href="/blog/2016/11/19/nginx-configuration-start/">Nginx 配置简述</a>
+				<span class="aria-readonly">发表时间为2016年11月19日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/11/19/nginx-configuration-start/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/11/19/6c0378f8gw1f9yyq7qehrj20p00dwt94.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/11/19/6c0378f8gw1f9yyq7qehrj20p00dwt94.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>不论是本地开发，还是远程到 Server 开发，还是给提供 demo 给人看效果，我们时常需要对 Nginx 做配置，Nginx 的配置项相当多，如果考虑性能配置起来会比较麻烦。不过，我们往往只是需要一个静态 Server，或者一个反向代理 Server，这对 Nginx 来说小菜一碟。本文将给大家介绍 Nginx 配置的基本知识，不想细看的同学可以直接跳到最后一个例子。-->
+        </div>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>留下评论</span></div>
+		<!-- <a href="/entry/" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a> -->
+	</div>
+	<div class="friends-box">
+		<ul>
+			
+			<li><a  target="_blank" href="http://hustskyking.cnblogs.com" target="_blank">旧博客</a> <font aria-hidden="true">»</font> <span>我的旧博客（博客园荣誉博客）</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangmengxue.com" target="_blank">大额</a> <font aria-hidden="true">»</font> <span>大额大额哼歌等日落</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangxinxu.com" target="_blank">张鑫旭</a> <font aria-hidden="true">»</font> <span>原来大学我俩一个团队的~</span></li>
+			
+			<li><a  target="_blank" href="http://web-tinker.com" target="_blank">次碳酸钴</a> <font aria-hidden="true">»</font> <span>深度交流的一个好朋友</span></li>
+			
+			<li><a  target="_blank" href="http://imququ.com" target="_blank">屈屈</a> <font aria-hidden="true">»</font> <span>蛐蛐同学</span></li>
+			
+			<li><a  target="_blank" href="http://www.ruanyifeng.com" target="_blank">阮一峰</a> <font aria-hidden="true">»</font> <span>阮老师</span></li>
+			
+			<li><a href="/friends/">更多列表 <font aria-hidden="true">»</font></a></li>
+		</ul>
+	</div>
+</div>
+			
+<div class="website-info" aria-hidden="true">
+	<a class="page_editor" href="/admin/#/posts/cmd9nvp9y003fqk9bc246g2jo" target="_blank">🙈</a>
+	<span>&copy;2013-2025 <small><a  target="_blank" href="https://www.miit.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
+	本站由 <a href="/">Barret李靖</a> 纯手工打造 | <a href="/about#contact">联系方式</a>
+	<a href='https://union.zhaodao.ai/#random' title="随机跳转到一个有意思的网站" target='_blank' class="zhidao_ai"><img src='https://img.alicdn.com/imgextra/i2/O1CN01VjiZUL1r0eXge4taM_!!6000000005569-55-tps-300-300.svg' width="20" height="20"></a>
+</div>
+
+		</div>
+	</div>
+</div>
+</div>
+<div class="tools-wrapper" tabindex="0" aria-hidden="true">
+	<a class="gotop icon" href="#" title="回到顶部">&#x2191;</a>
+	<!-- <a class="wechart icon">&#xe60d;<span><img src="/blogimgs/wechart.png" title="扫码添加小胡子哥微信"/> </span></a> -->
+	<a class="hash-to-comments icon" title="我要评论">&#x2121;</a>
+</div>
+<div class="fixerr" tabindex="0" aria-hidden="true">纠错模式</div>
+
+</body>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/jquery.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/main.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67248043-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-67248043-3');
+</script>
+
+<!-- Baidu Analysis -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3524fff9629f2c80f8ea5daa13e67003";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.async = true;
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+  window.onerror = function(e) {
+    window.console && window.console.log && window.console.log(e);
+    try {
+      $('#loadLayer').remove();
+    } catch(e) {}
+    return true;
+  };
+</script>
+</html>

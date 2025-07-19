@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript分号，加还是不加？ | 小胡子哥的个人网站</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
+  <meta name="author" content="https://plus.google.com/112634278852964994392?hl=zh-cn">
+  <meta name="email" content="barret.china@gmail.com">
+  <meta name="description" content="关于这个问题，网上已经有很多人讨论过了，我先说说自己对这个问题的回答：加！（但非必须）有些人写代码，懒得加分号，除非是迫不得已才勉强放一个分号上去。如果你可以保证你写的代码不出现任何 bug，那当然是没有问题，但是很多 JSer 新人，对一些隐含的问题并不是特别清楚，很容易在不知不觉中写出一堆 bug，">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Javascript分号，加还是不加？ | 小胡子哥的个人网站">
+  <meta property="og:url" content="https://www.barretlee.com/blog/2014/03/16/cb-semicolon-retalk/">
+  <meta property="og:site_name" content="Javascript分号，加还是不加？">
+  <meta property="og:description" content="关于这个问题，网上已经有很多人讨论过了，我先说说自己对这个问题的回答：加！（但非必须）有些人写代码，懒得加分号，除非是迫不得已才勉强放一个分号上去。如果你可以保证你写的代码不出现任何 bug，那当然是没有问题，但是很多 JSer 新人，对一些隐含的问题并不是特别清楚，很容易在不知不觉中写出一堆 bug，">
+  <meta name="generator" content="https://hexo.io" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link href="https://img.alicdn.com/imgextra/i4/O1CN01LKRotr20M1ZGJkT3v_!!6000000006834-2-tps-1200-1200.png" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="https://img.alicdn.com/imgextra/i3/O1CN01EVx62B1eyZLyJsJnY_!!6000000003940-2-tps-100-100.png" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="https://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
+  <link rel="prev" href="https://www.barretlee.com/blog/2014/03/17/cb-two-yeas/" title="感想以及一些文章索引" />
+  <link rel="next" href="https://www.barretlee.com/blog/2014/03/14/cb-open-source/" title="软件（代码）开源，协议声明" />
+  <link rel="start" href="https://www.barretlee.com/entry/" title="Blog Entry" />
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/css/style-20230627-2.css">
+</head>
+
+
+<body>
+  <div class="rainbow"></div>
+  <div class="container">
+  <span class="local-search local-search-google local-search-plugin" style="display: none;">
+  <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+  <i class="icon" aria-hidden="true" title="点击进入 Google 搜索">&#x2708;</i>
+  <div id="local-search-result" class="local-search-result-cls"></div>
+</span>
+  <div class="article" itemscope itemtype="http://schema.org/Article">
+    <div class="post">
+      <div class="bread">
+        <a href="/">小胡子哥的个人网站</a> »
+        <a href="/entry/">博客</a> »
+        
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+
+      </div>
+      <div class="post-title-wrapper">
+        <h1 class="post-title" itemprop="name">Javascript分号，加还是不加？</h1>
+        <a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i1/O1CN01zmj6R326ehPa0NZO2_!!6000000007687-2-tps-1200-1200.png" alt="Barret李靖" /></a>
+      </div>
+      <div class="post-info">
+        <span>作者: <a href="/about/">Barret李靖</a></span>
+        <span>
+          <time itemprop="timeCreated" aria-hidden="true">2014-03-16 03:51:00</time>
+          <span class="aria-readonly">本文发布时间为2014年03月16日03时51分00秒</span>
+        </span>
+        
+        <span>分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+</span>
+        
+        
+        <span tabindex="0" aria-hidden="true">标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</span>
+        
+        <span class="aria-readonly">下面是正文内容</span>
+        <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
+                      class="ds-thread-count hash-to-comments disqus-comment-count"
+                      data-thread-key="cb-semicolon-retalk"
+                      data-disqus-identifier="cb-semicolon-retalk"></a></span>
+      </div>
+      <div class="post-content" itemprop="articleBody">
+        
+        <p>关于这个问题，网上已经有很多人讨论过了，我先说说自己对这个问题的回答：加！（但非必须）</p>
+<p>有些人写代码，懒得加分号，除非是迫不得已才勉强放一个分号上去。如果你可以保证你写的代码不出现任何 bug，那当然是没有问题，但是很多 JSer 新人，对一些隐含的问题并不是特别清楚，很容易在不知不觉中写出一堆 bug，我们先来了解下 JS 词法语法解析的时候，哪些情况下会自动插入分号。</p>
+<h3>一、自动插入分号的规则</h3>
+<p><span><strong>注：鼠标滑过文字可以看到翻译原文</strong></span></p>
+<p>1. <span class="translator" title="When, as the program is parsed from left to right, a token (called the offending token) is encountered that is not allowed by any production of the grammar, then a semicolon is automatically inserted before the offending token if one or more of the following conditions is true:">程序从左到右解析，当纳入下一个 token 无法匹配任何语法：</span></p>
+<ul>
+<li><span class="translator" title="The offending token is separated from the previous token by at least one LineTerminator.">如该 token 跟之前的 token 之间有至少一个 LineTerminal 行终结符违反分割</span></li>
+<li><span class="translator" title="The offending token is }.">该 token 为 `}` 符号时</span></li>
+</ul>
+<p>2. <span class="translator" title="When, as the program is parsed from left to right, the end of the input stream of tokens is encountered and the parser is unable to parse the input token stream as a single complete ECMAScript Program, then a semicolon is automatically inserted at the end of the input stream.">程序从左到右解析，当纳入下一个（或几个） token 不能产生一条合法的语句的时候，会在这个地方插入一个分号。</span></p>
+
+<p>
+3. <span class="translator" title="When, as the program is parsed from left to right, a token is encountered that is allowed by some production of the grammar, but the production is a restricted production and the token would be the first token for a terminal or nonterminal immediately following the annotation \[no LineTerminator here]" within the restricted production (and therefore such a token is called a restricted token), and the restricted token is separated from the previous token by at least one LineTerminator, then a semicolon is automatically inserted before the restricted token.">程序从左到右解析，当纳入的 token 能够产生一条合法语句，但是这条语句是受限产生式时，在该受限 token 前面自动插入分号。</span>
+</p>
+<p>上面提到的一些内容来自 ECMAScript5.1 第七章第九节，可以戳<a  target="_blank" href="http://barretlee.com/ST/ES5.1/#sec-7.9.1" target="_blank">这里</a>，翻译的不太通顺，实在是太难翻译了= =</p>
+<h3>二、一些不加分号会出问题的场景</h3>
+<p><strong>场景一：</strong></p>
+
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">s = <span class="selector-tag">a</span> + <span class="selector-tag">b</span></span><br><span class="line">(x + y)<span class="selector-class">.doSomething</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我们期望这是这是两条语句，结果会被解析成：</p>
+
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">s</span> = a + b(x + y).doSomething()<span class="comment">;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>b 在这里成了一个函数了。</p>
+<p><strong>场景二：</strong></p>
+
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="section">x</span></span><br><span class="line"><span class="section">++</span></span><br><span class="line">y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这个 ++ 符号会给谁？答案是：</p>
+
+<figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">x</span><span class="comment">; ++y;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这样的代码当然是很少遇到，但是遇到这种情况：</p>
+<p><strong>场景三：</strong></p>
+
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span></span><br><span class="line"><span class="literal">true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>我们期望返回 true，结果：</p>
+
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line"><span class="keyword">return</span>;</span><br><span class="line"><span class="literal">true</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>给我们返回了 undefined。</p>
+<p><strong>场景四：</strong></p>
+
+<figure class="highlight delphi"><table><tr><td class="code"><pre><span class="line">s = <span class="function"><span class="keyword">function</span><span class="params">(x)</span><span class="comment">&#123;return x&#125;</span></span></span><br><span class="line"><span class="function"><span class="params">(1 + 2)</span>.<span class="title">toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br></pre></td></tr></table></figure>
+
+<p>他被解析成了</p>
+
+<figure class="highlight delphi"><table><tr><td class="code"><pre><span class="line">s = <span class="function"><span class="keyword">function</span><span class="params">(x)</span><span class="comment">&#123;return x&#125;</span><span class="params">(1 + 2)</span>.<span class="title">toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br></pre></td></tr></table></figure>
+
+<p><code>function(x)&#123;return x&#125;(1 + 2)</code> 这个作为一个整体，1+2 作为参数送入函数，该函数的返回值为 3，然后执行 3.toString()，这样的问题藏的比较深，不容易被发现。</p>
+<h3>三、规避问题</h3>
+<p>有些语句是以 <code>[</code> 或者 <code>(</code> 开头，就像上面提到的场景一和场景四，这些 token 很容易和上一条没有加分号的语句合并到一起，如果你不太喜欢加分号，可以这样来处理：</p>
+
+<figure class="highlight wren"><table><tr><td class="code"><pre><span class="line"><span class="variable">s</span> <span class="operator">=</span> <span class="title function_">function</span>(<span class="params">x</span>)&#123;<span class="keyword">return</span> <span class="variable">x</span>&#125;</span><br><span class="line">;(<span class="number">1</span> <span class="operator">+</span> <span class="number">2</span>).<span class="property">toString</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这也是为什么我们会经常看到别人的代码中写出这样的函数：</p>
+
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">;(<span class="keyword">function</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在 function 的前面加了一个分号，目的就是为了防止整个函数的返回值作为参数送入上一条语句之中。</p>
+<p>对于场景三，要特别说明一下，除了 return 之外，还有 break 和 continue 语句，break 和 continue 类似 C 语言中的 goto ，他是可以在后面添加 tag 的，如果 tag 和 这些关键词之间存在 <a  target="_blank" href="http://barretlee.com/ST/ES5.1/#sec-7.3" target="_blank">LineTerminal </a>，这些 tag 就会被忽略，如：</p>
+
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">break</span><br><span class="line"><span class="keyword">tag</span></span><br><span class="line"><span class="title"></span></span><br></pre></td></tr></table></figure>
+
+<p>我们期望程序会调到 tag 所指向的程序段，但结果被解析成</p>
+
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">break<span class="comment">;</span></span><br><span class="line">tag<span class="comment">;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3>四、小结</h3>
+<p>看到上面的一些列问题，相信大家心里还是有自己的答案了，如果你有信心代码里头不出现因为不写分号而导致的错误，那分号的取舍其实是无所谓的。</p>
+
+
+      </div>
+    </div>
+    
+<div class="old-article-warning">
+	本文在 <b>4144</b> 天之前发表，技术更替飞快，文中部分内容可能已经过时，如有疑问，请联系作者 <a href="/about">Barret李靖</a>。
+</div>
+
+    <!-- <div class="follow-wechat"><img src="/blogimgs/follow.jpg"></div> -->
+
+<div class="copyright" itemscope itemtype="http://schema.org/ProfilePage" tabindex="0" aria-hidden="true">
+	<!-- <a href="/about/#support" class="supportme">赏</a> -->
+	<ul>
+		<li>作者: <a href="/about/" itemprop="name">Barret李靖</a></li>
+		
+		<li>文章分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+</li>
+		
+		
+		<li>文章标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</li>
+		
+		<li>发表日期: 2014-03-16 03:51:00</li>
+		<li>最后编辑时间: 2025-07-19 11:01:03</li>
+		<li>本文 Markdown 地址: <a target="_
+			" href="https://github.com/barretlee/blog/tree/master/blog/src/_posts/2014-03-16-cb-semicolon-retalk.md">Javascript分号，加还是不加？</a></li>
+		<li>版权声明：<a  target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">CC BY-NC-ND 3.0</a></li>
+		<li>
+			Feed 订阅: <a href="/rss2.xml"><i class="icon">&#x25c8;</i></a>
+			<div style="opacity:.3;text-align:right;margin:5px -5px -10px 0;float:right;font-size: 12px;">
+				编辑本文：<a  target="_blank" href="https://github.com/barretlee/blog/edit/master/blog/src/_posts/2014-03-16-cb-semicolon-retalk.md" target="_blank" aria-hidden="true"><i class="icon">&#xe622;</i></a>；
+				新建文章：<a  target="_blank" href="https://github.com/barretlee/blog/new/master/blog/src/_posts" target="_blank" aria-hidden="true"><i class="icon">&#xe616;</i></a>
+			</div>
+		</li>
+		
+	</ul>
+	<a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png" /></a>
+</div>
+
+    <em  class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾
+<ul role="group" aria-labelledby="i1" aria-expanded="false">
+  <li><a href="/entry/">博客</a></li>
+  <!-- <li><a href="/translation/">翻译</a></li> -->
+  <li><a href="/message/">留言</a></li>
+  <li><a href="/demo/">实验室</a></li>
+  <!-- <a><a href="/comments/">最近评论</a></li> -->
+  <li><a href="/friends/">友情链接</a></li>
+</ul>
+</em>
+  </div>
+  <div class="post-relative">
+<div class="page-relative">
+  
+    <a href="/blog/2014/03/17/cb-two-yeas/" class="post-prev">
+      <i class="icon" tabindex="0" aria-hidden="true">&#x261c;</i>
+      <span class="aria-readonly">上一篇文章</span>
+      
+        <b>感想以及一些文章索引</b>
+      
+    </a>
+  
+  
+    <a href="/blog/2014/03/14/cb-open-source/" class="post-next">
+      <span class="aria-readonly">下一篇文章</span>
+      <b>软件（代码）开源，协议声明</b>
+      <i class="icon" tabindex="0" aria-hidden="true">&#xe602;</i>
+    </a>
+  
+</div>
+
+
+<div class="page-relative-fixed" tabindex="0" aria-hidden="true">
+  
+  <a href="/blog/2014/03/17/cb-two-yeas/" class="prev" title="感想以及一些文章索引">
+    <i class="icon">&#xe600;</i>
+    
+    <b>感想以及一些文章索引</b>
+    
+  </a>
+  
+  
+  <a href="/blog/2014/03/14/cb-open-source/" class="next" title="软件（代码）开源，协议声明">
+    <i class="icon">&#x261e;</i>
+    <b>软件（代码）开源，协议声明</b>
+  </a>
+  
+</div>
+</div>
+</div>
+<div class="sidebar" tabindex="0" aria-hidden="true">
+	<div class="func-btns func-btns-up">
+    <span class="func-item">
+        <i class="func-nav icon">&#xe618;<span>目录</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="javascript:void(0);" onclick="return false;">显示目录</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-font icon">&#xe604;<span>夜间</span></i>
+        <div class="font-choose-box">
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <div class="font-choose bg-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-sun font-type-song"><i class="icon">&#xe61a;</i></a>
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-moon font-type-hei"><i class="icon">&#xe619;</i></a>
+          </div>
+          <!-- <div class="font-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-song">黑体</a>
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-hei">宋体</a>
+          </div> -->
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-about icon">&#x263b;<span>关于</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p><a href="/about/" class="func-about-link" target="_blank">关于作者</a></p>
+          <div id="followMeOnWeibo"></div>
+        </div>
+    </span>
+	</div>
+	<div class="func-btns">
+    <!-- <span class="func-item">
+        <a  target="_blank" href="http://demo.barretlee.com" target="_blank"><i class="func-rss icon">&#xe603;<span>实验</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a  target="_blank" href="http://demo.barretlee.com" target="_blank">Demo平台</a></p>
+          <p class="seperator"><a  target="_blank" href="http://md.barretlee.com" target="_blank">WX格式</a></p>
+          <p><a  target="_blank" href="http://snippets.barretlee.com" target="_blank">Snippet应用</a></p>
+        </div>
+    </span> -->
+    <!-- <span class="func-item">
+        <i class="func-fb icon">&#x2121;<span>留言</span></i>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a href="/message/" target="_blank">给我留言</a></p>
+          <p><a href="/comments/" target="_blank">近期留言</a></p>
+        </div>
+    </span> -->
+    <span class="func-item">
+        <a href="/friends/" target="_blank"><i class="func-rss icon">&#xe601;<span>链接</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="/friends/" target="_blank">友情链接</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <a href="/rss2.xml" target="_blank"><i class="func-rss icon">&#x25c8;<span>订阅</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i><a href="/rss2.xml" target="_blank">订阅我吧！</a></div>
+    </span>
+	</div>
+</div>
+
+<div class="single-page-footer">
+<div class="footer">
+	<div class="footer-wraper">
+		<div class="footer-content">
+			<div class="footer-nav">
+	<a href="javascript: void(0);" class="ds-thread-count disqus-comment-count"
+	   data-thread-key="cb-semicolon-retalk"
+	   data-disqus-identifier="cb-semicolon-retalk" 
+		 tabindex="0" aria-hidden="true">评论内容</a>
+	<a href="javascript: void(0);" id="comments">相关文章</a>
+	<a href="/friends/" tabindex="0" aria-hidden="true" style="display: none;">友情链接</a>
+</div>
+<div class="nav-detail">
+	<div tabindex="0">
+		
+  <div id="gitalk" sid="cb-semicolon-retalk"></div>
+  <script charset="utf-8" type="text/javascript" src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/gitalk.js"></script>
+  <script type="text/javascript">
+  var postContent = document.querySelectorAll('.post-content>p');
+  if (postContent && postContent.length) {
+    postContent = postContent.item(0).textContent + (postContent.item(1) && postContent.item(1).textContent || '');
+    postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
+  }
+
+  var gitalk = new Gitalk({
+    clientID: '50a1b3aa7854b01a1c85',
+    clientSecret: '226ac154f80a6aea0985da874126b35795f22eed',
+    language: "zh-CN",
+    perPage: 100,
+    createIssueManually: false,
+    repo: 'blog',
+    owner: 'barretlee',
+    admin: ['barretlee'],
+    id: "cb-semicolon-retalk",
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent,
+    distractionFreeMode: false
+  });
+
+  window.addEventListener('load', function () {
+    gitalk.render('gitalk');
+  });
+
+  // show count
+  var commentTimer = setInterval(() => {
+    var count = document.querySelector('.gt-link-counts');
+    var showCount = document.querySelector('.hash-to-comments');
+    if (count && showCount) {
+      showCount.textContent = count.textContent;
+      clearInterval(commentTimer);
+    }
+  }, 500);
+  setTimeout(() => {
+    clearInterval(commentTimer);
+  }, 60 * 1E3);
+  </script>
+  
+	</div>
+	<div style="display:block;">
+		<div class="relative-wrapper">
+	<div class="relative-article">
+		
+		<ul>
+			<li>
+				<span><font aria-hidden="true">2019-03-13 »</font> </span>
+				<a href="/blog/2019/03/13/first-buildin-module-kv-storage/">KV Storage，Web 上第一个内置模块</a>
+				<span class="aria-readonly">发表时间为2019年03月13日</span>
+				<div class="relative-box">
+          <a href="/blog/2019/03/13/first-buildin-module-kv-storage/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2019/03/13/kv-storage-build-in-module.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2019/03/13/kv-storage-build-in-module.png"/></a>
+          <span class="aria-readonly">文章概要 </span>原文地址：KV Storage, the Web’s First Built-in Module原文时间：2019年3月翻译计划：https://github.com/barretlee/translation-plan翻译人员：小胡子哥在...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2017-06-06 »</font> </span>
+				<a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/">深入理解 Node Stream 内部机制</a>
+				<span class="aria-readonly">发表时间为2017年06月06日</span>
+				<div class="relative-box">
+          <a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2017/06/06/node-stream-readable-flowing.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2017/06/06/node-stream-readable-flowing.png"/></a>
+          <span class="aria-readonly">文章概要 </span>相信很多人对 Node 的 Stream 已经不陌生了，不论是请求流、响应流、文件流还是 socket 流，这些流的底层都是使用 stream 模块封装的，甚至我们平时用的最多的 console.log 打印日志也使用了它，不信你打开 No...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-09-28 »</font> </span>
+				<a href="/blog/2016/09/28/ieee754-operation-in-js/">揭秘 0.1 + 0.2 != 0.3</a>
+				<span class="aria-readonly">发表时间为2016年09月28日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/09/28/ieee754-operation-in-js/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>“0.1 + 0.2 &#x3D; ?”，这道题如果给小学生，他会立马告诉你答案是 0.3，但是交给一些程序去计算，结果就不是那么简单了。-->
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-08-23 »</font> </span>
+				<a href="/blog/2016/08/23/javascript-sandbox/">构建一个安全的 JavaScript 沙箱</a>
+				<span class="aria-readonly">发表时间为2016年08月23日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/08/23/javascript-sandbox/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>-->在 Node.js 中有一个模块叫做 VM，它提供了几个 API，允许代码在 V8 虚拟机上下文中运行，如：const vm = require(&#x27;vm&#x27;);const sandbox = &#123; a: 1, b: 2 &#125;;const script = new vm.Script(&#x27;a + b&#x27;);const context = new vm.createContext(sandbox);script.runInContext(context);vm.Script 中的代码是预编译好的，通过 vm.createContext 将代码加载到一个上下文环境中，置入沙箱（sandbox），然后通过 script.runInContext 执行代码，整个操作都在封闭的 VM 中进行。这是 Node.js 提供给我们的便捷功能，那么，在浏览器环境中呢？是否也能做到将代码运行在沙箱中？本文带着大家来探索一番。
+        </div>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>留下评论</span></div>
+		<!-- <a href="/entry/" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a> -->
+	</div>
+	<div class="friends-box">
+		<ul>
+			
+			<li><a  target="_blank" href="http://hustskyking.cnblogs.com" target="_blank">旧博客</a> <font aria-hidden="true">»</font> <span>我的旧博客（博客园荣誉博客）</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangmengxue.com" target="_blank">大额</a> <font aria-hidden="true">»</font> <span>大额大额哼歌等日落</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangxinxu.com" target="_blank">张鑫旭</a> <font aria-hidden="true">»</font> <span>原来大学我俩一个团队的~</span></li>
+			
+			<li><a  target="_blank" href="http://web-tinker.com" target="_blank">次碳酸钴</a> <font aria-hidden="true">»</font> <span>深度交流的一个好朋友</span></li>
+			
+			<li><a  target="_blank" href="http://imququ.com" target="_blank">屈屈</a> <font aria-hidden="true">»</font> <span>蛐蛐同学</span></li>
+			
+			<li><a  target="_blank" href="http://www.ruanyifeng.com" target="_blank">阮一峰</a> <font aria-hidden="true">»</font> <span>阮老师</span></li>
+			
+			<li><a href="/friends/">更多列表 <font aria-hidden="true">»</font></a></li>
+		</ul>
+	</div>
+</div>
+			
+<div class="website-info" aria-hidden="true">
+	<a class="page_editor" href="/admin/#/posts/cmd9nvpbc009pqk9b2v8k6s6o" target="_blank">🙈</a>
+	<span>&copy;2013-2025 <small><a  target="_blank" href="https://www.miit.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
+	本站由 <a href="/">Barret李靖</a> 纯手工打造 | <a href="/about#contact">联系方式</a>
+	<a href='https://union.zhaodao.ai/#random' title="随机跳转到一个有意思的网站" target='_blank' class="zhidao_ai"><img src='https://img.alicdn.com/imgextra/i2/O1CN01VjiZUL1r0eXge4taM_!!6000000005569-55-tps-300-300.svg' width="20" height="20"></a>
+</div>
+
+		</div>
+	</div>
+</div>
+</div>
+<div class="tools-wrapper" tabindex="0" aria-hidden="true">
+	<a class="gotop icon" href="#" title="回到顶部">&#x2191;</a>
+	<!-- <a class="wechart icon">&#xe60d;<span><img src="/blogimgs/wechart.png" title="扫码添加小胡子哥微信"/> </span></a> -->
+	<a class="hash-to-comments icon" title="我要评论">&#x2121;</a>
+</div>
+<div class="fixerr" tabindex="0" aria-hidden="true">纠错模式</div>
+
+</body>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/jquery.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/main.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67248043-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-67248043-3');
+</script>
+
+<!-- Baidu Analysis -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3524fff9629f2c80f8ea5daa13e67003";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.async = true;
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+  window.onerror = function(e) {
+    window.console && window.console.log && window.console.log(e);
+    try {
+      $('#loadLayer').remove();
+    } catch(e) {}
+    return true;
+  };
+</script>
+</html>

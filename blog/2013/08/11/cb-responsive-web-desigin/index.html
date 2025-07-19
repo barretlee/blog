@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>那些年，我们一起玩过的响应式布局 | 小胡子哥的个人网站</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
+  <meta name="author" content="https://plus.google.com/112634278852964994392?hl=zh-cn">
+  <meta name="email" content="barret.china@gmail.com">
+  <meta name="description" content="&amp;nbsp;博客园的资源很丰富，也很精彩。不过这些精彩的东西放到一些移动终端上阅览就不堪入目了，体验相当不好。&amp;nbsp;&amp;nbsp;&amp;nbsp;你可以忍受每一次打开博客，还得放大屏幕阅读么？整个屏幕都挤满了很小很小的文字，反正我是受够了。&amp;nbsp;所以，我们需要改变！！！ 先看看什么是响应式布局，你">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="那些年，我们一起玩过的响应式布局 | 小胡子哥的个人网站">
+  <meta property="og:url" content="https://www.barretlee.com/blog/2013/08/11/cb-responsive-web-desigin/">
+  <meta property="og:site_name" content="那些年，我们一起玩过的响应式布局">
+  <meta property="og:description" content="&amp;nbsp;博客园的资源很丰富，也很精彩。不过这些精彩的东西放到一些移动终端上阅览就不堪入目了，体验相当不好。&amp;nbsp;&amp;nbsp;&amp;nbsp;你可以忍受每一次打开博客，还得放大屏幕阅读么？整个屏幕都挤满了很小很小的文字，反正我是受够了。&amp;nbsp;所以，我们需要改变！！！ 先看看什么是响应式布局，你">
+  <meta name="generator" content="https://hexo.io" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link href="https://img.alicdn.com/imgextra/i4/O1CN01LKRotr20M1ZGJkT3v_!!6000000006834-2-tps-1200-1200.png" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="https://img.alicdn.com/imgextra/i3/O1CN01EVx62B1eyZLyJsJnY_!!6000000003940-2-tps-100-100.png" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="https://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
+  <link rel="prev" href="https://www.barretlee.com/blog/2013/08/13/cb-license/" title="五种开源协议的比较(BSD,Apache,GPL,LGPL,MIT) – 整理" />
+  <link rel="next" href="https://www.barretlee.com/blog/2013/08/09/cb-css-bug-in-IE6/" title="IE6的一个小bug" />
+  <link rel="start" href="https://www.barretlee.com/entry/" title="Blog Entry" />
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/css/style-20230627-2.css">
+</head>
+
+
+<body>
+  <div class="rainbow"></div>
+  <div class="container">
+  <span class="local-search local-search-google local-search-plugin" style="display: none;">
+  <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+  <i class="icon" aria-hidden="true" title="点击进入 Google 搜索">&#x2708;</i>
+  <div id="local-search-result" class="local-search-result-cls"></div>
+</span>
+  <div class="article" itemscope itemtype="http://schema.org/Article">
+    <div class="post">
+      <div class="bread">
+        <a href="/">小胡子哥的个人网站</a> »
+        <a href="/entry/">博客</a> »
+        
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+
+      </div>
+      <div class="post-title-wrapper">
+        <h1 class="post-title" itemprop="name">那些年，我们一起玩过的响应式布局</h1>
+        <a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i1/O1CN01zmj6R326ehPa0NZO2_!!6000000007687-2-tps-1200-1200.png" alt="Barret李靖" /></a>
+      </div>
+      <div class="post-info">
+        <span>作者: <a href="/about/">Barret李靖</a></span>
+        <span>
+          <time itemprop="timeCreated" aria-hidden="true">2013-08-11 12:17:00</time>
+          <span class="aria-readonly">本文发布时间为2013年08月11日12时17分00秒</span>
+        </span>
+        
+        <span>分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+</span>
+        
+        
+        <span tabindex="0" aria-hidden="true">标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</span>
+        
+        <span class="aria-readonly">下面是正文内容</span>
+        <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
+                      class="ds-thread-count hash-to-comments disqus-comment-count"
+                      data-thread-key="cb-responsive-web-desigin"
+                      data-disqus-identifier="cb-responsive-web-desigin"></a></span>
+      </div>
+      <div class="post-content" itemprop="articleBody">
+        
+        <p>&nbsp;博客园的资源很丰富，也很精彩。不过这些精彩的东西放到一些移动终端上阅览就不堪入目了，<span>体验相当不好</span>。</p>
+<p>&nbsp;&nbsp;<img src="https://images.cnitblog.com/blog/387325/201308/11111006-2d09cc55663d4efaab0b4e7c9f734775.png" alt="" width="386" height="686"></p>
+<p>&nbsp;你可以忍受每一次打开博客，还得放大屏幕阅读么？整个屏幕都挤满了很小很小的文字，反正我是受够了。</p>
+<p>&nbsp;所以，我们需要改变！！！ 先看看什么是响应式布局，你所看的这篇文章就是采用响应时布局~ <span>（<strong>现代浏览器才能看到效果</strong>）</span></p>
+
+
+<h3>什么是响应式布局</h3>
+<p>我的理解就是，<span>为了让用户享受更好的体验效果，给用户展现最有价值的信息，让同一个页面在不同终端上有不一样的展现效果</span>。比如你正在阅读的这篇博客，当你缩小（放大）浏览器窗口时<em>（先滚动顶部，因为顶部做了比较多的修改，效果比较明显）</em>，你会看到这些神奇的效果。</p>
+<p><span><strong>正常情况下</strong></span>，顶部是这样的：</p>
+<p><img src="https://images.cnitblog.com/blog/387325/201308/11111800-ae1213c1cbe34476b2d4401a788ac48d.jpg" alt="" width="691" height="362"></p>
+<p><span><strong>稍微缩小一点</strong></span>，是这样的：</p>
+<ul>
+<li>变化一：about那个块不见了</li>
+<li>变化二：浮动的推荐<反对框偏移了</li>
+</ul>
+<p><img src="https://images.cnitblog.com/blog/387325/201308/11111900-eee34c4fac6342f585c1d91681d52e4a.jpg" alt="" width="690" height="449"></p>
+<p><span><strong>再缩小一点</strong></span>：</p>
+<ul>
+<li>变化一：背景图片不见了</li>
+<li>变化二：右侧sidebar块跑到文章下面去了</li>
+</ul>
+<p><img src="https://images.cnitblog.com/blog/387325/201308/11112040-da39f5f2f3d04f6bb07917930be7f098.jpg" alt="" width="591" height="525"></p>
+<p><span><strong>还可以再小一点</strong></span>，</p>
+<p>　　这个变化就相当大了，很多东西都不见了，元素的位置也改变了</p>
+<p><img src="https://images.cnitblog.com/blog/387325/201308/11112203-fd25eec77a92454292437db2ca0a40a8.jpg" alt="" width="436" height="564"></p>
+<p>　　那么，什么是响应式布局，你有了一定的理解么~</p>
+
+
+<h3>技术什么的不是关键，关键是设计</h3>
+<p>　　技术太普遍了，大家都会用，可是<span>真正让用户感到舒适的，还是好的设计</span>。<span>我是这样考虑的：</span></p>
+<p><strong>1. 屏幕分类：</strong></p>
+<p>　　根据移动终端的尺寸（分辨率），我大概做了这么些分类：</p>
+<p>　　←480px &nbsp; 481px~700px &nbsp; 701px~960px &nbsp; 961px→</p>
+<p>　　首先搞清楚你的用户群所使用的终端类型和比例，这是2012年第二季度的统计数据</p>
+<p><img src="https://images.cnitblog.com/blog/387325/201308/11112952-d5d987f9fc6247a7afc34ac7d46b87ff.gif" alt=""></p>
+<p><span>　　iPhone、Nokia、HTC、Samsung和Moto 五个品牌的移动终端位居前五位，占比分别为22.13%、13.98 和11.69%、10.87% 和7.47%，其次为Huawei、Sony 和ZTE 等。</span></p>
+<p><span>　　感兴趣的话，可以去搜搜这些终端的分辨率是多少，然后针对这些数据做一个分类~我不多说了。</span></p>
+
+
+<p><strong><span>2. 不同的需求</span></strong></p>
+<p><strong><span>　　</span></strong><span>一个比较小的屏幕能够容纳多少数据，展现多少信息，这一点必须把握住，比如当设备宽度是480像素的时候，我们没必要展现太多的信息，因为你展现出来用户也不会看，这些<span>冗余信息只会影响用户对信息主次的判断，甚至他们会觉得这些冗余信息太多，而跳过你的内容</span>。</span></p>
+<p><span>　　我的设计是这样的：</span></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201308/11113624-b63e08b4fa52468abde3a2c0ea331d00.jpg" alt="" width="406" height="524"></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201308/11113648-0fc153eca1cc433e89023b9ed037a4ac.jpg" alt="" width="405" height="575"></p>
+<p>&nbsp;我的页面只包括这些内容，像随笔分类、随笔档案，友情链接，推荐链接等，<span>这些信息又多又占空间，应该去除!</span></p>
+<p>&nbsp;再比如：刚开始的时候，那个推荐<反对的块及贴在文章的右侧，当窗口缩小之后，我把他放到了右下角，再小些，为了展示更多的内容，直接把他给隐藏了~</p>
+
+
+<h3>关于技术</h3>
+<p>技术核心是Media Query，网上都说烂了。</p>
+<p><strong>给推荐两篇博文：</strong></p>
+<ul>
+<li><a title="Read 'The State Of Responsive Web Design'"  target="_blank" href="http://mobile.smashingmagazine.com/2013/05/29/the-state-of-responsive-web-design/" rel="bookmark" target="_blank">The State Of Responsive Web Design</a></li>
+<li>
+<p class="post_title fs24 f_w"><a title="响应式布局这件小事"  target="_blank" href="http://www.jiawin.com/response-type-layout-design/" rel="bookmark" target="_blank">响应式布局这件小事</a></p>
+</li>
+</ul>
+<p>这两个<span>博客的布局也是响应式布局</span>。</p>
+
+
+<p><strong>需要注意的几个点：</strong></p>
+<p>　　1. head中记得加上这句话：</p>
+
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attribute">content</span>=<span class="string">&quot;width=device-width; initial-scale=1.0&quot;</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>　　如果不加，效果就是本文第一章图所示，文字会很小很多的挤在一个页面上。</p>
+
+
+<p>　　2. media query虽然好用，<strong><span>但是低版本IE不支持</span></strong>，不要纠结，咱把他给忽视掉~O(&cap;_&cap;)O~</p>
+<p>　　如果你太固执一定要考虑的话，推荐这个：<a href="//code.google.com/p/css3-mediaqueries-js/">//code.google.com/p/css3-mediaqueries-js/</a></p>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">     &lt;script src=&quot;https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js&quot;&gt;</span></span><br><span class="line"><span class="comment">&lt;/script&gt; &lt;![endif]--&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>　　把这句话加到你的代码顶部，我试过了，相当不好用，响应式效果甚微。</p>
+
+
+<h3>关于测试工具</h3>
+<p>　　1. 这个网站，你可以试试，戳<a  target="_blank" href="http://dfcb.github.io/Responsivator/" target="_blank">测试工具</a></p>
+<p>　　2. chrome下有一个插件，叫做Moblile/Tablet Divice Testing，下载地址：<a href="//chrome.google.com/webstore/detail/mobiletablet-device-testi/elmekokodcohlommfikpmojheggnbelo" target="_blank">戳我</a></p>
+<p><img src="https://images.cnitblog.com/blog/387325/201308/11115330-20656f7059b8442b8d4443946c499ad5.jpg" alt=""></p>
+
+
+<h3>本文响应式布局代码</h3>
+<p>说了半天，有些童鞋可能等不及想去试试了~</p>
+<p>晒晒我弄的几行代码，有兴趣的可以参考下：<a  target="_blank" href="http://files.cnblogs.com/hustskyking/media-480.css" target="_blank">../file/media-480.css</a></p>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*====================== media =========================*/</span></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">480px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123;</span><br><span class="line">        <span class="attribute">background</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">ul</span><span class="selector-id">#topMnu</span>,</span><br><span class="line">    <span class="selector-tag">a</span><span class="selector-class">.minyx</span>,</span><br><span class="line">    <span class="selector-id">#rss</span>,</span><br><span class="line">    <span class="selector-id">#sideLeft</span>,</span><br><span class="line">    <span class="selector-id">#sideRight</span>,</span><br><span class="line">    <span class="selector-id">#menu</span>,</span><br><span class="line">    <span class="selector-id">#profile_block</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-id">#container</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">96%</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">2%</span>;</span><br><span class="line">        <span class="attribute">min-width</span>: <span class="number">0</span> <span class="meta">!important</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-id">#content</span> &#123;</span><br><span class="line">        <span class="attribute">margin-right</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">float</span>: none;</span><br><span class="line">        <span class="attribute">padding-top</span>: <span class="number">310px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-id">#sidebar</span> &#123;</span><br><span class="line">        <span class="attribute">margin-left</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">float</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.commentbox_title</span>,</span><br><span class="line">    <span class="selector-id">#tbCommentBody</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">96%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#about</span> &#123;</span><br><span class="line">        <span class="attribute">position</span>: absolute;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">96%</span>;</span><br><span class="line">        <span class="attribute">top</span>: <span class="number">80px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#div_digg</span> &#123;</span><br><span class="line">        <span class="attribute">position</span>: static;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#skyking-footer</span> &#123;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">30px</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">15px</span> <span class="number">20px</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#skyking-footer</span> <span class="selector-tag">div</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#skyking-footer</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">        <span class="attribute">float</span>: none;</span><br><span class="line">        <span class="attribute">border</span>: none;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: inline-block;</span><br><span class="line">        <span class="attribute">margin-bottom</span>: <span class="number">15px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#skyking-footer</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">text-indent</span>: <span class="number">2em</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">481px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">699px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span>, <span class="selector-tag">body</span> &#123;</span><br><span class="line">        <span class="attribute">background</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">ul</span><span class="selector-id">#topMnu</span>,</span><br><span class="line">    <span class="selector-tag">a</span><span class="selector-class">.minyx</span>,</span><br><span class="line">    <span class="selector-id">#rss</span> &#123;</span><br><span class="line">        <span class="attribute">display</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-id">#container</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">96%</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">2%</span>;</span><br><span class="line">        <span class="attribute">min-width</span>: <span class="number">0</span> <span class="meta">!important</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-id">#content</span> &#123;</span><br><span class="line">        <span class="attribute">margin-right</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">float</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-id">#sidebar</span> &#123;</span><br><span class="line">        <span class="attribute">margin-left</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">float</span>: none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#about</span> &#123;</span><br><span class="line">        <span class="attribute">position</span>: static;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.commentbox_title</span>,</span><br><span class="line">    <span class="selector-id">#tbCommentBody</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">96%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#skyking-footer</span> &#123;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">30px</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">15px</span> <span class="number">20px</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#skyking-footer</span> <span class="selector-tag">div</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#skyking-footer</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">        <span class="attribute">float</span>: none;</span><br><span class="line">        <span class="attribute">border</span>: none;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">        <span class="attribute">display</span>: inline-block;</span><br><span class="line">        <span class="attribute">margin-bottom</span>: <span class="number">15px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#skyking-footer</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">        <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">        <span class="attribute">text-indent</span>: <span class="number">2em</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#div_digg</span> &#123;</span><br><span class="line">        <span class="attribute">right</span>: <span class="number">15px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">700px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">960px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-id">#container</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">96%</span>;</span><br><span class="line">        <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">2%</span>;</span><br><span class="line">        <span class="attribute">min-width</span>: <span class="number">0</span> <span class="meta">!important</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#wrapper</span> &#123;</span><br><span class="line">        <span class="attribute">overflow-x</span>:hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#skyking-footer</span> <span class="selector-tag">div</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#skyking-footer</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">        <span class="attribute">float</span>: left;</span><br><span class="line">        <span class="attribute">margin-bottom</span>: <span class="number">15px</span>;</span><br><span class="line">        <span class="attribute">margin-left</span>: <span class="number">1%</span>;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">22%</span>;</span><br><span class="line">        <span class="attribute">min-height</span>: <span class="number">120px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-id">#sidebar</span> <span class="selector-tag">div</span><span class="selector-id">#sideRight</span>,</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-id">#sidebar</span> <span class="selector-tag">div</span><span class="selector-id">#sideLeft</span> &#123;</span><br><span class="line">        <span class="attribute">float</span>: none;</span><br><span class="line">        <span class="attribute">width</span>: auto;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-id">#content</span> &#123;</span><br><span class="line">        <span class="attribute">margin-right</span>: <span class="number">32%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">div</span><span class="selector-id">#sidebar</span> &#123;</span><br><span class="line">        <span class="attribute">width</span>: <span class="number">30%</span>;</span><br><span class="line">        <span class="attribute">margin-left</span>: -<span class="number">30%</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#about</span> &#123;</span><br><span class="line">        <span class="attribute">position</span>: static;</span><br><span class="line">        <span class="attribute">display</span>:none;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-id">#div_digg</span> &#123;</span><br><span class="line">        <span class="attribute">right</span>: <span class="number">15px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">meida query</span><br></pre></td></tr></table></figure>
+
+
+
+<h3>小结</h3>
+<p><span>　　响应式布局是这几年很流行的一个设计理念，随着移动互联网的盛行，为解决如今各式各样的浏览器分辨率以及不同移动设备的显示效果，响应式布局显得十分重要。设计虽好，我觉得也存在诸如一下的一些<span><strong>弊端</strong></span>：</span></p>
+<p><span>　　1. 页面需要加载更多额外的内容，比如我们的手机看这个页面的话，体验效果还行，但是那些次要的内容依然被加载进来了，没看看见是因为被我display:none给隐藏了。</span><span>所以，如果想得到好的用户体验，同时节省流量的话，应该在加载之前做一些判断。</span></p>
+<p><span>　　<span>2. 还是存在兼容性问题，要知道，现在IE6-8所占的市场份额仍然在40%+，这么庞大的用户群我们暂时是不能忽略的，若引用其他的JS来矫正，这个太费资源，不可取，而且事实表明这些JS并不好用。</span></span></p>
+
+
+<p>P.S：本文图片都是直接截屏，没有做优化处理，整个页面体积过于庞大，看来图片的优化和lazyload很有必要啊！！！下次弄一个简洁版的lazyload用用~~</p>
+<p>&nbsp;最后。。。来一张萌图，哈哈哈~</p>
+<p><img src="https://images.cnitblog.com/blog/387325/201308/11124011-2bb20347825f45139a41031f0fde7b22.gif" alt=""></p>
+      </div>
+    </div>
+    
+<div class="old-article-warning">
+	本文在 <b>4360</b> 天之前发表，技术更替飞快，文中部分内容可能已经过时，如有疑问，请联系作者 <a href="/about">Barret李靖</a>。
+</div>
+
+    <!-- <div class="follow-wechat"><img src="/blogimgs/follow.jpg"></div> -->
+
+<div class="copyright" itemscope itemtype="http://schema.org/ProfilePage" tabindex="0" aria-hidden="true">
+	<!-- <a href="/about/#support" class="supportme">赏</a> -->
+	<ul>
+		<li>作者: <a href="/about/" itemprop="name">Barret李靖</a></li>
+		
+		<li>文章分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+</li>
+		
+		
+		<li>文章标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</li>
+		
+		<li>发表日期: 2013-08-11 12:17:00</li>
+		<li>最后编辑时间: 2025-07-19 11:01:03</li>
+		<li>本文 Markdown 地址: <a target="_
+			" href="https://github.com/barretlee/blog/tree/master/blog/src/_posts/2013-08-11-cb-responsive-web-desigin.md">那些年，我们一起玩过的响应式布局</a></li>
+		<li>版权声明：<a  target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">CC BY-NC-ND 3.0</a></li>
+		<li>
+			Feed 订阅: <a href="/rss2.xml"><i class="icon">&#x25c8;</i></a>
+			<div style="opacity:.3;text-align:right;margin:5px -5px -10px 0;float:right;font-size: 12px;">
+				编辑本文：<a  target="_blank" href="https://github.com/barretlee/blog/edit/master/blog/src/_posts/2013-08-11-cb-responsive-web-desigin.md" target="_blank" aria-hidden="true"><i class="icon">&#xe622;</i></a>；
+				新建文章：<a  target="_blank" href="https://github.com/barretlee/blog/new/master/blog/src/_posts" target="_blank" aria-hidden="true"><i class="icon">&#xe616;</i></a>
+			</div>
+		</li>
+		
+	</ul>
+	<a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png" /></a>
+</div>
+
+    <em  class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾
+<ul role="group" aria-labelledby="i1" aria-expanded="false">
+  <li><a href="/entry/">博客</a></li>
+  <!-- <li><a href="/translation/">翻译</a></li> -->
+  <li><a href="/message/">留言</a></li>
+  <li><a href="/demo/">实验室</a></li>
+  <!-- <a><a href="/comments/">最近评论</a></li> -->
+  <li><a href="/friends/">友情链接</a></li>
+</ul>
+</em>
+  </div>
+  <div class="post-relative">
+<div class="page-relative">
+  
+    <a href="/blog/2013/08/13/cb-license/" class="post-prev">
+      <i class="icon" tabindex="0" aria-hidden="true">&#x261c;</i>
+      <span class="aria-readonly">上一篇文章</span>
+      
+        <b>五种开源协议的比较(BSD,Apache,GPL,LGPL,MIT) – 整理</b>
+      
+    </a>
+  
+  
+    <a href="/blog/2013/08/09/cb-css-bug-in-IE6/" class="post-next">
+      <span class="aria-readonly">下一篇文章</span>
+      <b>IE6的一个小bug</b>
+      <i class="icon" tabindex="0" aria-hidden="true">&#xe602;</i>
+    </a>
+  
+</div>
+
+
+<div class="page-relative-fixed" tabindex="0" aria-hidden="true">
+  
+  <a href="/blog/2013/08/13/cb-license/" class="prev" title="五种开源协议的比较(BSD,Apache,GPL,LGPL,MIT) – 整理">
+    <i class="icon">&#xe600;</i>
+    
+    <b>五种开源协议的比较(BSD,Apache,GPL,LGPL,MIT) – 整理</b>
+    
+  </a>
+  
+  
+  <a href="/blog/2013/08/09/cb-css-bug-in-IE6/" class="next" title="IE6的一个小bug">
+    <i class="icon">&#x261e;</i>
+    <b>IE6的一个小bug</b>
+  </a>
+  
+</div>
+</div>
+</div>
+<div class="sidebar" tabindex="0" aria-hidden="true">
+	<div class="func-btns func-btns-up">
+    <span class="func-item">
+        <i class="func-nav icon">&#xe618;<span>目录</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="javascript:void(0);" onclick="return false;">显示目录</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-font icon">&#xe604;<span>夜间</span></i>
+        <div class="font-choose-box">
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <div class="font-choose bg-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-sun font-type-song"><i class="icon">&#xe61a;</i></a>
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-moon font-type-hei"><i class="icon">&#xe619;</i></a>
+          </div>
+          <!-- <div class="font-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-song">黑体</a>
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-hei">宋体</a>
+          </div> -->
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-about icon">&#x263b;<span>关于</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p><a href="/about/" class="func-about-link" target="_blank">关于作者</a></p>
+          <div id="followMeOnWeibo"></div>
+        </div>
+    </span>
+	</div>
+	<div class="func-btns">
+    <!-- <span class="func-item">
+        <a  target="_blank" href="http://demo.barretlee.com" target="_blank"><i class="func-rss icon">&#xe603;<span>实验</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a  target="_blank" href="http://demo.barretlee.com" target="_blank">Demo平台</a></p>
+          <p class="seperator"><a  target="_blank" href="http://md.barretlee.com" target="_blank">WX格式</a></p>
+          <p><a  target="_blank" href="http://snippets.barretlee.com" target="_blank">Snippet应用</a></p>
+        </div>
+    </span> -->
+    <!-- <span class="func-item">
+        <i class="func-fb icon">&#x2121;<span>留言</span></i>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a href="/message/" target="_blank">给我留言</a></p>
+          <p><a href="/comments/" target="_blank">近期留言</a></p>
+        </div>
+    </span> -->
+    <span class="func-item">
+        <a href="/friends/" target="_blank"><i class="func-rss icon">&#xe601;<span>链接</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="/friends/" target="_blank">友情链接</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <a href="/rss2.xml" target="_blank"><i class="func-rss icon">&#x25c8;<span>订阅</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i><a href="/rss2.xml" target="_blank">订阅我吧！</a></div>
+    </span>
+	</div>
+</div>
+
+<div class="single-page-footer">
+<div class="footer">
+	<div class="footer-wraper">
+		<div class="footer-content">
+			<div class="footer-nav">
+	<a href="javascript: void(0);" class="ds-thread-count disqus-comment-count"
+	   data-thread-key="cb-responsive-web-desigin"
+	   data-disqus-identifier="cb-responsive-web-desigin" 
+		 tabindex="0" aria-hidden="true">评论内容</a>
+	<a href="javascript: void(0);" id="comments">相关文章</a>
+	<a href="/friends/" tabindex="0" aria-hidden="true" style="display: none;">友情链接</a>
+</div>
+<div class="nav-detail">
+	<div tabindex="0">
+		
+  <div id="gitalk" sid="cb-responsive-web-desigin"></div>
+  <script charset="utf-8" type="text/javascript" src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/gitalk.js"></script>
+  <script type="text/javascript">
+  var postContent = document.querySelectorAll('.post-content>p');
+  if (postContent && postContent.length) {
+    postContent = postContent.item(0).textContent + (postContent.item(1) && postContent.item(1).textContent || '');
+    postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
+  }
+
+  var gitalk = new Gitalk({
+    clientID: '50a1b3aa7854b01a1c85',
+    clientSecret: '226ac154f80a6aea0985da874126b35795f22eed',
+    language: "zh-CN",
+    perPage: 100,
+    createIssueManually: false,
+    repo: 'blog',
+    owner: 'barretlee',
+    admin: ['barretlee'],
+    id: "cb-responsive-web-desigin",
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent,
+    distractionFreeMode: false
+  });
+
+  window.addEventListener('load', function () {
+    gitalk.render('gitalk');
+  });
+
+  // show count
+  var commentTimer = setInterval(() => {
+    var count = document.querySelector('.gt-link-counts');
+    var showCount = document.querySelector('.hash-to-comments');
+    if (count && showCount) {
+      showCount.textContent = count.textContent;
+      clearInterval(commentTimer);
+    }
+  }, 500);
+  setTimeout(() => {
+    clearInterval(commentTimer);
+  }, 60 * 1E3);
+  </script>
+  
+	</div>
+	<div style="display:block;">
+		<div class="relative-wrapper">
+	<div class="relative-article">
+		
+		<ul>
+			<li>
+				<span><font aria-hidden="true">2019-03-13 »</font> </span>
+				<a href="/blog/2019/03/13/first-buildin-module-kv-storage/">KV Storage，Web 上第一个内置模块</a>
+				<span class="aria-readonly">发表时间为2019年03月13日</span>
+				<div class="relative-box">
+          <a href="/blog/2019/03/13/first-buildin-module-kv-storage/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2019/03/13/kv-storage-build-in-module.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2019/03/13/kv-storage-build-in-module.png"/></a>
+          <span class="aria-readonly">文章概要 </span>原文地址：KV Storage, the Web’s First Built-in Module原文时间：2019年3月翻译计划：https://github.com/barretlee/translation-plan翻译人员：小胡子哥在...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2017-06-06 »</font> </span>
+				<a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/">深入理解 Node Stream 内部机制</a>
+				<span class="aria-readonly">发表时间为2017年06月06日</span>
+				<div class="relative-box">
+          <a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2017/06/06/node-stream-readable-flowing.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2017/06/06/node-stream-readable-flowing.png"/></a>
+          <span class="aria-readonly">文章概要 </span>相信很多人对 Node 的 Stream 已经不陌生了，不论是请求流、响应流、文件流还是 socket 流，这些流的底层都是使用 stream 模块封装的，甚至我们平时用的最多的 console.log 打印日志也使用了它，不信你打开 No...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-09-28 »</font> </span>
+				<a href="/blog/2016/09/28/ieee754-operation-in-js/">揭秘 0.1 + 0.2 != 0.3</a>
+				<span class="aria-readonly">发表时间为2016年09月28日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/09/28/ieee754-operation-in-js/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>“0.1 + 0.2 &#x3D; ?”，这道题如果给小学生，他会立马告诉你答案是 0.3，但是交给一些程序去计算，结果就不是那么简单了。-->
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-08-23 »</font> </span>
+				<a href="/blog/2016/08/23/javascript-sandbox/">构建一个安全的 JavaScript 沙箱</a>
+				<span class="aria-readonly">发表时间为2016年08月23日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/08/23/javascript-sandbox/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>-->在 Node.js 中有一个模块叫做 VM，它提供了几个 API，允许代码在 V8 虚拟机上下文中运行，如：const vm = require(&#x27;vm&#x27;);const sandbox = &#123; a: 1, b: 2 &#125;;const script = new vm.Script(&#x27;a + b&#x27;);const context = new vm.createContext(sandbox);script.runInContext(context);vm.Script 中的代码是预编译好的，通过 vm.createContext 将代码加载到一个上下文环境中，置入沙箱（sandbox），然后通过 script.runInContext 执行代码，整个操作都在封闭的 VM 中进行。这是 Node.js 提供给我们的便捷功能，那么，在浏览器环境中呢？是否也能做到将代码运行在沙箱中？本文带着大家来探索一番。
+        </div>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>留下评论</span></div>
+		<!-- <a href="/entry/" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a> -->
+	</div>
+	<div class="friends-box">
+		<ul>
+			
+			<li><a  target="_blank" href="http://hustskyking.cnblogs.com" target="_blank">旧博客</a> <font aria-hidden="true">»</font> <span>我的旧博客（博客园荣誉博客）</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangmengxue.com" target="_blank">大额</a> <font aria-hidden="true">»</font> <span>大额大额哼歌等日落</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangxinxu.com" target="_blank">张鑫旭</a> <font aria-hidden="true">»</font> <span>原来大学我俩一个团队的~</span></li>
+			
+			<li><a  target="_blank" href="http://web-tinker.com" target="_blank">次碳酸钴</a> <font aria-hidden="true">»</font> <span>深度交流的一个好朋友</span></li>
+			
+			<li><a  target="_blank" href="http://imququ.com" target="_blank">屈屈</a> <font aria-hidden="true">»</font> <span>蛐蛐同学</span></li>
+			
+			<li><a  target="_blank" href="http://www.ruanyifeng.com" target="_blank">阮一峰</a> <font aria-hidden="true">»</font> <span>阮老师</span></li>
+			
+			<li><a href="/friends/">更多列表 <font aria-hidden="true">»</font></a></li>
+		</ul>
+	</div>
+</div>
+			
+<div class="website-info" aria-hidden="true">
+	<a class="page_editor" href="/admin/#/posts/cmd9nvpaj005xqk9bhf4m5f3x" target="_blank">🙈</a>
+	<span>&copy;2013-2025 <small><a  target="_blank" href="https://www.miit.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
+	本站由 <a href="/">Barret李靖</a> 纯手工打造 | <a href="/about#contact">联系方式</a>
+	<a href='https://union.zhaodao.ai/#random' title="随机跳转到一个有意思的网站" target='_blank' class="zhidao_ai"><img src='https://img.alicdn.com/imgextra/i2/O1CN01VjiZUL1r0eXge4taM_!!6000000005569-55-tps-300-300.svg' width="20" height="20"></a>
+</div>
+
+		</div>
+	</div>
+</div>
+</div>
+<div class="tools-wrapper" tabindex="0" aria-hidden="true">
+	<a class="gotop icon" href="#" title="回到顶部">&#x2191;</a>
+	<!-- <a class="wechart icon">&#xe60d;<span><img src="/blogimgs/wechart.png" title="扫码添加小胡子哥微信"/> </span></a> -->
+	<a class="hash-to-comments icon" title="我要评论">&#x2121;</a>
+</div>
+<div class="fixerr" tabindex="0" aria-hidden="true">纠错模式</div>
+
+</body>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/jquery.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/main.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67248043-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-67248043-3');
+</script>
+
+<!-- Baidu Analysis -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3524fff9629f2c80f8ea5daa13e67003";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.async = true;
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+  window.onerror = function(e) {
+    window.console && window.console.log && window.console.log(e);
+    try {
+      $('#loadLayer').remove();
+    } catch(e) {}
+    return true;
+  };
+</script>
+</html>

@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>IE6 bug集 | 小胡子哥的个人网站</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
+  <meta name="author" content="https://plus.google.com/112634278852964994392?hl=zh-cn">
+  <meta name="email" content="barret.china@gmail.com">
+  <meta name="description" content="1.IE6的3像素偏移BUG&amp;nbsp;&amp;nbsp;&amp;nbsp; 当浮动元素与非浮动元素相邻（注意这里的相邻可以是纵向的也可以是横向的）时，这个3像素的Bug就会出现，它会偏移3像素。实际表现就是两个元素之间产生了一道缝隙！解决方法很简单，将两个元素都浮动就OK了。此BUG深层的原因是非浮动元素的lay">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="IE6 bug集 | 小胡子哥的个人网站">
+  <meta property="og:url" content="https://www.barretlee.com/blog/2013/04/24/cb-ie6-bugs/">
+  <meta property="og:site_name" content="IE6 bug集">
+  <meta property="og:description" content="1.IE6的3像素偏移BUG&amp;nbsp;&amp;nbsp;&amp;nbsp; 当浮动元素与非浮动元素相邻（注意这里的相邻可以是纵向的也可以是横向的）时，这个3像素的Bug就会出现，它会偏移3像素。实际表现就是两个元素之间产生了一道缝隙！解决方法很简单，将两个元素都浮动就OK了。此BUG深层的原因是非浮动元素的lay">
+  <meta name="generator" content="https://hexo.io" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link href="https://img.alicdn.com/imgextra/i4/O1CN01LKRotr20M1ZGJkT3v_!!6000000006834-2-tps-1200-1200.png" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="https://img.alicdn.com/imgextra/i3/O1CN01EVx62B1eyZLyJsJnY_!!6000000003940-2-tps-100-100.png" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="https://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
+  <link rel="prev" href="https://www.barretlee.com/blog/2013/04/24/cb-javascript-closure-usages/" title="JS闭包的用途" />
+  <link rel="next" href="https://www.barretlee.com/blog/2013/04/22/cb-make-a-tree/" title="JS动态构建一棵目录树" />
+  <link rel="start" href="https://www.barretlee.com/entry/" title="Blog Entry" />
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/css/style-20230627-2.css">
+</head>
+
+
+<body>
+  <div class="rainbow"></div>
+  <div class="container">
+  <span class="local-search local-search-google local-search-plugin" style="display: none;">
+  <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+  <i class="icon" aria-hidden="true" title="点击进入 Google 搜索">&#x2708;</i>
+  <div id="local-search-result" class="local-search-result-cls"></div>
+</span>
+  <div class="article" itemscope itemtype="http://schema.org/Article">
+    <div class="post">
+      <div class="bread">
+        <a href="/">小胡子哥的个人网站</a> »
+        <a href="/entry/">博客</a> »
+        
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E6%9D%82%E7%89%A9%E9%97%B4/">杂物间</a>
+
+
+      </div>
+      <div class="post-title-wrapper">
+        <h1 class="post-title" itemprop="name">IE6 bug集</h1>
+        <a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i1/O1CN01zmj6R326ehPa0NZO2_!!6000000007687-2-tps-1200-1200.png" alt="Barret李靖" /></a>
+      </div>
+      <div class="post-info">
+        <span>作者: <a href="/about/">Barret李靖</a></span>
+        <span>
+          <time itemprop="timeCreated" aria-hidden="true">2013-04-24 08:08:00</time>
+          <span class="aria-readonly">本文发布时间为2013年04月24日08时08分00秒</span>
+        </span>
+        
+        <span>分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E6%9D%82%E7%89%A9%E9%97%B4/">杂物间</a>
+
+</span>
+        
+        
+        <span tabindex="0" aria-hidden="true">标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</span>
+        
+        <span class="aria-readonly">下面是正文内容</span>
+        <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
+                      class="ds-thread-count hash-to-comments disqus-comment-count"
+                      data-thread-key="cb-ie6-bugs"
+                      data-disqus-identifier="cb-ie6-bugs"></a></span>
+      </div>
+      <div class="post-content" itemprop="articleBody">
+        
+        <p><strong>1.IE6的3像素偏移BUG</strong>&nbsp;&nbsp;&nbsp; 当浮动元素与非浮动元素相邻（注意这里的相邻可以是纵向的也可以是横向的）时，这个3像素的Bug就会出现，它会偏移3像素。实际表现就是两个元素之间产生了一道缝隙！解决方法很简单，将两个元素都浮动就OK了。此BUG深层的原因是非浮动元素的layout未触发，所以这里只要是能够触发layout的css都可以解决问题。</p>
+
+
+<p><strong>2.IE6 双倍边距问题</strong>&nbsp;&nbsp;&nbsp; 当浮动元素设置margin边距时，边距会加倍。解决方法是给浮动元素加上display：inline属性。</p>
+
+
+<p><strong>3.IE6下空标签高度问题</strong>&nbsp;&nbsp;&nbsp; 当你把标签的高度设置为0-19内的数字时，IE6会一致的显示为19px高。解决方法：给标签加上overflow：hidden。</p>
+
+
+<p><strong>4.IE6图片下方有空隙产生</strong><span>&nbsp; &nbsp;css代码：</span></p>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>:<span class="number">1px</span> solid red;</span><br><span class="line">  <span class="attribute">background</span>:orange;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">276px</span>;</span><br><span class="line">  <span class="attribute">height</span>:<span class="number">110px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><span>HTML代码：</span></pre>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;....&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;google&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre>解决办法是：img｛display：block；}<span><strong>5.IE6,7失效的margin-left/right bug</strong></span><span>HTML代码：</span></pre>
+
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">&quot;wrap&quot;</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">&quot;cont&quot;</span>&gt;www.hemin.cn&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><span>CSS代码：</span></pre>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">wrap&#123;<span class="attribute">background</span>:<span class="number">#eee</span>;<span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#ccc</span>;&#125;</span><br><span class="line">cont&#123;<span class="attribute">border-bottom</span>:<span class="number">2px</span> solid <span class="number">#aaa</span>;<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">100px</span>;<span class="attribute">height</span>:<span class="number">30px</span>;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><span>解决方法：触发.warp的layout就可以了。具体的比如：给.warp加上zoom:1或者width等等。</span><span><strong>6. IE6 幽灵文本(Ghost Text bug)</strong></span>在我写本文之前，我遇到了这个bug。它相当的古怪和滑稽。一块不知哪来的重复的文本，被IE6显示在靠近原文本的下面。(译注：也可以参看<a  target="_blank" href="http://www.positioniseverything.net/explorer/dup-characters.html" target="_blank">Explorer 6 Duplicate Characters Bug</a>获得bug演示)。我无法解决它，所以我搜索它，果然，这是另一个IE6的bug。对此有许多解决方法，但是没有一个对我的例子有效(因为网站的复杂性我无法使用其中的一些方法)。所以我使用了hack。在原文本之后增加空格看起来能解决这个问题。但是，从<a  target="_blank" href="http://hippytechblog.blogspot.com/2009/07/ie6-ghost-text-bug.html" target="_blank">Hippy Tech Blog</a>那里了解到，问题背后的原因是由于html注释标签。IE6不能正确的渲染它。下面是他建议的解决方案列表：</pre>
+<ol>
+<li>使用&lt;!&mdash;[IF !IE]&gt;标签包围注释</li>
+<li>移除注释</li>
+<li>在前浮动上增加样式 {display:inline;}</li>
+<li>在适当的浮动的div上使用负边距</li>
+<li>在原文本增加额外的<nbsp;(比如10个空格) (hacky way)</li>
+</ol>
+<pre><span><strong>7. 相对位置和溢出隐藏(Position Relative and Overflow Hidden)</strong></span>这个问题我遇到过很多次，当时我正在准备一个JQuery的教程，因为我使用了很多overflow hidden来达到我想要的布局。问题发生在当父元素的overflow被设置成hidden并且子元素被设置成position:relative。CSS-Trick有一个很好的例子来演示这个bug。<a  target="_blank" href="http://snook.ca/archives/html_and_css/position_relative_overflow_ie/" target="_blank">position:relative and overflow in internet explorer</a><em>解决方法</em>为父元素增加position:relative;<span><strong>8. IE的最小高度(Min-Height for IE)</strong></span>这很简单，IE忽略min-height属性。你可以用下面的hack来修复它。感谢<a  target="_blank" href="http://www.dustindiaz.com/min-height-fast-hack/" target="_blank">Dustin Diaz</a>。这个解决方法在IE6, Mozilla/Firefox/Gecko, Opera 7.x+, Safari1.2里都工作的很好。<em>解决方法</em></pre>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">selector &#123;</span><br><span class="line">   <span class="attribute">min-height</span>:<span class="number">500px</span>;</span><br><span class="line">   <span class="attribute">height</span>:auto <span class="meta">!important</span>;</span><br><span class="line">   <span class="attribute">height</span>:<span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><span><strong>9. Bicubic图像缩放(Bicubic Image Scaling)</strong></span>你会喜欢这个的。IE那糟糕图像缩放让你很困扰？如果你拿IE和其他浏览器比较，IE缩小的图像看起来不如其他浏览器。</pre>
+<p><img src="https://pic002.cnblogs.com/img/lw19870811/201007/2010072616324250.gif" alt=""></p>
+<pre><em>解决方法</em></pre>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123; -ms-interpolation-mode: bicubic;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><strong>10.PNG透明(PNG Transparency)</strong></pre>
+<pre>我猜每个人都知道这个，但我仍把它列在这里，作为以后的参考。</pre>
+<pre>所以如果你想要使用透明图像并且GIF不能给你想要的质量，你会需要这个对PNG的hack。你必须意识到，如果你使用一张PNG图像作为背景，你将不能设置背景的位置。<em>解决方法</em><em>&nbsp;</em></pre>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: progid:DXImageTransform.Microsoft.<span class="built_in">AlphaImageLoader</span>(...);</span><br><span class="line">｝</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><span></span><strong>11. IFrame透明背景 (IFrame Transparent Background)</strong></pre>
+<pre>在firefox和safari里你应该不会遇到这个问题因为默认情况下，iframe的背景被设置为transparent，但是在IE里，却不是如此。你需要用到allowTransparency 属性并且加入下面的CSS代码来达成目的。<em>解决方法</em></pre>
+
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* in the iframe element */</span></span><br><span class="line">&lt;<span class="selector-tag">iframe</span> <span class="attribute">src</span>=<span class="string">&quot;content.html&quot;</span> allowtransparency=<span class="string">&quot;true&quot;</span>&gt;</span><br><span class="line">&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* in the iframe docuement, in this case content.html */</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>:transparent;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><strong>12. 禁用IE默认的垂直滚动条(Disabled IE default Vertical Scroll bar)</strong></pre>
+<pre>默认情况下，即使内容适合窗口大小，IE(译注：IE6/7)也会显示垂直滚动条。你可以使用overflow:auto，让滚动条只在你需要时出现。<em></em><span><strong>13. :hover伪类(:hover Pseudo Class)</strong></span>IE只支持&lt;a&gt;元素的 :hover伪类。你可以使用jQuery的hover event来达到相同效果。<em></em></pre>
+<pre><strong>14. 盒模型Hack(Box Hack Model)</strong></pre>
+<pre>这是IE里最热门的bug了。基本的理解是，IE计算宽度(width)的方式不同。基于w3c标准，一个元素总宽度应该是总宽度 = margin-left + border-left + padding-left + width + padding-right + border-right + margin-right但是，IE计算宽度时没有加上填充和边框：总宽度 = margin-left + width + margin-right更多的细节，请参考这个链接：<a  target="_blank" href="http://www.456bereastreet.com/archive/200612/internet_explorer_and_the_css_box_model/" target="_blank">Internet Explorer和CSS盒模型详细解释</a><em>解决方法</em>使用w3c的标准兼容模式。IE6或者之后的版本能基于w3c的标准计算，但是你仍旧会在IE5中遇到问题。或者你可以用CSS Hack来解决这个问题。所有标准兼容的浏览器都能读取w\\idth:180px 除了IE5。</pre>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#content</span> &#123;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">1px</span> solid;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    w\\idth:<span class="number">180px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><span><strong>15.IE bug</strong></span>（摘自：<a  target="_blank" href="http://www.iwanna.cn/archives/2010/07/29/4780/">http://www.iwanna.cn/archives/2010/07/29/4780/</a>）</pre>
+<table>
+<thead>
+<tr><th width="30">&nbsp;</th><th width="120">问题</th><th width="60">浏览器</th><th width="90">DEMO</th><th width="120">解决方法</th></tr>
+<tr>
+<td colspan="5"><strong>Hacking Rules:&nbsp;</strong>property:all-<a class="st_tag internal_tag" title="Posts tagged with IE"  target="_blank" href="http://www.iwanna.cn/tags/ie/" rel="tag nofollow">ie</a>\9; property:gte-ie8\0;*property:lte-ie7; +property:ie7; _property:ie6;</td>
+
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>input[button | submit] 不能用 margin:0 auto; 居中</td>
+<td>IE8</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/No-Auto-Margin-Center-on-Buttons-Inconsistency-Demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/No-Auto-Margin-Center-on-Buttons-Inconsistency-Fixed-Demo-CS.html" target="_blank">fixed</a></td>
+<td>为input添加width</td>
+
+</tr>
+<tr>
+<td>2</td>
+<td>body{overflow:hidden;}没有去掉滚动条</td>
+<td>IE6/7</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/Document-Scrollbars-Overflow-Inconsistency-Demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/Document-Scrollbars-Overflow-Inconsistency-Fixed-Demo.html" target="_blank">fixed</a></td>
+<td>设置html{overflow:hidden;}</td>
+
+</tr>
+<tr>
+<td>3</td>
+<td>hasLayout的标签拥有高度</td>
+<td>IE6/7</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/Empty-Element-Height-Bug-Demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/Empty-Element-Height-Bug-Fixed-Demo.html" target="_blank">fixed</a></td>
+<td>*height:0;_overflow:hidden;</td>
+
+</tr>
+<tr>
+<td>4</td>
+<td>form&gt;[hasLayout]元素有margin-left时，子元素中的[input | textarea] 出现2×margin-left</td>
+<td>IE6/7</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/Form-Control-Double-Margin-Bug-Demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/Form-Control-Double-Margin-Bug-Fixed-Demo.html" target="_blank">fixed</a></td>
+<td>form &gt; [hasLayout 元素]{margin-left:宽度;}form div{*margin-left:宽度&divide;2;}</td>
+
+</tr>
+<tr>
+<td>5</td>
+<td>当border-width有1条&lt;边3条时被设置成dotted时，1px的边dotted显示成dashed</td>
+<td>IE7</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/IE7-1px-Dotted-Border-Appears-As-Dashed-Bug-Demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/IE7-1px-Dotted-Border-Appears-As-Dashed-Bug-Fixed-Demo.html" target="_blank">fixed</a></td>
+<td>不在同一个元素上使用不同宽度的 dotted</td>
+
+</tr>
+<tr>
+<td>6</td>
+<td>当子元素有position:relative的时候，父元素设置overflow:[hidden|auto]相当于给子元素设置了position:visible;</td>
+<td>IE6/7</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/relative-overflow-failure-bug-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/relative-overflow-failure-bug-demo-fixed.html" target="_blank">fixed</a></td>
+<td>给父元素设置position:relative;</td>
+
+</tr>
+<tr>
+<td>7</td>
+<td>:hover伪类不能改变有position:absolute的子级元素的left/top值</td>
+<td>IE7</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/ie7-broken-hover-absolute-bug-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/ie7-broken-hover-absolute-bug-demo-fixed.html" target="_blank">fixed</a></td>
+<td>把top/left的值设置成除0%外的所有百分值；或添加一个margin-[所有方向]除0外的所有值，包括0%</td>
+
+</tr>
+<tr>
+<td>8</td>
+<td>:focus + selector {} 选择器失效</td>
+<td>IE8</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/ignored-focus-bug-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/ignored-focus-bug-demo-fixed.html" target="_blank">fixed</a></td>
+<td>在失效选择器后面添加一个空选择器, :focus{}</td>
+
+</tr>
+<tr>
+<td>9</td>
+<td>列表中混乱的浮动：在list中浮动图片时，图片出现溢出正常位置；或没有list-style</td>
+<td>IE8</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/image-float-bullet-chaos-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/image-float-bullet-chaos-demo-fixed.html" target="_blank">fixed</a></td>
+<td>用背景图片替换list-style</td>
+
+</tr>
+<tr>
+<td>10</td>
+<td>th 不会自动继承上级元素的 text-align</td>
+<td>IE8</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/non-inherited-th-text-align-bug-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/non-inherited-th-text-align-bug-demo-fixed.html" target="_blank">fixed</a></td>
+<td>给th添加text-align:inherit; (base.<a class="st_tag internal_tag" title="Posts tagged with CSS"  target="_blank" href="http://www.iwanna.cn/tags/css/" rel="tag nofollow">css</a>中已包含)</td>
+
+</tr>
+<tr>
+<td>11</td>
+<td>样式(包括link/style/@import(link)) 最多允许个为是：32</td>
+<td>IE6-8</td>
+<td>─ 常识</td>
+<td>99.99%的情况下，不会遇到</td>
+
+</tr>
+<tr>
+<td>12</td>
+<td>:hover 时若background-color为#fff, 失效</td>
+<td>IE7</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/hover-white-background-ignore-bug.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/hover-white-background-ignore-bug-fixed-demo.html" target="_blank">fixed</a></td>
+<td>把background-color改成background。或者，非#fff || #ffffff</td>
+
+</tr>
+<tr>
+<td>13</td>
+<td>忽略"&gt;"后有注释的选择器：selector&gt; /**/ selector{}</td>
+<td>IE6</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/ie7-child-selector-comment-bug-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/ie7-child-selector-comment-bug-demo.html" target="_blank">fixed</a></td>
+<td>[<a  target="_blank" href="http://haslayout.net/css/IE7-Child-Selector-Comment-Bug" target="_blank">官方误判</a>] 这个bug是IE6 BUG</td>
+
+</tr>
+<tr>
+<td>14</td>
+<td>* html</td>
+<td>IE6</td>
+<td>─ HACK</td>
+<td>只对IE6有效</td>
+
+</tr>
+<tr>
+<td>15</td>
+<td>PNG图片中的颜色和背景颜色的值相同，但显示不同</td>
+<td>IE6-7</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/png-color-mismatch-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/png-color-mismatch-demo-fixed.html" target="_blank">fixed</a></td>
+<td>利用&nbsp;<a  target="_blank" href="http://pmt.sourceforge.net/pngcrush/" target="_blank">pngcrush</a>&nbsp;去除图片中的 Gamma profiles</td>
+
+</tr>
+<tr>
+<td>16</td>
+<td>margin:0 auto; 不能让block元素水平居中</td>
+<td>IE6-8</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/no-auto-margin-center-pseudo-bug-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/no-auto-margin-center-pseudo-bug-demo-fixed.html" target="_blank">fixed</a></td>
+<td>给block元素添加一个width</td>
+
+</tr>
+<tr>
+<td>17</td>
+<td>使用伪类 :first-line | :first-letter, 属性的值中出现!important 会使属性失效</td>
+<td>IE8</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/ie8-first-line-important-bug.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/ie8-first-line-important-bug-fixed.html" target="_blank">fixed</a></td>
+<td>!important is evil, don"t use it anymore</td>
+
+</tr>
+<tr>
+<td>18</td>
+<td>:first-letter 失效</td>
+<td>IE6</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/ie6-first-letter-ignore-bug.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/ie6-first-letter-ignore-bug-fixed.html" target="_blank">fixed</a></td>
+<td>把 :first-letter 移到离{}最近的地方，如 h1, p:first-letter{}，而非 p:first-letter h1{}</td>
+
+</tr>
+<tr>
+<td>19</td>
+<td>Position:absolute元素中，a display:block, 在非:hover时只有文本可点击</td>
+<td>IE6/7</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/partial-click-v2-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/partial-click-v2-demo-fixed.html" target="_blank">fixed</a></td>
+<td>给a添加background, 如果背景透明，使用background:url("任何页面中已经缓存的文件链接")，不推荐background：url(#)[<a  target="_blank" href="http://haslayout.net/css/Partial-Click-Bug-v2" target="_blank">官方的解决方法</a>]，因为会增加一下HTTP请求</td>
+
+</tr>
+<tr>
+<td>20</td>
+<td>float列表元素不水平对齐：li不设置float，a设置display:block;float:[方向]，li不水平对齐</td>
+<td>IE6/7</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/staircase-bug-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/staircase-bug-demo-fixed.html" target="_blank">fixed</a></td>
+<td>给li设置display:inline 或 float:[方向]</td>
+
+</tr>
+<tr>
+<td>21</td>
+<td>dt, dd, li 背景失效</td>
+<td>IE6</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/disappearing-list-background-bug-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/disappearing-list-background-bug-demo-fixed.html" target="_blank">fixed</a></td>
+<td>dt, dd, li{position:relative;} (base.<a class="st_tag internal_tag" title="Posts tagged with CSS"  target="_blank" href="http://www.iwanna.cn/tags/css/" rel="tag nofollow">css</a>中已包含)</td>
+
+</tr>
+<tr>
+<td>22</td>
+<td>&lt;noscript /&gt;元素的样式在启用javascript的情况下显示了样式</td>
+<td>IE6-8</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/noscript-ghost-bug-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/noscript-ghost-bug-demo-fixed.html" target="_blank">fixed</a></td>
+<td>利用js给&lt;noscript /&gt;添加display:none;</td>
+
+</tr>
+<tr>
+<td>23</td>
+<td>使用filter处理的透明背景图片的透明部分不可点</td>
+<td>IE6-8</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/no-transparency-click-bug-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/no-transparency-click-bug-demo-fixed.html" target="_blank">fixed</a></td>
+<td>把background:none变成background:url("链接")，链接到本身和图片之外的任何文件</td>
+
+</tr>
+<tr>
+<td>24</td>
+<td>li内元素偏离 baseline 向下拉</td>
+<td>IE8</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/list-drop-shift-bug-demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/list-drop-shift-bug-demo-fixed.html" target="_blank">fixed</a></td>
+<td>给li设置display:inline 或 float:[方向]</td>
+
+</tr>
+<tr>
+<td>25</td>
+<td>列表中li的list-style不显示</td>
+<td>IE6/7</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/no_li_ol_bullets_demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/no_li_ol_bullets_demo_fixed.html" target="_blank">fixed</a></td>
+<td>给li添加margin-left，留空间来显示（不要加在ul上）</td>
+
+</tr>
+<tr>
+<td>26</td>
+<td>图片不能垂直居中</td>
+<td>IE6/7</td>
+<td><a  target="_blank" href="http://haslayout.net/css/No-line-height-Vertical-Center-on-Images-Bug" target="_blank">bug/fixed</a></td>
+<td>添加一个空标签，并赋给"Layout", 比如display:inline-block;</td>
+
+</tr>
+<tr>
+<td>27</td>
+<td>不能自定义指针样式</td>
+<td>IE6-8</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/cursor/a/demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/cursor/a/demo_fixed.html" target="_blank">fixed</a></td>
+<td>给指针文件设置绝对路径</td>
+
+</tr>
+<tr>
+<td>28</td>
+<td>背景溢出，拖动滚动条后显示正常</td>
+<td>IE6</td>
+<td><a  target="_blank" href="http://haslayout.net/demos/backgroundleak_demo.html" target="_blank">bug</a>&nbsp;|&nbsp;<a  target="_blank" href="http://haslayout.net/demos/backgroundleak_demo_ls_fixed.html" target="_blank">fixed</a></td>
+<td>给父元素添加overflow:hidden防止溢出，并赋予hasLayout,如果添加_zoom:1;</td>
+
+</tr>
+<tr>
+<td>29</td>
+<td>高度超过height定义的高</td>
+<td>IE6</td>
+<td><a  target="_blank" href="http://haslayout.net/css/Expanding-Height-Bug" target="_blank">bug/fixed</a></td>
+<td>添加_overflow:hidden;(推荐)或者_font-size:0;</td>
+
+</tr>
+<tr>
+<td>30</td>
+<td>宽度超过width定义的宽</td>
+<td>IE6</td>
+<td><a  target="_blank" href="http://haslayout.net/css/Expanding-Width-Bug" target="_blank">bug/fixed</a></td>
+<td>添加_overflow:hidden; 或使用alice v3 中的 .sl-word-break 类（table用.sl-table-break）</td>
+
+</tr>
+<tr>
+<td>31</td>
+<td>双倍边距</td>
+<td>IE6</td>
+<td>─ 常识</td>
+<td>添加display:inline到float元素中</td>
+
+</tr>
+<tr>
+<td>32</td>
+<td>margin负值隐藏：hasLayout的父元素内的非hasLayout元素，使用负边距时，超出父元素部分不可见</td>
+<td>IE6/7</td>
+<td><a  target="_blank" href="http://haslayout.net/css/Negative-Margin-Bug" target="_blank">bug/fixed</a></td>
+<td>去掉父元素的hasLayout；或者赋hasLayout给子元素,并添加position:relative;</td>
+
+</tr>
+<tr>
+<td>33</td>
+<td>给两个浮动元素的某中一个的文字设定为斜体，另一个元素下拉在有斜体文字元素的下面</td>
+<td>IE6</td>
+<td><a  target="_blank" href="http://haslayout.net/css/Italics-Float-Bug" target="_blank">bug/fixed</a></td>
+<td>给有斜体文字的元素添加overflow:hidden;</td>
+
+</tr>
+<tr>
+<td>35</td>
+<td>3px 间隔：在float元素后的元素，会有3px间隔</td>
+<td>IE6</td>
+<td><a  target="_blank" href="http://haslayout.net/css/3px-Gap-Bug-aka-Text-Jog-Bug" target="_blank">bug/fixed</a></td>
+<td>因为是确切的3px，所以，用\暴力破解"吧，比如_margin-left:-3px;</td>
+
+</tr>
+<tr>
+<td>35</td>
+<td>text-align 影响块级元素</td>
+<td>IE6/7</td>
+<td><a  target="_blank" href="http://haslayout.net/css/Text-Align-Bug" target="_blank">bug/fixed</a></td>
+<td>整理你的float；或者分开设置text-alig</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<pre>总之万恶的IE6是这么的"与众不同"。以后我会持续更新这篇日志，记录更多的BUG，直到IE6消失！本文转自：<a  target="_blank" href="http://www.cnblogs.com/Kampfer/archive/2010/07/25/1784723.html" target="_blank">Kampfer的记事本</a></pre>
+
+
+      </div>
+    </div>
+    
+<div class="old-article-warning">
+	本文在 <b>4470</b> 天之前发表，技术更替飞快，文中部分内容可能已经过时，如有疑问，请联系作者 <a href="/about">Barret李靖</a>。
+</div>
+
+    <!-- <div class="follow-wechat"><img src="/blogimgs/follow.jpg"></div> -->
+
+<div class="copyright" itemscope itemtype="http://schema.org/ProfilePage" tabindex="0" aria-hidden="true">
+	<!-- <a href="/about/#support" class="supportme">赏</a> -->
+	<ul>
+		<li>作者: <a href="/about/" itemprop="name">Barret李靖</a></li>
+		
+		<li>文章分类: 
+	<a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>,<a class="category-link" href="/blog/categories/JavaScript/%E6%9D%82%E7%89%A9%E9%97%B4/">杂物间</a>
+
+</li>
+		
+		
+		<li>文章标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</li>
+		
+		<li>发表日期: 2013-04-24 08:08:00</li>
+		<li>最后编辑时间: 2025-07-19 11:01:03</li>
+		<li>本文 Markdown 地址: <a target="_
+			" href="https://github.com/barretlee/blog/tree/master/blog/src/_posts/2013-04-24-cb-ie6-bugs.md">IE6 bug集</a></li>
+		<li>版权声明：<a  target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">CC BY-NC-ND 3.0</a></li>
+		<li>
+			Feed 订阅: <a href="/rss2.xml"><i class="icon">&#x25c8;</i></a>
+			<div style="opacity:.3;text-align:right;margin:5px -5px -10px 0;float:right;font-size: 12px;">
+				编辑本文：<a  target="_blank" href="https://github.com/barretlee/blog/edit/master/blog/src/_posts/2013-04-24-cb-ie6-bugs.md" target="_blank" aria-hidden="true"><i class="icon">&#xe622;</i></a>；
+				新建文章：<a  target="_blank" href="https://github.com/barretlee/blog/new/master/blog/src/_posts" target="_blank" aria-hidden="true"><i class="icon">&#xe616;</i></a>
+			</div>
+		</li>
+		
+	</ul>
+	<a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png" /></a>
+</div>
+
+    <em  class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾
+<ul role="group" aria-labelledby="i1" aria-expanded="false">
+  <li><a href="/entry/">博客</a></li>
+  <!-- <li><a href="/translation/">翻译</a></li> -->
+  <li><a href="/message/">留言</a></li>
+  <li><a href="/demo/">实验室</a></li>
+  <!-- <a><a href="/comments/">最近评论</a></li> -->
+  <li><a href="/friends/">友情链接</a></li>
+</ul>
+</em>
+  </div>
+  <div class="post-relative">
+<div class="page-relative">
+  
+    <a href="/blog/2013/04/24/cb-javascript-closure-usages/" class="post-prev">
+      <i class="icon" tabindex="0" aria-hidden="true">&#x261c;</i>
+      <span class="aria-readonly">上一篇文章</span>
+      
+        <b>JS闭包的用途</b>
+      
+    </a>
+  
+  
+    <a href="/blog/2013/04/22/cb-make-a-tree/" class="post-next">
+      <span class="aria-readonly">下一篇文章</span>
+      <b>JS动态构建一棵目录树</b>
+      <i class="icon" tabindex="0" aria-hidden="true">&#xe602;</i>
+    </a>
+  
+</div>
+
+
+<div class="page-relative-fixed" tabindex="0" aria-hidden="true">
+  
+  <a href="/blog/2013/04/24/cb-javascript-closure-usages/" class="prev" title="JS闭包的用途">
+    <i class="icon">&#xe600;</i>
+    
+    <b>JS闭包的用途</b>
+    
+  </a>
+  
+  
+  <a href="/blog/2013/04/22/cb-make-a-tree/" class="next" title="JS动态构建一棵目录树">
+    <i class="icon">&#x261e;</i>
+    <b>JS动态构建一棵目录树</b>
+  </a>
+  
+</div>
+</div>
+</div>
+<div class="sidebar" tabindex="0" aria-hidden="true">
+	<div class="func-btns func-btns-up">
+    <span class="func-item">
+        <i class="func-nav icon">&#xe618;<span>目录</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="javascript:void(0);" onclick="return false;">显示目录</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-font icon">&#xe604;<span>夜间</span></i>
+        <div class="font-choose-box">
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <div class="font-choose bg-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-sun font-type-song"><i class="icon">&#xe61a;</i></a>
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-moon font-type-hei"><i class="icon">&#xe619;</i></a>
+          </div>
+          <!-- <div class="font-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-song">黑体</a>
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-hei">宋体</a>
+          </div> -->
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-about icon">&#x263b;<span>关于</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p><a href="/about/" class="func-about-link" target="_blank">关于作者</a></p>
+          <div id="followMeOnWeibo"></div>
+        </div>
+    </span>
+	</div>
+	<div class="func-btns">
+    <!-- <span class="func-item">
+        <a  target="_blank" href="http://demo.barretlee.com" target="_blank"><i class="func-rss icon">&#xe603;<span>实验</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a  target="_blank" href="http://demo.barretlee.com" target="_blank">Demo平台</a></p>
+          <p class="seperator"><a  target="_blank" href="http://md.barretlee.com" target="_blank">WX格式</a></p>
+          <p><a  target="_blank" href="http://snippets.barretlee.com" target="_blank">Snippet应用</a></p>
+        </div>
+    </span> -->
+    <!-- <span class="func-item">
+        <i class="func-fb icon">&#x2121;<span>留言</span></i>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a href="/message/" target="_blank">给我留言</a></p>
+          <p><a href="/comments/" target="_blank">近期留言</a></p>
+        </div>
+    </span> -->
+    <span class="func-item">
+        <a href="/friends/" target="_blank"><i class="func-rss icon">&#xe601;<span>链接</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="/friends/" target="_blank">友情链接</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <a href="/rss2.xml" target="_blank"><i class="func-rss icon">&#x25c8;<span>订阅</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i><a href="/rss2.xml" target="_blank">订阅我吧！</a></div>
+    </span>
+	</div>
+</div>
+
+<div class="single-page-footer">
+<div class="footer">
+	<div class="footer-wraper">
+		<div class="footer-content">
+			<div class="footer-nav">
+	<a href="javascript: void(0);" class="ds-thread-count disqus-comment-count"
+	   data-thread-key="cb-ie6-bugs"
+	   data-disqus-identifier="cb-ie6-bugs" 
+		 tabindex="0" aria-hidden="true">评论内容</a>
+	<a href="javascript: void(0);" id="comments">相关文章</a>
+	<a href="/friends/" tabindex="0" aria-hidden="true" style="display: none;">友情链接</a>
+</div>
+<div class="nav-detail">
+	<div tabindex="0">
+		
+  <div id="gitalk" sid="cb-ie6-bugs"></div>
+  <script charset="utf-8" type="text/javascript" src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/gitalk.js"></script>
+  <script type="text/javascript">
+  var postContent = document.querySelectorAll('.post-content>p');
+  if (postContent && postContent.length) {
+    postContent = postContent.item(0).textContent + (postContent.item(1) && postContent.item(1).textContent || '');
+    postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
+  }
+
+  var gitalk = new Gitalk({
+    clientID: '50a1b3aa7854b01a1c85',
+    clientSecret: '226ac154f80a6aea0985da874126b35795f22eed',
+    language: "zh-CN",
+    perPage: 100,
+    createIssueManually: false,
+    repo: 'blog',
+    owner: 'barretlee',
+    admin: ['barretlee'],
+    id: "cb-ie6-bugs",
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent,
+    distractionFreeMode: false
+  });
+
+  window.addEventListener('load', function () {
+    gitalk.render('gitalk');
+  });
+
+  // show count
+  var commentTimer = setInterval(() => {
+    var count = document.querySelector('.gt-link-counts');
+    var showCount = document.querySelector('.hash-to-comments');
+    if (count && showCount) {
+      showCount.textContent = count.textContent;
+      clearInterval(commentTimer);
+    }
+  }, 500);
+  setTimeout(() => {
+    clearInterval(commentTimer);
+  }, 60 * 1E3);
+  </script>
+  
+	</div>
+	<div style="display:block;">
+		<div class="relative-wrapper">
+	<div class="relative-article">
+		
+		<ul>
+			<li>
+				<span><font aria-hidden="true">2019-03-13 »</font> </span>
+				<a href="/blog/2019/03/13/first-buildin-module-kv-storage/">KV Storage，Web 上第一个内置模块</a>
+				<span class="aria-readonly">发表时间为2019年03月13日</span>
+				<div class="relative-box">
+          <a href="/blog/2019/03/13/first-buildin-module-kv-storage/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2019/03/13/kv-storage-build-in-module.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2019/03/13/kv-storage-build-in-module.png"/></a>
+          <span class="aria-readonly">文章概要 </span>原文地址：KV Storage, the Web’s First Built-in Module原文时间：2019年3月翻译计划：https://github.com/barretlee/translation-plan翻译人员：小胡子哥在...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2017-06-06 »</font> </span>
+				<a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/">深入理解 Node Stream 内部机制</a>
+				<span class="aria-readonly">发表时间为2017年06月06日</span>
+				<div class="relative-box">
+          <a href="/blog/2017/06/06/dive-to-nodejs-at-stream-module/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2017/06/06/node-stream-readable-flowing.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2017/06/06/node-stream-readable-flowing.png"/></a>
+          <span class="aria-readonly">文章概要 </span>相信很多人对 Node 的 Stream 已经不陌生了，不论是请求流、响应流、文件流还是 socket 流，这些流的底层都是使用 stream 模块封装的，甚至我们平时用的最多的 console.log 打印日志也使用了它，不信你打开 No...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-09-28 »</font> </span>
+				<a href="/blog/2016/09/28/ieee754-operation-in-js/">揭秘 0.1 + 0.2 != 0.3</a>
+				<span class="aria-readonly">发表时间为2016年09月28日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/09/28/ieee754-operation-in-js/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/09/28/6c0378f8gw1f89pd8hm96j20p00dwacm.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>“0.1 + 0.2 &#x3D; ?”，这道题如果给小学生，他会立马告诉你答案是 0.3，但是交给一些程序去计算，结果就不是那么简单了。-->
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2016-08-23 »</font> </span>
+				<a href="/blog/2016/08/23/javascript-sandbox/">构建一个安全的 JavaScript 沙箱</a>
+				<span class="aria-readonly">发表时间为2016年08月23日</span>
+				<div class="relative-box">
+          <a href="/blog/2016/08/23/javascript-sandbox/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2016/08/23/6c0378f8gw1f730uldkfrj20p00dwaf1.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>-->在 Node.js 中有一个模块叫做 VM，它提供了几个 API，允许代码在 V8 虚拟机上下文中运行，如：const vm = require(&#x27;vm&#x27;);const sandbox = &#123; a: 1, b: 2 &#125;;const script = new vm.Script(&#x27;a + b&#x27;);const context = new vm.createContext(sandbox);script.runInContext(context);vm.Script 中的代码是预编译好的，通过 vm.createContext 将代码加载到一个上下文环境中，置入沙箱（sandbox），然后通过 script.runInContext 执行代码，整个操作都在封闭的 VM 中进行。这是 Node.js 提供给我们的便捷功能，那么，在浏览器环境中呢？是否也能做到将代码运行在沙箱中？本文带着大家来探索一番。
+        </div>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>留下评论</span></div>
+		<!-- <a href="/entry/" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a> -->
+	</div>
+	<div class="friends-box">
+		<ul>
+			
+			<li><a  target="_blank" href="http://hustskyking.cnblogs.com" target="_blank">旧博客</a> <font aria-hidden="true">»</font> <span>我的旧博客（博客园荣誉博客）</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangmengxue.com" target="_blank">大额</a> <font aria-hidden="true">»</font> <span>大额大额哼歌等日落</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangxinxu.com" target="_blank">张鑫旭</a> <font aria-hidden="true">»</font> <span>原来大学我俩一个团队的~</span></li>
+			
+			<li><a  target="_blank" href="http://web-tinker.com" target="_blank">次碳酸钴</a> <font aria-hidden="true">»</font> <span>深度交流的一个好朋友</span></li>
+			
+			<li><a  target="_blank" href="http://imququ.com" target="_blank">屈屈</a> <font aria-hidden="true">»</font> <span>蛐蛐同学</span></li>
+			
+			<li><a  target="_blank" href="http://www.ruanyifeng.com" target="_blank">阮一峰</a> <font aria-hidden="true">»</font> <span>阮老师</span></li>
+			
+			<li><a href="/friends/">更多列表 <font aria-hidden="true">»</font></a></li>
+		</ul>
+	</div>
+</div>
+			
+<div class="website-info" aria-hidden="true">
+	<a class="page_editor" href="/admin/#/posts/cmd9nvp9u002wqk9b7qv5hzqy" target="_blank">🙈</a>
+	<span>&copy;2013-2025 <small><a  target="_blank" href="https://www.miit.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
+	本站由 <a href="/">Barret李靖</a> 纯手工打造 | <a href="/about#contact">联系方式</a>
+	<a href='https://union.zhaodao.ai/#random' title="随机跳转到一个有意思的网站" target='_blank' class="zhidao_ai"><img src='https://img.alicdn.com/imgextra/i2/O1CN01VjiZUL1r0eXge4taM_!!6000000005569-55-tps-300-300.svg' width="20" height="20"></a>
+</div>
+
+		</div>
+	</div>
+</div>
+</div>
+<div class="tools-wrapper" tabindex="0" aria-hidden="true">
+	<a class="gotop icon" href="#" title="回到顶部">&#x2191;</a>
+	<!-- <a class="wechart icon">&#xe60d;<span><img src="/blogimgs/wechart.png" title="扫码添加小胡子哥微信"/> </span></a> -->
+	<a class="hash-to-comments icon" title="我要评论">&#x2121;</a>
+</div>
+<div class="fixerr" tabindex="0" aria-hidden="true">纠错模式</div>
+
+</body>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/jquery.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/main.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67248043-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-67248043-3');
+</script>
+
+<!-- Baidu Analysis -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3524fff9629f2c80f8ea5daa13e67003";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.async = true;
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+  window.onerror = function(e) {
+    window.console && window.console.log && window.console.log(e);
+    try {
+      $('#loadLayer').remove();
+    } catch(e) {}
+    return true;
+  };
+</script>
+</html>

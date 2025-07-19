@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>谈谈D2 | 小胡子哥的个人网站</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=0">
+  <meta name="author" content="https://plus.google.com/112634278852964994392?hl=zh-cn">
+  <meta name="email" content="barret.china@gmail.com">
+  <meta name="description" content="很多参与了 D2 的人还不知道 D2 是个什么东西，印象中就是很多很多前端工程师汇聚在一起，交流技术。D2 是 D2前端技术论坛的简称，英文名 Designer D2 由「淘宝网」发起，每届由 D2 前端技术论坛组委会（下简称 D2 组委会）组织，不同公司轮流承办。D2 前端技术论坛的基本宗旨：Desi">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="谈谈D2 | 小胡子哥的个人网站">
+  <meta property="og:url" content="https://www.barretlee.com/blog/2014/11/01/cb-communication-in-d2/">
+  <meta property="og:site_name" content="谈谈D2">
+  <meta property="og:description" content="很多参与了 D2 的人还不知道 D2 是个什么东西，印象中就是很多很多前端工程师汇聚在一起，交流技术。D2 是 D2前端技术论坛的简称，英文名 Designer D2 由「淘宝网」发起，每届由 D2 前端技术论坛组委会（下简称 D2 组委会）组织，不同公司轮流承办。D2 前端技术论坛的基本宗旨：Desi">
+  <meta name="generator" content="https://hexo.io" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <link href="https://img.alicdn.com/imgextra/i4/O1CN01LKRotr20M1ZGJkT3v_!!6000000006834-2-tps-1200-1200.png" rel="apple-touch-icon-precomposed">
+  <link rel="shoticon" href="https://img.alicdn.com/imgextra/i3/O1CN01EVx62B1eyZLyJsJnY_!!6000000003940-2-tps-100-100.png" type="image/x-icon">
+  <link rel="alternate" type="application/rss+xml" href="https://www.barretlee.com/rss2.xml" title="小胡子哥的个人网站" />
+  <link rel="prev" href="https://www.barretlee.com/blog/2014/11/17/web-accessibility/" title="让身体残疾的人可以访问Web" />
+  <link rel="next" href="https://www.barretlee.com/blog/2014/10/30/cb-life-in-alibaba/" title="我在阿里这仨月" />
+  <link rel="start" href="https://www.barretlee.com/entry/" title="Blog Entry" />
+  <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/css/style-20230627-2.css">
+</head>
+
+
+<body>
+  <div class="rainbow"></div>
+  <div class="container">
+  <span class="local-search local-search-google local-search-plugin" style="display: none;">
+  <input type="search" placeholder="站内搜索" id="local-search-input" class="local-search-input-cls" style="">
+  <i class="icon" aria-hidden="true" title="点击进入 Google 搜索">&#x2708;</i>
+  <div id="local-search-result" class="local-search-result-cls"></div>
+</span>
+  <div class="article" itemscope itemtype="http://schema.org/Article">
+    <div class="post">
+      <div class="bread">
+        <a href="/">小胡子哥的个人网站</a> »
+        <a href="/entry/">博客</a> »
+        
+	<a class="category-link" href="/blog/categories/%E7%AC%94%E8%AE%B0%E6%9C%AC/">笔记本</a>,<a class="category-link" href="/blog/categories/%E7%AC%94%E8%AE%B0%E6%9C%AC/%E8%A7%82%E7%82%B9%E5%92%8C%E6%84%9F%E6%83%B3/">观点和感想</a>,<a class="category-link" href="/blog/categories/%E7%AC%94%E8%AE%B0%E6%9C%AC/%E8%A7%82%E7%82%B9%E5%92%8C%E6%84%9F%E6%83%B3/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+
+      </div>
+      <div class="post-title-wrapper">
+        <h1 class="post-title" itemprop="name">谈谈D2</h1>
+        <a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i1/O1CN01zmj6R326ehPa0NZO2_!!6000000007687-2-tps-1200-1200.png" alt="Barret李靖" /></a>
+      </div>
+      <div class="post-info">
+        <span>作者: <a href="/about/">Barret李靖</a></span>
+        <span>
+          <time itemprop="timeCreated" aria-hidden="true">2014-11-01 11:32:00</time>
+          <span class="aria-readonly">本文发布时间为2014年11月01日11时32分00秒</span>
+        </span>
+        
+        <span>分类: 
+	<a class="category-link" href="/blog/categories/%E7%AC%94%E8%AE%B0%E6%9C%AC/">笔记本</a>,<a class="category-link" href="/blog/categories/%E7%AC%94%E8%AE%B0%E6%9C%AC/%E8%A7%82%E7%82%B9%E5%92%8C%E6%84%9F%E6%83%B3/">观点和感想</a>,<a class="category-link" href="/blog/categories/%E7%AC%94%E8%AE%B0%E6%9C%AC/%E8%A7%82%E7%82%B9%E5%92%8C%E6%84%9F%E6%83%B3/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+</span>
+        
+        
+        <span tabindex="0" aria-hidden="true">标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</span>
+        
+        <span class="aria-readonly">下面是正文内容</span>
+        <span tabindex="0" aria-hidden="true">评论数: <a href="#comments"
+                      class="ds-thread-count hash-to-comments disqus-comment-count"
+                      data-thread-key="cb-communication-in-d2"
+                      data-disqus-identifier="cb-communication-in-d2"></a></span>
+      </div>
+      <div class="post-content" itemprop="articleBody">
+        
+        <p>很多参与了 <a  target="_blank" href="http://d2forum.alibaba-inc.com/">D2</a> 的人还不知道 D2 是个什么东西，印象中就是很多很多前端工程师汇聚在一起，交流技术。D2 是 D2前端技术论坛的简称，英文名 Designer < Developer Frontend Technology Forum。下面的介绍比较官方：</p>
+<blockquote>
+<p>D2 由「淘宝网」发起，每届由 D2 前端技术论坛组委会（下简称 D2 组委会）组织，不同公司轮流承办。
+<strong>D2 前端技术论坛的基本宗旨：</strong></p>
+<ul>
+<li>Designer+Developer：让左右大脑相互碰撞，激起更多的火花。</li>
+<li>基于商业实践：不脱离日常工作，帮助商业取得更好的成功。</li>
+<li>开放：不会把任何想法、任何作品据为私有，一切都更开放。</li>
+
+</ul>
+<p><strong>D2 前端技术论坛的讨论范围：</strong></p>
+<ul>
+<li>互联网前端技术与产品：前端技术的应用，开发中的实际案例。</li>
+<li>前端开发的行业发展：展望整个行业的发展方向，引领前端开发最新方向。</li>
+
+</ul>
+<p><strong>D2 前端技术论坛的最终目标：</strong></p>
+<ul>
+<li>创造业内交流平台</li>
+<li>引导、规范行业发展</li>
+<li>影响前端技术发展</li>
+
+</ul>
+
+</blockquote>
+<p>今年的 D2 由阿里巴巴承办，参与人数有一千多人。前端盛事，群英荟萃，火花不断。谈D2，这个话题有点大了，本文主要说一说 D2 会场的气氛和分享内容的甄选角度，同时也谈一谈自己对前端发展的看法。</p>
+<h3 id="d2_1"><a class="headeranchor-link" name="user-content-d2_1" href="#d2_1"></a>一、D2现场</h3>
+<p>本届D2在上周六举办，隔了一个星期才来总结，记忆都有些淡了，不过大体的感受还是有的。与会登记人数有 1067 人，其中男性 884 人，女性 183 人，晚上酒会参加人数 118+ 人。这个规模，可以试想一下是个什么样的场面。与会者主要都是参与前端开发的工程师，也有少数还未毕业的学生。</p>
+<p>对于参与者，D2 只设了一道坎，那就是在 <a href="//github.com/soulteary/Get-D2-2014-Ticket">github</a> 上 fork 项目，然后 pull request，提交内容中附带个人的博客地址或者微博等相关信息，方便审核者对你有一个简单的了解。我觉得这也是很有必要的。</p>
+<p>各大公司都派出了自己的代表，但更多还是自发前往杭州。在盛会上，我看到了不少群友/同学/朋友/同事，由于当日着一身中国风服饰，加上出门前自拍了一张放到网上，会场很多朋友认出了我（其实，前端圈子还是蛮小的嘛~）。所以我相信，参与了 D2 的你，也一定看到了不少往日熟悉的身影。</p>
+<p>本次 D2 有两个会场，主会场可容纳八九百人，分会场能够容纳一百多人，分会场的第一个分享被两三百人挤爆了，后续大家都默默的驻守在主会场，所以分会场后几场还是有些相对萧条的。</p>
+<p>主会场</p>
+<p><img src="https://images.cnitblog.com/blog/387325/201411/011126593624339.jpg" alt="主会场"></p>
+<p>分会场</p>
+<p><img src="https://images.cnitblog.com/blog/387325/201411/011126361907584.jpg" alt="分会场"></p>
+<p>酒会场</p>
+<p><img src="https://images.cnitblog.com/blog/387325/201411/011128021596319.jpg" alt="酒会场"></p>
+<p>引用<a  target="_blank" href="http://weibo.com/dh20156">@dh20156 的一句话：</p>
+<blockquote>
+<p>举办一场千人会议确实不容易，但只要<code>主题明确</code>，<code>计划妥当</code>，<code>流程清晰</code>，<code>执行到位</code>，还是可以愉快玩耍的!</p>
+
+</blockquote>
+<p>因为刚毕业，接触前端时间也不是很长，之前对 D2 没什么了解，这也是我第一次参加 D2，真切的感受到了会场的活跃。我觉得，<strong>更重要的是，会场之后的活跃！</strong></p>
+<h3 id="_1"><a class="headeranchor-link" name="user-content-_1" href="#_1"></a>二、分享内容的甄选</h3>
+<p>下面是本届 D2 分享的内容列表，及相关 PPT 链接：</p>
+<ul>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtfdET">《指尖上的数据》</a></li>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtfe1v">《支付宝前后端分离的思考与实践》</a></li>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtfe4O">《nodejs一小步 前端开发一大步》</a></li>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtfe1b">《Listen to the buzz of Angular.JS》</a></li>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtfdhI">《第三方开发前端实践》</a></li>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtfe20">《企业级 NPM 服务在阿里的实践》</a></li>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtfdi5">《面向多端的蘑菇街前端技术架构》</a></li>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtex-X">《航旅无线H5技术体系成长之路》</a></li>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtf4sv">《京东前端工业化实践之路》</a></li>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtfe1a">《淘宝前端工程与自动化体系》</a></li>
+<li><a  target="_blank" href="http://johnhax.net/2014/es6-js-future/">《透过ES6看JS未来》</a></li>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtesC9">《架构与IBM前端 》</a></li>
+<li><a  target="_blank" href="http://vdisk.weibo.com/s/C30SUspJtf7lO">《豆瓣的前端发展思路》</a></li>
+
+</ul>
+<p>具体也可以在<a  target="_blank" href="http://d2forum.alibaba-inc.com/">官网</a>上查看。</p>
+<p>事实上，本次D2总共提交了三四十个分享主题，上述这些主题都是经过前端资深专家的慎重思考和筛选之后确定的。从分享的标题中，我们可以提炼出这些字眼：数据、架构、体系、实践、发展、nodejs、工程。很显然，前端开发已经告别了刀根火种的猿人时代，对前端技术的讨论方向并未局限在某个知识点上，更多的是工程化实践和自动化系统的构建，这也是各大互联网公司发展起来后一个必然的趋势。</p>
+<p>Nodejs 的出现为前端工程师在服务器端开辟了一块领域，有人说我们抢了后端同学的饭碗。并非如此，Nodejs 作为一个中间层出现在前后端之间，厘清了各端之间的职责，为web发展提供了更加清晰的思路，这一点毋庸置疑。但是这次没听到<a  target="_blank" href="http://weibo.com/xicilion">@响马大叔</a> 的 <a href="//github.com/xicilion/fibjs">fibjs</a> 分享，还是有些遗憾。</p>
+<p>各大公司为了抢占市场份额，业务方向也是由点及面的扩散，业务增多不能单靠增加工程师的数量来跟上业务需求，只能让技术跟上时代的脚步。</p>
+<p>会场是有姑娘的，找姑娘交流技术也是本次参加 D2 的一个重要使命，所以请原谅我不能为大家一一分享上述每个主题的细节内容。认认真真听进去的只有百度FEX的张可竞分享的《指尖上的数据》。主题很文艺，内容也是很贴切，下面就简单复述下介绍的内容，并谈谈自己的感受。</p>
+<p>移动互联网的迅速崛起，让前端工程师们有点猝不及防。在移动设备上，人们通过手指的触摸来了解这个大千世界，张可竞从手指触摸的细节和数据在移动终端呈现的形态上着手，做了深入的分析，最后回到技术上，他提到了这么几个点：</p>
+<ul>
+<li>设备的适配问题</li>
+<li>手机的性能问题</li>
+<li>技术框架</li>
+<li>...</li>
+
+</ul>
+<p>这些都是移动开发中的疼点，也是值得每一个开发者去探究的问题。去年我给老外做过一次外包，在设计上就已经很明显的感觉到国内外移动互联网技术差异，其实技术都在那里，只是国内的技术潮流还在婴幼儿阶段跃跃欲试，含苞待放。</p>
+<h3 id="_2"><a class="headeranchor-link" name="user-content-_2" href="#_2"></a>三、我对前端发展的看法</h3>
+<p>很多人对 ECMAScript 6 持消极态度，说把 JavaScript 搞的太复杂了，越来越像 Ruby/Python/Java 了，一门语言的丰富，不仅仅是对语言本身的拓展，这些内容取决于市场的需求。而且本次 D2 讨论的话题是不是和 ES6 引入了模块化、异步编程等相关内容十分契合呢！</p>
+<p>HTML5规范历时8年，也在近期宣布制定完成。如今的 web 发展步入了一个平稳阶段，我认为后续我们需要思考的，包含如下问题：</p>
+<ul>
+<li>信息安全问题</li>
+<li>实时通讯问题</li>
+<li>应用开发问题</li>
+<li>....</li>
+
+</ul>
+<h3 id="_3"><a class="headeranchor-link" name="user-content-_3" href="#_3"></a>四、小结</h3>
+<p>最后还是一如既往地做个小结，三个点。</p>
+<p><strong>1. 移动端内容过少</strong></p>
+<p>移动互联网技术是个重要的议题，据我所知，目前阿里很大一部分的流量来自于移动终端。而本次重点对移动端技术的介绍偏少。希望下次 D2 能够有些拓展！</p>
+<p><strong>2. 听分享不是重点</strong></p>
+<p>过来听分享会不是重点。分享效果取决于分享者的演讲能力以及他们对分享内容研究的深度。而二者兼备的人并不多，加上受众并不全是资深的工程师，很多内容是难以一时消化的。</p>
+<p>前端峰会的目的，前面也说了：创造业内交流平台，引导、规范行业发展，影响前端技术发展。我觉得，最实际的意义是多认识几个人，以后遇到问题多几个人可以一起探讨、交流。</p>
+<p><strong>3. 无障碍体验区</strong></p>
+<p>除了几个会场，还有一些分区，其中一个叫做『无障碍体验』，现代人都讲求"民主"、"平等"，技术上也是一样，我们应该更多地关注社会弱势群体。目前阿里巴巴建立了无障碍兴趣小组，我们会在业余时间针对阿里巴巴页面做一些信息无障碍的优化以及推广，也希望更多公司加入进来，提高产品易用性，让信息无障碍深入人心。</p>
+<p>最后，让我们一起来期待明年的<strong>D2盛典</strong>吧！</p>
+      </div>
+    </div>
+    
+    <!-- <div class="follow-wechat"><img src="/blogimgs/follow.jpg"></div> -->
+
+<div class="copyright" itemscope itemtype="http://schema.org/ProfilePage" tabindex="0" aria-hidden="true">
+	<!-- <a href="/about/#support" class="supportme">赏</a> -->
+	<ul>
+		<li>作者: <a href="/about/" itemprop="name">Barret李靖</a></li>
+		
+		<li>文章分类: 
+	<a class="category-link" href="/blog/categories/%E7%AC%94%E8%AE%B0%E6%9C%AC/">笔记本</a>,<a class="category-link" href="/blog/categories/%E7%AC%94%E8%AE%B0%E6%9C%AC/%E8%A7%82%E7%82%B9%E5%92%8C%E6%84%9F%E6%83%B3/">观点和感想</a>,<a class="category-link" href="/blog/categories/%E7%AC%94%E8%AE%B0%E6%9C%AC/%E8%A7%82%E7%82%B9%E5%92%8C%E6%84%9F%E6%83%B3/%E5%89%8D%E7%AB%AF%E6%9D%82%E7%83%A9/">前端杂烩</a>
+
+</li>
+		
+		
+		<li>文章标签: 
+<a class="article-tag-none-link" href="/blog/tags/cnblogs/" rel="tag">cnblogs</a>, <a class="article-tag-none-link" href="/blog/tags/tech/" rel="tag">tech</a>
+</li>
+		
+		<li>发表日期: 2014-11-01 11:32:00</li>
+		<li>最后编辑时间: 2025-07-19 11:01:03</li>
+		<li>本文 Markdown 地址: <a target="_
+			" href="https://github.com/barretlee/blog/tree/master/blog/src/_posts/2014-11-01-cb-communication-in-d2.md">谈谈D2</a></li>
+		<li>版权声明：<a  target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank">CC BY-NC-ND 3.0</a></li>
+		<li>
+			Feed 订阅: <a href="/rss2.xml"><i class="icon">&#x25c8;</i></a>
+			<div style="opacity:.3;text-align:right;margin:5px -5px -10px 0;float:right;font-size: 12px;">
+				编辑本文：<a  target="_blank" href="https://github.com/barretlee/blog/edit/master/blog/src/_posts/2014-11-01-cb-communication-in-d2.md" target="_blank" aria-hidden="true"><i class="icon">&#xe622;</i></a>；
+				新建文章：<a  target="_blank" href="https://github.com/barretlee/blog/new/master/blog/src/_posts" target="_blank" aria-hidden="true"><i class="icon">&#xe616;</i></a>
+			</div>
+		</li>
+		
+	</ul>
+	<a href="/about/"><img style="max-width:120px" src="https://img.alicdn.com/imgextra/i3/O1CN01tDYnfz23AWT1ag79p_!!6000000007215-2-tps-1200-1200.png" /></a>
+</div>
+
+    <em  class="arrow-expend" tabindex="0" aria-hidden="0" aria-label="点击展开网页导航" aria-selected="true" aria-lable="网页导航" aria-expanded="false" id="i1">▾
+<ul role="group" aria-labelledby="i1" aria-expanded="false">
+  <li><a href="/entry/">博客</a></li>
+  <!-- <li><a href="/translation/">翻译</a></li> -->
+  <li><a href="/message/">留言</a></li>
+  <li><a href="/demo/">实验室</a></li>
+  <!-- <a><a href="/comments/">最近评论</a></li> -->
+  <li><a href="/friends/">友情链接</a></li>
+</ul>
+</em>
+  </div>
+  <div class="post-relative">
+<div class="page-relative">
+  
+    <a href="/blog/2014/11/17/web-accessibility/" class="post-prev">
+      <i class="icon" tabindex="0" aria-hidden="true">&#x261c;</i>
+      <span class="aria-readonly">上一篇文章</span>
+      
+        <b>让身体残疾的人可以访问Web</b>
+      
+    </a>
+  
+  
+    <a href="/blog/2014/10/30/cb-life-in-alibaba/" class="post-next">
+      <span class="aria-readonly">下一篇文章</span>
+      <b>我在阿里这仨月</b>
+      <i class="icon" tabindex="0" aria-hidden="true">&#xe602;</i>
+    </a>
+  
+</div>
+
+
+<div class="page-relative-fixed" tabindex="0" aria-hidden="true">
+  
+  <a href="/blog/2014/11/17/web-accessibility/" class="prev" title="让身体残疾的人可以访问Web">
+    <i class="icon">&#xe600;</i>
+    
+    <b>让身体残疾的人可以访问Web</b>
+    
+  </a>
+  
+  
+  <a href="/blog/2014/10/30/cb-life-in-alibaba/" class="next" title="我在阿里这仨月">
+    <i class="icon">&#x261e;</i>
+    <b>我在阿里这仨月</b>
+  </a>
+  
+</div>
+</div>
+</div>
+<div class="sidebar" tabindex="0" aria-hidden="true">
+	<div class="func-btns func-btns-up">
+    <span class="func-item">
+        <i class="func-nav icon">&#xe618;<span>目录</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="javascript:void(0);" onclick="return false;">显示目录</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-font icon">&#xe604;<span>夜间</span></i>
+        <div class="font-choose-box">
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <div class="font-choose bg-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-sun font-type-song"><i class="icon">&#xe61a;</i></a>
+            <a href="javascript:void(0)" onclick="return false;" class="bg-type bg-type-moon font-type-hei"><i class="icon">&#xe619;</i></a>
+          </div>
+          <!-- <div class="font-choose">
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-song">黑体</a>
+            <a href="javascript:void(0)" onclick="return false;" class="font-type font-type-hei">宋体</a>
+          </div> -->
+        </div>
+    </span>
+    <span class="func-item">
+        <i class="func-about icon">&#x263b;<span>关于</span></i>
+        <div>
+          <i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p><a href="/about/" class="func-about-link" target="_blank">关于作者</a></p>
+          <div id="followMeOnWeibo"></div>
+        </div>
+    </span>
+	</div>
+	<div class="func-btns">
+    <!-- <span class="func-item">
+        <a  target="_blank" href="http://demo.barretlee.com" target="_blank"><i class="func-rss icon">&#xe603;<span>实验</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a  target="_blank" href="http://demo.barretlee.com" target="_blank">Demo平台</a></p>
+          <p class="seperator"><a  target="_blank" href="http://md.barretlee.com" target="_blank">WX格式</a></p>
+          <p><a  target="_blank" href="http://snippets.barretlee.com" target="_blank">Snippet应用</a></p>
+        </div>
+    </span> -->
+    <!-- <span class="func-item">
+        <i class="func-fb icon">&#x2121;<span>留言</span></i>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <p class="seperator"><a href="/message/" target="_blank">给我留言</a></p>
+          <p><a href="/comments/" target="_blank">近期留言</a></p>
+        </div>
+    </span> -->
+    <span class="func-item">
+        <a href="/friends/" target="_blank"><i class="func-rss icon">&#xe601;<span>链接</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i>
+          <a href="/friends/" target="_blank">友情链接</a>
+        </div>
+    </span>
+    <span class="func-item">
+        <a href="/rss2.xml" target="_blank"><i class="func-rss icon">&#x25c8;<span>订阅</span></i></a>
+        <div><i class="left-arrow"></i><i class="left-arrow-clone"></i><a href="/rss2.xml" target="_blank">订阅我吧！</a></div>
+    </span>
+	</div>
+</div>
+
+<div class="single-page-footer">
+<div class="footer">
+	<div class="footer-wraper">
+		<div class="footer-content">
+			<div class="footer-nav">
+	<a href="javascript: void(0);" class="ds-thread-count disqus-comment-count"
+	   data-thread-key="cb-communication-in-d2"
+	   data-disqus-identifier="cb-communication-in-d2" 
+		 tabindex="0" aria-hidden="true">评论内容</a>
+	<a href="javascript: void(0);" id="comments">相关文章</a>
+	<a href="/friends/" tabindex="0" aria-hidden="true" style="display: none;">友情链接</a>
+</div>
+<div class="nav-detail">
+	<div tabindex="0">
+		
+  <div id="gitalk" sid="cb-communication-in-d2"></div>
+  <script charset="utf-8" type="text/javascript" src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/gitalk.js"></script>
+  <script type="text/javascript">
+  var postContent = document.querySelectorAll('.post-content>p');
+  if (postContent && postContent.length) {
+    postContent = postContent.item(0).textContent + (postContent.item(1) && postContent.item(1).textContent || '');
+    postContent = postContent.length > 140 ? postContent.slice(0, 140) + '...' : postContent;
+  }
+
+  var gitalk = new Gitalk({
+    clientID: '50a1b3aa7854b01a1c85',
+    clientSecret: '226ac154f80a6aea0985da874126b35795f22eed',
+    language: "zh-CN",
+    perPage: 100,
+    createIssueManually: false,
+    repo: 'blog',
+    owner: 'barretlee',
+    admin: ['barretlee'],
+    id: "cb-communication-in-d2",
+    body: '原文地址：' + location.href + '\n\n文摘：' + postContent,
+    distractionFreeMode: false
+  });
+
+  window.addEventListener('load', function () {
+    gitalk.render('gitalk');
+  });
+
+  // show count
+  var commentTimer = setInterval(() => {
+    var count = document.querySelector('.gt-link-counts');
+    var showCount = document.querySelector('.hash-to-comments');
+    if (count && showCount) {
+      showCount.textContent = count.textContent;
+      clearInterval(commentTimer);
+    }
+  }, 500);
+  setTimeout(() => {
+    clearInterval(commentTimer);
+  }, 60 * 1E3);
+  </script>
+  
+	</div>
+	<div style="display:block;">
+		<div class="relative-wrapper">
+	<div class="relative-article">
+		
+		<ul>
+			<li>
+				<span><font aria-hidden="true">2019-10-30 »</font> </span>
+				<a href="/blog/2019/10/30/google-code-review-practice/">Google 的 Code Review 实践经验</a>
+				<span class="aria-readonly">发表时间为2019年10月30日</span>
+				<div class="relative-box">
+          
+          <span class="aria-readonly">文章概要 </span>Google 的 Code Review 目标是不断提高 codebase 的质量，同时要求审阅者在代码的高质量和业务的推进之间做好权衡，两边的极端都不要走，并给出了一些 实战经验，下面我总结了下：1. 设计新增的几块代码是否有意义？代码的...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2019-05-16 »</font> </span>
+				<a href="/blog/2019/05/16/book-reading-about-okr-working-methods/">读《OKR 工作法》</a>
+				<span class="aria-readonly">发表时间为2019年05月16日</span>
+				<div class="relative-box">
+          <a href="/blog/2019/05/16/book-reading-about-okr-working-methods/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2019/05/16/book-OKR.png" style="width:100%" loading="lazy" data-original="/../blogimgs/2019/05/16/book-OKR.png"/></a>
+          <span class="aria-readonly">文章概要 </span>花了两天功夫把 《OKR 工作法》 读了一遍，有一点收获，稍微记录下所思所想。这本书内容并不多，前面几章通过一个创业故事让读者对 OKR 有一个整体的体感，后面两个章节，详细讲了 OKR 中 O 和 KR 具体的场景，应对的策略和背后的思考...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2019-03-04 »</font> </span>
+				<a href="/blog/2019/03/04/%E7%A5%AD%E6%81%A9%E5%B8%88%E8%82%96%E5%85%AC%E6%96%87/">祭恩师肖公文</a>
+				<span class="aria-readonly">发表时间为2019年03月04日</span>
+				<div class="relative-box">
+          
+          <span class="aria-readonly">文章概要 </span>这一生中不是亲人胜似亲人的人，并不多，2015 年走了一位，而今又是一位。呜呼哀哉！  哀维：  老师辞世得太突然，没有给任何人心理准备，当然，这种事情也没办法给人心理准备。    老师没有在课堂上正儿八经教过我的书，不过，从桃李小学相识，...
+        </div>
+			</li>
+			
+			<li>
+				<span><font aria-hidden="true">2018-02-25 »</font> </span>
+				<a href="/blog/2018/02/25/%E4%B9%8C%E9%95%87%E6%BA%9C%E8%BE%BE%E5%B0%8F%E8%AE%B0/">乌镇溜达小记</a>
+				<span class="aria-readonly">发表时间为2018年02月25日</span>
+				<div class="relative-box">
+          <a href="/blog/2018/02/25/%E4%B9%8C%E9%95%87%E6%BA%9C%E8%BE%BE%E5%B0%8F%E8%AE%B0/" class="relative-img-wrapper"><img src="https://raw.githubusercontent.com/barretlee/blog/gh-pages/blogimgs/2018/02/25/way-from-hz-to-wz.jpg" style="width:100%" loading="lazy" data-original="/../blogimgs/2018/02/25/way-from-hz-to-wz.jpg"/></a>
+          <span class="aria-readonly">文章概要 </span>去年花时间最多的一件事情就是拿证，可以说拿到手软，加上人变得懒散了一些，博客更新也就少了些许。今年我准备转换下画风，生活类的记录多一点，技术类的总结来一点，技术细节的研究就尽量不写了~17 年过年没有回老家，把岳父岳母请到了杭州，也算是给新...
+        </div>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+		<div class="relative-to-comment" tabindex="0" aria-hidden="true"><span>留下评论</span></div>
+		<!-- <a href="/entry/" class="relative-to-comment-wrapper" tabindex="0" aria-hidden="true"><div class="relative-to-comment">回到首页</div></a> -->
+	</div>
+	<div class="friends-box">
+		<ul>
+			
+			<li><a  target="_blank" href="http://hustskyking.cnblogs.com" target="_blank">旧博客</a> <font aria-hidden="true">»</font> <span>我的旧博客（博客园荣誉博客）</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangmengxue.com" target="_blank">大额</a> <font aria-hidden="true">»</font> <span>大额大额哼歌等日落</span></li>
+			
+			<li><a  target="_blank" href="http://www.zhangxinxu.com" target="_blank">张鑫旭</a> <font aria-hidden="true">»</font> <span>原来大学我俩一个团队的~</span></li>
+			
+			<li><a  target="_blank" href="http://web-tinker.com" target="_blank">次碳酸钴</a> <font aria-hidden="true">»</font> <span>深度交流的一个好朋友</span></li>
+			
+			<li><a  target="_blank" href="http://imququ.com" target="_blank">屈屈</a> <font aria-hidden="true">»</font> <span>蛐蛐同学</span></li>
+			
+			<li><a  target="_blank" href="http://www.ruanyifeng.com" target="_blank">阮一峰</a> <font aria-hidden="true">»</font> <span>阮老师</span></li>
+			
+			<li><a href="/friends/">更多列表 <font aria-hidden="true">»</font></a></li>
+		</ul>
+	</div>
+</div>
+			
+<div class="website-info" aria-hidden="true">
+	<a class="page_editor" href="/admin/#/posts/cmd9nvpcw00foqk9baaqj5wbf" target="_blank">🙈</a>
+	<span>&copy;2013-2025 <small><a  target="_blank" href="https://www.miit.gov.cn/" about="_blank">湘ICP备14007107号-1</a></small></span>
+	本站由 <a href="/">Barret李靖</a> 纯手工打造 | <a href="/about#contact">联系方式</a>
+	<a href='https://union.zhaodao.ai/#random' title="随机跳转到一个有意思的网站" target='_blank' class="zhidao_ai"><img src='https://img.alicdn.com/imgextra/i2/O1CN01VjiZUL1r0eXge4taM_!!6000000005569-55-tps-300-300.svg' width="20" height="20"></a>
+</div>
+
+		</div>
+	</div>
+</div>
+</div>
+<div class="tools-wrapper" tabindex="0" aria-hidden="true">
+	<a class="gotop icon" href="#" title="回到顶部">&#x2191;</a>
+	<!-- <a class="wechart icon">&#xe60d;<span><img src="/blogimgs/wechart.png" title="扫码添加小胡子哥微信"/> </span></a> -->
+	<a class="hash-to-comments icon" title="我要评论">&#x2121;</a>
+</div>
+<div class="fixerr" tabindex="0" aria-hidden="true">纠错模式</div>
+
+</body>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/jquery.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/barretlee/blog@gh-pages/public/js/main.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-67248043-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-67248043-3');
+</script>
+
+<!-- Baidu Analysis -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3524fff9629f2c80f8ea5daa13e67003";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.async = true;
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+  window.onerror = function(e) {
+    window.console && window.console.log && window.console.log(e);
+    try {
+      $('#loadLayer').remove();
+    } catch(e) {}
+    return true;
+  };
+</script>
+</html>
